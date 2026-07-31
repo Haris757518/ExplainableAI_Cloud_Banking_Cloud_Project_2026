@@ -1,8 +1,7 @@
 # Novelty
 
-This project introduces several novel contributions to the field of cloud performance analytics:
-
-1. **GNN-Based Cloud Topology Modeling**: Unlike traditional time-series anomaly detection, this project models the entire cloud infrastructure as a dynamic graph. By leveraging Graph Neural Networks, the system can understand the complex interdependencies between resources, allowing for the detection of subtle, distributed performance anomalies that traditional methods miss.
-2. **Integrated Explainable AI (XAI)**: We introduce a dedicated XAI module that interprets the GNN's predictions. When an anomaly is detected, the system provides a transparent breakdown of the contributing factors (e.g., identifying exactly which node or connection is responsible for the bottleneck), transforming black-box predictions into actionable insights.
-3. **Banking-Specific Cloud Context**: The framework is specifically tailored to address the strict reliability and latency requirements of digital banking systems, focusing on maintaining the high availability of critical financial transaction processing environments.
-4. **End-to-End AWS Native Integration**: The solution proposes a comprehensive, cloud-native architecture utilizing a suite of AWS services (SageMaker, Lambda, EC2, CloudWatch) to provide a scalable, real-time analytics pipeline.
+- **Unified multi-pillar design:** combines camouflage-resistant neighbor selection (CARE-GNN), balanced graph sampling (PC-GNN), dynamic weight evolution (EvolveGCN), and semi-supervised temporal attention (GTAN, AddGraph) into a single fraud-detection backbone, rather than adopting only one mechanism as most existing systems do.
+- **Tiered latency-aware architecture:** separates an inline, sub-50ms GNN scoring path (informed by Albert & Finnegan) from an asynchronous deep-explainability and LLM-based compliance-auditing path (informed by Collins et al.), resolving the latency-vs-explainability-depth trade-off identified as an open gap in the literature.
+- **Regulatory-first explainability:** treats explainability as a first-class design requirement from the outset (per SHERA's finding that removing XAI measurably collapses interpretability), rather than retrofitting an explainer after the fact.
+- **Cloud-native, digital-banking-specific scope:** unlike cloud-generic anomaly detectors (GAL-MAD, TAGAE, O’Shea et al.) or banking-specific but non-cloud-architected fraud models, the proposed system is explicitly designed as a deployable AWS microservice pipeline for digital banking.
+- **Dual robustness to both adversarial evasion and extreme imbalance simultaneously**, rather than addressing either camouflage or imbalance alone as in most single-paper approaches.
