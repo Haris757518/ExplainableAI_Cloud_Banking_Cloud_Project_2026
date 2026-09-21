@@ -1,3 +1,3 @@
-# Presentation
+# Presentation assets
 
-This folder will contain presentation slides, project demos, and related visual materials.
+Add final review slides here.

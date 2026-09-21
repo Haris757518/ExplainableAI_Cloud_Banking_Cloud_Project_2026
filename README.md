@@ -1,130 +1,147 @@
 # Explainable AI-Based Cloud Performance Analytics for Digital Banking using Graph Neural Networks
 
 ## Team Members
-
 - Haris K
 - Keshav Gokaram
 - Harish Kumar
 
----
+## What this project does
 
-## Problem Statement
+This project detects cloud-performance anomalies affecting digital banking workflows and provides a ranked root-cause explanation using graph-based machine learning.
 
-Digital banking platforms rely on cloud infrastructure to process millions of secure financial transactions every day. Performance degradation, resource bottlenecks, and service failures can negatively impact customer experience and business operations. Traditional cloud monitoring tools can detect anomalies but often lack the ability to explain the root causes of performance issues. This project proposes an Explainable AI (XAI)-based cloud performance analytics framework using Graph Neural Networks (GNNs) to predict, analyze, and explain cloud performance anomalies in digital banking systems.
+The working pipeline is:
 
----
+AWS EC2/RDS + CloudWatch (or local simulation)
+→ telemetry normalization
+→ banking/infrastructure graph
+→ Graph Convolutional Network (GCN)
+→ anomaly score and affected nodes
+→ root-cause ranking
+→ feature/node explanation
+→ Transaction-Conditioned Causal-Frontier Adaptive Observability (TC-CFAO) policy
+→ FastAPI
+→ React dashboard
 
-## Objectives
+## Important distinction
 
-- Develop an AI-driven cloud performance monitoring framework.
-- Predict performance anomalies using Graph Neural Networks.
-- Generate explainable insights for anomaly detection.
-- Improve cloud resource utilization and scalability.
-- Visualize performance metrics through an interactive dashboard.
-- Enhance the reliability and security of digital banking services.
+This is a **cloud performance analytics** project, not a fraud-detection project. Banking transactions are used as context for understanding which services/resources participate in a workflow.
 
----
+## Modes
 
-## Proposed Architecture
+### Local/simulation mode
+Works without AWS credentials. Synthetic telemetry covers:
+- NORMAL
+- CPU_SPIKE
+- DATABASE_LATENCY
+- SERVICE_OVERLOAD
+- NETWORK_DEGRADATION
+- CASCADING_FAILURE
 
-Cloud Infrastructure
+### AWS mode
+Uses boto3/CloudWatch when `AWS_MODE=true` and AWS credentials are available through the normal AWS SDK credential chain. The adapter supports EC2 and RDS resource metrics and normalizes them to the same internal schema used by the simulator.
 
-↓
+## Quick start
 
-Data Collection (Cloud Logs & Metrics)
+```bash
+python -m venv .venv
+# Linux/macOS
+source .venv/bin/activate
+# Windows
+# .venv\Scripts\activate
 
-↓
-
-Data Preprocessing
-
-↓
-
-Graph Construction
-
-↓
-
-Graph Neural Network Model
-
-↓
-
-Explainable AI Module
-
-↓
-
-Performance Analytics Dashboard
-
-↓
-
-Cloud Administrator
-
----
-
-## Technology Stack
-
-### Frontend
-- React.js
-
-### Backend
-- FastAPI
-
-### AI / Machine Learning
-- Python
-- PyTorch Geometric
-- Graph Neural Networks
-- SHAP / Explainable AI
-- NetworkX
-
-### Cloud
-- AWS EC2
-- Amazon S3
-- AWS Lambda
-- Amazon SageMaker
-- Amazon CloudWatch
-- Amazon API Gateway
-- AWS IAM
-- Amazon RDS
-
-### Database
-- PostgreSQL
-
-### Version Control
-- Git
-- GitHub
-
----
-
-## Dataset
-
-The project will utilize publicly available cloud performance datasets and cloud monitoring metrics suitable for Graph Neural Network-based anomaly detection.
-
-Potential datasets include:
-
-- Google Cluster Dataset
-- Alibaba Cluster Trace Dataset
-- Azure VM Performance Dataset
-- AWS CloudWatch Metrics (Simulation)
-- Synthetic Digital Banking Cloud Logs
-
----
-
-## Project Structure
-
-```
-docs/
-architecture/
-dataset/
-frontend/
-backend/
-ai_models/
-database/
-aws/
-results/
-presentation/
-references/
+pip install -r requirements.txt
+cp .env.example .env
+python scripts/generate_dataset.py --samples 600 --seed 42
+python training/train.py --epochs 35 --seed 42
+python scripts/demo.py --scenario DATABASE_LATENCY
+uvicorn backend.main:app --reload
 ```
 
----
+API: http://127.0.0.1:8000/docs
+Frontend: see `frontend/README.md`.
 
-## Current Status
+## Expected demo
 
-**Phase-I: Project Planning and Documentation**
+A `DATABASE_LATENCY` event raises RDS database latency, which can propagate to EC2 and the payment service. The model should report an anomaly and rank the RDS node highly as a root-cause candidate. The explanation layer highlights the telemetry dimensions contributing most to the anomaly score. TC-CFAO then proposes a higher-resolution telemetry policy for the causal frontier.
+
+## Architecture
+
+```text
+Digital Banking Transaction
+        |
+        v
+AWS / Synthetic Telemetry
+        |
+        v
+Telemetry Normalization
+        |
+        v
+Business + Infrastructure Graph
+        |
+        v
+Baseline GCN
+        |
+        +--> anomaly score
+        +--> affected nodes
+        |
+        v
+Root Cause Ranking
+        |
+        v
+Explainability
+        |
+        v
+TC-CFAO Policy
+        |
+        v
+FastAPI
+        |
+        v
+Dashboard
+```
+
+## Research extension path
+
+The baseline is intentionally upgradeable to:
+- temporal GNNs
+- stronger transaction-conditioned graph propagation
+- causal verification/counterfactual testing
+- richer XAI
+- real adaptive telemetry orchestration
+- OpenTelemetry / X-Ray integration
+
+Synthetic results are not presented as real-world banking measurements.
+
+## Quick Start (Windows)
+
+### 1. Backend
+
+```powershell
+.\.venv\Scripts\activate
+uvicorn backend.main:app --reload
+```
+
+Check `http://127.0.0.1:8000/api/health`.
+
+### 2. Frontend
+
+Open a second PowerShell terminal:
+
+```powershell
+cd frontend
+npm install
+npm run dev
+```
+
+Open the URL shown by Vite, normally `http://127.0.0.1:5173`.
+
+The frontend uses the Vite `/api` proxy, so browser requests are forwarded to FastAPI without requiring a hard-coded API host. Once the backend is reachable, the dashboard automatically runs the `DATABASE_LATENCY` demo once.
+
+### 3. Manual demo
+
+```powershell
+.\.venv\Scripts\activate
+python scripts/demo.py --scenario DATABASE_LATENCY --seed 42
+```
+
+AWS mode remains disabled by default. Configure real CloudWatch access only after the local end-to-end demo is working.

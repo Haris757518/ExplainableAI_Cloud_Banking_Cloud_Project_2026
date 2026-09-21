@@ -1,3 +1,3 @@
 # References
 
-This folder will contain related research papers, literature surveys, and external resources referenced in the project.
+Store verified research references here. Do not add fabricated citations.

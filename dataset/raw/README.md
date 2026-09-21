@@ -1,3 +1,3 @@
-# Raw Dataset
+# Raw datasets
 
-This folder will contain the initial, unprocessed raw datasets collected from cloud monitoring logs.
+Reserved for external datasets if added later.

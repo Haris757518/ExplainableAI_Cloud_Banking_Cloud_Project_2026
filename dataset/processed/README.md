@@ -1,3 +1,3 @@
-# Processed Dataset
+# Processed datasets
 
-This folder will contain the cleaned and preprocessed datasets ready for Graph Neural Network training.
+Reserved for processed external data.
