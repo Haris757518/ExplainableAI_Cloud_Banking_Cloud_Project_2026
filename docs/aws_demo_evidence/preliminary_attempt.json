@@ -1,0 +1,15 @@
+{
+  "session": "faculty-aws-demo-20261016-01",
+  "status": "blocked_or_interrupted",
+  "attempted_transfers": 8,
+  "measured_requests": 8,
+  "published_requests": 4,
+  "published_metric_values": 60,
+  "local_condition_started": false,
+  "blocker": {
+    "code": "ValueError",
+    "reason": "Independent paced measurements are required."
+  },
+  "included_in_completed_study": false,
+  "remedy": "Move publication out of timed measurement windows; enforce pacing; use a newly authorized session."
+}

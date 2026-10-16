@@ -18,6 +18,7 @@ from botocore.exceptions import ClientError
 
 NAMESPACE = 'ExplainableAI/Banking'
 ENVIRONMENT = 'academic-local-test'
+DEMO_ENVIRONMENT = 'academic-local-demo-10s'
 OPERATIONS = ('balance', 'transfer', 'history')
 SERVICES = ('banking-api', 'account-service', 'ledger-service', 'banking-db')
 METRICS = {
@@ -95,7 +96,14 @@ def source_id(db, path):
     first = db.execute('SELECT trace_id,ts FROM requests ORDER BY seq LIMIT 1').fetchone()
     return hashlib.sha256(json.dumps([str(Path(path).resolve()), list(first) if first else None]).encode()).hexdigest()
 
-def publisher(db_path, checkpoint, region, profile=None, publish=False, limit=10, cw=None):
+def publisher(db_path, checkpoint, region, profile=None, publish=False, limit=10, cw=None,
+              environment=ENVIRONMENT, storage_resolution=60, allowed_sequences=None):
+    if (environment, storage_resolution) not in ((ENVIRONMENT, 60), (DEMO_ENVIRONMENT, 1)):
+        raise ValueError('Use the standard environment at 60 seconds or the isolated demo environment at 1 second.')
+    if storage_resolution == 1 and (not allowed_sequences or len(allowed_sequences) > 60):
+        raise ValueError('High-resolution publication requires a bounded manifest of at most 60 new request sequences.')
+    if allowed_sequences is not None and any(type(seq) is not int or seq < 1 for seq in allowed_sequences):
+        raise ValueError('Invalid request manifest.')
     if not 1 <= limit <= 20:
         raise ValueError('Publication limit must be 1–20 measured requests per invocation.')
     path = Path(checkpoint)
@@ -111,13 +119,23 @@ def publisher(db_path, checkpoint, region, profile=None, publish=False, limit=10
             if pending is not None:
                 return {'status': 'ambiguous_publication', 'pending_sequence': pending,
                         'note': 'Prior send may have reached AWS. Do not reset the checkpoint or retry blindly.', 'published_requests': 0}
-            rows = db.execute('SELECT * FROM requests WHERE seq>? ORDER BY seq LIMIT ?', (last, limit)).fetchall()
+            if allowed_sequences is None:
+                rows = db.execute('SELECT * FROM requests WHERE seq>? ORDER BY seq LIMIT ?', (last, limit)).fetchall()
+            else:
+                placeholders=','.join('?' for _ in allowed_sequences)
+                rows=db.execute(f'SELECT * FROM requests WHERE seq>? AND seq IN ({placeholders}) ORDER BY seq LIMIT ?', (last,*allowed_sequences,limit)).fetchall()
             prepared = [(r['seq'], row_metrics(db, r)) for r in rows]
+            if storage_resolution == 1:
+                for _, metrics in prepared:
+                    for datum in metrics:
+                        datum['StorageResolution']=1
+                        datum['Dimensions']=[{**dim,'Value':environment} if dim['Name']=='Environment' else dim for dim in datum['Dimensions']]
             now = datetime.now(timezone.utc)
             if any(not now-timedelta(days=14) <= m['Timestamp'] <= now+timedelta(minutes=2) for _, metrics in prepared for m in metrics):
                 return {'status': 'timestamp_outside_publication_window', 'published_requests': 0,
                         'note': 'Existing observations are outside the supported AWS timestamp window; timestamps were not rewritten.'}
-            result = {'status': 'dry_run', 'namespace': NAMESPACE, 'environment': ENVIRONMENT, 'region': region,
+            result = {'status': 'dry_run', 'namespace': NAMESPACE, 'environment': environment, 'region': region,
+                      'storage_resolution': storage_resolution,
                       'source': 'local_measured_banking', 'hosting': 'local', 'request_count': len(rows),
                       'last_confirmed_sequence': last, 'publication_status': 'previous_publication_confirmed' if last else 'not_yet_published',
                       'metric_count': sum(len(v) for _, v in prepared), 'published_requests': 0,

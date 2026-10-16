@@ -1,0 +1,1352 @@
+{
+  "session": "faculty-aws-demo-20261016-02",
+  "status": "completed",
+  "region": "us-east-1",
+  "namespace": "ExplainableAI/Banking",
+  "environment": "academic-local-demo-10s",
+  "source": "local_measured_banking",
+  "hosting": "local",
+  "period_seconds": 10,
+  "storage_resolution": 1,
+  "created_at": "2026-10-16T16:56:14.701478+00:00",
+  "start_sequence": 1180,
+  "windows": [
+    {
+      "timestamp": "2026-10-16T16:59:20+00:00",
+      "request_count": 4,
+      "sql_samples": 28,
+      "phase": "normal"
+    },
+    {
+      "timestamp": "2026-10-16T16:59:30+00:00",
+      "request_count": 4,
+      "sql_samples": 28,
+      "phase": "normal"
+    },
+    {
+      "timestamp": "2026-10-16T16:59:40+00:00",
+      "request_count": 4,
+      "sql_samples": 28,
+      "phase": "normal"
+    },
+    {
+      "timestamp": "2026-10-16T16:59:50+00:00",
+      "request_count": 4,
+      "sql_samples": 28,
+      "phase": "normal"
+    },
+    {
+      "timestamp": "2026-10-16T17:00:00+00:00",
+      "request_count": 4,
+      "sql_samples": 28,
+      "phase": "normal"
+    },
+    {
+      "timestamp": "2026-10-16T17:00:10+00:00",
+      "request_count": 4,
+      "sql_samples": 28,
+      "phase": "normal"
+    },
+    {
+      "timestamp": "2026-10-16T17:00:20+00:00",
+      "request_count": 4,
+      "sql_samples": 28,
+      "phase": "normal"
+    },
+    {
+      "timestamp": "2026-10-16T17:00:30+00:00",
+      "request_count": 4,
+      "sql_samples": 28,
+      "phase": "normal"
+    },
+    {
+      "timestamp": "2026-10-16T17:00:40+00:00",
+      "request_count": 4,
+      "sql_samples": 28,
+      "phase": "normal"
+    },
+    {
+      "timestamp": "2026-10-16T17:00:50+00:00",
+      "request_count": 4,
+      "sql_samples": 28,
+      "phase": "normal"
+    },
+    {
+      "timestamp": "2026-10-16T17:01:30+00:00",
+      "request_count": 4,
+      "sql_samples": 28,
+      "phase": "condition"
+    },
+    {
+      "timestamp": "2026-10-16T17:01:40+00:00",
+      "request_count": 4,
+      "sql_samples": 28,
+      "phase": "condition"
+    },
+    {
+      "timestamp": "2026-10-16T17:01:50+00:00",
+      "request_count": 4,
+      "sql_samples": 28,
+      "phase": "followup"
+    },
+    {
+      "timestamp": "2026-10-16T17:02:00+00:00",
+      "request_count": 4,
+      "sql_samples": 28,
+      "phase": "followup"
+    },
+    {
+      "timestamp": "2026-10-16T17:02:10+00:00",
+      "request_count": 4,
+      "sql_samples": 28,
+      "phase": "followup"
+    }
+  ],
+  "publication": [
+    {
+      "status": "published",
+      "namespace": "ExplainableAI/Banking",
+      "environment": "academic-local-demo-10s",
+      "region": "us-east-1",
+      "storage_resolution": 1,
+      "source": "local_measured_banking",
+      "hosting": "local",
+      "request_count": 20,
+      "last_confirmed_sequence": 1200,
+      "publication_status": "publication_confirmed",
+      "metric_count": 300,
+      "published_requests": 20,
+      "published_metric_values": 300,
+      "first_sequence": 1181,
+      "last_sequence": 1200,
+      "metric_names": [
+        "DBConnectionMilliseconds",
+        "DBQueryMilliseconds",
+        "ErrorCount",
+        "ExclusiveProcessingMilliseconds",
+        "RequestCount",
+        "RequestLatencyMilliseconds",
+        "ServiceLatencyMilliseconds"
+      ],
+      "missing_measurements": [
+        "memory utilization",
+        "packet loss",
+        "PostgreSQL waits"
+      ],
+      "checkpoint": "advanced_after_success",
+      "verification": "pending_cloudwatch_read"
+    },
+    {
+      "status": "published",
+      "namespace": "ExplainableAI/Banking",
+      "environment": "academic-local-demo-10s",
+      "region": "us-east-1",
+      "storage_resolution": 1,
+      "source": "local_measured_banking",
+      "hosting": "local",
+      "request_count": 20,
+      "last_confirmed_sequence": 1220,
+      "publication_status": "publication_confirmed",
+      "metric_count": 300,
+      "published_requests": 20,
+      "published_metric_values": 300,
+      "first_sequence": 1201,
+      "last_sequence": 1220,
+      "metric_names": [
+        "DBConnectionMilliseconds",
+        "DBQueryMilliseconds",
+        "ErrorCount",
+        "ExclusiveProcessingMilliseconds",
+        "RequestCount",
+        "RequestLatencyMilliseconds",
+        "ServiceLatencyMilliseconds"
+      ],
+      "missing_measurements": [
+        "memory utilization",
+        "packet loss",
+        "PostgreSQL waits"
+      ],
+      "checkpoint": "advanced_after_success",
+      "verification": "pending_cloudwatch_read"
+    },
+    {
+      "status": "published",
+      "namespace": "ExplainableAI/Banking",
+      "environment": "academic-local-demo-10s",
+      "region": "us-east-1",
+      "storage_resolution": 1,
+      "source": "local_measured_banking",
+      "hosting": "local",
+      "request_count": 20,
+      "last_confirmed_sequence": 1240,
+      "publication_status": "publication_confirmed",
+      "metric_count": 300,
+      "published_requests": 20,
+      "published_metric_values": 300,
+      "first_sequence": 1221,
+      "last_sequence": 1240,
+      "metric_names": [
+        "DBConnectionMilliseconds",
+        "DBQueryMilliseconds",
+        "ErrorCount",
+        "ExclusiveProcessingMilliseconds",
+        "RequestCount",
+        "RequestLatencyMilliseconds",
+        "ServiceLatencyMilliseconds"
+      ],
+      "missing_measurements": [
+        "memory utilization",
+        "packet loss",
+        "PostgreSQL waits"
+      ],
+      "checkpoint": "advanced_after_success",
+      "verification": "pending_cloudwatch_read"
+    }
+  ],
+  "baseline": {
+    "status": "frozen",
+    "frozen_at": "2026-10-16T17:01:19.699967+00:00",
+    "end": "2026-10-16T17:01:00+00:00",
+    "bucket_timestamps": [
+      "2026-10-16T16:59:20+00:00",
+      "2026-10-16T16:59:30+00:00",
+      "2026-10-16T16:59:40+00:00",
+      "2026-10-16T16:59:50+00:00",
+      "2026-10-16T17:00:00+00:00",
+      "2026-10-16T17:00:10+00:00",
+      "2026-10-16T17:00:20+00:00",
+      "2026-10-16T17:00:30+00:00",
+      "2026-10-16T17:00:40+00:00",
+      "2026-10-16T17:00:50+00:00"
+    ],
+    "request_count": 40,
+    "features": {
+      "api_ms": {
+        "median": 46.10368749854388,
+        "mad": 1.7827874999056803,
+        "threshold": 80.68145312245179,
+        "reference_windows": 6,
+        "calibration_windows": 4,
+        "normal_values": [
+          42.50642500119284,
+          46.85944999800995,
+          48.913499998889165,
+          45.95139999582898,
+          46.255975001258776,
+          37.78910000255564,
+          46.97127499821363,
+          38.514600000780774,
+          51.550300006056204,
+          39.07120000440045
+        ],
+        "unit": "Milliseconds",
+        "aggregation": "CloudWatch Average"
+      },
+      "ledger_ms": {
+        "median": 4.111487503905664,
+        "mad": 0.6097999994381098,
+        "threshold": 29.111487503905664,
+        "reference_windows": 6,
+        "calibration_windows": 4,
+        "normal_values": [
+          5.131474998051999,
+          3.5857750081049744,
+          3.729850006493507,
+          4.805375006981194,
+          4.493125001317821,
+          3.384300012839958,
+          8.515199981047772,
+          3.3484999839856755,
+          4.610425017745001,
+          3.467649996309774
+        ],
+        "unit": "Milliseconds",
+        "aggregation": "CloudWatch Average"
+      },
+      "db_sum_ms": {
+        "median": 30.575537490221905,
+        "mad": 1.7683750065771164,
+        "threshold": 55.575537490221905,
+        "reference_windows": 6,
+        "calibration_windows": 4,
+        "normal_values": [
+          24.293775000842288,
+          30.778274984186282,
+          33.43964999294258,
+          30.372799996257527,
+          31.248175000655465,
+          24.17464999234653,
+          28.22457500951714,
+          26.237100009893766,
+          31.224449983710656,
+          25.989875008235686
+        ],
+        "unit": "Milliseconds",
+        "aggregation": "SQL sum / measured requests"
+      }
+    },
+    "source": "aws_cloudwatch",
+    "rule": "Six chronological reference windows, four calibration windows; median/MAD threshold with 25 ms floor; two consecutive complete periods.",
+    "sha256": "8f2a951b2840a1f64c80778ceda51ab3e463dcfddb80d411ce8a1b04fe7b685a"
+  },
+  "analysis": {
+    "status": "abnormal_latency_detected",
+    "affected_service": "ledger-service",
+    "root_cause": "not_established",
+    "gnn_used": false,
+    "detected_periods": [
+      "2026-10-16T17:01:30+00:00",
+      "2026-10-16T17:01:40+00:00"
+    ],
+    "evaluated": [
+      {
+        "timestamp": "2026-10-16T17:01:30+00:00",
+        "eligible": true,
+        "scores": {
+          "api_ms": 5.793778426392967,
+          "ledger_ms": 8.01244649956061,
+          "db_sum_ms": -0.06566649928572588
+        },
+        "values": {
+          "api_ms": 246.43960000321385,
+          "ledger_ms": 204.42264999292092,
+          "db_sum_ms": 28.933875008078758
+        },
+        "deviation": true,
+        "complete": true
+      },
+      {
+        "timestamp": "2026-10-16T17:01:40+00:00",
+        "eligible": true,
+        "scores": {
+          "api_ms": 5.5528540966968825,
+          "ledger_ms": 8.038592499724473,
+          "db_sum_ms": -0.3310074993351009
+        },
+        "values": {
+          "api_ms": 238.10897499788553,
+          "ledger_ms": 205.0762999970175,
+          "db_sum_ms": 22.300350006844383
+        },
+        "deviation": true,
+        "complete": true
+      },
+      {
+        "timestamp": "2026-10-16T17:01:50+00:00",
+        "eligible": true,
+        "scores": {
+          "api_ms": 0.1266359299047073,
+          "ledger_ms": 0.004159500022069551,
+          "db_sum_ms": 0.1417615004174877
+        },
+        "values": {
+          "api_ms": 50.48247500235448,
+          "ledger_ms": 4.215475004457403,
+          "db_sum_ms": 34.1195750006591
+        },
+        "deviation": false,
+        "complete": true
+      },
+      {
+        "timestamp": "2026-10-16T17:02:00+00:00",
+        "eligible": true,
+        "scores": {
+          "api_ms": -0.0008817080898126154,
+          "ledger_ms": 0.19479249946016353,
+          "db_sum_ms": -0.16282949945889413
+        },
+        "values": {
+          "api_ms": 46.07320000286563,
+          "ledger_ms": 8.981299990409752,
+          "db_sum_ms": 26.50480000374955
+        },
+        "deviation": false,
+        "complete": true
+      },
+      {
+        "timestamp": "2026-10-16T17:02:10+00:00",
+        "eligible": true,
+        "scores": {
+          "api_ms": 0.05383987288068467,
+          "ledger_ms": -0.004253500010236166,
+          "db_sum_ms": 0.06771150015993044
+        },
+        "values": {
+          "api_ms": 47.96535000423319,
+          "ledger_ms": 4.00515000364976,
+          "db_sum_ms": 32.268324994220166
+        },
+        "deviation": false,
+        "complete": true
+      }
+    ],
+    "followup": {
+      "status": "measured_return_toward_frozen_reference",
+      "periods": [
+        "2026-10-16T17:01:50+00:00",
+        "2026-10-16T17:02:00+00:00"
+      ],
+      "values": [
+        {
+          "api_ms": 50.48247500235448,
+          "ledger_ms": 4.215475004457403,
+          "db_sum_ms": 34.1195750006591
+        },
+        {
+          "api_ms": 46.07320000286563,
+          "ledger_ms": 8.981299990409752,
+          "db_sum_ms": 26.50480000374955
+        }
+      ],
+      "causal_recovery": "not_established"
+    },
+    "verification_scope": "Measured application slowdown; CloudWatch aggregates do not confirm physical causality.",
+    "detection_scores": [
+      {
+        "api_ms": 5.793778426392967,
+        "ledger_ms": 8.01244649956061,
+        "db_sum_ms": -0.06566649928572588
+      },
+      {
+        "api_ms": 5.5528540966968825,
+        "ledger_ms": 8.038592499724473,
+        "db_sum_ms": -0.3310074993351009
+      }
+    ]
+  },
+  "cloudwatch": {
+    "source": "aws_cloudwatch",
+    "environment": "academic-local-demo-10s",
+    "period_seconds": 10,
+    "region": "us-east-1",
+    "hosting": "local",
+    "collected_at": "2026-10-16T17:02:29.021863+00:00",
+    "series": {
+      "requests": {
+        "service": "banking-api",
+        "metric_name": "RequestCount",
+        "statistic": "Sum",
+        "unit": "Count",
+        "response_status": "Complete",
+        "points": [
+          {
+            "timestamp": "2026-10-16T16:59:20+00:00",
+            "value": 4.0
+          },
+          {
+            "timestamp": "2026-10-16T16:59:30+00:00",
+            "value": 4.0
+          },
+          {
+            "timestamp": "2026-10-16T16:59:40+00:00",
+            "value": 4.0
+          },
+          {
+            "timestamp": "2026-10-16T16:59:50+00:00",
+            "value": 4.0
+          },
+          {
+            "timestamp": "2026-10-16T17:00:00+00:00",
+            "value": 4.0
+          },
+          {
+            "timestamp": "2026-10-16T17:00:10+00:00",
+            "value": 4.0
+          },
+          {
+            "timestamp": "2026-10-16T17:00:20+00:00",
+            "value": 4.0
+          },
+          {
+            "timestamp": "2026-10-16T17:00:30+00:00",
+            "value": 4.0
+          },
+          {
+            "timestamp": "2026-10-16T17:00:40+00:00",
+            "value": 4.0
+          },
+          {
+            "timestamp": "2026-10-16T17:00:50+00:00",
+            "value": 4.0
+          },
+          {
+            "timestamp": "2026-10-16T17:01:30+00:00",
+            "value": 4.0
+          },
+          {
+            "timestamp": "2026-10-16T17:01:40+00:00",
+            "value": 4.0
+          },
+          {
+            "timestamp": "2026-10-16T17:01:50+00:00",
+            "value": 4.0
+          },
+          {
+            "timestamp": "2026-10-16T17:02:00+00:00",
+            "value": 4.0
+          },
+          {
+            "timestamp": "2026-10-16T17:02:10+00:00",
+            "value": 4.0
+          }
+        ]
+      },
+      "errors": {
+        "service": "banking-api",
+        "metric_name": "ErrorCount",
+        "statistic": "Sum",
+        "unit": "Count",
+        "response_status": "Complete",
+        "points": [
+          {
+            "timestamp": "2026-10-16T16:59:20+00:00",
+            "value": 0.0
+          },
+          {
+            "timestamp": "2026-10-16T16:59:30+00:00",
+            "value": 0.0
+          },
+          {
+            "timestamp": "2026-10-16T16:59:40+00:00",
+            "value": 0.0
+          },
+          {
+            "timestamp": "2026-10-16T16:59:50+00:00",
+            "value": 0.0
+          },
+          {
+            "timestamp": "2026-10-16T17:00:00+00:00",
+            "value": 0.0
+          },
+          {
+            "timestamp": "2026-10-16T17:00:10+00:00",
+            "value": 0.0
+          },
+          {
+            "timestamp": "2026-10-16T17:00:20+00:00",
+            "value": 0.0
+          },
+          {
+            "timestamp": "2026-10-16T17:00:30+00:00",
+            "value": 0.0
+          },
+          {
+            "timestamp": "2026-10-16T17:00:40+00:00",
+            "value": 0.0
+          },
+          {
+            "timestamp": "2026-10-16T17:00:50+00:00",
+            "value": 0.0
+          },
+          {
+            "timestamp": "2026-10-16T17:01:30+00:00",
+            "value": 0.0
+          },
+          {
+            "timestamp": "2026-10-16T17:01:40+00:00",
+            "value": 0.0
+          },
+          {
+            "timestamp": "2026-10-16T17:01:50+00:00",
+            "value": 0.0
+          },
+          {
+            "timestamp": "2026-10-16T17:02:00+00:00",
+            "value": 0.0
+          },
+          {
+            "timestamp": "2026-10-16T17:02:10+00:00",
+            "value": 0.0
+          }
+        ]
+      },
+      "api_ms": {
+        "service": "banking-api",
+        "metric_name": "RequestLatencyMilliseconds",
+        "statistic": "Average",
+        "unit": "Milliseconds",
+        "response_status": "Complete",
+        "points": [
+          {
+            "timestamp": "2026-10-16T16:59:20+00:00",
+            "value": 42.50642500119284
+          },
+          {
+            "timestamp": "2026-10-16T16:59:30+00:00",
+            "value": 46.85944999800995
+          },
+          {
+            "timestamp": "2026-10-16T16:59:40+00:00",
+            "value": 48.913499998889165
+          },
+          {
+            "timestamp": "2026-10-16T16:59:50+00:00",
+            "value": 45.95139999582898
+          },
+          {
+            "timestamp": "2026-10-16T17:00:00+00:00",
+            "value": 46.255975001258776
+          },
+          {
+            "timestamp": "2026-10-16T17:00:10+00:00",
+            "value": 37.78910000255564
+          },
+          {
+            "timestamp": "2026-10-16T17:00:20+00:00",
+            "value": 46.97127499821363
+          },
+          {
+            "timestamp": "2026-10-16T17:00:30+00:00",
+            "value": 38.514600000780774
+          },
+          {
+            "timestamp": "2026-10-16T17:00:40+00:00",
+            "value": 51.550300006056204
+          },
+          {
+            "timestamp": "2026-10-16T17:00:50+00:00",
+            "value": 39.07120000440045
+          },
+          {
+            "timestamp": "2026-10-16T17:01:30+00:00",
+            "value": 246.43960000321385
+          },
+          {
+            "timestamp": "2026-10-16T17:01:40+00:00",
+            "value": 238.10897499788553
+          },
+          {
+            "timestamp": "2026-10-16T17:01:50+00:00",
+            "value": 50.48247500235448
+          },
+          {
+            "timestamp": "2026-10-16T17:02:00+00:00",
+            "value": 46.07320000286563
+          },
+          {
+            "timestamp": "2026-10-16T17:02:10+00:00",
+            "value": 47.96535000423319
+          }
+        ]
+      },
+      "api_samples": {
+        "service": "banking-api",
+        "metric_name": "RequestLatencyMilliseconds",
+        "statistic": "SampleCount",
+        "unit": "Milliseconds",
+        "response_status": "Complete",
+        "points": [
+          {
+            "timestamp": "2026-10-16T16:59:20+00:00",
+            "value": 4.0
+          },
+          {
+            "timestamp": "2026-10-16T16:59:30+00:00",
+            "value": 4.0
+          },
+          {
+            "timestamp": "2026-10-16T16:59:40+00:00",
+            "value": 4.0
+          },
+          {
+            "timestamp": "2026-10-16T16:59:50+00:00",
+            "value": 4.0
+          },
+          {
+            "timestamp": "2026-10-16T17:00:00+00:00",
+            "value": 4.0
+          },
+          {
+            "timestamp": "2026-10-16T17:00:10+00:00",
+            "value": 4.0
+          },
+          {
+            "timestamp": "2026-10-16T17:00:20+00:00",
+            "value": 4.0
+          },
+          {
+            "timestamp": "2026-10-16T17:00:30+00:00",
+            "value": 4.0
+          },
+          {
+            "timestamp": "2026-10-16T17:00:40+00:00",
+            "value": 4.0
+          },
+          {
+            "timestamp": "2026-10-16T17:00:50+00:00",
+            "value": 4.0
+          },
+          {
+            "timestamp": "2026-10-16T17:01:30+00:00",
+            "value": 4.0
+          },
+          {
+            "timestamp": "2026-10-16T17:01:40+00:00",
+            "value": 4.0
+          },
+          {
+            "timestamp": "2026-10-16T17:01:50+00:00",
+            "value": 4.0
+          },
+          {
+            "timestamp": "2026-10-16T17:02:00+00:00",
+            "value": 4.0
+          },
+          {
+            "timestamp": "2026-10-16T17:02:10+00:00",
+            "value": 4.0
+          }
+        ]
+      },
+      "ledger_ms": {
+        "service": "ledger-service",
+        "metric_name": "ExclusiveProcessingMilliseconds",
+        "statistic": "Average",
+        "unit": "Milliseconds",
+        "response_status": "Complete",
+        "points": [
+          {
+            "timestamp": "2026-10-16T16:59:20+00:00",
+            "value": 5.131474998051999
+          },
+          {
+            "timestamp": "2026-10-16T16:59:30+00:00",
+            "value": 3.5857750081049744
+          },
+          {
+            "timestamp": "2026-10-16T16:59:40+00:00",
+            "value": 3.729850006493507
+          },
+          {
+            "timestamp": "2026-10-16T16:59:50+00:00",
+            "value": 4.805375006981194
+          },
+          {
+            "timestamp": "2026-10-16T17:00:00+00:00",
+            "value": 4.493125001317821
+          },
+          {
+            "timestamp": "2026-10-16T17:00:10+00:00",
+            "value": 3.384300012839958
+          },
+          {
+            "timestamp": "2026-10-16T17:00:20+00:00",
+            "value": 8.515199981047772
+          },
+          {
+            "timestamp": "2026-10-16T17:00:30+00:00",
+            "value": 3.3484999839856755
+          },
+          {
+            "timestamp": "2026-10-16T17:00:40+00:00",
+            "value": 4.610425017745001
+          },
+          {
+            "timestamp": "2026-10-16T17:00:50+00:00",
+            "value": 3.467649996309774
+          },
+          {
+            "timestamp": "2026-10-16T17:01:30+00:00",
+            "value": 204.42264999292092
+          },
+          {
+            "timestamp": "2026-10-16T17:01:40+00:00",
+            "value": 205.0762999970175
+          },
+          {
+            "timestamp": "2026-10-16T17:01:50+00:00",
+            "value": 4.215475004457403
+          },
+          {
+            "timestamp": "2026-10-16T17:02:00+00:00",
+            "value": 8.981299990409752
+          },
+          {
+            "timestamp": "2026-10-16T17:02:10+00:00",
+            "value": 4.00515000364976
+          }
+        ]
+      },
+      "ledger_samples": {
+        "service": "ledger-service",
+        "metric_name": "ExclusiveProcessingMilliseconds",
+        "statistic": "SampleCount",
+        "unit": "Milliseconds",
+        "response_status": "Complete",
+        "points": [
+          {
+            "timestamp": "2026-10-16T16:59:20+00:00",
+            "value": 4.0
+          },
+          {
+            "timestamp": "2026-10-16T16:59:30+00:00",
+            "value": 4.0
+          },
+          {
+            "timestamp": "2026-10-16T16:59:40+00:00",
+            "value": 4.0
+          },
+          {
+            "timestamp": "2026-10-16T16:59:50+00:00",
+            "value": 4.0
+          },
+          {
+            "timestamp": "2026-10-16T17:00:00+00:00",
+            "value": 4.0
+          },
+          {
+            "timestamp": "2026-10-16T17:00:10+00:00",
+            "value": 4.0
+          },
+          {
+            "timestamp": "2026-10-16T17:00:20+00:00",
+            "value": 4.0
+          },
+          {
+            "timestamp": "2026-10-16T17:00:30+00:00",
+            "value": 4.0
+          },
+          {
+            "timestamp": "2026-10-16T17:00:40+00:00",
+            "value": 4.0
+          },
+          {
+            "timestamp": "2026-10-16T17:00:50+00:00",
+            "value": 4.0
+          },
+          {
+            "timestamp": "2026-10-16T17:01:30+00:00",
+            "value": 4.0
+          },
+          {
+            "timestamp": "2026-10-16T17:01:40+00:00",
+            "value": 4.0
+          },
+          {
+            "timestamp": "2026-10-16T17:01:50+00:00",
+            "value": 4.0
+          },
+          {
+            "timestamp": "2026-10-16T17:02:00+00:00",
+            "value": 4.0
+          },
+          {
+            "timestamp": "2026-10-16T17:02:10+00:00",
+            "value": 4.0
+          }
+        ]
+      },
+      "ledger_service_ms": {
+        "service": "ledger-service",
+        "metric_name": "ServiceLatencyMilliseconds",
+        "statistic": "Average",
+        "unit": "Milliseconds",
+        "response_status": "Complete",
+        "points": [
+          {
+            "timestamp": "2026-10-16T16:59:20+00:00",
+            "value": 31.60842500074068
+          },
+          {
+            "timestamp": "2026-10-16T16:59:30+00:00",
+            "value": 37.207599994872
+          },
+          {
+            "timestamp": "2026-10-16T16:59:40+00:00",
+            "value": 39.15462499571731
+          },
+          {
+            "timestamp": "2026-10-16T16:59:50+00:00",
+            "value": 37.068450004881015
+          },
+          {
+            "timestamp": "2026-10-16T17:00:00+00:00",
+            "value": 37.355799999204464
+          },
+          {
+            "timestamp": "2026-10-16T17:00:10+00:00",
+            "value": 29.637175004609162
+          },
+          {
+            "timestamp": "2026-10-16T17:00:20+00:00",
+            "value": 38.71462499591871
+          },
+          {
+            "timestamp": "2026-10-16T17:00:30+00:00",
+            "value": 31.528199993772432
+          },
+          {
+            "timestamp": "2026-10-16T17:00:40+00:00",
+            "value": 38.2936999994854
+          },
+          {
+            "timestamp": "2026-10-16T17:00:50+00:00",
+            "value": 30.966050002461998
+          },
+          {
+            "timestamp": "2026-10-16T17:01:30+00:00",
+            "value": 235.25454999980866
+          },
+          {
+            "timestamp": "2026-10-16T17:01:40+00:00",
+            "value": 228.9645000018936
+          },
+          {
+            "timestamp": "2026-10-16T17:01:50+00:00",
+            "value": 40.62752500249189
+          },
+          {
+            "timestamp": "2026-10-16T17:02:00+00:00",
+            "value": 37.309174997062655
+          },
+          {
+            "timestamp": "2026-10-16T17:02:10+00:00",
+            "value": 38.764524997532135
+          }
+        ]
+      },
+      "db_sum_ms": {
+        "service": "banking-db",
+        "metric_name": "DBQueryMilliseconds",
+        "statistic": "Sum",
+        "unit": "Milliseconds",
+        "response_status": "Complete",
+        "points": [
+          {
+            "timestamp": "2026-10-16T16:59:20+00:00",
+            "value": 97.17510000336915
+          },
+          {
+            "timestamp": "2026-10-16T16:59:30+00:00",
+            "value": 123.11309993674513
+          },
+          {
+            "timestamp": "2026-10-16T16:59:40+00:00",
+            "value": 133.7585999717703
+          },
+          {
+            "timestamp": "2026-10-16T16:59:50+00:00",
+            "value": 121.49119998503011
+          },
+          {
+            "timestamp": "2026-10-16T17:00:00+00:00",
+            "value": 124.99270000262186
+          },
+          {
+            "timestamp": "2026-10-16T17:00:10+00:00",
+            "value": 96.69859996938612
+          },
+          {
+            "timestamp": "2026-10-16T17:00:20+00:00",
+            "value": 112.89830003806856
+          },
+          {
+            "timestamp": "2026-10-16T17:00:30+00:00",
+            "value": 104.94840003957506
+          },
+          {
+            "timestamp": "2026-10-16T17:00:40+00:00",
+            "value": 124.89779993484262
+          },
+          {
+            "timestamp": "2026-10-16T17:00:50+00:00",
+            "value": 103.95950003294274
+          },
+          {
+            "timestamp": "2026-10-16T17:01:30+00:00",
+            "value": 115.73550003231503
+          },
+          {
+            "timestamp": "2026-10-16T17:01:40+00:00",
+            "value": 89.20140002737753
+          },
+          {
+            "timestamp": "2026-10-16T17:01:50+00:00",
+            "value": 136.4783000026364
+          },
+          {
+            "timestamp": "2026-10-16T17:02:00+00:00",
+            "value": 106.0192000149982
+          },
+          {
+            "timestamp": "2026-10-16T17:02:10+00:00",
+            "value": 129.07329997688066
+          }
+        ]
+      },
+      "db_samples": {
+        "service": "banking-db",
+        "metric_name": "DBQueryMilliseconds",
+        "statistic": "SampleCount",
+        "unit": "Milliseconds",
+        "response_status": "Complete",
+        "points": [
+          {
+            "timestamp": "2026-10-16T16:59:20+00:00",
+            "value": 28.0
+          },
+          {
+            "timestamp": "2026-10-16T16:59:30+00:00",
+            "value": 28.0
+          },
+          {
+            "timestamp": "2026-10-16T16:59:40+00:00",
+            "value": 28.0
+          },
+          {
+            "timestamp": "2026-10-16T16:59:50+00:00",
+            "value": 28.0
+          },
+          {
+            "timestamp": "2026-10-16T17:00:00+00:00",
+            "value": 28.0
+          },
+          {
+            "timestamp": "2026-10-16T17:00:10+00:00",
+            "value": 28.0
+          },
+          {
+            "timestamp": "2026-10-16T17:00:20+00:00",
+            "value": 28.0
+          },
+          {
+            "timestamp": "2026-10-16T17:00:30+00:00",
+            "value": 28.0
+          },
+          {
+            "timestamp": "2026-10-16T17:00:40+00:00",
+            "value": 28.0
+          },
+          {
+            "timestamp": "2026-10-16T17:00:50+00:00",
+            "value": 28.0
+          },
+          {
+            "timestamp": "2026-10-16T17:01:30+00:00",
+            "value": 28.0
+          },
+          {
+            "timestamp": "2026-10-16T17:01:40+00:00",
+            "value": 28.0
+          },
+          {
+            "timestamp": "2026-10-16T17:01:50+00:00",
+            "value": 28.0
+          },
+          {
+            "timestamp": "2026-10-16T17:02:00+00:00",
+            "value": 28.0
+          },
+          {
+            "timestamp": "2026-10-16T17:02:10+00:00",
+            "value": 28.0
+          }
+        ]
+      }
+    },
+    "collection_complete": true,
+    "api_calls": 1,
+    "errors": [],
+    "buckets": [
+      {
+        "timestamp": "2026-10-16T16:59:20+00:00",
+        "values": {
+          "requests": 4.0,
+          "errors": 0.0,
+          "api_ms": 42.50642500119284,
+          "api_samples": 4.0,
+          "ledger_ms": 5.131474998051999,
+          "ledger_samples": 4.0,
+          "ledger_service_ms": 31.60842500074068,
+          "db_sum_ms": 97.17510000336915,
+          "db_samples": 28.0
+        },
+        "complete": true,
+        "expected_requests": 4,
+        "expected_sql_samples": 28,
+        "missing_metrics": []
+      },
+      {
+        "timestamp": "2026-10-16T16:59:30+00:00",
+        "values": {
+          "requests": 4.0,
+          "errors": 0.0,
+          "api_ms": 46.85944999800995,
+          "api_samples": 4.0,
+          "ledger_ms": 3.5857750081049744,
+          "ledger_samples": 4.0,
+          "ledger_service_ms": 37.207599994872,
+          "db_sum_ms": 123.11309993674513,
+          "db_samples": 28.0
+        },
+        "complete": true,
+        "expected_requests": 4,
+        "expected_sql_samples": 28,
+        "missing_metrics": []
+      },
+      {
+        "timestamp": "2026-10-16T16:59:40+00:00",
+        "values": {
+          "requests": 4.0,
+          "errors": 0.0,
+          "api_ms": 48.913499998889165,
+          "api_samples": 4.0,
+          "ledger_ms": 3.729850006493507,
+          "ledger_samples": 4.0,
+          "ledger_service_ms": 39.15462499571731,
+          "db_sum_ms": 133.7585999717703,
+          "db_samples": 28.0
+        },
+        "complete": true,
+        "expected_requests": 4,
+        "expected_sql_samples": 28,
+        "missing_metrics": []
+      },
+      {
+        "timestamp": "2026-10-16T16:59:50+00:00",
+        "values": {
+          "requests": 4.0,
+          "errors": 0.0,
+          "api_ms": 45.95139999582898,
+          "api_samples": 4.0,
+          "ledger_ms": 4.805375006981194,
+          "ledger_samples": 4.0,
+          "ledger_service_ms": 37.068450004881015,
+          "db_sum_ms": 121.49119998503011,
+          "db_samples": 28.0
+        },
+        "complete": true,
+        "expected_requests": 4,
+        "expected_sql_samples": 28,
+        "missing_metrics": []
+      },
+      {
+        "timestamp": "2026-10-16T17:00:00+00:00",
+        "values": {
+          "requests": 4.0,
+          "errors": 0.0,
+          "api_ms": 46.255975001258776,
+          "api_samples": 4.0,
+          "ledger_ms": 4.493125001317821,
+          "ledger_samples": 4.0,
+          "ledger_service_ms": 37.355799999204464,
+          "db_sum_ms": 124.99270000262186,
+          "db_samples": 28.0
+        },
+        "complete": true,
+        "expected_requests": 4,
+        "expected_sql_samples": 28,
+        "missing_metrics": []
+      },
+      {
+        "timestamp": "2026-10-16T17:00:10+00:00",
+        "values": {
+          "requests": 4.0,
+          "errors": 0.0,
+          "api_ms": 37.78910000255564,
+          "api_samples": 4.0,
+          "ledger_ms": 3.384300012839958,
+          "ledger_samples": 4.0,
+          "ledger_service_ms": 29.637175004609162,
+          "db_sum_ms": 96.69859996938612,
+          "db_samples": 28.0
+        },
+        "complete": true,
+        "expected_requests": 4,
+        "expected_sql_samples": 28,
+        "missing_metrics": []
+      },
+      {
+        "timestamp": "2026-10-16T17:00:20+00:00",
+        "values": {
+          "requests": 4.0,
+          "errors": 0.0,
+          "api_ms": 46.97127499821363,
+          "api_samples": 4.0,
+          "ledger_ms": 8.515199981047772,
+          "ledger_samples": 4.0,
+          "ledger_service_ms": 38.71462499591871,
+          "db_sum_ms": 112.89830003806856,
+          "db_samples": 28.0
+        },
+        "complete": true,
+        "expected_requests": 4,
+        "expected_sql_samples": 28,
+        "missing_metrics": []
+      },
+      {
+        "timestamp": "2026-10-16T17:00:30+00:00",
+        "values": {
+          "requests": 4.0,
+          "errors": 0.0,
+          "api_ms": 38.514600000780774,
+          "api_samples": 4.0,
+          "ledger_ms": 3.3484999839856755,
+          "ledger_samples": 4.0,
+          "ledger_service_ms": 31.528199993772432,
+          "db_sum_ms": 104.94840003957506,
+          "db_samples": 28.0
+        },
+        "complete": true,
+        "expected_requests": 4,
+        "expected_sql_samples": 28,
+        "missing_metrics": []
+      },
+      {
+        "timestamp": "2026-10-16T17:00:40+00:00",
+        "values": {
+          "requests": 4.0,
+          "errors": 0.0,
+          "api_ms": 51.550300006056204,
+          "api_samples": 4.0,
+          "ledger_ms": 4.610425017745001,
+          "ledger_samples": 4.0,
+          "ledger_service_ms": 38.2936999994854,
+          "db_sum_ms": 124.89779993484262,
+          "db_samples": 28.0
+        },
+        "complete": true,
+        "expected_requests": 4,
+        "expected_sql_samples": 28,
+        "missing_metrics": []
+      },
+      {
+        "timestamp": "2026-10-16T17:00:50+00:00",
+        "values": {
+          "requests": 4.0,
+          "errors": 0.0,
+          "api_ms": 39.07120000440045,
+          "api_samples": 4.0,
+          "ledger_ms": 3.467649996309774,
+          "ledger_samples": 4.0,
+          "ledger_service_ms": 30.966050002461998,
+          "db_sum_ms": 103.95950003294274,
+          "db_samples": 28.0
+        },
+        "complete": true,
+        "expected_requests": 4,
+        "expected_sql_samples": 28,
+        "missing_metrics": []
+      },
+      {
+        "timestamp": "2026-10-16T17:01:30+00:00",
+        "values": {
+          "requests": 4.0,
+          "errors": 0.0,
+          "api_ms": 246.43960000321385,
+          "api_samples": 4.0,
+          "ledger_ms": 204.42264999292092,
+          "ledger_samples": 4.0,
+          "ledger_service_ms": 235.25454999980866,
+          "db_sum_ms": 115.73550003231503,
+          "db_samples": 28.0
+        },
+        "complete": true,
+        "expected_requests": 4,
+        "expected_sql_samples": 28,
+        "missing_metrics": []
+      },
+      {
+        "timestamp": "2026-10-16T17:01:40+00:00",
+        "values": {
+          "requests": 4.0,
+          "errors": 0.0,
+          "api_ms": 238.10897499788553,
+          "api_samples": 4.0,
+          "ledger_ms": 205.0762999970175,
+          "ledger_samples": 4.0,
+          "ledger_service_ms": 228.9645000018936,
+          "db_sum_ms": 89.20140002737753,
+          "db_samples": 28.0
+        },
+        "complete": true,
+        "expected_requests": 4,
+        "expected_sql_samples": 28,
+        "missing_metrics": []
+      },
+      {
+        "timestamp": "2026-10-16T17:01:50+00:00",
+        "values": {
+          "requests": 4.0,
+          "errors": 0.0,
+          "api_ms": 50.48247500235448,
+          "api_samples": 4.0,
+          "ledger_ms": 4.215475004457403,
+          "ledger_samples": 4.0,
+          "ledger_service_ms": 40.62752500249189,
+          "db_sum_ms": 136.4783000026364,
+          "db_samples": 28.0
+        },
+        "complete": true,
+        "expected_requests": 4,
+        "expected_sql_samples": 28,
+        "missing_metrics": []
+      },
+      {
+        "timestamp": "2026-10-16T17:02:00+00:00",
+        "values": {
+          "requests": 4.0,
+          "errors": 0.0,
+          "api_ms": 46.07320000286563,
+          "api_samples": 4.0,
+          "ledger_ms": 8.981299990409752,
+          "ledger_samples": 4.0,
+          "ledger_service_ms": 37.309174997062655,
+          "db_sum_ms": 106.0192000149982,
+          "db_samples": 28.0
+        },
+        "complete": true,
+        "expected_requests": 4,
+        "expected_sql_samples": 28,
+        "missing_metrics": []
+      },
+      {
+        "timestamp": "2026-10-16T17:02:10+00:00",
+        "values": {
+          "requests": 4.0,
+          "errors": 0.0,
+          "api_ms": 47.96535000423319,
+          "api_samples": 4.0,
+          "ledger_ms": 4.00515000364976,
+          "ledger_samples": 4.0,
+          "ledger_service_ms": 38.764524997532135,
+          "db_sum_ms": 129.07329997688066,
+          "db_samples": 28.0
+        },
+        "complete": true,
+        "expected_requests": 4,
+        "expected_sql_samples": 28,
+        "missing_metrics": []
+      }
+    ],
+    "status": "observations_available"
+  },
+  "limits": {
+    "max_requests": 60,
+    "samples_per_window": 4,
+    "normal_windows": 10,
+    "condition_windows": 2,
+    "followup_windows": 3
+  },
+  "note": "All readings are observed; no experiment label is an input to the AWS detector. CloudWatch storage does not establish AWS banking hosting.",
+  "attempted_requests": 60,
+  "collection_attempt": 1,
+  "baseline_file_sha256_before_condition": "b814501810ed70f76e9d0e0aba59f8d7a1967859486f62f0dfdba34d3b0fade1",
+  "local_trace_corroboration": {
+    "status": "measured_local_spans",
+    "requests": 8,
+    "ledger_exclusive_ms": 204.7494749949692,
+    "api_handler_ms": 242.2742875005497,
+    "sql_ms_per_request": 25.61711250746157,
+    "source": "Original local HTTP/SQL spans matched to detected bucket timestamps; no control labels used.",
+    "root_cause": "not_established"
+  },
+  "verified_at": "2026-10-16T17:02:31.080469+00:00",
+  "observed_request_totals": {
+    "normal": 40,
+    "condition": 8,
+    "followup": 12
+  },
+  "published_request_total": 60,
+  "published_metric_total": 900
+}

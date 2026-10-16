@@ -1,4 +1,5 @@
 import React,{useState} from 'react';
+import AwsDemoPanel from './AwsDemoPanel.jsx';
 
 function History({row}){
  const points=row.points, first=Date.parse(points[0]?.timestamp),last=Date.parse(points.at(-1)?.timestamp);
@@ -22,5 +23,5 @@ export default function AwsBankingPanel(){
  {rows.filter(row=>row.metric_name===metric).map(row=><History key={row.service+row.metric_name} row={row}/>)}
  <h3>Banking anomaly investigation</h3><p>{data.investigation?.status?.replaceAll('_',' ')} · Root cause: {data.investigation?.root_cause?.replaceAll('_',' ')}</p><p>{data.investigation?.explanation}</p>{data.investigation?.findings?.filter(f=>f.operation===operation).map((f,i)=><p key={i}>{f.service} · {f.metric}: {f.status.replaceAll('_',' ')}; baseline {f.baseline_median.toFixed(3)} ms; latest {f.latest.toFixed(3)} ms; threshold {f.threshold.toFixed(3)} ms.</p>)}{data.investigation?.corrective_actions?.map(x=><p key={x}>{x}</p>)}<p>Cloud hosting relationship: not established. GNN weights are not applied to these aggregated AWS metrics. Follow-up verification: {data.investigation?.followup_verification?.replaceAll('_',' ')}.</p>
  <details><summary>Missing measurements and collection evidence</summary><p>Missing series remain unknown; no zero values are substituted. Earlier controlled AWS trials remain excluded.</p>{data.series?.filter(r=>r.operation===operation).map(r=><p key={r.service+r.metric_name}>{r.service} · {r.metric_name}: {r.missing_data?'no datapoints':r.points.length+' datapoints'}; API {r.response_status}; {r.statistic}; {r.unit}</p>)}</details></>}
- </section>
+ <AwsDemoPanel/></section>
 }
