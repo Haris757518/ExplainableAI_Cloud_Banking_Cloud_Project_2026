@@ -1,0 +1,2 @@
+# Optional graph-library adapter. The application remains runnable with native PyTorch GCN code.
+torch-geometric>=2.5,<3

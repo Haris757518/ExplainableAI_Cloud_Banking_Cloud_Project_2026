@@ -6,17 +6,30 @@ from common.features import FEATURE_NAMES
 from common.schema import AnalysisSample
 
 
-def explain(engine: AIEngine, sample: AnalysisSample, top_k: int = 6) -> dict:
+def explain(engine: AIEngine, sample: AnalysisSample, top_k: int = 7) -> dict:
     graph = build_graph(sample)
-    baseline = engine.analyze(sample)["anomaly_score"]
+    x = graph.x.to(engine.device)
+    edges = graph.edge_index.to(engine.device)
+    weights = graph.edge_weight.to(engine.device) if graph.edge_weight is not None else None
+    
+    with torch.no_grad():
+        base_logit, _ = engine.model(x, edges, weights)
+        baseline = float(base_logit.item())
+
     importances = []
     for j, feature in enumerate(FEATURE_NAMES):
-        perturbed = graph.x.clone()
-        perturbed[:, j] = 0.0
+        perturbed = x.clone()
+        perturbed[:, j] = x[:, j].mean()
         with torch.no_grad():
-            _, node_logits = engine.model(perturbed, graph.edge_index)
-            score = torch.sigmoid(node_logits.max()).item()
+            graph_logit, _ = engine.model(perturbed, edges, weights)
+            score = float(graph_logit.item())
         importances.append({"feature": feature, "importance": max(0.0, baseline - score)})
+    
+    total = sum(x["importance"] for x in importances)
+    if total > 0:
+        for x in importances:
+            x["importance"] /= total
+
     importances.sort(key=lambda x: x["importance"], reverse=True)
-    important_nodes = engine.analyze(sample)["affected_nodes"][:top_k]
-    return {"important_features": importances[:top_k], "important_nodes": important_nodes}
+    nodes = engine.analyze(sample)["affected_nodes"][:top_k]
+    return {"important_features": importances[:top_k], "important_nodes": nodes}

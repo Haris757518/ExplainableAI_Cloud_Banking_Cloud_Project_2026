@@ -1,5 +1,10 @@
-# AWS integration
+# AWS Integration
 
-The AWS mode uses boto3 and Amazon CloudWatch. Configure AWS credentials using the normal AWS SDK credential chain, set `AWS_MODE=true`, set `AWS_REGION`, and provide `EC2_INSTANCE_IDS` / `RDS_INSTANCE_IDS`.
+This directory contains the read-only AWS integration layer.
 
-The application does not store AWS secrets. For environments without AWS credentials, use local simulation mode.
+- `discovery.py` ?" EC2/RDS discovery and credential status checks.
+- `cloudwatch_adapter.py` ?" batched CloudWatch `GetMetricData` collection.
+- `normalizer.py` ?" converts AWS observations into the project's canonical graph/telemetry schema.
+- `mapping.py` ?" optional JSON/tag mapping from logical banking services to AWS resources.
+
+No module creates, modifies, or deletes AWS resources.

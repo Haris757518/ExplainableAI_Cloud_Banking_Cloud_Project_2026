@@ -1,0 +1,12 @@
+{
+  "services": {
+    "payment-service": {
+      "ec2_instance_id": ""
+    }
+  },
+  "databases": {
+    "banking-db": {
+      "rds_identifier": ""
+    }
+  }
+}

@@ -1,0 +1,5 @@
+# Install CPU-only PyTorch first using the official CPU wheel index on Windows:
+# python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+# Then:
+# python -m pip install -r requirements.txt --no-deps
+# Or install requirements.txt normally when a suitable torch build is already present.

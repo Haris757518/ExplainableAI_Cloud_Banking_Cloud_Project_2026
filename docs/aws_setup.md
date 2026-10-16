@@ -1,10 +1,32 @@
 # AWS Setup
 
-1. Create or use an EC2 resource and an RDS instance in an AWS account you are authorized to use.
-2. Ensure CloudWatch metrics are available for the resources.
-3. Configure AWS credentials using an approved AWS credential mechanism (environment variables, AWS profile, instance role, etc.).
-4. Copy `.env.example` to `.env`.
-5. Set `AWS_MODE=true`, `AWS_REGION`, `EC2_INSTANCE_IDS` and `RDS_INSTANCE_IDS`.
-6. Run `POST /api/aws/collect`.
+The project supports `AWS_MODE=false` for local simulation and `AWS_MODE=true` for CloudWatch-backed analysis.
 
-The current adapter reads representative EC2 and RDS CloudWatch metrics. Exact metric availability depends on the AWS resource type and account configuration.
+## Primary services
+
+- Amazon EC2
+- Amazon RDS
+- Amazon CloudWatch
+
+## Configuration
+
+Copy `.env.example` to `.env` and configure:
+
+```text
+AWS_MODE=true
+AWS_REGION=ap-south-1
+EC2_INSTANCE_IDS=i-xxxxxxxxxxxxxxxxx
+RDS_INSTANCE_IDS=your-db-instance-id
+```
+
+Use the normal AWS credential chain. Do not put access keys in the repository.
+
+## What is collected
+
+The adapter requests CloudWatch metrics that are available from the selected AWS namespaces, including EC2 CPU/network counters and RDS CPU/latency/IOPS metrics.
+
+Some telemetry fields used by the synthetic simulator are not standard CloudWatch metrics without additional agents/services. Those fields remain baseline-valued and are explicitly marked as not observed. The system must not represent them as real AWS measurements.
+
+## Local development
+
+Leave `AWS_MODE=false` until valid AWS resources and credentials are available.
