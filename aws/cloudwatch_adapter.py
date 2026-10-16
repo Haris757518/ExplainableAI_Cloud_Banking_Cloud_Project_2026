@@ -127,3 +127,7 @@ class CloudWatchAdapter:
 
     def collect_rds(self, rid):
         return self.collect([], [rid])['rds'][0]
+
+    def collect_banking(self):
+        from aws.banking_cloudwatch import collect
+        return collect(self.region, lookback_minutes=self.lookback_minutes, cw=self.client)

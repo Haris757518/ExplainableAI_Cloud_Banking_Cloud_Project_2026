@@ -1,0 +1,1184 @@
+{
+  "checked_at": "2026-10-16T16:19:27.324503+00:00",
+  "authentication": {
+    "connected": true,
+    "region": "us-east-1",
+    "principal_type": "sts",
+    "error": null
+  },
+  "resources": {
+    "ec2": {
+      "count": 1,
+      "states": [
+        "running"
+      ]
+    },
+    "rds": {
+      "count": 0,
+      "states": []
+    }
+  },
+  "infrastructure_cloudwatch": {
+    "observed_metric_count": 3,
+    "errors": []
+  },
+  "banking_cloudwatch": {
+    "status": "observations_available",
+    "namespace": "ExplainableAI/Banking",
+    "region": "us-east-1",
+    "source": "aws_cloudwatch",
+    "workload_origin": "local_measured_banking",
+    "environment": "academic-local-test",
+    "hosting": "local",
+    "period_seconds": 60,
+    "collected_at": "2026-10-16T16:19:31.757829+00:00",
+    "start": "2026-10-16T08:05:00+00:00",
+    "end": "2026-10-16T16:19:31.757829+00:00",
+    "series": [
+      {
+        "service": "banking-api",
+        "operation": "balance",
+        "metric_name": "RequestCount",
+        "unit": "Count",
+        "statistic": "Sum",
+        "dimensions": [
+          {
+            "Name": "Environment",
+            "Value": "academic-local-test"
+          },
+          {
+            "Name": "Service",
+            "Value": "banking-api"
+          },
+          {
+            "Name": "Operation",
+            "Value": "balance"
+          }
+        ],
+        "source": "aws_cloudwatch",
+        "period_seconds": 60,
+        "points": [
+          {
+            "timestamp": "2026-10-16T19:06:00+05:30",
+            "value": 4.0
+          }
+        ],
+        "response_status": "Complete",
+        "messages": [],
+        "missing_data": false
+      },
+      {
+        "service": "banking-api",
+        "operation": "balance",
+        "metric_name": "ErrorCount",
+        "unit": "Count",
+        "statistic": "Sum",
+        "dimensions": [
+          {
+            "Name": "Environment",
+            "Value": "academic-local-test"
+          },
+          {
+            "Name": "Service",
+            "Value": "banking-api"
+          },
+          {
+            "Name": "Operation",
+            "Value": "balance"
+          }
+        ],
+        "source": "aws_cloudwatch",
+        "period_seconds": 60,
+        "points": [
+          {
+            "timestamp": "2026-10-16T19:06:00+05:30",
+            "value": 0.0
+          }
+        ],
+        "response_status": "Complete",
+        "messages": [],
+        "missing_data": false
+      },
+      {
+        "service": "banking-api",
+        "operation": "balance",
+        "metric_name": "RequestLatencyMilliseconds",
+        "unit": "Milliseconds",
+        "statistic": "Average",
+        "dimensions": [
+          {
+            "Name": "Environment",
+            "Value": "academic-local-test"
+          },
+          {
+            "Name": "Service",
+            "Value": "banking-api"
+          },
+          {
+            "Name": "Operation",
+            "Value": "balance"
+          }
+        ],
+        "source": "aws_cloudwatch",
+        "period_seconds": 60,
+        "points": [
+          {
+            "timestamp": "2026-10-16T19:06:00+05:30",
+            "value": 82.41939999788883
+          }
+        ],
+        "response_status": "Complete",
+        "messages": [],
+        "missing_data": false
+      },
+      {
+        "service": "banking-api",
+        "operation": "balance",
+        "metric_name": "ClientLatencyMilliseconds",
+        "unit": "Milliseconds",
+        "statistic": "Average",
+        "dimensions": [
+          {
+            "Name": "Environment",
+            "Value": "academic-local-test"
+          },
+          {
+            "Name": "Service",
+            "Value": "banking-api"
+          },
+          {
+            "Name": "Operation",
+            "Value": "balance"
+          }
+        ],
+        "source": "aws_cloudwatch",
+        "period_seconds": 60,
+        "points": [
+          {
+            "timestamp": "2026-10-16T19:06:00+05:30",
+            "value": 119.69726666575298
+          }
+        ],
+        "response_status": "Complete",
+        "messages": [],
+        "missing_data": false
+      },
+      {
+        "service": "banking-api",
+        "operation": "balance",
+        "metric_name": "ServiceLatencyMilliseconds",
+        "unit": "Milliseconds",
+        "statistic": "Average",
+        "dimensions": [
+          {
+            "Name": "Environment",
+            "Value": "academic-local-test"
+          },
+          {
+            "Name": "Service",
+            "Value": "banking-api"
+          },
+          {
+            "Name": "Operation",
+            "Value": "balance"
+          }
+        ],
+        "source": "aws_cloudwatch",
+        "period_seconds": 60,
+        "points": [
+          {
+            "timestamp": "2026-10-16T19:06:00+05:30",
+            "value": 82.41939999788883
+          }
+        ],
+        "response_status": "Complete",
+        "messages": [],
+        "missing_data": false
+      },
+      {
+        "service": "banking-api",
+        "operation": "balance",
+        "metric_name": "ExclusiveProcessingMilliseconds",
+        "unit": "Milliseconds",
+        "statistic": "Average",
+        "dimensions": [
+          {
+            "Name": "Environment",
+            "Value": "academic-local-test"
+          },
+          {
+            "Name": "Service",
+            "Value": "banking-api"
+          },
+          {
+            "Name": "Operation",
+            "Value": "balance"
+          }
+        ],
+        "source": "aws_cloudwatch",
+        "period_seconds": 60,
+        "points": [
+          {
+            "timestamp": "2026-10-16T19:06:00+05:30",
+            "value": 14.515774997562403
+          }
+        ],
+        "response_status": "Complete",
+        "messages": [],
+        "missing_data": false
+      },
+      {
+        "service": "account-service",
+        "operation": "balance",
+        "metric_name": "ServiceLatencyMilliseconds",
+        "unit": "Milliseconds",
+        "statistic": "Average",
+        "dimensions": [
+          {
+            "Name": "Environment",
+            "Value": "academic-local-test"
+          },
+          {
+            "Name": "Service",
+            "Value": "account-service"
+          },
+          {
+            "Name": "Operation",
+            "Value": "balance"
+          }
+        ],
+        "source": "aws_cloudwatch",
+        "period_seconds": 60,
+        "points": [
+          {
+            "timestamp": "2026-10-16T19:06:00+05:30",
+            "value": 32.097999999677995
+          }
+        ],
+        "response_status": "Complete",
+        "messages": [],
+        "missing_data": false
+      },
+      {
+        "service": "account-service",
+        "operation": "balance",
+        "metric_name": "ExclusiveProcessingMilliseconds",
+        "unit": "Milliseconds",
+        "statistic": "Average",
+        "dimensions": [
+          {
+            "Name": "Environment",
+            "Value": "academic-local-test"
+          },
+          {
+            "Name": "Service",
+            "Value": "account-service"
+          },
+          {
+            "Name": "Operation",
+            "Value": "balance"
+          }
+        ],
+        "source": "aws_cloudwatch",
+        "period_seconds": 60,
+        "points": [
+          {
+            "timestamp": "2026-10-16T19:06:00+05:30",
+            "value": 23.822075003408827
+          }
+        ],
+        "response_status": "Complete",
+        "messages": [],
+        "missing_data": false
+      },
+      {
+        "service": "ledger-service",
+        "operation": "balance",
+        "metric_name": "ServiceLatencyMilliseconds",
+        "unit": "Milliseconds",
+        "statistic": "Average",
+        "dimensions": [
+          {
+            "Name": "Environment",
+            "Value": "academic-local-test"
+          },
+          {
+            "Name": "Service",
+            "Value": "ledger-service"
+          },
+          {
+            "Name": "Operation",
+            "Value": "balance"
+          }
+        ],
+        "source": "aws_cloudwatch",
+        "period_seconds": 60,
+        "points": [],
+        "response_status": "Complete",
+        "messages": [],
+        "missing_data": true
+      },
+      {
+        "service": "ledger-service",
+        "operation": "balance",
+        "metric_name": "ExclusiveProcessingMilliseconds",
+        "unit": "Milliseconds",
+        "statistic": "Average",
+        "dimensions": [
+          {
+            "Name": "Environment",
+            "Value": "academic-local-test"
+          },
+          {
+            "Name": "Service",
+            "Value": "ledger-service"
+          },
+          {
+            "Name": "Operation",
+            "Value": "balance"
+          }
+        ],
+        "source": "aws_cloudwatch",
+        "period_seconds": 60,
+        "points": [],
+        "response_status": "Complete",
+        "messages": [],
+        "missing_data": true
+      },
+      {
+        "service": "banking-db",
+        "operation": "balance",
+        "metric_name": "DBQueryMilliseconds",
+        "unit": "Milliseconds",
+        "statistic": "Average",
+        "dimensions": [
+          {
+            "Name": "Environment",
+            "Value": "academic-local-test"
+          },
+          {
+            "Name": "Service",
+            "Value": "banking-db"
+          },
+          {
+            "Name": "Operation",
+            "Value": "balance"
+          }
+        ],
+        "source": "aws_cloudwatch",
+        "period_seconds": 60,
+        "points": [
+          {
+            "timestamp": "2026-10-16T19:06:00+05:30",
+            "value": 7.451575002050959
+          }
+        ],
+        "response_status": "Complete",
+        "messages": [],
+        "missing_data": false
+      },
+      {
+        "service": "banking-db",
+        "operation": "balance",
+        "metric_name": "DBConnectionMilliseconds",
+        "unit": "Milliseconds",
+        "statistic": "Average",
+        "dimensions": [
+          {
+            "Name": "Environment",
+            "Value": "academic-local-test"
+          },
+          {
+            "Name": "Service",
+            "Value": "banking-db"
+          },
+          {
+            "Name": "Operation",
+            "Value": "balance"
+          }
+        ],
+        "source": "aws_cloudwatch",
+        "period_seconds": 60,
+        "points": [
+          {
+            "timestamp": "2026-10-16T19:06:00+05:30",
+            "value": 0.8243499942182098
+          }
+        ],
+        "response_status": "Complete",
+        "messages": [],
+        "missing_data": false
+      },
+      {
+        "service": "banking-api",
+        "operation": "transfer",
+        "metric_name": "RequestCount",
+        "unit": "Count",
+        "statistic": "Sum",
+        "dimensions": [
+          {
+            "Name": "Environment",
+            "Value": "academic-local-test"
+          },
+          {
+            "Name": "Service",
+            "Value": "banking-api"
+          },
+          {
+            "Name": "Operation",
+            "Value": "transfer"
+          }
+        ],
+        "source": "aws_cloudwatch",
+        "period_seconds": 60,
+        "points": [
+          {
+            "timestamp": "2026-10-16T19:06:00+05:30",
+            "value": 3.0
+          }
+        ],
+        "response_status": "Complete",
+        "messages": [],
+        "missing_data": false
+      },
+      {
+        "service": "banking-api",
+        "operation": "transfer",
+        "metric_name": "ErrorCount",
+        "unit": "Count",
+        "statistic": "Sum",
+        "dimensions": [
+          {
+            "Name": "Environment",
+            "Value": "academic-local-test"
+          },
+          {
+            "Name": "Service",
+            "Value": "banking-api"
+          },
+          {
+            "Name": "Operation",
+            "Value": "transfer"
+          }
+        ],
+        "source": "aws_cloudwatch",
+        "period_seconds": 60,
+        "points": [
+          {
+            "timestamp": "2026-10-16T19:06:00+05:30",
+            "value": 0.0
+          }
+        ],
+        "response_status": "Complete",
+        "messages": [],
+        "missing_data": false
+      },
+      {
+        "service": "banking-api",
+        "operation": "transfer",
+        "metric_name": "RequestLatencyMilliseconds",
+        "unit": "Milliseconds",
+        "statistic": "Average",
+        "dimensions": [
+          {
+            "Name": "Environment",
+            "Value": "academic-local-test"
+          },
+          {
+            "Name": "Service",
+            "Value": "banking-api"
+          },
+          {
+            "Name": "Operation",
+            "Value": "transfer"
+          }
+        ],
+        "source": "aws_cloudwatch",
+        "period_seconds": 60,
+        "points": [
+          {
+            "timestamp": "2026-10-16T19:06:00+05:30",
+            "value": 233.83296667210138
+          }
+        ],
+        "response_status": "Complete",
+        "messages": [],
+        "missing_data": false
+      },
+      {
+        "service": "banking-api",
+        "operation": "transfer",
+        "metric_name": "ClientLatencyMilliseconds",
+        "unit": "Milliseconds",
+        "statistic": "Average",
+        "dimensions": [
+          {
+            "Name": "Environment",
+            "Value": "academic-local-test"
+          },
+          {
+            "Name": "Service",
+            "Value": "banking-api"
+          },
+          {
+            "Name": "Operation",
+            "Value": "transfer"
+          }
+        ],
+        "source": "aws_cloudwatch",
+        "period_seconds": 60,
+        "points": [
+          {
+            "timestamp": "2026-10-16T19:06:00+05:30",
+            "value": 278.39240000321297
+          }
+        ],
+        "response_status": "Complete",
+        "messages": [],
+        "missing_data": false
+      },
+      {
+        "service": "banking-api",
+        "operation": "transfer",
+        "metric_name": "ServiceLatencyMilliseconds",
+        "unit": "Milliseconds",
+        "statistic": "Average",
+        "dimensions": [
+          {
+            "Name": "Environment",
+            "Value": "academic-local-test"
+          },
+          {
+            "Name": "Service",
+            "Value": "banking-api"
+          },
+          {
+            "Name": "Operation",
+            "Value": "transfer"
+          }
+        ],
+        "source": "aws_cloudwatch",
+        "period_seconds": 60,
+        "points": [
+          {
+            "timestamp": "2026-10-16T19:06:00+05:30",
+            "value": 233.83296667210138
+          }
+        ],
+        "response_status": "Complete",
+        "messages": [],
+        "missing_data": false
+      },
+      {
+        "service": "banking-api",
+        "operation": "transfer",
+        "metric_name": "ExclusiveProcessingMilliseconds",
+        "unit": "Milliseconds",
+        "statistic": "Average",
+        "dimensions": [
+          {
+            "Name": "Environment",
+            "Value": "academic-local-test"
+          },
+          {
+            "Name": "Service",
+            "Value": "banking-api"
+          },
+          {
+            "Name": "Operation",
+            "Value": "transfer"
+          }
+        ],
+        "source": "aws_cloudwatch",
+        "period_seconds": 60,
+        "points": [
+          {
+            "timestamp": "2026-10-16T19:06:00+05:30",
+            "value": 15.71643334076119
+          }
+        ],
+        "response_status": "Complete",
+        "messages": [],
+        "missing_data": false
+      },
+      {
+        "service": "account-service",
+        "operation": "transfer",
+        "metric_name": "ServiceLatencyMilliseconds",
+        "unit": "Milliseconds",
+        "statistic": "Average",
+        "dimensions": [
+          {
+            "Name": "Environment",
+            "Value": "academic-local-test"
+          },
+          {
+            "Name": "Service",
+            "Value": "account-service"
+          },
+          {
+            "Name": "Operation",
+            "Value": "transfer"
+          }
+        ],
+        "source": "aws_cloudwatch",
+        "period_seconds": 60,
+        "points": [],
+        "response_status": "Complete",
+        "messages": [],
+        "missing_data": true
+      },
+      {
+        "service": "account-service",
+        "operation": "transfer",
+        "metric_name": "ExclusiveProcessingMilliseconds",
+        "unit": "Milliseconds",
+        "statistic": "Average",
+        "dimensions": [
+          {
+            "Name": "Environment",
+            "Value": "academic-local-test"
+          },
+          {
+            "Name": "Service",
+            "Value": "account-service"
+          },
+          {
+            "Name": "Operation",
+            "Value": "transfer"
+          }
+        ],
+        "source": "aws_cloudwatch",
+        "period_seconds": 60,
+        "points": [],
+        "response_status": "Complete",
+        "messages": [],
+        "missing_data": true
+      },
+      {
+        "service": "ledger-service",
+        "operation": "transfer",
+        "metric_name": "ServiceLatencyMilliseconds",
+        "unit": "Milliseconds",
+        "statistic": "Average",
+        "dimensions": [
+          {
+            "Name": "Environment",
+            "Value": "academic-local-test"
+          },
+          {
+            "Name": "Service",
+            "Value": "ledger-service"
+          },
+          {
+            "Name": "Operation",
+            "Value": "transfer"
+          }
+        ],
+        "source": "aws_cloudwatch",
+        "period_seconds": 60,
+        "points": [
+          {
+            "timestamp": "2026-10-16T19:06:00+05:30",
+            "value": 181.19856666695947
+          }
+        ],
+        "response_status": "Complete",
+        "messages": [],
+        "missing_data": false
+      },
+      {
+        "service": "ledger-service",
+        "operation": "transfer",
+        "metric_name": "ExclusiveProcessingMilliseconds",
+        "unit": "Milliseconds",
+        "statistic": "Average",
+        "dimensions": [
+          {
+            "Name": "Environment",
+            "Value": "academic-local-test"
+          },
+          {
+            "Name": "Service",
+            "Value": "ledger-service"
+          },
+          {
+            "Name": "Operation",
+            "Value": "transfer"
+          }
+        ],
+        "source": "aws_cloudwatch",
+        "period_seconds": 60,
+        "points": [
+          {
+            "timestamp": "2026-10-16T19:06:00+05:30",
+            "value": 169.86169998805659
+          }
+        ],
+        "response_status": "Complete",
+        "messages": [],
+        "missing_data": false
+      },
+      {
+        "service": "banking-db",
+        "operation": "transfer",
+        "metric_name": "DBQueryMilliseconds",
+        "unit": "Milliseconds",
+        "statistic": "Average",
+        "dimensions": [
+          {
+            "Name": "Environment",
+            "Value": "academic-local-test"
+          },
+          {
+            "Name": "Service",
+            "Value": "banking-db"
+          },
+          {
+            "Name": "Operation",
+            "Value": "transfer"
+          }
+        ],
+        "source": "aws_cloudwatch",
+        "period_seconds": 60,
+        "points": [
+          {
+            "timestamp": "2026-10-16T19:06:00+05:30",
+            "value": 1.4745619056546795
+          }
+        ],
+        "response_status": "Complete",
+        "messages": [],
+        "missing_data": false
+      },
+      {
+        "service": "banking-db",
+        "operation": "transfer",
+        "metric_name": "DBConnectionMilliseconds",
+        "unit": "Milliseconds",
+        "statistic": "Average",
+        "dimensions": [
+          {
+            "Name": "Environment",
+            "Value": "academic-local-test"
+          },
+          {
+            "Name": "Service",
+            "Value": "banking-db"
+          },
+          {
+            "Name": "Operation",
+            "Value": "transfer"
+          }
+        ],
+        "source": "aws_cloudwatch",
+        "period_seconds": 60,
+        "points": [
+          {
+            "timestamp": "2026-10-16T19:06:00+05:30",
+            "value": 1.0149333393201232
+          }
+        ],
+        "response_status": "Complete",
+        "messages": [],
+        "missing_data": false
+      },
+      {
+        "service": "banking-api",
+        "operation": "history",
+        "metric_name": "RequestCount",
+        "unit": "Count",
+        "statistic": "Sum",
+        "dimensions": [
+          {
+            "Name": "Environment",
+            "Value": "academic-local-test"
+          },
+          {
+            "Name": "Service",
+            "Value": "banking-api"
+          },
+          {
+            "Name": "Operation",
+            "Value": "history"
+          }
+        ],
+        "source": "aws_cloudwatch",
+        "period_seconds": 60,
+        "points": [
+          {
+            "timestamp": "2026-10-16T19:06:00+05:30",
+            "value": 3.0
+          }
+        ],
+        "response_status": "Complete",
+        "messages": [],
+        "missing_data": false
+      },
+      {
+        "service": "banking-api",
+        "operation": "history",
+        "metric_name": "ErrorCount",
+        "unit": "Count",
+        "statistic": "Sum",
+        "dimensions": [
+          {
+            "Name": "Environment",
+            "Value": "academic-local-test"
+          },
+          {
+            "Name": "Service",
+            "Value": "banking-api"
+          },
+          {
+            "Name": "Operation",
+            "Value": "history"
+          }
+        ],
+        "source": "aws_cloudwatch",
+        "period_seconds": 60,
+        "points": [
+          {
+            "timestamp": "2026-10-16T19:06:00+05:30",
+            "value": 0.0
+          }
+        ],
+        "response_status": "Complete",
+        "messages": [],
+        "missing_data": false
+      },
+      {
+        "service": "banking-api",
+        "operation": "history",
+        "metric_name": "RequestLatencyMilliseconds",
+        "unit": "Milliseconds",
+        "statistic": "Average",
+        "dimensions": [
+          {
+            "Name": "Environment",
+            "Value": "academic-local-test"
+          },
+          {
+            "Name": "Service",
+            "Value": "banking-api"
+          },
+          {
+            "Name": "Operation",
+            "Value": "history"
+          }
+        ],
+        "source": "aws_cloudwatch",
+        "period_seconds": 60,
+        "points": [
+          {
+            "timestamp": "2026-10-16T19:06:00+05:30",
+            "value": 97.50323333234216
+          }
+        ],
+        "response_status": "Complete",
+        "messages": [],
+        "missing_data": false
+      },
+      {
+        "service": "banking-api",
+        "operation": "history",
+        "metric_name": "ClientLatencyMilliseconds",
+        "unit": "Milliseconds",
+        "statistic": "Average",
+        "dimensions": [
+          {
+            "Name": "Environment",
+            "Value": "academic-local-test"
+          },
+          {
+            "Name": "Service",
+            "Value": "banking-api"
+          },
+          {
+            "Name": "Operation",
+            "Value": "history"
+          }
+        ],
+        "source": "aws_cloudwatch",
+        "period_seconds": 60,
+        "points": [
+          {
+            "timestamp": "2026-10-16T19:06:00+05:30",
+            "value": 164.80139999475796
+          }
+        ],
+        "response_status": "Complete",
+        "messages": [],
+        "missing_data": false
+      },
+      {
+        "service": "banking-api",
+        "operation": "history",
+        "metric_name": "ServiceLatencyMilliseconds",
+        "unit": "Milliseconds",
+        "statistic": "Average",
+        "dimensions": [
+          {
+            "Name": "Environment",
+            "Value": "academic-local-test"
+          },
+          {
+            "Name": "Service",
+            "Value": "banking-api"
+          },
+          {
+            "Name": "Operation",
+            "Value": "history"
+          }
+        ],
+        "source": "aws_cloudwatch",
+        "period_seconds": 60,
+        "points": [
+          {
+            "timestamp": "2026-10-16T19:06:00+05:30",
+            "value": 97.50323333234216
+          }
+        ],
+        "response_status": "Complete",
+        "messages": [],
+        "missing_data": false
+      },
+      {
+        "service": "banking-api",
+        "operation": "history",
+        "metric_name": "ExclusiveProcessingMilliseconds",
+        "unit": "Milliseconds",
+        "statistic": "Average",
+        "dimensions": [
+          {
+            "Name": "Environment",
+            "Value": "academic-local-test"
+          },
+          {
+            "Name": "Service",
+            "Value": "banking-api"
+          },
+          {
+            "Name": "Operation",
+            "Value": "history"
+          }
+        ],
+        "source": "aws_cloudwatch",
+        "period_seconds": 60,
+        "points": [
+          {
+            "timestamp": "2026-10-16T19:06:00+05:30",
+            "value": 15.989633335266262
+          }
+        ],
+        "response_status": "Complete",
+        "messages": [],
+        "missing_data": false
+      },
+      {
+        "service": "account-service",
+        "operation": "history",
+        "metric_name": "ServiceLatencyMilliseconds",
+        "unit": "Milliseconds",
+        "statistic": "Average",
+        "dimensions": [
+          {
+            "Name": "Environment",
+            "Value": "academic-local-test"
+          },
+          {
+            "Name": "Service",
+            "Value": "account-service"
+          },
+          {
+            "Name": "Operation",
+            "Value": "history"
+          }
+        ],
+        "source": "aws_cloudwatch",
+        "period_seconds": 60,
+        "points": [
+          {
+            "timestamp": "2026-10-16T19:06:00+05:30",
+            "value": 55.44396666421866
+          }
+        ],
+        "response_status": "Complete",
+        "messages": [],
+        "missing_data": false
+      },
+      {
+        "service": "account-service",
+        "operation": "history",
+        "metric_name": "ExclusiveProcessingMilliseconds",
+        "unit": "Milliseconds",
+        "statistic": "Average",
+        "dimensions": [
+          {
+            "Name": "Environment",
+            "Value": "academic-local-test"
+          },
+          {
+            "Name": "Service",
+            "Value": "account-service"
+          },
+          {
+            "Name": "Operation",
+            "Value": "history"
+          }
+        ],
+        "source": "aws_cloudwatch",
+        "period_seconds": 60,
+        "points": [
+          {
+            "timestamp": "2026-10-16T19:06:00+05:30",
+            "value": 49.15466666473852
+          }
+        ],
+        "response_status": "Complete",
+        "messages": [],
+        "missing_data": false
+      },
+      {
+        "service": "ledger-service",
+        "operation": "history",
+        "metric_name": "ServiceLatencyMilliseconds",
+        "unit": "Milliseconds",
+        "statistic": "Average",
+        "dimensions": [
+          {
+            "Name": "Environment",
+            "Value": "academic-local-test"
+          },
+          {
+            "Name": "Service",
+            "Value": "ledger-service"
+          },
+          {
+            "Name": "Operation",
+            "Value": "history"
+          }
+        ],
+        "source": "aws_cloudwatch",
+        "period_seconds": 60,
+        "points": [],
+        "response_status": "Complete",
+        "messages": [],
+        "missing_data": true
+      },
+      {
+        "service": "ledger-service",
+        "operation": "history",
+        "metric_name": "ExclusiveProcessingMilliseconds",
+        "unit": "Milliseconds",
+        "statistic": "Average",
+        "dimensions": [
+          {
+            "Name": "Environment",
+            "Value": "academic-local-test"
+          },
+          {
+            "Name": "Service",
+            "Value": "ledger-service"
+          },
+          {
+            "Name": "Operation",
+            "Value": "history"
+          }
+        ],
+        "source": "aws_cloudwatch",
+        "period_seconds": 60,
+        "points": [],
+        "response_status": "Complete",
+        "messages": [],
+        "missing_data": true
+      },
+      {
+        "service": "banking-db",
+        "operation": "history",
+        "metric_name": "DBQueryMilliseconds",
+        "unit": "Milliseconds",
+        "statistic": "Average",
+        "dimensions": [
+          {
+            "Name": "Environment",
+            "Value": "academic-local-test"
+          },
+          {
+            "Name": "Service",
+            "Value": "banking-db"
+          },
+          {
+            "Name": "Operation",
+            "Value": "history"
+          }
+        ],
+        "source": "aws_cloudwatch",
+        "period_seconds": 60,
+        "points": [
+          {
+            "timestamp": "2026-10-16T19:06:00+05:30",
+            "value": 2.631799999411063
+          }
+        ],
+        "response_status": "Complete",
+        "messages": [],
+        "missing_data": false
+      },
+      {
+        "service": "banking-db",
+        "operation": "history",
+        "metric_name": "DBConnectionMilliseconds",
+        "unit": "Milliseconds",
+        "statistic": "Average",
+        "dimensions": [
+          {
+            "Name": "Environment",
+            "Value": "academic-local-test"
+          },
+          {
+            "Name": "Service",
+            "Value": "banking-db"
+          },
+          {
+            "Name": "Operation",
+            "Value": "history"
+          }
+        ],
+        "source": "aws_cloudwatch",
+        "period_seconds": 60,
+        "points": [
+          {
+            "timestamp": "2026-10-16T19:06:00+05:30",
+            "value": 1.0257000006580104
+          }
+        ],
+        "response_status": "Complete",
+        "messages": [],
+        "missing_data": false
+      }
+    ],
+    "errors": [],
+    "api_calls": 1,
+    "collection_complete": true,
+    "exclusion_policy": {
+      "not_before": "2026-10-16T08:05:00+00:00",
+      "reason": "Earlier controlled AWS trials remain excluded."
+    },
+    "resource_relationship": "not_established",
+    "observed_series": 30,
+    "investigation": {
+      "status": "insufficient_evidence",
+      "findings": [],
+      "affected_services": [],
+      "root_cause": "not_established",
+      "gnn_used": false,
+      "explanation": "Independent 60-second CloudWatch averages; earliest 60% baseline, median/MAD threshold, two-point persistence. Stale data cannot establish a current anomaly. Aggregates cannot prove a transaction-level mechanism.",
+      "corrective_actions": [
+        "Compare service exclusive processing with database execution in matched local traces.",
+        "Collect additional normal windows and fresh follow-up measurements before confirming a cause."
+      ],
+      "followup_verification": "not_established"
+    }
+  }
+}

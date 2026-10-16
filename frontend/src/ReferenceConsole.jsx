@@ -1,3 +1,4 @@
+import AwsBankingPanel from './AwsBankingPanel.jsx';
 import BankingResults from './BankingResults.jsx';
 import {ResearchEvidence} from './ResearchEvidence.jsx';
 import ResearchWorkbench, {IncidentIntelligence} from './ResearchWorkbench.jsx';
@@ -93,6 +94,7 @@ function ReferenceConsole({initialMode='alibaba',cloudOnly=false}){
 
     {!cloudOnly&&<div className='reference-tabs'><button onClick={()=>setView('Incident Investigation')}>Explore observed sources</button><button onClick={()=>setView('Research Evidence')}>Measured research results</button></div>}
     {!cloudOnly&&view==='Research Evidence'&&<BankingResults/>}
+    {cloudOnly&&<AwsBankingPanel/>}
     <section className="toolbar"><label>Data source<select value={mode} disabled={loading} onChange={e=>{setMode(e.target.value);setData(null);setError('');setRefined(null)}}>{cloudOnly?<option value='aws'>Live AWS telemetry</option>:<><option value='alibaba'>Alibaba production trace</option><option value='microsoft'>Microsoft labelled benchmark</option><option value='rcaeval'>RCAEval recorded incidents</option></>}</select></label>{(mode==='alibaba'||mode==='aws')&&<button onClick={run} disabled={loading||mode==='microsoft'||mode==='rcaeval'}>{loading?'Collecting evidence…':'Analyze observed data'}</button>}<button className="ghost" onClick={diagnose} disabled={loading}>Inspect analytics database</button><span className="toolbar-hint">{mode==='lab'?'Isolated controlled faults; independently measured telemetry.':mode==='alibaba'?'Production microservices; no banking or failure labels.':mode==='microsoft'?'Official expert-labelled series; no service graph.':mode==='rcaeval'?'Published recorded controlled cases; chronological replay.':'Read-only EC2, RDS and CloudWatch. Requires an active AWS session.'}</span></section>
     {error&&<section className="error"><b>{mode==='aws'?'Cloud resource monitoring unavailable.':'Evidence unavailable'}</b><p>{error}</p></section>}
     {mode==='aws'&&aws&&<section className="panel mini"><div><span>AWS credentials</span><b>{aws.connected?'Authenticated':'Unavailable'}</b></div><div><span>Region</span><b>{aws.region}</b></div><div><span>Resource access</span><b>{error?'Unavailable':data?'Measurements collected':'Not checked'}</b></div></section>}

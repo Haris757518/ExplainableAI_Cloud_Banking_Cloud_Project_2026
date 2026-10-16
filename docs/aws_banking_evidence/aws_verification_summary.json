@@ -1,0 +1,22 @@
+{
+  "backend_tests_passed": 124,
+  "aws_specific_tests_passed": 11,
+  "frontend_build": "passed",
+  "protected_artifacts_checked": 48,
+  "protected_artifacts_changed": 0,
+  "browser_checks": [
+    "banking CloudWatch retrieval",
+    "balance 4 / transfer 3 / history 3",
+    "metric selectors",
+    "service latency readings",
+    "local provenance",
+    "independent infrastructure collection"
+  ],
+  "published_requests": 10,
+  "published_metric_values": 118,
+  "retrieved_series": 30,
+  "namespace": "ExplainableAI/Banking",
+  "region": "us-east-1",
+  "cloud_hosting": "not established",
+  "cloud_anomaly_validation": "insufficient evidence"
+}
