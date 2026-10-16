@@ -1,0 +1,638 @@
+{
+  "protocol": "Five preselected RE2-OB recordings; independent per-case normal-prefix training20%, validation next10%, fixed midpoint+120s diagnosis. Actual parent-child topology restricted to completed training-prefix spans. Same seed42, architecture,100epochs; best validation weights. Four source metrics, training-only scaling. No cross-recording weights or labels used in model fitting.",
+  "cases": [
+    {
+      "case_id": "364d289fa7b7106f7a71",
+      "models": {
+        "identity": {
+          "ranking": [
+            "checkoutservice",
+            "currencyservice",
+            "cartservice",
+            "adservice",
+            "paymentservice",
+            "productcatalogservice",
+            "emailservice",
+            "recommendationservice",
+            "frontend",
+            "shippingservice",
+            "frontend-external",
+            "redis"
+          ],
+          "validation_next_step_mse": 0.0012710248120129108,
+          "mean_recent_next_step_mse": 0.002988997148349881,
+          "rank": 1,
+          "top1": true,
+          "top3": true
+        },
+        "recorded_graph": {
+          "ranking": [
+            "checkoutservice",
+            "paymentservice",
+            "emailservice",
+            "productcatalogservice",
+            "currencyservice",
+            "recommendationservice",
+            "frontend",
+            "adservice",
+            "shippingservice",
+            "cartservice",
+            "redis",
+            "frontend-external"
+          ],
+          "validation_next_step_mse": 0.2122364640235901,
+          "mean_recent_next_step_mse": 0.4632299840450287,
+          "rank": 1,
+          "top1": true,
+          "top3": true
+        }
+      },
+      "edges": [
+        {
+          "observed_at": 1705353847.668252,
+          "source": "checkoutservice",
+          "target": "currencyservice",
+          "relationship": "recorded_parent_child_span",
+          "provenance": "Official RE2 Jaeger traceID + parentSpanID match; availability after both spans finish"
+        },
+        {
+          "observed_at": 1705353847.789801,
+          "source": "checkoutservice",
+          "target": "emailservice",
+          "relationship": "recorded_parent_child_span",
+          "provenance": "Official RE2 Jaeger traceID + parentSpanID match; availability after both spans finish"
+        },
+        {
+          "observed_at": 1705353847.776229,
+          "source": "checkoutservice",
+          "target": "paymentservice",
+          "relationship": "recorded_parent_child_span",
+          "provenance": "Official RE2 Jaeger traceID + parentSpanID match; availability after both spans finish"
+        },
+        {
+          "observed_at": 1705353847.583436,
+          "source": "checkoutservice",
+          "target": "productcatalogservice",
+          "relationship": "recorded_parent_child_span",
+          "provenance": "Official RE2 Jaeger traceID + parentSpanID match; availability after both spans finish"
+        },
+        {
+          "observed_at": 1705353847.790997,
+          "source": "frontend",
+          "target": "checkoutservice",
+          "relationship": "recorded_parent_child_span",
+          "provenance": "Official RE2 Jaeger traceID + parentSpanID match; availability after both spans finish"
+        },
+        {
+          "observed_at": 1705353846.069564,
+          "source": "frontend",
+          "target": "currencyservice",
+          "relationship": "recorded_parent_child_span",
+          "provenance": "Official RE2 Jaeger traceID + parentSpanID match; availability after both spans finish"
+        },
+        {
+          "observed_at": 1705353846.075695,
+          "source": "frontend",
+          "target": "productcatalogservice",
+          "relationship": "recorded_parent_child_span",
+          "provenance": "Official RE2 Jaeger traceID + parentSpanID match; availability after both spans finish"
+        },
+        {
+          "observed_at": 1705353846.276916,
+          "source": "frontend",
+          "target": "recommendationservice",
+          "relationship": "recorded_parent_child_span",
+          "provenance": "Official RE2 Jaeger traceID + parentSpanID match; availability after both spans finish"
+        },
+        {
+          "observed_at": 1705353846.275293,
+          "source": "recommendationservice",
+          "target": "productcatalogservice",
+          "relationship": "recorded_parent_child_span",
+          "provenance": "Official RE2 Jaeger traceID + parentSpanID match; availability after both spans finish"
+        }
+      ],
+      "train_end": 1705354134.0,
+      "validation_end": 1705354278.0,
+      "checkpoint": 1705354686.0,
+      "truth": {
+        "root_cause_service": "checkoutservice",
+        "fault": "cpu",
+        "inject_time": 1705354566,
+        "system": "ob",
+        "label_source": "Official RE2 case index and inject_time.txt; controlled injection"
+      },
+      "warmup_precedes_injection": true
+    },
+    {
+      "case_id": "f41f071745c16594b5f5",
+      "models": {
+        "identity": {
+          "ranking": [
+            "frontend",
+            "checkoutservice",
+            "currencyservice",
+            "productcatalogservice",
+            "recommendationservice",
+            "emailservice",
+            "cartservice",
+            "paymentservice",
+            "adservice",
+            "shippingservice",
+            "frontend-external",
+            "redis"
+          ],
+          "validation_next_step_mse": 0.0010247479658573866,
+          "mean_recent_next_step_mse": 1.2750874757766724,
+          "rank": 3,
+          "top1": false,
+          "top3": true
+        },
+        "recorded_graph": {
+          "ranking": [
+            "frontend",
+            "checkoutservice",
+            "currencyservice",
+            "productcatalogservice",
+            "emailservice",
+            "paymentservice",
+            "recommendationservice",
+            "adservice",
+            "cartservice",
+            "shippingservice",
+            "redis",
+            "frontend-external"
+          ],
+          "validation_next_step_mse": 0.16993382573127747,
+          "mean_recent_next_step_mse": 12.008997917175293,
+          "rank": 3,
+          "top1": false,
+          "top3": true
+        }
+      },
+      "edges": [
+        {
+          "observed_at": 1705463809.924021,
+          "source": "checkoutservice",
+          "target": "currencyservice",
+          "relationship": "recorded_parent_child_span",
+          "provenance": "Official RE2 Jaeger traceID + parentSpanID match; availability after both spans finish"
+        },
+        {
+          "observed_at": 1705463809.953516,
+          "source": "checkoutservice",
+          "target": "emailservice",
+          "relationship": "recorded_parent_child_span",
+          "provenance": "Official RE2 Jaeger traceID + parentSpanID match; availability after both spans finish"
+        },
+        {
+          "observed_at": 1705463809.940937,
+          "source": "checkoutservice",
+          "target": "paymentservice",
+          "relationship": "recorded_parent_child_span",
+          "provenance": "Official RE2 Jaeger traceID + parentSpanID match; availability after both spans finish"
+        },
+        {
+          "observed_at": 1705463809.858764,
+          "source": "checkoutservice",
+          "target": "productcatalogservice",
+          "relationship": "recorded_parent_child_span",
+          "provenance": "Official RE2 Jaeger traceID + parentSpanID match; availability after both spans finish"
+        },
+        {
+          "observed_at": 1705463809.955012,
+          "source": "frontend",
+          "target": "checkoutservice",
+          "relationship": "recorded_parent_child_span",
+          "provenance": "Official RE2 Jaeger traceID + parentSpanID match; availability after both spans finish"
+        },
+        {
+          "observed_at": 1705463799.107185,
+          "source": "frontend",
+          "target": "currencyservice",
+          "relationship": "recorded_parent_child_span",
+          "provenance": "Official RE2 Jaeger traceID + parentSpanID match; availability after both spans finish"
+        },
+        {
+          "observed_at": 1705463799.109737,
+          "source": "frontend",
+          "target": "productcatalogservice",
+          "relationship": "recorded_parent_child_span",
+          "provenance": "Official RE2 Jaeger traceID + parentSpanID match; availability after both spans finish"
+        },
+        {
+          "observed_at": 1705463799.325927,
+          "source": "frontend",
+          "target": "recommendationservice",
+          "relationship": "recorded_parent_child_span",
+          "provenance": "Official RE2 Jaeger traceID + parentSpanID match; availability after both spans finish"
+        },
+        {
+          "observed_at": 1705463799.32444,
+          "source": "recommendationservice",
+          "target": "productcatalogservice",
+          "relationship": "recorded_parent_child_span",
+          "provenance": "Official RE2 Jaeger traceID + parentSpanID match; availability after both spans finish"
+        }
+      ],
+      "train_end": 1705464087.0,
+      "validation_end": 1705464231.0,
+      "checkpoint": 1705464639.0,
+      "truth": {
+        "root_cause_service": "currencyservice",
+        "fault": "mem",
+        "inject_time": 1705464519,
+        "system": "ob",
+        "label_source": "Official RE2 case index and inject_time.txt; controlled injection"
+      },
+      "warmup_precedes_injection": true
+    },
+    {
+      "case_id": "2f4bfdc9ac0d37bd7dc5",
+      "models": {
+        "identity": {
+          "ranking": [
+            "emailservice",
+            "checkoutservice",
+            "recommendationservice",
+            "frontend",
+            "adservice",
+            "cartservice",
+            "paymentservice",
+            "frontend-external",
+            "redis",
+            "currencyservice",
+            "shippingservice",
+            "productcatalogservice"
+          ],
+          "validation_next_step_mse": 0.0011198596330359578,
+          "mean_recent_next_step_mse": 0.0062741176225245,
+          "rank": 1,
+          "top1": true,
+          "top3": true
+        },
+        "recorded_graph": {
+          "ranking": [
+            "emailservice",
+            "recommendationservice",
+            "checkoutservice",
+            "productcatalogservice",
+            "frontend",
+            "currencyservice",
+            "adservice",
+            "paymentservice",
+            "shippingservice",
+            "cartservice",
+            "frontend-external",
+            "redis"
+          ],
+          "validation_next_step_mse": 0.17406421899795532,
+          "mean_recent_next_step_mse": 0.3993109166622162,
+          "rank": 1,
+          "top1": true,
+          "top3": true
+        }
+      },
+      "edges": [
+        {
+          "observed_at": 1705369376.168001,
+          "source": "checkoutservice",
+          "target": "currencyservice",
+          "relationship": "recorded_parent_child_span",
+          "provenance": "Official RE2 Jaeger traceID + parentSpanID match; availability after both spans finish"
+        },
+        {
+          "observed_at": 1705369376.290453,
+          "source": "checkoutservice",
+          "target": "emailservice",
+          "relationship": "recorded_parent_child_span",
+          "provenance": "Official RE2 Jaeger traceID + parentSpanID match; availability after both spans finish"
+        },
+        {
+          "observed_at": 1705369376.276354,
+          "source": "checkoutservice",
+          "target": "paymentservice",
+          "relationship": "recorded_parent_child_span",
+          "provenance": "Official RE2 Jaeger traceID + parentSpanID match; availability after both spans finish"
+        },
+        {
+          "observed_at": 1705369375.987455,
+          "source": "checkoutservice",
+          "target": "productcatalogservice",
+          "relationship": "recorded_parent_child_span",
+          "provenance": "Official RE2 Jaeger traceID + parentSpanID match; availability after both spans finish"
+        },
+        {
+          "observed_at": 1705369376.291468,
+          "source": "frontend",
+          "target": "checkoutservice",
+          "relationship": "recorded_parent_child_span",
+          "provenance": "Official RE2 Jaeger traceID + parentSpanID match; availability after both spans finish"
+        },
+        {
+          "observed_at": 1705369375.077406,
+          "source": "frontend",
+          "target": "currencyservice",
+          "relationship": "recorded_parent_child_span",
+          "provenance": "Official RE2 Jaeger traceID + parentSpanID match; availability after both spans finish"
+        },
+        {
+          "observed_at": 1705369375.087353,
+          "source": "frontend",
+          "target": "productcatalogservice",
+          "relationship": "recorded_parent_child_span",
+          "provenance": "Official RE2 Jaeger traceID + parentSpanID match; availability after both spans finish"
+        },
+        {
+          "observed_at": 1705369375.084838,
+          "source": "frontend",
+          "target": "recommendationservice",
+          "relationship": "recorded_parent_child_span",
+          "provenance": "Official RE2 Jaeger traceID + parentSpanID match; availability after both spans finish"
+        },
+        {
+          "observed_at": 1705369375.082996,
+          "source": "recommendationservice",
+          "target": "productcatalogservice",
+          "relationship": "recorded_parent_child_span",
+          "provenance": "Official RE2 Jaeger traceID + parentSpanID match; availability after both spans finish"
+        }
+      ],
+      "train_end": 1705369663.0,
+      "validation_end": 1705369807.0,
+      "checkpoint": 1705370215.0,
+      "truth": {
+        "root_cause_service": "emailservice",
+        "fault": "disk",
+        "inject_time": 1705370095,
+        "system": "ob",
+        "label_source": "Official RE2 case index and inject_time.txt; controlled injection"
+      },
+      "warmup_precedes_injection": true
+    },
+    {
+      "case_id": "4e587b5f0eac94cff8e2",
+      "models": {
+        "identity": {
+          "ranking": [
+            "frontend",
+            "checkoutservice",
+            "recommendationservice",
+            "productcatalogservice",
+            "currencyservice",
+            "emailservice",
+            "paymentservice",
+            "adservice",
+            "cartservice",
+            "frontend-external",
+            "shippingservice",
+            "redis"
+          ],
+          "validation_next_step_mse": 0.0012253968743607402,
+          "mean_recent_next_step_mse": 0.6461970210075378,
+          "rank": 4,
+          "top1": false,
+          "top3": false
+        },
+        "recorded_graph": {
+          "ranking": [
+            "frontend",
+            "checkoutservice",
+            "recommendationservice",
+            "productcatalogservice",
+            "currencyservice",
+            "emailservice",
+            "paymentservice",
+            "shippingservice",
+            "adservice",
+            "cartservice",
+            "frontend-external",
+            "redis"
+          ],
+          "validation_next_step_mse": 0.19075101613998413,
+          "mean_recent_next_step_mse": 7.839658737182617,
+          "rank": 4,
+          "top1": false,
+          "top3": false
+        }
+      },
+      "edges": [
+        {
+          "observed_at": 1705393859.191065,
+          "source": "checkoutservice",
+          "target": "currencyservice",
+          "relationship": "recorded_parent_child_span",
+          "provenance": "Official RE2 Jaeger traceID + parentSpanID match; availability after both spans finish"
+        },
+        {
+          "observed_at": 1705393859.301369,
+          "source": "checkoutservice",
+          "target": "emailservice",
+          "relationship": "recorded_parent_child_span",
+          "provenance": "Official RE2 Jaeger traceID + parentSpanID match; availability after both spans finish"
+        },
+        {
+          "observed_at": 1705393859.290749,
+          "source": "checkoutservice",
+          "target": "paymentservice",
+          "relationship": "recorded_parent_child_span",
+          "provenance": "Official RE2 Jaeger traceID + parentSpanID match; availability after both spans finish"
+        },
+        {
+          "observed_at": 1705393859.185146,
+          "source": "checkoutservice",
+          "target": "productcatalogservice",
+          "relationship": "recorded_parent_child_span",
+          "provenance": "Official RE2 Jaeger traceID + parentSpanID match; availability after both spans finish"
+        },
+        {
+          "observed_at": 1705393859.302793,
+          "source": "frontend",
+          "target": "checkoutservice",
+          "relationship": "recorded_parent_child_span",
+          "provenance": "Official RE2 Jaeger traceID + parentSpanID match; availability after both spans finish"
+        },
+        {
+          "observed_at": 1705393858.009621,
+          "source": "frontend",
+          "target": "currencyservice",
+          "relationship": "recorded_parent_child_span",
+          "provenance": "Official RE2 Jaeger traceID + parentSpanID match; availability after both spans finish"
+        },
+        {
+          "observed_at": 1705393858.021092,
+          "source": "frontend",
+          "target": "productcatalogservice",
+          "relationship": "recorded_parent_child_span",
+          "provenance": "Official RE2 Jaeger traceID + parentSpanID match; availability after both spans finish"
+        },
+        {
+          "observed_at": 1705393858.018478,
+          "source": "frontend",
+          "target": "recommendationservice",
+          "relationship": "recorded_parent_child_span",
+          "provenance": "Official RE2 Jaeger traceID + parentSpanID match; availability after both spans finish"
+        },
+        {
+          "observed_at": 1705393858.016524,
+          "source": "recommendationservice",
+          "target": "productcatalogservice",
+          "relationship": "recorded_parent_child_span",
+          "provenance": "Official RE2 Jaeger traceID + parentSpanID match; availability after both spans finish"
+        }
+      ],
+      "train_end": 1705394146.0,
+      "validation_end": 1705394290.0,
+      "checkpoint": 1705394698.0,
+      "truth": {
+        "root_cause_service": "productcatalogservice",
+        "fault": "delay",
+        "inject_time": 1705394578,
+        "system": "ob",
+        "label_source": "Official RE2 case index and inject_time.txt; controlled injection"
+      },
+      "warmup_precedes_injection": true
+    },
+    {
+      "case_id": "76ec1be060854cf5f49f",
+      "models": {
+        "identity": {
+          "ranking": [
+            "recommendationservice",
+            "frontend",
+            "productcatalogservice",
+            "currencyservice",
+            "checkoutservice",
+            "frontend-external",
+            "emailservice",
+            "cartservice",
+            "paymentservice",
+            "adservice",
+            "redis",
+            "shippingservice"
+          ],
+          "validation_next_step_mse": 0.0010339905275031924,
+          "mean_recent_next_step_mse": 0.6261669993400574,
+          "rank": 1,
+          "top1": true,
+          "top3": true
+        },
+        "recorded_graph": {
+          "ranking": [
+            "recommendationservice",
+            "frontend",
+            "productcatalogservice",
+            "checkoutservice",
+            "currencyservice",
+            "adservice",
+            "shippingservice",
+            "cartservice",
+            "frontend-external",
+            "paymentservice",
+            "emailservice",
+            "redis"
+          ],
+          "validation_next_step_mse": 0.1673012226819992,
+          "mean_recent_next_step_mse": 7.435898303985596,
+          "rank": 1,
+          "top1": true,
+          "top3": true
+        }
+      },
+      "edges": [
+        {
+          "observed_at": 1705346511.20556,
+          "source": "checkoutservice",
+          "target": "currencyservice",
+          "relationship": "recorded_parent_child_span",
+          "provenance": "Official RE2 Jaeger traceID + parentSpanID match; availability after both spans finish"
+        },
+        {
+          "observed_at": 1705346511.2279,
+          "source": "checkoutservice",
+          "target": "emailservice",
+          "relationship": "recorded_parent_child_span",
+          "provenance": "Official RE2 Jaeger traceID + parentSpanID match; availability after both spans finish"
+        },
+        {
+          "observed_at": 1705346511.217818,
+          "source": "checkoutservice",
+          "target": "paymentservice",
+          "relationship": "recorded_parent_child_span",
+          "provenance": "Official RE2 Jaeger traceID + parentSpanID match; availability after both spans finish"
+        },
+        {
+          "observed_at": 1705346511.119454,
+          "source": "checkoutservice",
+          "target": "productcatalogservice",
+          "relationship": "recorded_parent_child_span",
+          "provenance": "Official RE2 Jaeger traceID + parentSpanID match; availability after both spans finish"
+        },
+        {
+          "observed_at": 1705346511.229134,
+          "source": "frontend",
+          "target": "checkoutservice",
+          "relationship": "recorded_parent_child_span",
+          "provenance": "Official RE2 Jaeger traceID + parentSpanID match; availability after both spans finish"
+        },
+        {
+          "observed_at": 1705346511.105317,
+          "source": "frontend",
+          "target": "currencyservice",
+          "relationship": "recorded_parent_child_span",
+          "provenance": "Official RE2 Jaeger traceID + parentSpanID match; availability after both spans finish"
+        },
+        {
+          "observed_at": 1705346511.006615,
+          "source": "frontend",
+          "target": "productcatalogservice",
+          "relationship": "recorded_parent_child_span",
+          "provenance": "Official RE2 Jaeger traceID + parentSpanID match; availability after both spans finish"
+        },
+        {
+          "observed_at": 1705346511.117666,
+          "source": "frontend",
+          "target": "recommendationservice",
+          "relationship": "recorded_parent_child_span",
+          "provenance": "Official RE2 Jaeger traceID + parentSpanID match; availability after both spans finish"
+        },
+        {
+          "observed_at": 1705346511.115829,
+          "source": "recommendationservice",
+          "target": "productcatalogservice",
+          "relationship": "recorded_parent_child_span",
+          "provenance": "Official RE2 Jaeger traceID + parentSpanID match; availability after both spans finish"
+        }
+      ],
+      "train_end": 1705346799.0,
+      "validation_end": 1705346943.0,
+      "checkpoint": 1705347351.0,
+      "truth": {
+        "root_cause_service": "recommendationservice",
+        "fault": "loss",
+        "inject_time": 1705347231,
+        "system": "ob",
+        "label_source": "Official RE2 case index and inject_time.txt; controlled injection"
+      },
+      "warmup_precedes_injection": true
+    }
+  ],
+  "summary": {
+    "identity": {
+      "cases": 5,
+      "top1": 0.6,
+      "top3": 0.8
+    },
+    "recorded_graph": {
+      "cases": 5,
+      "top1": 0.6,
+      "top3": 0.8
+    }
+  },
+  "limitations": [
+    "Five illustrative recordings, not a representative accuracy benchmark; no superiority inference.",
+    "Graph is symmetrized for message passing; UI retains original recorded direction.",
+    "Metrics only; trace topology is not proof of a propagation mechanism.",
+    "Underlying mechanisms evaluated separately; no causal confidence or cross-domain transfer."
+  ]
+}

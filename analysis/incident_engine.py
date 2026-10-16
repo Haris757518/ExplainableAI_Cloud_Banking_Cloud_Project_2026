@@ -4,7 +4,7 @@ from statistics import median
 from common.research import Incident,EvidenceRecord,RootCauseCandidate,RecommendedAction
 from analysis.forecasting import forecast_next
 
-VERSION='evidence-gated-tc-cfao-v3'
+VERSION='evidence-gated-mechanisms-v4'
 FAMILIES={
  'application_latency':(['latency'],['cpu','mem','errors'],'positive robust deviation'),
  'database_query_latency':(['db_latency_ms'],['blocked_sessions','wait_events','db_connection_ms'],'positive robust deviation'),
@@ -112,7 +112,7 @@ def analyze_case(case,as_of=None,*,graph_enabled=True,evidence_gate=True,forecas
     by_resource={}
     for e in abnormal:by_resource.setdefault(e.resource,[]).append(e)
     retrieval=sorted(by_resource,key=lambda n:max(e.score for e in by_resource[n]),reverse=True)
-    edges=prefix.edges if graph_enabled else []
+    edges=[e for e in prefix.edges if as_of is None or e.observed_at is None or e.observed_at<=as_of] if graph_enabled else []
     candidates=[]
     for node in retrieval[:20]:
         support=by_resource[node];temporal=max(e.score for e in support)
@@ -144,4 +144,25 @@ def analyze_case(case,as_of=None,*,graph_enabled=True,evidence_gate=True,forecas
     incident.investigation.update(policy)
     incident.explanation.update(detector_threshold=threshold,required_persistence=persistence,calibration=calibration)
     incident.provenance["data_quality"]={"missing_points":sum(p.value is None for s in prefix.series for p in s.observations),"observed_points":sum(p.value is not None for s in prefix.series for p in s.observations),"insufficient_or_stale_series":len(missing)}
+    from analysis.mechanisms import diagnose, mechanism_actions, resource_labels
+    incident.explanation['diagnosis'] = diagnose(incident)
+    incident.explanation['resource_labels'] = resource_labels(incident.graph['nodes'])
+    incident.recommendations = mechanism_actions(incident.explanation['diagnosis'])
+    for request in incident.investigation.get('requests',[]):
+        candidate=next((c for c in incident.candidates if c.resource==request['resource']),None)
+        if candidate:
+            local=diagnose(incident.model_copy(update={'candidates':[candidate]}))
+            request['purpose']=local['next_check']
+            request['mechanism_status']=local['status']
+    leading=incident.candidates[0] if incident.candidates else None
+    propagation=[]
+    if leading:
+        origin_onset=min((e.onset for e in leading.supporting_evidence if e.onset is not None),default=None)
+        for edge in edges:
+            if edge.target!=leading.resource or edge.source not in by_resource:continue
+            caller_onset=min((e.onset for e in by_resource[edge.source] if e.onset is not None),default=None)
+            propagation.append({'caller':edge.source,'dependency':edge.target,'origin_onset':origin_onset,'caller_onset':caller_onset,'ordering':'compatible_later_or_simultaneous' if origin_onset is not None and caller_onset is not None and origin_onset<=caller_onset else 'contradictory_or_unknown','causal_confirmation':False})
+    incident.explanation['observed_propagation']=propagation
+    incident.explanation['onset_interpretation']='Start of a qualifying run within the last six valid observations, not independently annotated fault onset.'
+    incident.explanation['localization_scope']='metric_series_only' if case.source.id=='microsoft' else 'suspected_resource'
     return incident

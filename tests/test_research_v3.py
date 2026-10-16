@@ -54,7 +54,8 @@ def test_labels_are_not_an_inference_argument_or_contract():
 def test_gate_rejects_single_point_noise_and_keeps_sustained_deviation():
     case=fixture_case();a=analyze_case(case,90,forecast_enabled=False);b=analyze_case(case,92,forecast_enabled=False)
     assert not a.candidates and b.candidates and b.cause_verified is False
-    assert b.recommendations[0].mechanism_status.startswith('suspected')
+    assert b.recommendations[0].mechanism_status=='unknown'
+    assert b.explanation['diagnosis']['mechanism']=='unknown'
 
 def test_no_graph_fabricated_for_univariate_series():
     r=analyze_case(fixture_case(),92)

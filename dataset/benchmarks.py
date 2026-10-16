@@ -64,7 +64,9 @@ def period(observations):
 def load_case(case_id, root_string=str(ROOT)):
     root=Path(root_string); info=manifest(root)
     entry=next((r for r in info['cases'] if r['id']==case_id),None)
-    if entry is None:raise FileNotFoundError('Benchmark case is not imported')
+    if entry is None:
+        from dataset.re2 import load_re2
+        return load_re2(case_id)
     path=safe_file(root,entry['file'])
     if digest(path)!=entry['sha256']:raise ValueError('Raw benchmark checksum mismatch')
     if entry['source']=='microsoft':
@@ -89,7 +91,10 @@ def load_case(case_id, root_string=str(ROOT)):
     return TelemetryCase(id=case_id,source=source,collection=entry['sha256'],series=series,edges=edges,provenance={'sha256':entry['sha256'],'split':entry['split'],'recording_end':max(s.observations[-1].timestamp for s in series),'topology':'unavailable' if not edges else 'recorded','original_units':'Unspecified metric units are preserved as unknown; no assumed ms/percent conversions.'})
 
 def labels_for_evaluation(case_id,root=ROOT):
-    entry=next(r for r in manifest(root)['cases'] if r['id']==case_id)
+    entry=next((r for r in manifest(root)['cases'] if r['id']==case_id),None)
+    if entry is None:
+        from dataset.re2 import truth_re2
+        return truth_re2(case_id)
     if entry['source']=='microsoft':
         return {'point_labels':parse_microsoft(safe_file(root,entry['file']))[1],'label_source':'Official Microsoft CSV Label column'}
     truth=json.loads(safe_file(root,'labels/'+case_id+'.json').read_text())
@@ -102,4 +107,8 @@ def labels_for_evaluation(case_id,root=ROOT):
     return {**truth,'label_source':'Official RCAEval case index and inject_time.txt; recorded controlled fault'}
 
 def catalog(root=ROOT):
-    return [{k:v for k,v in e.items() if k not in ('file','sha256')} for e in manifest(root)['cases']]
+    rows=[{k:v for k,v in e.items() if k not in ('file','sha256')} for e in manifest(root)['cases']]
+    if root==ROOT:
+        from dataset.re2 import entries
+        rows.extend({k:e[k] for k in ('id','source','display_name','system','split')} for e in entries()['cases'])
+    return rows

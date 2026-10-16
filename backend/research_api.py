@@ -26,7 +26,7 @@ def read_case(case_id):
 @router.get('/sources')
 def sources():
     rows=catalog()
-    return {'sources':[{'id':source,'imported_cases':sum(r['source']==source for r in rows),'kind':'expert-labelled series' if source=='microsoft' else 'recorded controlled benchmark','graph':'unavailable in this imported source; none fabricated'} for source in ('microsoft','rcaeval')],'controlled_lab':{'enabled':False,'reason':'Archived prototype; no faults or AWS changes are authorized by this implementation request.'},'official_title':'Explainable AI-Based Cloud Performance Analytics for Digital Banking using Graph Neural Networks'}
+    return {'sources':[{'id':source,'imported_cases':sum(r['source']==source for r in rows),'kind':'expert-labelled series' if source=='microsoft' else 'recorded controlled benchmark','graph':'RE1 unavailable; RE2 recorded parent-child traces where imported' if source=='rcaeval' else 'unavailable'} for source in ('microsoft','rcaeval')],'controlled_lab':{'enabled':False,'reason':'Archived prototype; no faults or AWS changes are authorized by this implementation request.'},'official_title':'Explainable AI-Based Cloud Performance Analytics for Digital Banking using Graph Neural Networks'}
 
 @router.get('/catalog')
 def case_catalog(source:str|None=None):
@@ -52,6 +52,12 @@ def frame(case_id,as_of,metric_id=None,forecast=True):
     if not math.isfinite(cutoff) or cutoff<start or cutoff>end:raise HTTPException(422,'Replay time is outside the recorded interval')
     incident=analyze_case(case,cutoff,forecast_enabled=forecast)
     wanted=[s for s in case.series if s.id==metric_id] if metric_id else sorted(case.series,key=lambda s:next((e.score for e in incident.evidence if e.resource==s.resource and e.metric==s.metric),0),reverse=True)[:4]
+    if metric_id and forecast and not any(f.series_id==metric_id for f in incident.forecasts):
+        from analysis.forecasting import forecast_next
+        selected=next((s for s in case.series if s.id==metric_id),None)
+        if selected:
+            observed=selected.model_copy(update={'observations':[p for p in selected.observations if p.timestamp<=cutoff]})
+            incident.forecasts=[forecast_next(observed)]+incident.forecasts[:3]
     histories=[]
     for series in wanted:
         points=[p for p in series.observations if p.timestamp<=cutoff]
@@ -70,12 +76,13 @@ def save_incident(case_id:str,as_of:float|None=None,db:Session=Depends(get_db)):
         prior=json.loads(previous.payload);before=prior['incident']
         if incident['observation_time']>before['observation_time'] and before['status']=='deviation_detected':
             current=read_case(case_id);followup=[]
+            frozen_threshold=before.get('explanation',{}).get('detector_threshold',3.5)
             for e in before['evidence']:
-                if e['score']<3.5:continue
+                if e['score']<frozen_threshold:continue
                 for s in current.series:
                     if s.resource!=e['resource'] or s.metric!=e['metric']:continue
                     new=[p for p in s.observations if before['observation_time']<p.timestamp<=incident['observation_time'] and p.value is not None]
-                    normal=[abs(p.value-e['reference'])/e['scale']<3.5 for p in new[-3:]]
+                    normal=[abs(p.value-e['reference'])/e['scale']<frozen_threshold for p in new[-3:]]
                     followup.append({'resource':e['resource'],'metric':e['metric'],'new_points':len(new),'status':'returned_toward_original_reference' if len(normal)==3 and all(normal) else 'persists_or_insufficient_new_points'})
             incident['recovery']={'status':'observed_followup','comparisons':followup,'causal_recovery_verified':False}
     existing=db.get(ResearchIncident,incident['id'])
@@ -127,10 +134,44 @@ def results():
     if graph.exists():values['graph_ablation']=json.loads(graph.read_text(encoding='utf-8'))
     followups=sorted(root.glob('investigation_*.json'))
     if followups:values['investigation']=json.loads(followups[-1].read_text(encoding='utf-8'))
+    mechanism_report=Path(__file__).resolve().parents[1]/'results/research_v4/mechanisms_20261016/report.json'
+    if mechanism_report.exists():values['mechanisms']=json.loads(mechanism_report.read_text(encoding='utf-8'))
+    re2_report=Path(__file__).resolve().parents[1]/'results/research_v4/re2_graph_20261016_02/report.json'
+    if re2_report.exists():values['re2_graph']=json.loads(re2_report.read_text(encoding='utf-8'))
     return {'status':'evaluated','version':folder.name,'results':values}
 
 @router.get('/models')
 def models():
     root=Path(__file__).resolve().parents[1]
-    paths=['results/observed/observed_gnn.json','results/research_v3/graph_ablation/report.json','results/research_v3/graph_ablation_train_topology/report.json','results/research_v3/forecast_models_20261016.json']
+    paths=['results/observed/observed_gnn.json','results/research_v3/graph_ablation/report.json','results/research_v3/graph_ablation_train_topology/report.json','results/research_v3/forecast_models_20261016.json','results/research_v4/mechanisms_20261016/model.json','results/research_v4/re2_graph_20261016_02/report.json']
     return {'models':[json.loads((root/p).read_text()) for p in paths if (root/p).exists()],'domains':'Alibaba measured GNN restricted to supported trace digest; Microsoft and RCAEval use independently evaluated statistical/forecast methods.'}
+
+@router.get('/demo')
+def demo_cases():
+    # Instructional curation by published category; never passed to inference.
+    rows=[r for r in catalog() if r['source']=='rcaeval']
+    selected=[]
+    for fault,title in [('cpu','CPU signature investigation'),('mem','Memory signature investigation'),('disk','Disk annotation with limited measurements'),('delay','Delay annotation: distinguish symptom from mechanism'),('loss','Network loss annotation: missing direct measurements')]:
+        candidates=[r for r in rows if '_'+fault+'_' in r['display_name']]
+        if candidates:
+            row=sorted(candidates,key=lambda r:r['id'])[0]
+            selected.append({'id':row['id'],'source':'rcaeval','title':title,'selection':'Curated by published category, not prediction correctness; not an aggregate accuracy sample.'})
+    graph_rows=[r for r in rows if r['split']=='illustrative_re2_graph']
+    if graph_rows:selected.append({'id':graph_rows[0]['id'],'source':'rcaeval','title':'Recorded trace dependencies (RE2)','selection':'Bounded illustrative graph case; no aggregate claim.'})
+    ms=[r for r in catalog() if r['source']=='microsoft']
+    if ms:selected.append({'id':ms[0]['id'],'source':'microsoft','title':'Labelled anomaly: no mechanism annotation'})
+    return {'cases':selected,'graph_demo':'Select Alibaba and Analyze observed data for genuine recorded dependencies; no labelled cause exists for that slice.'}
+
+@router.post('/verify/{case_id}')
+def verify_completed(case_id:str,as_of:float=Query(...)):
+    case=read_case(case_id)
+    end=max(p.timestamp for s in case.series for p in s.observations)
+    if not math.isfinite(as_of) or as_of<end:raise HTTPException(409,'Complete recorded replay before revealing annotations.')
+    if as_of>end:raise HTTPException(422,'Replay time exceeds recording.')
+    result=score_case(case_id)
+    if 'ground_truth' not in result:return result
+    start=min(p.timestamp for s in case.series for p in s.observations)
+    incident=analyze_case(case,min(end,start+(end-start)/2+120),forecast_enabled=False)
+    mechanism=incident.explanation['diagnosis']['mechanism']
+    predicted={'cpu_pressure':'cpu','memory_pressure':'mem','disk_degradation':'disk','network_delay':'delay','packet_loss':'loss'}.get(mechanism,'unknown')
+    return {**result,'mechanism_prediction':mechanism,'mechanism_match':predicted==result['ground_truth']['fault'],'mechanism_verified':False,'annotation_interpretation':'Published controlled injection category; not independently established real-world causality.'}

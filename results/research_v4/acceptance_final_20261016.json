@@ -1,0 +1,84 @@
+{
+  "baseline_commit": "5a37d9b21fec73deec4d9691e71f092ddac0cac5",
+  "status": "implemented and tested locally; not pushed",
+  "backend_tests": {
+    "passed": 87,
+    "warnings": 3,
+    "seconds": 15.49
+  },
+  "browser_tests": {
+    "passed": 12,
+    "seconds": 40.6,
+    "desktop_resolutions": [
+      [
+        1366,
+        768
+      ],
+      [
+        1920,
+        1080
+      ]
+    ],
+    "browser": "Microsoft Edge via Playwright"
+  },
+  "production_build": "passed",
+  "diff_check": "passed",
+  "preserved_research_artifacts_modified": [],
+  "cloud_mutations": false,
+  "cloud_faults_executed": false,
+  "live_AWS_revalidated": false,
+  "scientific_boundaries": [
+    "Mechanism claims remain hypotheses or unknown; no physical causality verified.",
+    "Nearest-centroid mechanism classifier is not deployed.",
+    "Five-case RE2 graph study is illustrative; graph ties identity.",
+    "V3 false alarms and negative GNN comparison remain visible."
+  ],
+  "data": {
+    "microsoft_series": 60,
+    "original_re1_cases": 150,
+    "new_re2_cases": 5,
+    "raw_data_committed": false
+  },
+  "source_and_artifact_sha256": {
+    "COMPLETION_REPORT.md": "5d6c002a5ffe368bdfa046ef1458f6d5d3a08c6bfd9df6d0b7e09ba54d830c4b",
+    "README.md": "0c5c165f6134e5b67aa313b59cf1360d86ccbca6525073728fbba816906416cd",
+    "analysis/incident_engine.py": "93069d69efea6506833ff5133d3cf8de3dcfdfc0c0b673cedc9d7c1e7accfff6",
+    "analysis/mechanisms.py": "d6cb26bdb681a39c9ee55408994953e94f0795a32a6d6b39497c1799dbb119ba",
+    "backend/research_api.py": "a09a4b86ef8e383d09da5f0e2f434d425c43f4b94a434941d2e442151e5ae861",
+    "common/research.py": "45fa517aa4e7d17bba5f11ba17af6efc6892a356961a9f08ed0f5e7316dffb10",
+    "dataset/benchmarks.py": "8dbc4a0e7d5c4901090f43b52b132c9526e6ca68f91e52e27da79b89279f41e7",
+    "dataset/re2.py": "d1dadfc76e4ffebfec26416cad3a4a3d783ebf15735968248dd2ddec2c22fad5",
+    "docs/ROOT_CAUSE_V4.md": "185ba5d89e4c582305fc8cd349f72e3098ac75c1aba24dd93fd7e1394ea1e811",
+    "frontend/e2e/research.spec.js": "99925a20f87f07691bda05597633094c8ce78f0078cb43411e1d0f32211ad18c",
+    "frontend/src/App.jsx": "419762dc1e2cc633e8867079a135f90c1b8df13c5b306d1948c446d780b90b5e",
+    "frontend/src/InvestigationView.jsx": "b0111c44588771561b8fbbc87c4f5ac96e5b924482638a721c6c0cc047aa2cf7",
+    "frontend/src/ResearchEvidence.jsx": "38b53cd7fe71d8c0bdbbfc4a848a5395210f1a57a7a7442e2973cbeff2006c21",
+    "frontend/src/ResearchWorkbench.jsx": "35f894ef37cda22808d6725f864f11ecebf0d1c4dc4e5bc1c5cad9c75aa77e94",
+    "frontend/src/styles.css": "614a78a86545858ebf4c3eb9fa8c8d9b3716da229fa94c058e5bedb2e65ae3cc",
+    "results/research_v4/acceptance_20261016.json": "2e273abb22e0290f61ed453a5107e4df3657984d352b506c428a0575948b890d",
+    "results/research_v4/mechanisms_20261016/model.json": "1abc78cd2d9279caacec4b5e93af92d026507e6fa3e8d9015988b56db02757fe",
+    "results/research_v4/mechanisms_20261016/report.json": "930741eb789a0b408cb1b5a01e3917c81bb14299b382d24f18048c751d2bd7b3",
+    "results/research_v4/re2_graph_20261016_02/2f4bfdc9ac0d37bd7dc5_identity.pt": "fea72e5162679797766652b6b686d70d3378837e5fe8e0f3fd9735bfddf9471c",
+    "results/research_v4/re2_graph_20261016_02/2f4bfdc9ac0d37bd7dc5_recorded_graph.pt": "5394ff49960ad14a6c816aa74aa71c1cf4a53a7671789e897923d8589556d9bc",
+    "results/research_v4/re2_graph_20261016_02/364d289fa7b7106f7a71_identity.pt": "21a295fea4e931d6f58b60925b5c839fdbf1fda62f5ad568618d69fa675719cb",
+    "results/research_v4/re2_graph_20261016_02/364d289fa7b7106f7a71_recorded_graph.pt": "2a7660e562f9be24c9f9c3808b3e0c1769a7eaa4660110b39dfd7ce853d7c194",
+    "results/research_v4/re2_graph_20261016_02/4e587b5f0eac94cff8e2_identity.pt": "17e8052ff896e77b1d6e3da2bb4d58ebdbfbea97d98d862eea70baebd8587e62",
+    "results/research_v4/re2_graph_20261016_02/4e587b5f0eac94cff8e2_recorded_graph.pt": "26171cc34d7981f76554a4876c0aca616971a466e004778bd71cf48ceafa56c0",
+    "results/research_v4/re2_graph_20261016_02/76ec1be060854cf5f49f_identity.pt": "a7bd484e48117cfe51c1d6c1b8aa5b02392edeaa647256b8186bb3c107467c02",
+    "results/research_v4/re2_graph_20261016_02/76ec1be060854cf5f49f_recorded_graph.pt": "d66440bf6e4bc7ec01f6b69814a4aeeb0df04ec00cb29f17ad785b01124378b7",
+    "results/research_v4/re2_graph_20261016_02/f41f071745c16594b5f5_identity.pt": "ab7ca0208c6d71d850fdc925a0259d45b59f9cc6621cc0614b7821878ff9bada",
+    "results/research_v4/re2_graph_20261016_02/f41f071745c16594b5f5_recorded_graph.pt": "9502a560184966d48ef7da318a190be33e29b7ba1e8bcc5cec751e96d94b9a0f",
+    "results/research_v4/re2_graph_20261016_02/report.json": "dd83f4cf6d8c331b57ecf9dafe3acf05f1bc051e4a7c74f7cc18dc44abd13674",
+    "scripts/evaluate_mechanisms.py": "87fe5e796fa8a4a2fdb892f85d8e24a54f33696dfca575bfcaed2dd148486ccb",
+    "scripts/evaluate_re2_graph.py": "e5222ae1b8878436767f4759b64a5a260fd9d9f46594d28988df6e2ff22a0e65",
+    "scripts/import_re2_graph.py": "69595fc8b86329bdd16f25c39e33709fa7123b5f352a40b3632c14a5325110ae",
+    "tests/test_mechanisms.py": "fc00c5db387745acf2053dce38b4a48fc5490fa16939506ea10c021e44b354cb",
+    "tests/test_research_v3.py": "5e8470d8f02148933b9326520a41ff6c6a744e51fc02fb39fc5570be37c78d92"
+  },
+  "screenshots": {
+    "investigation-1366.png": "0733615c98b819573c6a2a4711488084074362800349fa86fbfb92dc8bfda67d",
+    "investigation-1920.png": "796e6556e283af0be95800c3e661138336f3b218f00ddcf7c0af5dec48e081e8",
+    "observed-dashboard.png": "c4fbf5135f2658cf9b5e4331b305f02b42f8a5e4b0ff7832d05784a4e2d560fb",
+    "re2-evidence-graph.png": "5a0f1b1c5f7ab2ad41c6da343170e96aff04892721eb6eba6add9db11d11ba95"
+  }
+}

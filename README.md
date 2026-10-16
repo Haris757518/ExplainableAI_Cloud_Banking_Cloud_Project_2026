@@ -49,3 +49,7 @@ Raw traces, credentials, local databases, installers, and raw AWS operational sn
 ## Integrated research platform (16 October 2026)
 
 The current setup, real benchmark results and faculty demonstration are documented in [docs/RESEARCH_PLATFORM_V3.md](docs/RESEARCH_PLATFORM_V3.md). Install `requirements-benchmarks.txt` for the official Parquet importer. Sources stay separate; optional cloud faults are disabled. The official registered project title is unchanged.
+
+## Root-cause investigation redesign (Research V4)
+
+The current implementation, measured mechanism/graph findings, setup commands and faculty walkthrough are in [docs/ROOT_CAUSE_V4.md](docs/ROOT_CAUSE_V4.md). V3 experiments remain unchanged. The dashboard separates suspected resources from evidence-supported mechanism hypotheses and Unknown outcomes.

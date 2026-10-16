@@ -1,3 +1,4 @@
+import {ResearchEvidence} from './ResearchEvidence.jsx';
 import ResearchWorkbench, {IncidentIntelligence} from './ResearchWorkbench.jsx';
 import React, { useEffect, useMemo, useState } from 'react';
 
@@ -58,6 +59,7 @@ function Trends({series={}}){
 
 function App(){
   const [mode,setMode]=useState('alibaba');
+  const [view,setView]=useState('Incident Investigation');
   const [data,setData]=useState(null);
   const [health,setHealth]=useState(null);
   const [aws,setAws]=useState(null);
@@ -88,12 +90,14 @@ function App(){
   const observations=(data?.graph?.telemetry||[]).flatMap(t=>t.observed_metrics.map(metric=>({node:t.node_id,metric,value:t[metric]})));
   return <div className="shell">
     <header className="top"><div><div className="eyebrow">MEASURED DATA · EXPLAINABLE DIAGNOSIS</div><h1>Explainable AI-Based Cloud Performance Analytics for Digital Banking using Graph Neural Networks</h1><p>Trace latency, inspect database evidence, and decide what to measure next.</p></div><div className="badges"><Status ok={health?.status==='ok'} label={health?.status==='ok'?'Backend connected':'Backend unavailable'}/><span className="badge">Observed data only</span></div></header>
+    <nav className="primary-nav" aria-label="Primary navigation">{['Incident Investigation','Live Monitoring','Research Evidence'].map(v=><button key={v} aria-current={view===v?'page':undefined} onClick={()=>{setView(v);if(v==='Live Monitoring'){setMode('aws');setData(null)}}}>{v}</button>)}</nav>
     <section className="toolbar"><label>Data source<select value={mode} disabled={loading} onChange={e=>{setMode(e.target.value);setData(null);setError('');setRefined(null)}}><option value="alibaba">Alibaba production trace</option><option value="aws">Live AWS telemetry</option><option value="microsoft">Microsoft labelled benchmark</option><option value="rcaeval">RCAEval recorded incidents</option></select></label>{(mode==='alibaba'||mode==='aws')&&<button onClick={run} disabled={loading||mode==='microsoft'||mode==='rcaeval'}>{loading?'Collecting evidence…':'Analyze observed data'}</button>}<button className="ghost" onClick={diagnose} disabled={loading}>Inspect analytics database</button><span className="toolbar-hint">{mode==='lab'?'Isolated controlled faults; independently measured telemetry.':mode==='alibaba'?'Production microservices; no banking or failure labels.':mode==='microsoft'?'Official expert-labelled series; no service graph.':mode==='rcaeval'?'Published recorded controlled cases; chronological replay.':'Read-only EC2, RDS and CloudWatch. Requires an active AWS session.'}</span></section>
-    {error&&<section className="error"><b>Evidence unavailable</b><p>{error}</p></section>}
-    {aws&&<section className="panel mini"><div><span>AWS credentials</span><b>{aws.connected?'Authenticated':'Unavailable'}</b></div><div><span>Region</span><b>{aws.region}</b></div></section>}
-    {(mode==='microsoft'||mode==='rcaeval')&&<ResearchWorkbench source={mode}/>}
-    {mode!=='microsoft'&&mode!=='rcaeval'&&mode!=='lab'&&!data&&<section className="empty"><h2>Select a source and collect evidence</h2><p>Missing measurements stay unknown. No simulated telemetry is used.</p></section>}
-    {data&&<>
+    {error&&<section className="error"><b>{mode==='aws'?'Cloud resource monitoring unavailable.':'Evidence unavailable'}</b><p>{error}</p></section>}
+    {mode==='aws'&&aws&&<section className="panel mini"><div><span>AWS credentials</span><b>{aws.connected?'Authenticated':'Unavailable'}</b></div><div><span>Region</span><b>{aws.region}</b></div><div><span>Resource access</span><b>{error?'Unavailable':data?'Measurements collected':'Not checked'}</b></div></section>}
+    {(mode==='microsoft'||mode==='rcaeval')&&<ResearchWorkbench source={mode} view={view}/>}
+    {view==='Research Evidence'&&mode!=='microsoft'&&mode!=='rcaeval'&&<ResearchEvidence/>}
+    {view!=='Research Evidence'&&mode!=='microsoft'&&mode!=='rcaeval'&&mode!=='lab'&&!data&&<section className="empty"><h2>Select a source and collect evidence</h2><p>Missing measurements stay unknown. No simulated telemetry is used.</p></section>}
+    {view!=='Research Evidence'&&data&&<>
       {data.assessment?.incident&&<IncidentIntelligence incident={data.assessment.incident}/>}
       {mode==='aws'&&data.aws_discovery?.ec2?.length===1&&<section className="panel"><h2>Collect discriminating AWS evidence</h2><button onClick={inspectCloudDb} disabled={loading}>Inspect PostgreSQL on EC2</button><button className="ghost" onClick={refine} disabled={loading||!data.cfao?.causal_frontier.length}>Recollect frontier evidence</button><p>Read-only collection. New evidence is compared with its original measured reference; no resource changes are executed.</p>{refined&&<p>{refined.note} New observations: {refined.new_observations_available?'yes':'no'}.</p>}</section>}
       <details className="panel"><summary>Source-specific metrics, topology and reconstruction evidence</summary>
@@ -109,7 +113,7 @@ function App(){
       </div>
       </details>
     </>}
-    {study&&<section className="panel"><h2>Separate Alibaba GNN study (original observed slice)</h2><p>{study.rows_scanned} source rows; {study.measured_calls} recorded calls; {study.gnn.train_windows} training, {study.gnn.validation_windows} validation and {study.gnn.test_windows} held-out windows.</p><p>Held-out reconstruction MSE: {Number(study.gnn.test_masked_mse).toFixed(4)}. Training-mean baseline: {Number(study.gnn.train_mean_baseline_test_mse).toFixed(4)}.</p><p>{study.gnn.limitations}</p><p>This GNN is evaluated separately; the current diagnosis uses the measured-series deviation method.</p></section>}
+    {view==='Research Evidence'&&study&&<section className="panel"><h2>Separate Alibaba GNN study (original observed slice)</h2><p>{study.rows_scanned} source rows; {study.measured_calls} recorded calls; {study.gnn.train_windows} training, {study.gnn.validation_windows} validation and {study.gnn.test_windows} held-out windows.</p><p>Held-out reconstruction MSE: {Number(study.gnn.test_masked_mse).toFixed(4)}. Training-mean baseline: {Number(study.gnn.train_mean_baseline_test_mse).toFixed(4)}.</p><p>{study.gnn.limitations}</p><p>This GNN is evaluated separately; the current diagnosis uses the measured-series deviation method.</p></section>}
     {cloudDb&&<section className="panel"><h2>Live PostgreSQL on EC2</h2><p>Source: AWS Systems Manager, read-only system views. Observed: {cloudDb.observation.observed_at}.</p><p>Blocked sessions: {cloudDb.observation.blocked_sessions}. I/O timing: {cloudDb.observation.track_io_timing}.</p><p>Active/idle client groups: {cloudDb.observation.activity.length}. This snapshot does not prove absence of intermittent problems.</p><pre style={{whiteSpace:'pre-wrap'}}>{JSON.stringify(cloudDb.observation.activity,null,2)}</pre><p>{cloudDb.limitations}</p><p>Investigation: {cloudDb.investigation?.cause_status}. {cloudDb.investigation?.limitation}</p>{(cloudDb.investigation?.findings||[]).map((f,i)=><p key={i}>{f.kind}: {f.finding}. Supports: {f.supports||"not established"}. Contradicts: {f.contradicts||"not established"}.</p>)}</section>}
     {db&&<section className="panel"><h2>Database investigation</h2><p>Analytics storage: {db.analytics_store.connected?'connected':'unavailable'}. Read probe: {db.analytics_store.ping_ms??'unknown'} ms. Dashboard queries: {db.analytics_store.dashboard_query_ms??'unknown'} ms.</p><p>{db.analytics_store.note}</p><p>Monitored application database: {db.monitored_database.status}. {db.monitored_database.next_step||db.monitored_database.error}</p>{db.monitored_database.status==='observed'&&<><p>Blocked sessions: {db.monitored_database.blocked_sessions}</p><pre style={{whiteSpace:'pre-wrap'}}>{JSON.stringify(db.monitored_database.activity,null,2)}</pre><p>{db.monitored_database.limitations}</p></>}</section>}
     <footer>Research hypothesis: evidence-constrained causal-frontier observability. Candidate ranking is not causal proof.</footer>

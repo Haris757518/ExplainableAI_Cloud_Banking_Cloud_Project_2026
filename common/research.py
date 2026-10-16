@@ -28,6 +28,7 @@ class TelemetrySeries(BaseModel):
     observations: list[TelemetryObservation]
 
 class DependencyEdge(BaseModel):
+    observed_at: float | None = None
     source: str
     target: str
     relationship: str = 'recorded_call'

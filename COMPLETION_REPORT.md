@@ -1,3 +1,9 @@
+# Current handover: Research V4
+
+See [the full implementation report and faculty walkthrough](docs/ROOT_CAUSE_V4.md). The new version adds mechanism evidence, sequential visual investigation, real RE2 trace graphs and independent mechanism evaluation. Earlier handover notes are preserved below.
+
+---
+
 # Research platform implementation — 16 October 2026
 
 Official title: **Explainable AI-Based Cloud Performance Analytics for Digital Banking using Graph Neural Networks**.
