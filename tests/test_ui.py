@@ -1,5 +1,5 @@
 def test_ui_no_edge_percentages_and_has_secondary():
-    with open("frontend/src/App.jsx", "r", encoding="utf-8") as f:
+    with open("frontend/src/ReferenceConsole.jsx", "r", encoding="utf-8") as f:
         content = f.read()
     
     # 1. Anomaly score placement data is below the node

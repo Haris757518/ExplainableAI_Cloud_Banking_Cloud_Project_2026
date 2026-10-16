@@ -4,7 +4,7 @@ from pydantic import BaseModel, Field, ConfigDict
 
 class DataSource(BaseModel):
     id: str
-    kind: Literal['production_trace','expert_labelled_series','recorded_controlled_benchmark','live_cloud']
+    kind: Literal['production_trace','expert_labelled_series','recorded_controlled_benchmark','live_cloud','academic_test_application']
     reference: str
     revision: str | None = None
     topology_status: str = 'unavailable'

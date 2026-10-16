@@ -312,6 +312,9 @@ def refine_aws(run_id: int, db: Session=Depends(get_db)):
 from backend.research_api import router as research_router
 app.include_router(research_router)
 
+from backend.banking_api import router as banking_router
+app.include_router(banking_router)
+
 frontend_dist = Path(__file__).resolve().parents[1] / 'frontend' / 'dist'
 if frontend_dist.is_dir():
     app.mount('/', StaticFiles(directory=frontend_dist, html=True), name='dashboard')

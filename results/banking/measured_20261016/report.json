@@ -1,0 +1,622 @@
+{
+  "official_title": "Explainable AI-Based Cloud Performance Analytics for Digital Banking using Graph Neural Networks",
+  "environment": "Three local FastAPI processes, actual HTTP/SQL spans, dedicated SQLite test database; no cloud deployment or real payments",
+  "protocol": {
+    "baseline_id": "a1bd2b5ee512c0fc463a72f8",
+    "normal_requests": 270,
+    "seed": 42,
+    "concurrency": 1,
+    "repetitions": 3,
+    "condition_seconds": 12,
+    "delay_ms": 150,
+    "diagnosis_checkpoint": "Tenth completed transfer request during each explicitly triggered condition; independent labels read afterwards",
+    "recovery": "15 actual transfer requests after cleanup; final three values against the original frozen reference",
+    "normal_split": "60/20/20 chronological; threshold chosen on validation only"
+  },
+  "normal_holdout": {
+    "requests": 54,
+    "false_positive_requests": 0,
+    "false_alarm_rate": 0.0
+  },
+  "summary": {
+    "controlled_cases": 3,
+    "detected_cases": 3,
+    "service_top3": 1.0,
+    "service_top1": 1.0,
+    "mechanism_accuracy": 1.0,
+    "joint_service_mechanism_accuracy": 1.0,
+    "abstention_rate": 0.0,
+    "measured_return_to_reference_cases": 3
+  },
+  "banking_gnn_normal_comparison": {
+    "status": "trained_and_evaluated",
+    "calibration_id": "a1bd2b5ee512c0fc463a72f8",
+    "source": "banking-local",
+    "task": "Next-request masked prediction, not same-point reconstruction. Separate models trained from measured normal banking requests only.",
+    "features": [
+      "latency_ms",
+      "processing_ms",
+      "db_latency_ms",
+      "db_connection_ms"
+    ],
+    "nodes": [
+      "banking-api",
+      "banking-db",
+      "ledger-service"
+    ],
+    "requests": 90,
+    "split_counts": {
+      "train": 54,
+      "validation": 18,
+      "test": 18
+    },
+    "seed": 42,
+    "epochs": 100,
+    "comparison": {
+      "identity": {
+        "validation_next_request_mse": 0.2996288537979126,
+        "heldout_next_request_mse": 0.5744118690490723,
+        "normal_heldout_predictions": 17,
+        "normal_false_alarm_rate": 0.1764705926179886,
+        "validation_residual_threshold": 0.8930873870849609,
+        "serialization_verified": true
+      },
+      "graph": {
+        "validation_next_request_mse": 0.33713650703430176,
+        "heldout_next_request_mse": 0.5752633213996887,
+        "normal_heldout_predictions": 17,
+        "normal_false_alarm_rate": 0.23529411852359772,
+        "validation_residual_threshold": 0.9403170347213745,
+        "serialization_verified": true
+      }
+    },
+    "edge_direction": "Original directed call graph displayed; symmetrized row-normalized message passing only for model comparison.",
+    "ranking_used": false,
+    "reason": "No independently validated incremental localization benefit. Predictions are separate graph evidence, not a claimed GNN root cause.",
+    "limitations": [
+      "Small local normal dataset; no production generalization or calibrated fault probability.",
+      "Per-request windows under a documented workload, not fixed-period CloudWatch windows.",
+      "Different node features are masked; missing values are not reported as measured zero."
+    ]
+  },
+  "banking_gnn_controlled_localization": {
+    "identity": {
+      "compatible_cases": 3,
+      "root_service_top1": 1.0,
+      "root_service_top3": 1.0
+    },
+    "graph": {
+      "compatible_cases": 3,
+      "root_service_top1": 1.0,
+      "root_service_top3": 1.0
+    }
+  },
+  "tc_cfao": {
+    "broad_fields": [
+      8,
+      8,
+      8
+    ],
+    "focused_fields": [
+      3,
+      3,
+      3
+    ],
+    "broad_resources": [
+      3,
+      3,
+      3
+    ],
+    "focused_resources": [
+      2,
+      2,
+      2
+    ],
+    "external_calls": 0,
+    "AWS_cost_savings": null,
+    "scope": "Marginal inspection of existing recorded fields after broad detection; not total collection savings."
+  },
+  "cases": [
+    {
+      "prediction_id": "fce1fb7ecc844cbacbed30db",
+      "prediction_timestamp": 1792159148.537728,
+      "detection_status": "deviation_detected",
+      "service_ranking": [
+        "ledger-service"
+      ],
+      "service_top3_match": true,
+      "predicted_service": "ledger-service",
+      "predicted_mechanism": "application_processing_delay",
+      "published_control": {
+        "id": "67aaa1fc921647728f7a2c238def43b4",
+        "kind": "application_processing_delay",
+        "target": "ledger-service",
+        "started": 1792159145.9245217,
+        "expires": 1792159157.9245217,
+        "ended": 1792159157.9245217,
+        "delay_ms": 150,
+        "status": "expired"
+      },
+      "service_match": true,
+      "mechanism_match": true,
+      "abstained": false,
+      "recovery": {
+        "status": "returned_toward_frozen_reference",
+        "comparisons": [
+          {
+            "resource": "ledger-service",
+            "metric": "processing_ms",
+            "new_points": 52,
+            "latest_values": [
+              1.1804000096162781,
+              1.1999999987892807,
+              1.1165999894728884
+            ],
+            "reference": 3.0009999973117374,
+            "returned": true
+          }
+        ],
+        "causal_recovery_verified": false
+      },
+      "graph_evidence": {
+        "status": "evaluated",
+        "source": "banking-local",
+        "calibration_id": "a1bd2b5ee512c0fc463a72f8",
+        "ranking_used": false,
+        "models": {
+          "identity": {
+            "node_residuals": {
+              "banking-api": 5.092177391052246,
+              "banking-db": 2.0343730449676514,
+              "ledger-service": 17.083446502685547
+            },
+            "ranking": [
+              "ledger-service",
+              "banking-api",
+              "banking-db"
+            ],
+            "target_time": 1792159148.537728,
+            "input_latest_time": 1792159148.2495832,
+            "feature_squared_errors": [
+              [
+                10.173074722290039,
+                0.011280017904937267,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.004126598592847586,
+                4.064619541168213
+              ],
+              [
+                24.15497398376465,
+                10.011920928955078,
+                0.0,
+                0.0
+              ]
+            ],
+            "residual_definition": "Masked squared error in training-normalized log1p metrics; not milliseconds or fault probability."
+          },
+          "graph": {
+            "node_residuals": {
+              "banking-api": 11.55678939819336,
+              "banking-db": 1.4730134010314941,
+              "ledger-service": 24.39976692199707
+            },
+            "ranking": [
+              "ledger-service",
+              "banking-api",
+              "banking-db"
+            ],
+            "target_time": 1792159148.537728,
+            "input_latest_time": 1792159148.2495832,
+            "feature_squared_errors": [
+              [
+                21.591394424438477,
+                1.5221840143203735,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.8956051468849182,
+                2.050421714782715
+              ],
+              [
+                35.975399017333984,
+                12.82413387298584,
+                0.0,
+                0.0
+              ]
+            ],
+            "residual_definition": "Masked squared error in training-normalized log1p metrics; not milliseconds or fault probability."
+          }
+        },
+        "role": "Actual next-request model inference evidence; primary location uses measured exclusive-time attribution."
+      },
+      "tc_cfao": {
+        "strategy": "evidence-gated bounded candidate frontier",
+        "resources": [
+          "ledger-service"
+        ],
+        "requests": [
+          {
+            "resource": "ledger-service",
+            "purpose": "Compare measured application processing with dependency and network timing.",
+            "missing": [
+              "independent mechanism-specific corroboration"
+            ],
+            "on_recorded_transaction_path": true
+          }
+        ],
+        "broad_resource_count": 3,
+        "selected_resource_count": 1,
+        "static_one_hop_count": 3,
+        "actual_external_calls": 0,
+        "sampling_changed": false,
+        "cost_savings": null,
+        "stop_reason": "Inspect the selected measured banking trace fields; no additional external calls, sampling changes or AWS cost savings are claimed.",
+        "transaction_conditioning_available": true,
+        "selection_rule": "Highest evidence-ranked candidates, bounded budget; transaction context reported only when supplied from recorded/configured paths. No learned information-gain claim.",
+        "measured_cost_savings": null,
+        "examined_resources": [
+          "banking-db",
+          "ledger-service"
+        ],
+        "examined_metric_fields": [
+          "banking-db:db_latency_ms",
+          "ledger-service:latency_ms",
+          "ledger-service:processing_ms"
+        ],
+        "broad_metric_fields": 8,
+        "focused_metric_fields": 3,
+        "accounting": "Measured evidence fields examined after broad detection; no AWS billing or sampling claim."
+      },
+      "verification_scope": "Independent local controlled-experiment annotation; not proof of production causality.",
+      "measured_requests_during_condition": 45,
+      "normal_median_handler_ms": 26.11165000416804,
+      "condition_median_handler_ms": 181.24010000610724
+    },
+    {
+      "prediction_id": "c1f975d304c81a086ba4852d",
+      "prediction_timestamp": 1792159162.5496829,
+      "detection_status": "deviation_detected",
+      "service_ranking": [
+        "ledger-service"
+      ],
+      "service_top3_match": true,
+      "predicted_service": "ledger-service",
+      "predicted_mechanism": "application_processing_delay",
+      "published_control": {
+        "id": "76dbbab03cec42f182a04d12b5853818",
+        "kind": "application_processing_delay",
+        "target": "ledger-service",
+        "started": 1792159160.0238369,
+        "expires": 1792159172.0238369,
+        "ended": 1792159172.0238369,
+        "delay_ms": 150,
+        "status": "expired"
+      },
+      "service_match": true,
+      "mechanism_match": true,
+      "abstained": false,
+      "recovery": {
+        "status": "returned_toward_frozen_reference",
+        "comparisons": [
+          {
+            "resource": "ledger-service",
+            "metric": "processing_ms",
+            "new_points": 52,
+            "latest_values": [
+              1.1291999835520983,
+              1.80460000410676,
+              1.4174000243656337
+            ],
+            "reference": 3.0009999973117374,
+            "returned": true
+          }
+        ],
+        "causal_recovery_verified": false
+      },
+      "graph_evidence": {
+        "status": "evaluated",
+        "source": "banking-local",
+        "calibration_id": "a1bd2b5ee512c0fc463a72f8",
+        "ranking_used": false,
+        "models": {
+          "identity": {
+            "node_residuals": {
+              "banking-api": 5.81132173538208,
+              "banking-db": 8.969705581665039,
+              "ledger-service": 19.005210876464844
+            },
+            "ranking": [
+              "ledger-service",
+              "banking-db",
+              "banking-api"
+            ],
+            "target_time": 1792159162.5496829,
+            "input_latest_time": 1792159162.2786202,
+            "feature_squared_errors": [
+              [
+                11.609137535095215,
+                0.013505715876817703,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                16.56245994567871,
+                1.3769515752792358
+              ],
+              [
+                28.166532516479492,
+                9.843890190124512,
+                0.0,
+                0.0
+              ]
+            ],
+            "residual_definition": "Masked squared error in training-normalized log1p metrics; not milliseconds or fault probability."
+          },
+          "graph": {
+            "node_residuals": {
+              "banking-api": 12.58159065246582,
+              "banking-db": 13.508793830871582,
+              "ledger-service": 27.92436408996582
+            },
+            "ranking": [
+              "ledger-service",
+              "banking-db",
+              "banking-api"
+            ],
+            "target_time": 1792159162.5496829,
+            "input_latest_time": 1792159162.2786202,
+            "feature_squared_errors": [
+              [
+                23.6308650970459,
+                1.5323164463043213,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                24.5356388092041,
+                2.481948137283325
+              ],
+              [
+                42.760684967041016,
+                13.088044166564941,
+                0.0,
+                0.0
+              ]
+            ],
+            "residual_definition": "Masked squared error in training-normalized log1p metrics; not milliseconds or fault probability."
+          }
+        },
+        "role": "Actual next-request model inference evidence; primary location uses measured exclusive-time attribution."
+      },
+      "tc_cfao": {
+        "strategy": "evidence-gated bounded candidate frontier",
+        "resources": [
+          "ledger-service"
+        ],
+        "requests": [
+          {
+            "resource": "ledger-service",
+            "purpose": "Compare measured application processing with dependency and network timing.",
+            "missing": [
+              "independent mechanism-specific corroboration"
+            ],
+            "on_recorded_transaction_path": true
+          }
+        ],
+        "broad_resource_count": 3,
+        "selected_resource_count": 1,
+        "static_one_hop_count": 3,
+        "actual_external_calls": 0,
+        "sampling_changed": false,
+        "cost_savings": null,
+        "stop_reason": "Inspect the selected measured banking trace fields; no additional external calls, sampling changes or AWS cost savings are claimed.",
+        "transaction_conditioning_available": true,
+        "selection_rule": "Highest evidence-ranked candidates, bounded budget; transaction context reported only when supplied from recorded/configured paths. No learned information-gain claim.",
+        "measured_cost_savings": null,
+        "examined_resources": [
+          "banking-db",
+          "ledger-service"
+        ],
+        "examined_metric_fields": [
+          "banking-db:db_latency_ms",
+          "ledger-service:latency_ms",
+          "ledger-service:processing_ms"
+        ],
+        "broad_metric_fields": 8,
+        "focused_metric_fields": 3,
+        "accounting": "Measured evidence fields examined after broad detection; no AWS billing or sampling claim."
+      },
+      "verification_scope": "Independent local controlled-experiment annotation; not proof of production causality.",
+      "measured_requests_during_condition": 46,
+      "normal_median_handler_ms": 26.11165000416804,
+      "condition_median_handler_ms": 167.18905000016093
+    },
+    {
+      "prediction_id": "a4f74aa4fc6816a90c48bd4e",
+      "prediction_timestamp": 1792159176.6630213,
+      "detection_status": "deviation_detected",
+      "service_ranking": [
+        "ledger-service"
+      ],
+      "service_top3_match": true,
+      "predicted_service": "ledger-service",
+      "predicted_mechanism": "application_processing_delay",
+      "published_control": {
+        "id": "01ac5482c01446829a14d0bfcf5a7f9a",
+        "kind": "application_processing_delay",
+        "target": "ledger-service",
+        "started": 1792159174.1879215,
+        "expires": 1792159186.1879215,
+        "ended": 1792159186.1879215,
+        "delay_ms": 150,
+        "status": "expired"
+      },
+      "service_match": true,
+      "mechanism_match": true,
+      "abstained": false,
+      "recovery": {
+        "status": "returned_toward_frozen_reference",
+        "comparisons": [
+          {
+            "resource": "ledger-service",
+            "metric": "processing_ms",
+            "new_points": 52,
+            "latest_values": [
+              1.167899972642772,
+              1.2084999616490677,
+              1.1035999923478812
+            ],
+            "reference": 3.0009999973117374,
+            "returned": true
+          }
+        ],
+        "causal_recovery_verified": false
+      },
+      "graph_evidence": {
+        "status": "evaluated",
+        "source": "banking-local",
+        "calibration_id": "a1bd2b5ee512c0fc463a72f8",
+        "ranking_used": false,
+        "models": {
+          "identity": {
+            "node_residuals": {
+              "banking-api": 5.126241207122803,
+              "banking-db": 5.2255859375,
+              "ledger-service": 17.974531173706055
+            },
+            "ranking": [
+              "ledger-service",
+              "banking-db",
+              "banking-api"
+            ],
+            "target_time": 1792159176.6630213,
+            "input_latest_time": 1792159176.3932552,
+            "feature_squared_errors": [
+              [
+                10.238991737365723,
+                0.013491090387105942,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                6.538250923156738,
+                3.91292142868042
+              ],
+              [
+                26.041988372802734,
+                9.907073020935059,
+                0.0,
+                0.0
+              ]
+            ],
+            "residual_definition": "Masked squared error in training-normalized log1p metrics; not milliseconds or fault probability."
+          },
+          "graph": {
+            "node_residuals": {
+              "banking-api": 11.607398986816406,
+              "banking-db": 9.929634094238281,
+              "ledger-service": 25.166772842407227
+            },
+            "ranking": [
+              "ledger-service",
+              "banking-api",
+              "banking-db"
+            ],
+            "target_time": 1792159176.6630213,
+            "input_latest_time": 1792159176.3932552,
+            "feature_squared_errors": [
+              [
+                21.645292282104492,
+                1.5695056915283203,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                12.996018409729004,
+                6.863250255584717
+              ],
+              [
+                37.74048614501953,
+                12.593060493469238,
+                0.0,
+                0.0
+              ]
+            ],
+            "residual_definition": "Masked squared error in training-normalized log1p metrics; not milliseconds or fault probability."
+          }
+        },
+        "role": "Actual next-request model inference evidence; primary location uses measured exclusive-time attribution."
+      },
+      "tc_cfao": {
+        "strategy": "evidence-gated bounded candidate frontier",
+        "resources": [
+          "ledger-service"
+        ],
+        "requests": [
+          {
+            "resource": "ledger-service",
+            "purpose": "Compare measured application processing with dependency and network timing.",
+            "missing": [
+              "independent mechanism-specific corroboration"
+            ],
+            "on_recorded_transaction_path": true
+          }
+        ],
+        "broad_resource_count": 3,
+        "selected_resource_count": 1,
+        "static_one_hop_count": 3,
+        "actual_external_calls": 0,
+        "sampling_changed": false,
+        "cost_savings": null,
+        "stop_reason": "Inspect the selected measured banking trace fields; no additional external calls, sampling changes or AWS cost savings are claimed.",
+        "transaction_conditioning_available": true,
+        "selection_rule": "Highest evidence-ranked candidates, bounded budget; transaction context reported only when supplied from recorded/configured paths. No learned information-gain claim.",
+        "measured_cost_savings": null,
+        "examined_resources": [
+          "banking-db",
+          "ledger-service"
+        ],
+        "examined_metric_fields": [
+          "banking-db:db_latency_ms",
+          "ledger-service:latency_ms",
+          "ledger-service:processing_ms"
+        ],
+        "broad_metric_fields": 8,
+        "focused_metric_fields": 3,
+        "accounting": "Measured evidence fields examined after broad detection; no AWS billing or sampling claim."
+      },
+      "verification_scope": "Independent local controlled-experiment annotation; not proof of production causality.",
+      "measured_requests_during_condition": 46,
+      "normal_median_handler_ms": 26.11165000416804,
+      "condition_median_handler_ms": 167.63999999966472
+    }
+  ],
+  "blocked": {
+    "postgres_lock_contention": "No verified dedicated PostgreSQL installation/privileges; not run. SQLite waits are not presented as PostgreSQL locks."
+  },
+  "limitations": [
+    "One machine, one injected mechanism, sequential workload, small repeated sample; not production banking accuracy.",
+    "Deliberate bounded sleep measures application delay, not an organic bug or CPU saturation.",
+    "Normal calibration and GNN evaluation use one small local normal recording; no cross-machine generalization.",
+    "Graph residual rankings are evaluated separately and not fused into the main diagnosis without validated benefit.",
+    "Existing published dataset results remain independent and unchanged.",
+    "GNN Top-3 includes all three resources and is therefore trivial in this small topology.",
+    "Timing instrumentation has measured overhead; request handler time is not complete client/network latency."
+  ]
+}

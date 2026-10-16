@@ -1,21 +1,18 @@
-# Current handover: Research V4
+# Explainable AI-Based Cloud Performance Analytics for Digital Banking using Graph Neural Networks
 
-See [the full implementation report and faculty walkthrough](docs/ROOT_CAUSE_V4.md). The new version adds mechanism evidence, sequential visual investigation, real RE2 trace graphs and independent mechanism evaluation. Earlier handover notes are preserved below.
+## Final review build acceptance
 
----
+The final banking-first implementation is complete for the verified local scope. The authoritative setup, measured results, exact commands, limitations and faculty walkthrough are in [docs/FINAL_HANDOVER.md](docs/FINAL_HANDOVER.md). [README.md](README.md) is the single current startup guide.
 
-# Research platform implementation — 16 October 2026
+- **Verified:** Balance Enquiry, atomic/idempotent Fund Transfer, Transaction History, real multi-process HTTP/SQL traces, frozen normal calibration, evidence-based localization and application-delay mechanism analysis, conditional recommendations, independent labels and measured follow-up.
+- **Measured study:** 270 normal requests; 0 false-positive requests among 54 held-out normal requests. Three bounded application-delay repetitions were detected, correctly localized/classified, and followed by a measured return toward reference.
+- **GNN:** Banking-only graph and identity next-request models trained/evaluated with identical budgets. Both localized the three controlled cases; graph normal prediction MSE was slightly worse. Compatible model inference runs, but does not control primary root ranking without established incremental benefit.
+- **TC-CFAO:** 3 of 8 existing evidence fields examined across 2 of 3 resources. No AWS cost or total collection-savings claim.
+- **Verified checks:** 113 backend tests, 16 browser tests, production build, and final visual checks at 1366×768 and 1920×1080.
+- **Preserved:** all earlier benchmark datasets, results, checkpoints, forecasting and independent AWS/EC2/PostgreSQL monitoring code. Current AWS authentication/resource discovery passed; no live cloud fault accuracy was established.
+- **Blocked / not implemented here:** the dedicated PostgreSQL contention experiment. SQLite is explicitly labelled; no PostgreSQL lock evidence is fabricated.
+- **Unestablished:** GNN superiority, generalized mechanism accuracy, real-money banking, production causality, live AWS banking deployment and broad reliability guarantees.
 
-Official title: **Explainable AI-Based Cloud Performance Analytics for Digital Banking using Graph Neural Networks**.
+Frozen local study: [results/banking/measured_20261016/report.json](results/banking/measured_20261016/report.json). Runtime databases and credentials are excluded from Git and the final source package. No workload/fault starts automatically. No new video was created for this completion pass.
 
-The integrated application is running at http://127.0.0.1:8000/ .
-
-See [the full technical handover](docs/RESEARCH_PLATFORM_V3.md) for implemented features, exact commands, original data provenance, file inventory, numerical results, demonstration steps and limitations. Verified research references are in [RESEARCH_FOUNDATION.md](docs/RESEARCH_FOUNDATION.md). Baseline/checkpoint information is in [MASTER_RESEARCH_BASELINE.json](docs/MASTER_RESEARCH_BASELINE.json).
-
-Current sources: existing Alibaba traces, all 60 official Microsoft labelled series, 150 official RCAEval RE1 recordings, and read-only AWS. Current checks: 63 backend tests passed, frontend build passed, seven browser tests passed in the final acceptance run. No cloud faults/configuration changes were executed.
-
-Primary held-out RCA result: Top-1 60.0%, Top-3 86.7%, MRR 0.7445 on 30 grouped test cases. Microsoft median/MAD F1 is 0.3269 on the common 45,017 valid held-out points. These results are exploratory and source-specific. The graph model did not beat the feature-only reconstruction baseline. All held-out RCA recordings had pre-injection alerts in the separate any-resource timing evaluation, so zero conditional delay is not evidence of reliable operational alerting. Forecast intervals are not guaranteed and can under-cover.
-
-Current implementation and artifacts remain local; no new GitHub push was performed.
-
-**Current AWS blocker:** authentication succeeds, but final resource reads are denied: `ec2:DescribeInstances` (`UnauthorizedOperation`) and `rds:DescribeDBInstances` (`AccessDenied`). Earlier live validation passed; current collection cannot be verified until the active lab role/session regains read access. The application reports this error and does not substitute a healthy status.
+Earlier handovers remain accessible under `docs/archive/` and in Git history. They are historical records, not the current setup instructions.

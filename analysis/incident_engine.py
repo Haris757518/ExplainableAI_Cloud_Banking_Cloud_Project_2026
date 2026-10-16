@@ -85,7 +85,9 @@ def analyze_case(case,as_of=None,*,graph_enabled=True,evidence_gate=True,forecas
     # label. It stays fixed as replay advances and cannot adapt away an incident.
     recorded_end=case.provenance.get('recording_end',first+3000)
     reference_end=first+min(600,.2*(recorded_end-first)) if case.source.id=='rcaeval' else None
+    if case.source.id=='banking-local':reference_end=case.provenance.get('baseline_end')
     threshold,persistence=3.5,2
+    if case.source.id=='banking-local':threshold=float(case.provenance.get('detector_threshold',3.5))
     calibration='predeclared heuristic, not validated fault confidence'
     if case.source.id=='microsoft':
         from pathlib import Path

@@ -1,0 +1,4 @@
+
+# Preserve the frozen banking report checksums across Windows/Git archives.
+results/banking/**/report.json text eol=lf
+results/banking/FINAL.json text eol=lf
