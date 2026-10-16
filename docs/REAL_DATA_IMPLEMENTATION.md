@@ -66,3 +66,7 @@ The application execution timer excludes publishing/logging overhead. DB connect
 POST /api/aws/database/diagnostics?instance_id=... verifies the target against discovered instances and runs a fixed read-only PostgreSQL system-view query through SSM. It persists snapshots separately and includes the prior snapshot for comparison. It does not retrieve SQL text or customer data. I/O timing was off in the first snapshot; zero blk_read_time therefore cannot prove fast disk I/O.
 
 Use scripts/configure_aws_lab.py --instance-id INSTANCE_ID to reproduce the isolated installation after an AWS lab reset. The script requires a running managed instance with an instance profile permitted to publish metrics. Stop new probe publication on the EC2 host with sudo systemctl disable --now explainableai-observer; retained measurement logs and the isolated database remain intact.
+
+## Strict observed-only update (16 October 2026)
+
+The current acceptance report is `COMPLETION_REPORT.md`; baseline is `docs/STRICT_OBSERVED_BASELINE.md`. Controlled prototype code/results were archived outside the main project. Current live AWS analysis excludes the earlier trial period through 08:05 UTC and never uses it as a baseline. Stale/future observations and conflicting duplicate timestamps abstain from current anomaly classification. Database evidence is independent snapshot evidence, and three newer below-threshold points indicate only a return toward reference. Current rendered-browser checks supersede the earlier browser-helper limitation.

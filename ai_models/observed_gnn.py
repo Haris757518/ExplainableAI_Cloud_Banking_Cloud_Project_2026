@@ -85,7 +85,7 @@ def train_observed(sample, output, *, epochs=100, seed=42):
               'time_boundaries_ms':{'train_end':times[train_end-1],'validation_start':times[train_end],'test_start':times[val_end]},
               'test_observed_targets':int(m[val_end:].sum()), 'validation_mse':best_loss,'test_masked_mse':test_mse,'train_mean_baseline_test_mse':baseline,
               'supervised_accuracy':None,'rca_top1_accuracy':None,'ground_truth_available':False,
-              'topology_partitioning':'Transductive: fixed topology selected from the entire bounded slice; future topology is not held out.',
+              'topology_partitioning':sample.metadata.get('topology_partitioning','Transductive: fixed topology selected from the entire bounded slice; future topology is not held out.'),
               'explanation_kind':'Exact decomposition of reconstruction squared error across measured node features',
               'largest_test_residuals':sorted([{'node':node,'feature':feature,'squared_error_sum':float(residual[i,k])} for i,node in enumerate(nodes) for k,feature in enumerate(FEATURES) if m[val_end:,i,k].sum()], key=lambda row: row['squared_error_sum'],reverse=True)[:10],
               'limitations':'Self-supervised reconstruction is not verified fault detection. Chronological partitions share a bounded topology; no banking or causal labels. Zero internal mask fillers are excluded from loss and are not exported as observations.'}

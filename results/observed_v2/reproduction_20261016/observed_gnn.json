@@ -1,0 +1,82 @@
+{
+  "source": "alibaba_trace",
+  "series_sha256": "a6e2f4d757c4dcde260f36b5e919417a4a192843ad22cc6a94228bb28d24455d",
+  "seed": 42,
+  "features": [
+    "latency_ms",
+    "server_latency_ms",
+    "db_latency_ms",
+    "cpu_percent"
+  ],
+  "windows": 60,
+  "train_windows": 36,
+  "validation_windows": 12,
+  "test_windows": 12,
+  "time_boundaries_ms": {
+    "train_end": 175000,
+    "validation_start": 180000,
+    "test_start": 240000
+  },
+  "test_observed_targets": 489,
+  "validation_mse": 0.5618336200714111,
+  "test_masked_mse": 0.5495661497116089,
+  "train_mean_baseline_test_mse": 1.0416778326034546,
+  "supervised_accuracy": null,
+  "rca_top1_accuracy": null,
+  "ground_truth_available": false,
+  "topology_partitioning": "Transductive: fixed topology selected from the entire bounded slice; future topology is not held out.",
+  "explanation_kind": "Exact decomposition of reconstruction squared error across measured node features",
+  "largest_test_residuals": [
+    {
+      "node": "75e56c8fbb9336eb4dd40f5f609d5344203d374d73fd0b8d2bce19f754070f6a",
+      "feature": "latency_ms",
+      "squared_error_sum": 34.15414047241211
+    },
+    {
+      "node": "e6c95bef37d936ebb375bf135ded88c96eb9257a1d3d9de38a1dbd2751b0fbce",
+      "feature": "latency_ms",
+      "squared_error_sum": 18.56035804748535
+    },
+    {
+      "node": "01d660afcfadafd587e20ec4c04ddbc7eb0de95643ba0eec5fc1aeb15e341a85",
+      "feature": "latency_ms",
+      "squared_error_sum": 15.984941482543945
+    },
+    {
+      "node": "4ab265f54516248ee8873be7d6441912456ce17e84f39918e01ddc4210e56da5",
+      "feature": "latency_ms",
+      "squared_error_sum": 13.794135093688965
+    },
+    {
+      "node": "84f9f68ef003a21288fffe8f9a09a5a29b05f4cc4229b8337d1e3c28b6d07923",
+      "feature": "latency_ms",
+      "squared_error_sum": 13.624103546142578
+    },
+    {
+      "node": "4ab265f54516248ee8873be7d6441912456ce17e84f39918e01ddc4210e56da5",
+      "feature": "server_latency_ms",
+      "squared_error_sum": 10.390013694763184
+    },
+    {
+      "node": "3cab0a98767379fbcd059750c07ec42dbd0374cb114e0f8dc3a75bbaf4eed7d3",
+      "feature": "latency_ms",
+      "squared_error_sum": 10.084513664245605
+    },
+    {
+      "node": "b226d1a7f7f8526546a4ebb2955fb2bdddb3de88a726a3f43ebe0cb47edaa69e",
+      "feature": "server_latency_ms",
+      "squared_error_sum": 9.697314262390137
+    },
+    {
+      "node": "676ca482c56de84046ce1d0076abd6cdb0f25778d036dbbb764581671a685180",
+      "feature": "latency_ms",
+      "squared_error_sum": 9.44187068939209
+    },
+    {
+      "node": "75e56c8fbb9336eb4dd40f5f609d5344203d374d73fd0b8d2bce19f754070f6a",
+      "feature": "server_latency_ms",
+      "squared_error_sum": 8.562889099121094
+    }
+  ],
+  "limitations": "Self-supervised reconstruction is not verified fault detection. Chronological partitions share a bounded topology; no banking or causal labels. Zero internal mask fillers are excluded from loss and are not exported as observations."
+}

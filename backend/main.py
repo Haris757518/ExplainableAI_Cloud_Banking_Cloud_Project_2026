@@ -25,7 +25,7 @@ settings=get_settings()
 async def lifespan(app: FastAPI):
     init_db(); yield
 
-app=FastAPI(title="Digital Banking Cloud Performance Analytics",version="1.0.0",lifespan=lifespan)
+app=FastAPI(title="Explainable AI-Based Cloud Performance Analytics for Digital Banking using Graph Neural Networks",version="1.0.0",lifespan=lifespan)
 app.add_middleware(CORSMiddleware,allow_origins=[settings.frontend_origin,"http://127.0.0.1:5173","http://localhost:5173"],allow_credentials=True,allow_methods=["*"],allow_headers=["*"])
 pipeline=AnalysisPipeline()
 init_db()
@@ -41,11 +41,11 @@ def persist(result, db: Session):
 
 @app.get("/api/health")
 def health():
-    return {"status":"ok","aws_mode":settings.aws_mode,"model_loaded":pipeline.engine.loaded,"simulation_enabled":settings.enable_simulation,"observed_method":"chronological median/MAD holdout","synthetic_gnn_excluded_from_observed_inference":True,"model_version":pipeline.engine.model_version,"aws_region":settings.aws_region}
+    return {"status":"ok","aws_mode":settings.aws_mode,"model_loaded":Path("results/observed/observed_gnn.pt").exists(),"simulation_enabled":settings.enable_simulation,"observed_method":"chronological median/MAD holdout","synthetic_gnn_excluded_from_observed_inference":True,"model_version":"observed-median-mad-v2; Alibaba-only measured graph autoencoder","aws_region":settings.aws_region}
 
 @app.get("/api/config")
 def config():
-    return {"simulation_enabled":settings.enable_simulation,"aws_mode":settings.aws_mode,"region":settings.aws_region,"model_version":pipeline.engine.model_version,"scenarios":["NORMAL","CPU_SPIKE","DATABASE_LATENCY","SERVICE_OVERLOAD","NETWORK_DEGRADATION","CASCADING_FAILURE"],"transaction_types":["UPI_PAYMENT","FUND_TRANSFER","CARD_PAYMENT","BALANCE_INQUIRY","BILL_PAYMENT"]}
+    return {"simulation_enabled":settings.enable_simulation,"aws_mode":settings.aws_mode,"region":settings.aws_region,"model_version":"observed-median-mad-v2; Alibaba-only measured graph autoencoder","scenarios":["NORMAL","CPU_SPIKE","DATABASE_LATENCY","SERVICE_OVERLOAD","NETWORK_DEGRADATION","CASCADING_FAILURE"],"transaction_types":["UPI_PAYMENT","FUND_TRANSFER","CARD_PAYMENT","BALANCE_INQUIRY","BILL_PAYMENT"]}
 
 @app.get("/api/dashboard")
 def dashboard(db: Session=Depends(get_db)):
@@ -131,6 +131,25 @@ def cfao(run_id:int,db:Session=Depends(get_db)):
     if not row: raise HTTPException(status_code=404,detail="analysis not found")
     return json.loads(row.payload)["cfao"]
 
+def _permitted_aws(raw):
+    # Conservative source quarantine: the prior authorized controlled trials ended
+    # at 08:03:34 UTC. Exclude all points through 08:05 including aggregation margin.
+    from datetime import datetime
+    cutoff = datetime.fromisoformat('2026-10-16T08:05:00+00:00')
+    for group in ('ec2','rds','application'):
+        for item in raw.get(group,[]):
+            item['metrics']={}; item['observed_metrics']=[]
+            retained=[]
+            for series in item.get('series',[]):
+                points=[p for p in series['points'] if datetime.fromisoformat(p['timestamp']) > cutoff]
+                if not points: continue
+                series={**series,'points':points,'timestamp':points[-1]['timestamp'],'value':points[-1]['value']}
+                retained.append(series); item['metrics'][series['target']]=series['value']; item['observed_metrics'].append(series['target'])
+            item['series']=retained
+    raw['observed_metric_count']=sum(len(x['observed_metrics']) for g in ('ec2','rds','application') for x in raw.get(g,[]))
+    raw['exclusion_policy']={'not_before':'2026-10-16T08:05:00+00:00','reason':'Conservative exclusion of earlier controlled-trial period and aggregation margin; no trial results are research evidence.'}
+    return raw
+
 def _aws_discovery() -> dict:
     status = AWSDiscovery(settings.aws_region, settings.profile).status()
     if not status["connected"]:
@@ -166,6 +185,7 @@ def collect_aws(lookback_minutes: int=Query(60, ge=1, le=1440)):
     ec2_ids=[x["id"] for x in discovery["ec2"]]
     rds_ids=[x["id"] for x in discovery["rds"]]
     raw=CloudWatchAdapter(settings.aws_region,lookback_minutes,settings.cloudwatch_period_seconds,settings.profile).collect(ec2_ids,rds_ids,include_application=settings.collect_application_metrics)
+    raw=_permitted_aws(raw)
     raw["resource_discovery"]=discovery
     return raw
 
@@ -179,6 +199,7 @@ def analyze_aws(transaction_type: str | None = None, lookback_minutes: int=Query
     ec2_ids=[x["id"] for x in discovery["ec2"]]
     rds_ids=[x["id"] for x in discovery["rds"]]
     raw=CloudWatchAdapter(settings.aws_region,lookback_minutes,settings.cloudwatch_period_seconds,settings.profile).collect(ec2_ids,rds_ids,include_application=settings.collect_application_metrics)
+    raw=_permitted_aws(raw)
     if raw.get("observed_metric_count",0) == 0:
         detail={"message":"No CloudWatch datapoints were returned for the discovered resources in the configured lookback window.","region":settings.aws_region,"resources":discovery["counts"]}
         raise HTTPException(status_code=424,detail=detail)
@@ -190,7 +211,7 @@ def analyze_aws(transaction_type: str | None = None, lookback_minutes: int=Query
     run_id=persist(result,db)
     payload=result.model_dump(mode="json")
     payload["run_id"]=run_id
-    payload["aws_collection"]={"region":raw["region"],"timestamp":raw["timestamp"],"period_seconds":raw["period_seconds"],"observed_metric_count":raw["observed_metric_count"]}
+    payload["aws_collection"]={"region":raw["region"],"timestamp":raw["timestamp"],"period_seconds":raw["period_seconds"],"observed_metric_count":raw["observed_metric_count"],"api_calls":raw["api_calls"],"exclusion_policy":raw.get("exclusion_policy")}
     payload["aws_discovery"]=discovery
     return payload
 
@@ -245,6 +266,8 @@ def aws_database_diagnostics(instance_id: str, db: Session=Depends(get_db)):
         db.add(row); db.commit(); db.refresh(row)
     except Exception:
         db.rollback(); raise
+    from analysis.evidence import database_findings
+    observation['investigation']=database_findings(observation)
     observation['snapshot_id']=row.id
     return observation
 
@@ -257,26 +280,37 @@ def refine_aws(run_id: int, db: Session=Depends(get_db)):
     if not row or row.source != 'aws_cloudwatch':
         raise HTTPException(404, 'AWS analysis run not found.')
     before = json.loads(row.payload)
-    frontier = before['cfao']['causal_frontier']
+    frontier = before['cfao'].get('refinement',{}).get('evidence_gated_frontier',before['cfao']['causal_frontier'])
     if not frontier:
         raise HTTPException(409, 'No evidence-supported frontier. Collect a longer baseline first.')
+    physical=set(frontier)
+    for edge in before['graph'].get('edges',[]):
+        if edge['source'] in physical and edge.get('relationship')=='HOSTED_ON':physical.add(edge['target'])
     discovery = _aws_discovery()
     for group in ('ec2', 'rds'):
-        discovery[group] = [r for r in discovery[group] if r['id'] in frontier]
+        discovery[group] = [r for r in discovery[group] if r['id'] in physical]
     raw = CloudWatchAdapter(settings.aws_region, settings.cloudwatch_lookback_minutes, settings.cloudwatch_period_seconds, settings.profile).collect(
         [r['id'] for r in discovery['ec2']], [r['id'] for r in discovery['rds']], include_application=settings.collect_application_metrics)
+    raw=_permitted_aws(raw)
     if raw.get('errors') or not raw['observed_metric_count']:
         raise HTTPException(424, 'Focused AWS collection returned no complete usable evidence.')
     sample = build_aws_sample(discovery, raw, before['transaction']['type'], load_mapping(settings.aws_mapping_file))
     after = pipeline.analyze(sample, source='aws_cloudwatch')
     after_id = persist(after, db)
+    from analysis.evidence import compare_series, assess_followup
     old_series = before['graph']['metadata'].get('series', {})
+    comparison = compare_series(old_series, sample.metadata['series'])
     old_latest = max((p['timestamp_ms'] for metrics in old_series.values() for points in metrics.values() for p in points), default=0)
     new_latest = max((p['timestamp_ms'] for metrics in sample.metadata['series'].values() for points in metrics.values() for p in points), default=0)
     return {'before_run_id': run_id, 'after_run_id': after_id, 'after': after.model_dump(mode='json'),
-            'new_observations_available': new_latest > old_latest, 'sampling_changed': False,
+            'new_observations_available': any(c['new_point_count'] for c in comparison), 'comparison': comparison, 'followup': assess_followup(before['assessment'].get('evidence',[]), old_series, sample.metadata['series']), 'recovery_status': 'not_established', 'sampling_changed': False,
             'note': 'Fresh read of frontier resources at native resolution. Overlapping windows are not independent validation.'}
 
+
+# Controlled-fault routes are intentionally not registered in observed-only mode.
+
+from backend.research_api import router as research_router
+app.include_router(research_router)
 
 frontend_dist = Path(__file__).resolve().parents[1] / 'frontend' / 'dist'
 if frontend_dist.is_dir():

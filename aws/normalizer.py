@@ -50,7 +50,7 @@ def build_aws_sample(discovery, raw, transaction_type='UPI_PAYMENT', mapping=Non
         if 'latency_ms' in metrics:
             nodes.append(GraphNode(id=app_id,type='microservice',label='Measured lab probe',layer='application'))
             telemetry.append(TelemetryPoint(node_id=app_id,timestamp=ts,latency_ms=metrics['latency_ms'],source='aws_cloudwatch',observed_metrics=['latency_ms']))
-            series[app_id]={'latency_ms':per_metric.get('latency_ms',[])}
+            series[app_id]={'latency_ms':per_metric.get('latency_ms',[]), 'request_count':per_metric.get('request_count',[]), 'error_count':per_metric.get('error_count',[])}
             edges.append(GraphEdge(source=app_id,target=rid,relationship='HOSTED_ON'))
         if 'db_query_ms' in metrics:
             nodes.append(GraphNode(id=db_id,type='database',label='EC2 PostgreSQL probe',layer='data'))

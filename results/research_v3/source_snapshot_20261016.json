@@ -1,0 +1,32 @@
+{
+  "baseline_revision": "7adcc5eb437e011c898c65c275920f1fac3a0523",
+  "working_tree_source_sha256": {
+    "common/research.py": "f6e47f19ab8c8d435ed7419c858663d0bde6e0f235988d01ff5c57232b238590",
+    "dataset/benchmarks.py": "3f932830b886d323e64c453831a6a6d1883a018670723ed7d61b562bf13c3b8f",
+    "dataset/observed_trace.py": "dc17f18935e53375803287422048c835f607af98d9cb1ab47eb1e1742bf990b5",
+    "analysis/benchmark_evaluation.py": "4f92d6c0f56c801498c06102ed9cb890e5eea1647d96c1e384ca3b8c3cc12ba0",
+    "analysis/forecasting.py": "4bd306c36d18362a31172fd4f8aec3ce736a7f137f602cd014352e9f718011c9",
+    "analysis/incident_engine.py": "133e3450862a632ddd5a8219abe8b75ff054cffe059ebea295168aad24500d7e",
+    "ai_models/observed_gnn.py": "e168d34ab1a97420b2046e13cad697fd4a67cedaf87c928247af495ce6a4b18b",
+    "aws/normalizer.py": "92205f1f723c4191be15f1f2156cdb49175b2e8d8cd9beadb2379d524c0fb077",
+    "backend/main.py": "141a533db4848540268ff24b72b7d3f9d95469f1482f661c95d6d2410215b0ee",
+    "backend/research_api.py": "deea69cfdd8fc72eea7f91e1ba759b118e1464d5073b4d56dd9c1bb5153a3219",
+    "backend/services/pipeline.py": "baf61241ecca8eb9907e329ba52bc1c715d4a268a75abae2c3d69e75ab916a21",
+    "backend/services/research_bridge.py": "1d573090cab777d958cc293446f80dd33d3b58d9dd5786ccb5245cd7b9e7361f",
+    "cfao/policy.py": "24d21a9bd532a4f716d485bfb21d0a9776a7dd118ab9f1c7437664a58300d6c1",
+    "scripts/evaluate_detection_timing.py": "46d5fdef21f1c884a8e4bad3298e6f0587e768c2fffbb76977221862cb6d2075",
+    "scripts/evaluate_investigation.py": "06144c7457ebf3a0a7e750c3e25783f2ab2169bb6431f86b5fd68cb2af49359e",
+    "scripts/import_research_benchmarks.py": "f4e833d1957ba55180b61357409b20d7d48c4d62d384b8c9e8673cf284a6b496",
+    "scripts/run_benchmark_research.py": "57cc5ec9930d9357303532570c81d8efbfaa26fd4850a75c71209537575af014",
+    "scripts/run_graph_ablation.py": "2924d90317ff95f517efb39637d44a75f59e5ce15419fafb968499f0b55b53c8",
+    "frontend/index.html": "af5df34cc1fcfc78800cd9a07665715ab7adfbe7bedef48f93eb82bd648eb838",
+    "frontend/e2e/investigation.spec.js": "9746d6554bae66031caa54f3a947a05141f65d44dd218960c020ea27557f6f10",
+    "frontend/e2e/research.spec.js": "77a1990643a77f417dfbb8fe3468033e6950d23d3a9c7e45f65a2822f0b58d38",
+    "frontend/src/App.jsx": "a67dc4bb1a4816375acaa0bb238c9d8c2ada2f2d1d4e3334b207a097f9eeac2b",
+    "frontend/src/ResearchWorkbench.jsx": "9e5495009f82ccaa6f8f2a290ed9f393f20861fb627c3a080003bb7618eed21d",
+    "frontend/src/styles.css": "200c2b2026df61f749b5a8a9a0536e7507ccdd5177163c122cea3a4cd12457c1",
+    "tests/test_research_v3.py": "872c38c1432349f4914d4e722b42c172bca9b0faee815f58174e4bc11144bd6a"
+  },
+  "primary_run": "run_20261016_final",
+  "note": "Source snapshot includes subsequent metadata/UI/API integration changes; numerical experiment parameters and source revisions are recorded in each immutable report."
+}

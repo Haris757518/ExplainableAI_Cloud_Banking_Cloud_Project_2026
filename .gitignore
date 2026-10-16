@@ -22,3 +22,9 @@ awsinstall*.log
 configs/aws_mapping.json
 results/observed/aws_*.json
 results/observed/live_validation.json
+
+frontend/test-results/
+
+results/observed_v2/live_validation*.json
+
+results/research_v3/aws_validation*.json

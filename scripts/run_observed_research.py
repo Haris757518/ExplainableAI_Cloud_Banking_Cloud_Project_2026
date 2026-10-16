@@ -23,7 +23,10 @@ def main():
     snapshot=build_snapshot(args.root,max_rows=args.max_rows,window_ms=args.window_ms)
     sample=snapshot.to_analysis_sample()
     diagnosis=analyze_observed(sample,period_seconds=max(1,args.window_ms//1000))
-    out=Path(args.out); out.mkdir(parents=True,exist_ok=True)
+    out=Path(args.out)
+    if out.exists() and any(out.iterdir()):
+        raise SystemExit('Choose an empty output directory; existing research artifacts are preserved.')
+    out.mkdir(parents=True,exist_ok=True)
     (out/'analysis.json').write_text(diagnosis.model_dump_json(indent=2),encoding='utf-8')
     gnn=train_observed(sample,out/'observed_gnn.pt',epochs=args.epochs)
     archive=Path(snapshot.metadata['raw_sources']['callgraph'])

@@ -45,3 +45,7 @@ npm --prefix frontend run build
 ```
 
 Raw traces, credentials, local databases, installers, and raw AWS operational snapshots are kept out of Git. The measured-trace report/checkpoint are included; live verification records are generated locally by `scripts/verify_live.py` after AWS is configured. See `.env.example` and `docs/REAL_DATA_IMPLEMENTATION.md` for configuration.
+
+## Integrated research platform (16 October 2026)
+
+The current setup, real benchmark results and faculty demonstration are documented in [docs/RESEARCH_PLATFORM_V3.md](docs/RESEARCH_PLATFORM_V3.md). Install `requirements-benchmarks.txt` for the official Parquet importer. Sources stay separate; optional cloud faults are disabled. The official registered project title is unchanged.

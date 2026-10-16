@@ -8,8 +8,13 @@ from common.schema import (AnalysisResult, AffectedNode, RootCause, Explanation,
 
 
 def deviation(points, min_history=5):
-    valid = [p for p in points if isinstance(p.get('value'), (int, float)) and math.isfinite(p['value'])]
-    valid.sort(key=lambda p: p.get('timestamp_ms', 0))
+    # Conflicting duplicate timestamps cannot contribute multiple baseline samples.
+    grouped = {}
+    for p in points:
+        ts, value = p.get('timestamp_ms'), p.get('value')
+        if isinstance(ts, (int, float)) and not isinstance(ts, bool) and math.isfinite(ts) and isinstance(value, (int, float)) and not isinstance(value, bool) and math.isfinite(value):
+            grouped.setdefault(ts, set()).add(value)
+    valid = [{'timestamp_ms': ts, 'value': next(iter(values))} for ts, values in sorted(grouped.items()) if len(values) == 1]
     if len(valid) < min_history + 1:
         return None
     # Strictly earlier observations form the reference; the last point is held out.
@@ -18,14 +23,18 @@ def deviation(points, min_history=5):
     mad = median(abs(v - center) for v in history)
     scale = max(1.4826 * mad, abs(center) * 0.05, 1e-6)
     z = max(0., (valid[-1]['value'] - center) / scale)
-    return {'latest': valid[-1]['value'], 'reference_median': center, 'reference_mad': mad,
-            'robust_z': z, 'history_count': len(history), 'timestamp_ms': valid[-1].get('timestamp_ms')}
+    return {'reference_start_ms': valid[0]['timestamp_ms'], 'reference_end_ms': valid[-2]['timestamp_ms'], 'latest_gap_seconds': (valid[-1]['timestamp_ms']-valid[-2]['timestamp_ms'])/1000, 'latest': valid[-1]['value'], 'reference_median': center, 'reference_mad': mad,
+            'evaluation_rule': 'positive robust z >= 3.5; scale=max(1.4826*MAD,5% of median,1e-6)', 'scale': scale, 'robust_z': z, 'history_count': len(history), 'timestamp_ms': valid[-1].get('timestamp_ms')}
 
 
 def analyze_observed(sample, *, period_seconds=60):
     series = sample.metadata.get('series', {})
     evidence = []
     eligible = 0
+    unavailable = []
+    from datetime import datetime, timezone
+    now_ms = datetime.now(timezone.utc).timestamp() * 1000
+    is_live = sample.source == 'aws_cloudwatch' and bool(sample.metadata.get('collection', {}).get('timestamp'))
     for node in sample.nodes:
         for metric, points in series.get(node.id, {}).items():
             # CPU/latency/queue rises are interpretable; a free-memory or free-space
@@ -35,6 +44,13 @@ def analyze_observed(sample, *, period_seconds=60):
             d = deviation(points)
             if d is None:
                 continue
+            if is_live:
+                age = (now_ms - d['timestamp_ms']) / 1000
+                d['age_seconds'] = age
+                d['freshness'] = 'future' if age < -period_seconds else 'stale' if age > max(300, 3 * period_seconds) else 'current'
+                if d['freshness'] != 'current':
+                    unavailable.append({'node': node.id, 'metric': metric, **d})
+                    continue
             eligible += 1
             evidence.append({'node': node.id, 'metric': metric, **d})
     evidence.sort(key=lambda x: x['robust_z'], reverse=True)
@@ -93,8 +109,8 @@ def analyze_observed(sample, *, period_seconds=60):
                         'proposed_query_reduction_percent': round(100 * (1 - focused_count / all_count), 2) if all_count and focused_count else None,
                         'measured_savings': None, 'sampling_changed': False}),
         source=sample.source, scenario='UNLABELED', transaction=sample.transaction, graph=sample,
-        model_version='observed-median-mad-v1',
+        model_version='observed-median-mad-v2',
         assessment={'status': state, 'method': 'chronological median/MAD holdout', 'eligible_metric_series': eligible,
                     'ground_truth_available': False, 'score_kind': 'relative_deviation', 'causal_confirmation': False,
-                    'evidence': evidence, 'next_evidence': questions, 'measurement_gaps': gaps,
+                    'excluded_series': unavailable, 'freshness_rule': 'AWS: older than max(300 seconds, 3 collection periods) excluded; relative trace time is historical', 'evidence': evidence, 'next_evidence': questions, 'measurement_gaps': gaps,
                     'gnn_used': False, 'gnn_reason': 'Existing GNN checkpoints were trained on synthetic data and are excluded from observed-data inference.'})

@@ -3,6 +3,20 @@ import networkx as nx
 from common.schema import AnalysisSample, CFAOResult, TelemetryPolicy
 
 class CFAOEngine:
+    def evidence_frontier(self, candidates, maximum=3, transaction_path=()):
+        """Bounded evidence requests; never claim unavailable source resolution."""
+        selected=list(candidates[:maximum])
+        requests=[]
+        for candidate in selected:
+            metrics=[e.metric.lower() for e in candidate.supporting_evidence]
+            if any('connection' in m for m in metrics):diagnostic='Compare connection establishment, query time and measured pool occupancy.'
+            elif any('latency' in m or 'query' in m for m in metrics):diagnostic='Collect available database waits, blocking sessions and caller/server timing.'
+            elif any('cpu' in m for m in metrics):diagnostic='Compare CPU with actual request demand, process metrics and measured throttling.'
+            elif any('mem' in m for m in metrics):diagnostic='Inspect measured memory trend, limits and workload before inferring a leak.'
+            else:diagnostic='Verify metric semantics and collect available discriminating resource/error evidence.'
+            requests.append({'resource':candidate.resource,'purpose':diagnostic,'missing':candidate.missing_evidence,'on_recorded_transaction_path':candidate.resource in transaction_path})
+        return {'resources':[c.resource for c in selected],'requests':requests,'transaction_conditioning_available':bool(transaction_path),'selection_rule':'Highest evidence-ranked candidates, bounded budget; transaction context reported only when supplied from recorded/configured paths. No learned information-gain claim.','sampling_changed':False,'measured_cost_savings':None}
+
     def build(self, sample: AnalysisSample, root_nodes: list[str], is_anomaly: bool) -> CFAOResult:
         g = nx.DiGraph()
         g.add_nodes_from([n.id for n in sample.nodes])

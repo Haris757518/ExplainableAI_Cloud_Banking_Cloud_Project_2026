@@ -1,0 +1,256 @@
+{
+  "dataset": "RCAEval RE1 held-out recordings",
+  "cases": 30,
+  "detected_cases": 30,
+  "mean_detected_case_delay_seconds": 0.0,
+  "median_detected_case_delay_seconds": 0.0,
+  "cases_with_pre_injection_alerts": 30,
+  "protocol": "Frozen first min(600s,20% recording duration) reference; positive robust deviation >=3.5 sustained for two valid observations. Any-resource alert. No point adjustment.",
+  "limitations": [
+    "Post-injection delay is conditional on detection; pre-injection false alarms are reported separately.",
+    "No annotated recovery/end time is available, so post-injection points are not manufactured into precise duration labels.",
+    "Timing evaluation is separate from fixed-checkpoint localization."
+  ],
+  "cases_detail": [
+    {
+      "case_id": "0edd5ea1fe0183346e6f",
+      "post_injection_detection_delay_seconds": 0.0,
+      "pre_injection_alert_timestamps": 137,
+      "pre_injection_any_alert": true,
+      "post_injection_detected": true,
+      "label_source": "Official RCAEval case index and inject_time.txt; recorded controlled fault"
+    },
+    {
+      "case_id": "f015490bd8ccec4f3d1b",
+      "post_injection_detection_delay_seconds": 0.0,
+      "pre_injection_alert_timestamps": 143,
+      "pre_injection_any_alert": true,
+      "post_injection_detected": true,
+      "label_source": "Official RCAEval case index and inject_time.txt; recorded controlled fault"
+    },
+    {
+      "case_id": "c2ce21088423515461c4",
+      "post_injection_detection_delay_seconds": 0.0,
+      "pre_injection_alert_timestamps": 61,
+      "pre_injection_any_alert": true,
+      "post_injection_detected": true,
+      "label_source": "Official RCAEval case index and inject_time.txt; recorded controlled fault"
+    },
+    {
+      "case_id": "dc4961dcf856a757ad91",
+      "post_injection_detection_delay_seconds": 0.0,
+      "pre_injection_alert_timestamps": 186,
+      "pre_injection_any_alert": true,
+      "post_injection_detected": true,
+      "label_source": "Official RCAEval case index and inject_time.txt; recorded controlled fault"
+    },
+    {
+      "case_id": "8c5e6ed5e4d2ab83081b",
+      "post_injection_detection_delay_seconds": 0.0,
+      "pre_injection_alert_timestamps": 119,
+      "pre_injection_any_alert": true,
+      "post_injection_detected": true,
+      "label_source": "Official RCAEval case index and inject_time.txt; recorded controlled fault"
+    },
+    {
+      "case_id": "7d1798d0c1b8730a1db6",
+      "post_injection_detection_delay_seconds": 0.0,
+      "pre_injection_alert_timestamps": 187,
+      "pre_injection_any_alert": true,
+      "post_injection_detected": true,
+      "label_source": "Official RCAEval case index and inject_time.txt; recorded controlled fault"
+    },
+    {
+      "case_id": "bb9c21f8da97953bc155",
+      "post_injection_detection_delay_seconds": 0.0,
+      "pre_injection_alert_timestamps": 214,
+      "pre_injection_any_alert": true,
+      "post_injection_detected": true,
+      "label_source": "Official RCAEval case index and inject_time.txt; recorded controlled fault"
+    },
+    {
+      "case_id": "cf4fa26ae131fee5754a",
+      "post_injection_detection_delay_seconds": 0.0,
+      "pre_injection_alert_timestamps": 214,
+      "pre_injection_any_alert": true,
+      "post_injection_detected": true,
+      "label_source": "Official RCAEval case index and inject_time.txt; recorded controlled fault"
+    },
+    {
+      "case_id": "3d1788d547ddcf273f9b",
+      "post_injection_detection_delay_seconds": 0.0,
+      "pre_injection_alert_timestamps": 214,
+      "pre_injection_any_alert": true,
+      "post_injection_detected": true,
+      "label_source": "Official RCAEval case index and inject_time.txt; recorded controlled fault"
+    },
+    {
+      "case_id": "4da85f82ca76ea788b95",
+      "post_injection_detection_delay_seconds": 0.0,
+      "pre_injection_alert_timestamps": 195,
+      "pre_injection_any_alert": true,
+      "post_injection_detected": true,
+      "label_source": "Official RCAEval case index and inject_time.txt; recorded controlled fault"
+    },
+    {
+      "case_id": "180279a0e4c4d7bdd5f6",
+      "post_injection_detection_delay_seconds": 0.0,
+      "pre_injection_alert_timestamps": 285,
+      "pre_injection_any_alert": true,
+      "post_injection_detected": true,
+      "label_source": "Official RCAEval case index and inject_time.txt; recorded controlled fault"
+    },
+    {
+      "case_id": "4103c1a3bccae4101d3d",
+      "post_injection_detection_delay_seconds": 0.0,
+      "pre_injection_alert_timestamps": 278,
+      "pre_injection_any_alert": true,
+      "post_injection_detected": true,
+      "label_source": "Official RCAEval case index and inject_time.txt; recorded controlled fault"
+    },
+    {
+      "case_id": "57b40a442f82ce896b37",
+      "post_injection_detection_delay_seconds": 0.0,
+      "pre_injection_alert_timestamps": 266,
+      "pre_injection_any_alert": true,
+      "post_injection_detected": true,
+      "label_source": "Official RCAEval case index and inject_time.txt; recorded controlled fault"
+    },
+    {
+      "case_id": "782b41aefaec285825d4",
+      "post_injection_detection_delay_seconds": 0.0,
+      "pre_injection_alert_timestamps": 284,
+      "pre_injection_any_alert": true,
+      "post_injection_detected": true,
+      "label_source": "Official RCAEval case index and inject_time.txt; recorded controlled fault"
+    },
+    {
+      "case_id": "6e4d5647089498efa1fd",
+      "post_injection_detection_delay_seconds": 0.0,
+      "pre_injection_alert_timestamps": 279,
+      "pre_injection_any_alert": true,
+      "post_injection_detected": true,
+      "label_source": "Official RCAEval case index and inject_time.txt; recorded controlled fault"
+    },
+    {
+      "case_id": "05035f50112c0e25d5f9",
+      "post_injection_detection_delay_seconds": 0.0,
+      "pre_injection_alert_timestamps": 262,
+      "pre_injection_any_alert": true,
+      "post_injection_detected": true,
+      "label_source": "Official RCAEval case index and inject_time.txt; recorded controlled fault"
+    },
+    {
+      "case_id": "d0bd03f2b16d3d1ad975",
+      "post_injection_detection_delay_seconds": 0.0,
+      "pre_injection_alert_timestamps": 286,
+      "pre_injection_any_alert": true,
+      "post_injection_detected": true,
+      "label_source": "Official RCAEval case index and inject_time.txt; recorded controlled fault"
+    },
+    {
+      "case_id": "ee3b7ac034511aa5dafe",
+      "post_injection_detection_delay_seconds": 0.0,
+      "pre_injection_alert_timestamps": 280,
+      "pre_injection_any_alert": true,
+      "post_injection_detected": true,
+      "label_source": "Official RCAEval case index and inject_time.txt; recorded controlled fault"
+    },
+    {
+      "case_id": "7a8d338ba3b032344a08",
+      "post_injection_detection_delay_seconds": 0.0,
+      "pre_injection_alert_timestamps": 286,
+      "pre_injection_any_alert": true,
+      "post_injection_detected": true,
+      "label_source": "Official RCAEval case index and inject_time.txt; recorded controlled fault"
+    },
+    {
+      "case_id": "b41faccf52021ff220a6",
+      "post_injection_detection_delay_seconds": 0.0,
+      "pre_injection_alert_timestamps": 281,
+      "pre_injection_any_alert": true,
+      "post_injection_detected": true,
+      "label_source": "Official RCAEval case index and inject_time.txt; recorded controlled fault"
+    },
+    {
+      "case_id": "77eed0f0961848538188",
+      "post_injection_detection_delay_seconds": 0.0,
+      "pre_injection_alert_timestamps": 214,
+      "pre_injection_any_alert": true,
+      "post_injection_detected": true,
+      "label_source": "Official RCAEval case index and inject_time.txt; recorded controlled fault"
+    },
+    {
+      "case_id": "1cff53bd32001281e17c",
+      "post_injection_detection_delay_seconds": 0.0,
+      "pre_injection_alert_timestamps": 214,
+      "pre_injection_any_alert": true,
+      "post_injection_detected": true,
+      "label_source": "Official RCAEval case index and inject_time.txt; recorded controlled fault"
+    },
+    {
+      "case_id": "f18ce4accabbd0ef5101",
+      "post_injection_detection_delay_seconds": 0.0,
+      "pre_injection_alert_timestamps": 214,
+      "pre_injection_any_alert": true,
+      "post_injection_detected": true,
+      "label_source": "Official RCAEval case index and inject_time.txt; recorded controlled fault"
+    },
+    {
+      "case_id": "c66fd76035446d2f712c",
+      "post_injection_detection_delay_seconds": 0.0,
+      "pre_injection_alert_timestamps": 214,
+      "pre_injection_any_alert": true,
+      "post_injection_detected": true,
+      "label_source": "Official RCAEval case index and inject_time.txt; recorded controlled fault"
+    },
+    {
+      "case_id": "e232cd0c9e47763d7b87",
+      "post_injection_detection_delay_seconds": 0.0,
+      "pre_injection_alert_timestamps": 214,
+      "pre_injection_any_alert": true,
+      "post_injection_detected": true,
+      "label_source": "Official RCAEval case index and inject_time.txt; recorded controlled fault"
+    },
+    {
+      "case_id": "900e7b37549929638e94",
+      "post_injection_detection_delay_seconds": 0.0,
+      "pre_injection_alert_timestamps": 286,
+      "pre_injection_any_alert": true,
+      "post_injection_detected": true,
+      "label_source": "Official RCAEval case index and inject_time.txt; recorded controlled fault"
+    },
+    {
+      "case_id": "9292b402cc72e36a3861",
+      "post_injection_detection_delay_seconds": 0.0,
+      "pre_injection_alert_timestamps": 286,
+      "pre_injection_any_alert": true,
+      "post_injection_detected": true,
+      "label_source": "Official RCAEval case index and inject_time.txt; recorded controlled fault"
+    },
+    {
+      "case_id": "860d4056df5eb31a2eda",
+      "post_injection_detection_delay_seconds": 0.0,
+      "pre_injection_alert_timestamps": 286,
+      "pre_injection_any_alert": true,
+      "post_injection_detected": true,
+      "label_source": "Official RCAEval case index and inject_time.txt; recorded controlled fault"
+    },
+    {
+      "case_id": "b354fd1de7b43307b2c2",
+      "post_injection_detection_delay_seconds": 0.0,
+      "pre_injection_alert_timestamps": 280,
+      "pre_injection_any_alert": true,
+      "post_injection_detected": true,
+      "label_source": "Official RCAEval case index and inject_time.txt; recorded controlled fault"
+    },
+    {
+      "case_id": "1cc942e291b5b576c725",
+      "post_injection_detection_delay_seconds": 0.0,
+      "pre_injection_alert_timestamps": 281,
+      "pre_injection_any_alert": true,
+      "post_injection_detected": true,
+      "label_source": "Official RCAEval case index and inject_time.txt; recorded controlled fault"
+    }
+  ]
+}

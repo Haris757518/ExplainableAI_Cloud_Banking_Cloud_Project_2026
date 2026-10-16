@@ -1,0 +1,9 @@
+{
+  "started_at": "2026-10-16T09:58:15.410365+00:00",
+  "completed_at": "2026-10-16T10:02:39.221716+00:00",
+  "elapsed_seconds": 263.81119079999917,
+  "python": "3.12.4",
+  "hardware": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+  "labels_used_for": "Microsoft validation-only threshold selection and held-out scoring; RCA labels accessed after predictions only",
+  "synthetic_telemetry_used": false
+}

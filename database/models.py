@@ -25,3 +25,11 @@ class DiagnosticSnapshot(Base):
     source: Mapped[str] = mapped_column(String(64))
     payload: Mapped[str] = mapped_column(Text)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+
+
+class IncidentRun(Base):
+    __tablename__='incident_runs'
+    id: Mapped[str] = mapped_column(String(32),primary_key=True)
+    status: Mapped[str] = mapped_column(String(32))
+    payload: Mapped[str] = mapped_column(Text)
+    created_at: Mapped[datetime] = mapped_column(DateTime,default=datetime.utcnow,index=True)

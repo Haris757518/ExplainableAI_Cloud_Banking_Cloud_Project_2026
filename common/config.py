@@ -4,6 +4,8 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class Settings(BaseSettings):
     app_env: str = "development"
+    incident_instance_id: str = ""
+    incident_lab_url: str = ""
     enable_simulation: bool = False
     alibaba_root: str = "dataset/raw/alibaba"
     alibaba_max_rows: int = 100000

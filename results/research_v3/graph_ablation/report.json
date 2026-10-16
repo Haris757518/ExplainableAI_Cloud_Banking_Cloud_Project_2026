@@ -1,0 +1,603 @@
+{
+  "dataset": "Alibaba measured bounded 100000-row trace",
+  "seed": 42,
+  "epochs": 100,
+  "architecture": "same width-16 masked graph autoencoder; directed recorded calls are symmetrized by this existing model",
+  "topology": {
+    "source": "alibaba_trace",
+    "series_sha256": "a6e2f4d757c4dcde260f36b5e919417a4a192843ad22cc6a94228bb28d24455d",
+    "seed": 42,
+    "features": [
+      "latency_ms",
+      "server_latency_ms",
+      "db_latency_ms",
+      "cpu_percent"
+    ],
+    "windows": 60,
+    "train_windows": 36,
+    "validation_windows": 12,
+    "test_windows": 12,
+    "time_boundaries_ms": {
+      "train_end": 175000,
+      "validation_start": 180000,
+      "test_start": 240000
+    },
+    "test_observed_targets": 489,
+    "validation_mse": 0.5618336200714111,
+    "test_masked_mse": 0.5495661497116089,
+    "train_mean_baseline_test_mse": 1.0416778326034546,
+    "supervised_accuracy": null,
+    "rca_top1_accuracy": null,
+    "ground_truth_available": false,
+    "topology_partitioning": "Transductive: fixed topology selected from the entire bounded slice; future topology is not held out.",
+    "explanation_kind": "Exact decomposition of reconstruction squared error across measured node features",
+    "largest_test_residuals": [
+      {
+        "node": "75e56c8fbb9336eb4dd40f5f609d5344203d374d73fd0b8d2bce19f754070f6a",
+        "feature": "latency_ms",
+        "squared_error_sum": 34.15414047241211
+      },
+      {
+        "node": "e6c95bef37d936ebb375bf135ded88c96eb9257a1d3d9de38a1dbd2751b0fbce",
+        "feature": "latency_ms",
+        "squared_error_sum": 18.56035804748535
+      },
+      {
+        "node": "01d660afcfadafd587e20ec4c04ddbc7eb0de95643ba0eec5fc1aeb15e341a85",
+        "feature": "latency_ms",
+        "squared_error_sum": 15.984941482543945
+      },
+      {
+        "node": "4ab265f54516248ee8873be7d6441912456ce17e84f39918e01ddc4210e56da5",
+        "feature": "latency_ms",
+        "squared_error_sum": 13.794135093688965
+      },
+      {
+        "node": "84f9f68ef003a21288fffe8f9a09a5a29b05f4cc4229b8337d1e3c28b6d07923",
+        "feature": "latency_ms",
+        "squared_error_sum": 13.624103546142578
+      },
+      {
+        "node": "4ab265f54516248ee8873be7d6441912456ce17e84f39918e01ddc4210e56da5",
+        "feature": "server_latency_ms",
+        "squared_error_sum": 10.390013694763184
+      },
+      {
+        "node": "3cab0a98767379fbcd059750c07ec42dbd0374cb114e0f8dc3a75bbaf4eed7d3",
+        "feature": "latency_ms",
+        "squared_error_sum": 10.084513664245605
+      },
+      {
+        "node": "b226d1a7f7f8526546a4ebb2955fb2bdddb3de88a726a3f43ebe0cb47edaa69e",
+        "feature": "server_latency_ms",
+        "squared_error_sum": 9.697314262390137
+      },
+      {
+        "node": "676ca482c56de84046ce1d0076abd6cdb0f25778d036dbbb764581671a685180",
+        "feature": "latency_ms",
+        "squared_error_sum": 9.44187068939209
+      },
+      {
+        "node": "75e56c8fbb9336eb4dd40f5f609d5344203d374d73fd0b8d2bce19f754070f6a",
+        "feature": "server_latency_ms",
+        "squared_error_sum": 8.562889099121094
+      }
+    ],
+    "limitations": "Self-supervised reconstruction is not verified fault detection. Chronological partitions share a bounded topology; no banking or causal labels. Zero internal mask fillers are excluded from loss and are not exported as observations."
+  },
+  "no_graph_identity": {
+    "source": "alibaba_trace",
+    "series_sha256": "a6e2f4d757c4dcde260f36b5e919417a4a192843ad22cc6a94228bb28d24455d",
+    "seed": 42,
+    "features": [
+      "latency_ms",
+      "server_latency_ms",
+      "db_latency_ms",
+      "cpu_percent"
+    ],
+    "windows": 60,
+    "train_windows": 36,
+    "validation_windows": 12,
+    "test_windows": 12,
+    "time_boundaries_ms": {
+      "train_end": 175000,
+      "validation_start": 180000,
+      "test_start": 240000
+    },
+    "test_observed_targets": 489,
+    "validation_mse": 0.0007617418305017054,
+    "test_masked_mse": 0.0008832925814203918,
+    "train_mean_baseline_test_mse": 1.0416778326034546,
+    "supervised_accuracy": null,
+    "rca_top1_accuracy": null,
+    "ground_truth_available": false,
+    "topology_partitioning": "Transductive: fixed topology selected from the entire bounded slice; future topology is not held out.",
+    "explanation_kind": "Exact decomposition of reconstruction squared error across measured node features",
+    "largest_test_residuals": [
+      {
+        "node": "b58ba81e712e15281eb93074ed026a844f5100024d91b25f2742b5d5e8bedd9f",
+        "feature": "server_latency_ms",
+        "squared_error_sum": 0.13424678146839142
+      },
+      {
+        "node": "95a6f7f8345e2eca31ee74ddc19d547e7fc0f5c8e65772d7b08a68eb5214dc44",
+        "feature": "server_latency_ms",
+        "squared_error_sum": 0.045786432921886444
+      },
+      {
+        "node": "20119b0b7869f98acb0f0f7557893474a7b84c34e50ec6dcc6d3afb953758f12",
+        "feature": "server_latency_ms",
+        "squared_error_sum": 0.02688438631594181
+      },
+      {
+        "node": "9a3ef4d24dd4e7fb8baaa9e30aea1395caa50f583630f69047c8e20f2e8d9554",
+        "feature": "server_latency_ms",
+        "squared_error_sum": 0.021863676607608795
+      },
+      {
+        "node": "4ab265f54516248ee8873be7d6441912456ce17e84f39918e01ddc4210e56da5",
+        "feature": "server_latency_ms",
+        "squared_error_sum": 0.02020636573433876
+      },
+      {
+        "node": "b58ba81e712e15281eb93074ed026a844f5100024d91b25f2742b5d5e8bedd9f",
+        "feature": "latency_ms",
+        "squared_error_sum": 0.01566767878830433
+      },
+      {
+        "node": "4ab265f54516248ee8873be7d6441912456ce17e84f39918e01ddc4210e56da5",
+        "feature": "latency_ms",
+        "squared_error_sum": 0.01368466205894947
+      },
+      {
+        "node": "46a6d5047ff9337b34dbdf42c07843d60367ece052e92e004c7dbc3348b3bc75",
+        "feature": "latency_ms",
+        "squared_error_sum": 0.01181782316416502
+      },
+      {
+        "node": "c964e78e1ee643babee3c48807207a39596bdc816e5ceb5c766c408648887747",
+        "feature": "latency_ms",
+        "squared_error_sum": 0.01131660770624876
+      },
+      {
+        "node": "63b8a25a4a9f80c7508c0db0d163af6d9e6c0746c9b7e26aeacadee945657501",
+        "feature": "latency_ms",
+        "squared_error_sum": 0.010705999098718166
+      }
+    ],
+    "limitations": "Self-supervised reconstruction is not verified fault detection. Chronological partitions share a bounded topology; no banking or causal labels. Zero internal mask fillers are excluded from loss and are not exported as observations."
+  },
+  "train_mean_mse": 1.0416778326034546,
+  "graph_minus_no_graph_test_mse": 0.5486828571301885,
+  "explanation_fidelity": {
+    "kind": "computed model-input/edge removal sensitivity, not causal intervention on source data",
+    "latest_heldout_mse": 0.48312824964523315,
+    "feature_removal": [
+      {
+        "feature": "latency_ms",
+        "reconstruction_mse_delta": 0.11157160997390747
+      },
+      {
+        "feature": "server_latency_ms",
+        "reconstruction_mse_delta": 0.3630250096321106
+      },
+      {
+        "feature": "db_latency_ms",
+        "reconstruction_mse_delta": 0.0
+      },
+      {
+        "feature": "cpu_percent",
+        "reconstruction_mse_delta": 0.0
+      }
+    ],
+    "edge_removal": [
+      {
+        "source": "75e56c8fbb9336eb4dd40f5f609d5344203d374d73fd0b8d2bce19f754070f6a",
+        "target": "84f9f68ef003a21288fffe8f9a09a5a29b05f4cc4229b8337d1e3c28b6d07923",
+        "reconstruction_mse_delta": 0.11242645978927612
+      },
+      {
+        "source": "b5363262982f9ddea0e1d8acb112df82fb29117fe56eb6c5b9380d47dc13937c",
+        "target": "74bdd25fc1a1236acfdee2b196cafe1987c84b307dde39e3ba1a52f2d1054492",
+        "reconstruction_mse_delta": 0.09279364347457886
+      },
+      {
+        "source": "4d980b8ae1f1da1a302d77ef91b9f9dd4e841856f6cdd4de10df7514456b6831",
+        "target": "e6c95bef37d936ebb375bf135ded88c96eb9257a1d3d9de38a1dbd2751b0fbce",
+        "reconstruction_mse_delta": 0.030441343784332275
+      },
+      {
+        "source": "9a3ef4d24dd4e7fb8baaa9e30aea1395caa50f583630f69047c8e20f2e8d9554",
+        "target": "2abd05990aa9eb81a3eaa333829ec355eaee57fbecc9e8d2e000dde5f4972378",
+        "reconstruction_mse_delta": -0.030211210250854492
+      },
+      {
+        "source": "75e56c8fbb9336eb4dd40f5f609d5344203d374d73fd0b8d2bce19f754070f6a",
+        "target": "b226d1a7f7f8526546a4ebb2955fb2bdddb3de88a726a3f43ebe0cb47edaa69e",
+        "reconstruction_mse_delta": -0.028109997510910034
+      },
+      {
+        "source": "75e56c8fbb9336eb4dd40f5f609d5344203d374d73fd0b8d2bce19f754070f6a",
+        "target": "5ba2be786dc249dc3b3cda596a4d121f55a1dcb75b399d293ec2187a3f0632f6",
+        "reconstruction_mse_delta": -0.027290821075439453
+      },
+      {
+        "source": "75e56c8fbb9336eb4dd40f5f609d5344203d374d73fd0b8d2bce19f754070f6a",
+        "target": "091794afdcf1abbaf62404337ff72a38df96c5d8af8bd0d1348b331e84ac89e5",
+        "reconstruction_mse_delta": -0.023685216903686523
+      },
+      {
+        "source": "75e56c8fbb9336eb4dd40f5f609d5344203d374d73fd0b8d2bce19f754070f6a",
+        "target": "01d660afcfadafd587e20ec4c04ddbc7eb0de95643ba0eec5fc1aeb15e341a85",
+        "reconstruction_mse_delta": -0.017766356468200684
+      },
+      {
+        "source": "091794afdcf1abbaf62404337ff72a38df96c5d8af8bd0d1348b331e84ac89e5",
+        "target": "b226d1a7f7f8526546a4ebb2955fb2bdddb3de88a726a3f43ebe0cb47edaa69e",
+        "reconstruction_mse_delta": 0.017149627208709717
+      },
+      {
+        "source": "75e56c8fbb9336eb4dd40f5f609d5344203d374d73fd0b8d2bce19f754070f6a",
+        "target": "676ca482c56de84046ce1d0076abd6cdb0f25778d036dbbb764581671a685180",
+        "reconstruction_mse_delta": -0.015445291996002197
+      },
+      {
+        "source": "b58ba81e712e15281eb93074ed026a844f5100024d91b25f2742b5d5e8bedd9f",
+        "target": "2abd05990aa9eb81a3eaa333829ec355eaee57fbecc9e8d2e000dde5f4972378",
+        "reconstruction_mse_delta": 0.015200823545455933
+      },
+      {
+        "source": "24601dd8b36f856eb0a4d759866f475bc62cf843ffe0920e0d4d72ea1e84719c",
+        "target": "2abd05990aa9eb81a3eaa333829ec355eaee57fbecc9e8d2e000dde5f4972378",
+        "reconstruction_mse_delta": -0.015191525220870972
+      },
+      {
+        "source": "4d980b8ae1f1da1a302d77ef91b9f9dd4e841856f6cdd4de10df7514456b6831",
+        "target": "091794afdcf1abbaf62404337ff72a38df96c5d8af8bd0d1348b331e84ac89e5",
+        "reconstruction_mse_delta": -0.013801008462905884
+      },
+      {
+        "source": "95a6f7f8345e2eca31ee74ddc19d547e7fc0f5c8e65772d7b08a68eb5214dc44",
+        "target": "e6c95bef37d936ebb375bf135ded88c96eb9257a1d3d9de38a1dbd2751b0fbce",
+        "reconstruction_mse_delta": -0.012594074010848999
+      },
+      {
+        "source": "6da93e1b8565f05eb7708ccedf9f4a02f1d9a6300bd4e06018289600a7f96cbe",
+        "target": "e6c95bef37d936ebb375bf135ded88c96eb9257a1d3d9de38a1dbd2751b0fbce",
+        "reconstruction_mse_delta": -0.012031972408294678
+      },
+      {
+        "source": "35114acfb54c54fb9618f23cd28bbc57c765f597df140977d7030dcc52775ed4",
+        "target": "46a6d5047ff9337b34dbdf42c07843d60367ece052e92e004c7dbc3348b3bc75",
+        "reconstruction_mse_delta": -0.011681824922561646
+      },
+      {
+        "source": "4ab265f54516248ee8873be7d6441912456ce17e84f39918e01ddc4210e56da5",
+        "target": "e6c95bef37d936ebb375bf135ded88c96eb9257a1d3d9de38a1dbd2751b0fbce",
+        "reconstruction_mse_delta": -0.011039882898330688
+      },
+      {
+        "source": "95a6f7f8345e2eca31ee74ddc19d547e7fc0f5c8e65772d7b08a68eb5214dc44",
+        "target": "1bf21ceb4b024afe56aefe9d977a0351b75863ed2e671dd9972f409ace02c664",
+        "reconstruction_mse_delta": -0.010564655065536499
+      },
+      {
+        "source": "b58ba81e712e15281eb93074ed026a844f5100024d91b25f2742b5d5e8bedd9f",
+        "target": "c964e78e1ee643babee3c48807207a39596bdc816e5ceb5c766c408648887747",
+        "reconstruction_mse_delta": 0.009874194860458374
+      },
+      {
+        "source": "b58ba81e712e15281eb93074ed026a844f5100024d91b25f2742b5d5e8bedd9f",
+        "target": "5ba2be786dc249dc3b3cda596a4d121f55a1dcb75b399d293ec2187a3f0632f6",
+        "reconstruction_mse_delta": 0.009037286043167114
+      },
+      {
+        "source": "95a6f7f8345e2eca31ee74ddc19d547e7fc0f5c8e65772d7b08a68eb5214dc44",
+        "target": "01d660afcfadafd587e20ec4c04ddbc7eb0de95643ba0eec5fc1aeb15e341a85",
+        "reconstruction_mse_delta": 0.00845763087272644
+      },
+      {
+        "source": "b58ba81e712e15281eb93074ed026a844f5100024d91b25f2742b5d5e8bedd9f",
+        "target": "46a6d5047ff9337b34dbdf42c07843d60367ece052e92e004c7dbc3348b3bc75",
+        "reconstruction_mse_delta": 0.006654143333435059
+      },
+      {
+        "source": "4ab265f54516248ee8873be7d6441912456ce17e84f39918e01ddc4210e56da5",
+        "target": "01d660afcfadafd587e20ec4c04ddbc7eb0de95643ba0eec5fc1aeb15e341a85",
+        "reconstruction_mse_delta": 0.006397843360900879
+      },
+      {
+        "source": "95a6f7f8345e2eca31ee74ddc19d547e7fc0f5c8e65772d7b08a68eb5214dc44",
+        "target": "9cc1113009ea0ec1a4cf99fa6984bd49be8dd026be42921fc6897e5bf121efad",
+        "reconstruction_mse_delta": 0.006315261125564575
+      },
+      {
+        "source": "b58ba81e712e15281eb93074ed026a844f5100024d91b25f2742b5d5e8bedd9f",
+        "target": "0b0c981da8042a436f30f7d9f7cce74360abe630bd54785016816e10f4d22525",
+        "reconstruction_mse_delta": 0.006185382604598999
+      },
+      {
+        "source": "9a3ef4d24dd4e7fb8baaa9e30aea1395caa50f583630f69047c8e20f2e8d9554",
+        "target": "c964e78e1ee643babee3c48807207a39596bdc816e5ceb5c766c408648887747",
+        "reconstruction_mse_delta": -0.005640000104904175
+      },
+      {
+        "source": "63b8a25a4a9f80c7508c0db0d163af6d9e6c0746c9b7e26aeacadee945657501",
+        "target": "9cc1113009ea0ec1a4cf99fa6984bd49be8dd026be42921fc6897e5bf121efad",
+        "reconstruction_mse_delta": -0.00526842474937439
+      },
+      {
+        "source": "4d980b8ae1f1da1a302d77ef91b9f9dd4e841856f6cdd4de10df7514456b6831",
+        "target": "0b0c981da8042a436f30f7d9f7cce74360abe630bd54785016816e10f4d22525",
+        "reconstruction_mse_delta": -0.004730731248855591
+      },
+      {
+        "source": "95a6f7f8345e2eca31ee74ddc19d547e7fc0f5c8e65772d7b08a68eb5214dc44",
+        "target": "4d980b8ae1f1da1a302d77ef91b9f9dd4e841856f6cdd4de10df7514456b6831",
+        "reconstruction_mse_delta": -0.004640132188796997
+      },
+      {
+        "source": "5cca70246befb1f4c9546d2912b9419dee54439218efa55a7a2e0e26e86ad749",
+        "target": "b1dbd3a649a3cc790fa12573c9c1aa00988e07a8818a2214208b9697238c1b11",
+        "reconstruction_mse_delta": -0.0035474002361297607
+      },
+      {
+        "source": "af42b5e3e0eb334d38619733586d78d1414f6549f24d31b39a5294454638bc59",
+        "target": "b1dbd3a649a3cc790fa12573c9c1aa00988e07a8818a2214208b9697238c1b11",
+        "reconstruction_mse_delta": -0.0035474002361297607
+      },
+      {
+        "source": "9a3ef4d24dd4e7fb8baaa9e30aea1395caa50f583630f69047c8e20f2e8d9554",
+        "target": "46a6d5047ff9337b34dbdf42c07843d60367ece052e92e004c7dbc3348b3bc75",
+        "reconstruction_mse_delta": 0.003531813621520996
+      },
+      {
+        "source": "9a9e8613b6d7d1b573ba38dba19eec9c3cc460ab00cb49a7e7bfb0d93bac9262",
+        "target": "b226d1a7f7f8526546a4ebb2955fb2bdddb3de88a726a3f43ebe0cb47edaa69e",
+        "reconstruction_mse_delta": -0.0029420554637908936
+      },
+      {
+        "source": "63b8a25a4a9f80c7508c0db0d163af6d9e6c0746c9b7e26aeacadee945657501",
+        "target": "0b0c981da8042a436f30f7d9f7cce74360abe630bd54785016816e10f4d22525",
+        "reconstruction_mse_delta": -0.002907097339630127
+      },
+      {
+        "source": "20119b0b7869f98acb0f0f7557893474a7b84c34e50ec6dcc6d3afb953758f12",
+        "target": "2abd05990aa9eb81a3eaa333829ec355eaee57fbecc9e8d2e000dde5f4972378",
+        "reconstruction_mse_delta": 0.0025048553943634033
+      },
+      {
+        "source": "75e56c8fbb9336eb4dd40f5f609d5344203d374d73fd0b8d2bce19f754070f6a",
+        "target": "9a9e8613b6d7d1b573ba38dba19eec9c3cc460ab00cb49a7e7bfb0d93bac9262",
+        "reconstruction_mse_delta": 0.0017338097095489502
+      },
+      {
+        "source": "75e56c8fbb9336eb4dd40f5f609d5344203d374d73fd0b8d2bce19f754070f6a",
+        "target": "175834ec8169f3bd8afd2382d063d7f4f6815d7c6c88399755cb57b9cad17783",
+        "reconstruction_mse_delta": 0.0017338097095489502
+      },
+      {
+        "source": "95a6f7f8345e2eca31ee74ddc19d547e7fc0f5c8e65772d7b08a68eb5214dc44",
+        "target": "2e851da990f42464b9a776942a772cb4911dfca4778b0d3e28dceb3337d65c34",
+        "reconstruction_mse_delta": 0.0016564130783081055
+      },
+      {
+        "source": "35114acfb54c54fb9618f23cd28bbc57c765f597df140977d7030dcc52775ed4",
+        "target": "de6d543c40695b95f303d7134b72e73fffec5e582f919e30afd3bedd277b2416",
+        "reconstruction_mse_delta": -0.0015024244785308838
+      },
+      {
+        "source": "73eab0278dbf5ccb67f1c303b0770627c6223871c4874f31cdb3dffaee54ac18",
+        "target": "6746853e39c5008988baf677bf27c846ee99173cafdec2aa8c949843d3a94b95",
+        "reconstruction_mse_delta": -0.0010187625885009766
+      },
+      {
+        "source": "6da93e1b8565f05eb7708ccedf9f4a02f1d9a6300bd4e06018289600a7f96cbe",
+        "target": "6746853e39c5008988baf677bf27c846ee99173cafdec2aa8c949843d3a94b95",
+        "reconstruction_mse_delta": -0.0010187625885009766
+      },
+      {
+        "source": "a25db459a097f3b6aa173c3ed5dcd8377f2d342c591d6b5a1cf76cc51f99a489",
+        "target": "46a6d5047ff9337b34dbdf42c07843d60367ece052e92e004c7dbc3348b3bc75",
+        "reconstruction_mse_delta": -0.0009810924530029297
+      },
+      {
+        "source": "95a6f7f8345e2eca31ee74ddc19d547e7fc0f5c8e65772d7b08a68eb5214dc44",
+        "target": "0b0c981da8042a436f30f7d9f7cce74360abe630bd54785016816e10f4d22525",
+        "reconstruction_mse_delta": 0.0006833970546722412
+      },
+      {
+        "source": "20119b0b7869f98acb0f0f7557893474a7b84c34e50ec6dcc6d3afb953758f12",
+        "target": "4ab265f54516248ee8873be7d6441912456ce17e84f39918e01ddc4210e56da5",
+        "reconstruction_mse_delta": -0.0006109476089477539
+      },
+      {
+        "source": "20119b0b7869f98acb0f0f7557893474a7b84c34e50ec6dcc6d3afb953758f12",
+        "target": "0b0c981da8042a436f30f7d9f7cce74360abe630bd54785016816e10f4d22525",
+        "reconstruction_mse_delta": 0.00051116943359375
+      },
+      {
+        "source": "24601dd8b36f856eb0a4d759866f475bc62cf843ffe0920e0d4d72ea1e84719c",
+        "target": "0b0c981da8042a436f30f7d9f7cce74360abe630bd54785016816e10f4d22525",
+        "reconstruction_mse_delta": -0.000507354736328125
+      },
+      {
+        "source": "63b8a25a4a9f80c7508c0db0d163af6d9e6c0746c9b7e26aeacadee945657501",
+        "target": "6746853e39c5008988baf677bf27c846ee99173cafdec2aa8c949843d3a94b95",
+        "reconstruction_mse_delta": 0.00036522746086120605
+      },
+      {
+        "source": "9a3ef4d24dd4e7fb8baaa9e30aea1395caa50f583630f69047c8e20f2e8d9554",
+        "target": "0b0c981da8042a436f30f7d9f7cce74360abe630bd54785016816e10f4d22525",
+        "reconstruction_mse_delta": -0.000360637903213501
+      },
+      {
+        "source": "4ab265f54516248ee8873be7d6441912456ce17e84f39918e01ddc4210e56da5",
+        "target": "46a6d5047ff9337b34dbdf42c07843d60367ece052e92e004c7dbc3348b3bc75",
+        "reconstruction_mse_delta": -0.00026303529739379883
+      },
+      {
+        "source": "95a6f7f8345e2eca31ee74ddc19d547e7fc0f5c8e65772d7b08a68eb5214dc44",
+        "target": "46a6d5047ff9337b34dbdf42c07843d60367ece052e92e004c7dbc3348b3bc75",
+        "reconstruction_mse_delta": 0.0001741647720336914
+      },
+      {
+        "source": "95a6f7f8345e2eca31ee74ddc19d547e7fc0f5c8e65772d7b08a68eb5214dc44",
+        "target": "6746853e39c5008988baf677bf27c846ee99173cafdec2aa8c949843d3a94b95",
+        "reconstruction_mse_delta": 6.80685043334961e-05
+      },
+      {
+        "source": "95a6f7f8345e2eca31ee74ddc19d547e7fc0f5c8e65772d7b08a68eb5214dc44",
+        "target": "3cab0a98767379fbcd059750c07ec42dbd0374cb114e0f8dc3a75bbaf4eed7d3",
+        "reconstruction_mse_delta": -5.760788917541504e-05
+      },
+      {
+        "source": "4ab265f54516248ee8873be7d6441912456ce17e84f39918e01ddc4210e56da5",
+        "target": "fd6d86bd0fd550e717c1fdb82a33190a9fef216d87d53532da29f9fb47861148",
+        "reconstruction_mse_delta": 2.0563602447509766e-06
+      },
+      {
+        "source": "4ab265f54516248ee8873be7d6441912456ce17e84f39918e01ddc4210e56da5",
+        "target": "de6d543c40695b95f303d7134b72e73fffec5e582f919e30afd3bedd277b2416",
+        "reconstruction_mse_delta": 2.0563602447509766e-06
+      },
+      {
+        "source": "4ab265f54516248ee8873be7d6441912456ce17e84f39918e01ddc4210e56da5",
+        "target": "3cab0a98767379fbcd059750c07ec42dbd0374cb114e0f8dc3a75bbaf4eed7d3",
+        "reconstruction_mse_delta": 2.0563602447509766e-06
+      },
+      {
+        "source": "95a6f7f8345e2eca31ee74ddc19d547e7fc0f5c8e65772d7b08a68eb5214dc44",
+        "target": "95a6f7f8345e2eca31ee74ddc19d547e7fc0f5c8e65772d7b08a68eb5214dc44",
+        "reconstruction_mse_delta": 0.0
+      },
+      {
+        "source": "091794afdcf1abbaf62404337ff72a38df96c5d8af8bd0d1348b331e84ac89e5",
+        "target": "091794afdcf1abbaf62404337ff72a38df96c5d8af8bd0d1348b331e84ac89e5",
+        "reconstruction_mse_delta": 0.0
+      },
+      {
+        "source": "75e56c8fbb9336eb4dd40f5f609d5344203d374d73fd0b8d2bce19f754070f6a",
+        "target": "75e56c8fbb9336eb4dd40f5f609d5344203d374d73fd0b8d2bce19f754070f6a",
+        "reconstruction_mse_delta": 0.0
+      },
+      {
+        "source": "75e56c8fbb9336eb4dd40f5f609d5344203d374d73fd0b8d2bce19f754070f6a",
+        "target": "75e56c8fbb9336eb4dd40f5f609d5344203d374d73fd0b8d2bce19f754070f6a",
+        "reconstruction_mse_delta": 0.0
+      },
+      {
+        "source": "e6c95bef37d936ebb375bf135ded88c96eb9257a1d3d9de38a1dbd2751b0fbce",
+        "target": "75e56c8fbb9336eb4dd40f5f609d5344203d374d73fd0b8d2bce19f754070f6a",
+        "reconstruction_mse_delta": 0.0
+      },
+      {
+        "source": "b7c586427019cad1c520762eac1ad8bacc8c1599fe2202e045f83cf0b3a9a680",
+        "target": "a61ab50a28452385eef873aa281003c7064a50733908d89a3cfca077fe8c8d44",
+        "reconstruction_mse_delta": 0.0
+      },
+      {
+        "source": "75e56c8fbb9336eb4dd40f5f609d5344203d374d73fd0b8d2bce19f754070f6a",
+        "target": "e6c95bef37d936ebb375bf135ded88c96eb9257a1d3d9de38a1dbd2751b0fbce",
+        "reconstruction_mse_delta": 0.0
+      },
+      {
+        "source": "63b8a25a4a9f80c7508c0db0d163af6d9e6c0746c9b7e26aeacadee945657501",
+        "target": "63b8a25a4a9f80c7508c0db0d163af6d9e6c0746c9b7e26aeacadee945657501",
+        "reconstruction_mse_delta": 0.0
+      },
+      {
+        "source": "20119b0b7869f98acb0f0f7557893474a7b84c34e50ec6dcc6d3afb953758f12",
+        "target": "20119b0b7869f98acb0f0f7557893474a7b84c34e50ec6dcc6d3afb953758f12",
+        "reconstruction_mse_delta": 0.0
+      },
+      {
+        "source": "3cab0a98767379fbcd059750c07ec42dbd0374cb114e0f8dc3a75bbaf4eed7d3",
+        "target": "75e56c8fbb9336eb4dd40f5f609d5344203d374d73fd0b8d2bce19f754070f6a",
+        "reconstruction_mse_delta": 0.0
+      },
+      {
+        "source": "b7c586427019cad1c520762eac1ad8bacc8c1599fe2202e045f83cf0b3a9a680",
+        "target": "de6d543c40695b95f303d7134b72e73fffec5e582f919e30afd3bedd277b2416",
+        "reconstruction_mse_delta": 0.0
+      },
+      {
+        "source": "9a9e8613b6d7d1b573ba38dba19eec9c3cc460ab00cb49a7e7bfb0d93bac9262",
+        "target": "9a9e8613b6d7d1b573ba38dba19eec9c3cc460ab00cb49a7e7bfb0d93bac9262",
+        "reconstruction_mse_delta": 0.0
+      },
+      {
+        "source": "4d980b8ae1f1da1a302d77ef91b9f9dd4e841856f6cdd4de10df7514456b6831",
+        "target": "4d980b8ae1f1da1a302d77ef91b9f9dd4e841856f6cdd4de10df7514456b6831",
+        "reconstruction_mse_delta": 0.0
+      },
+      {
+        "source": "9a3ef4d24dd4e7fb8baaa9e30aea1395caa50f583630f69047c8e20f2e8d9554",
+        "target": "9a3ef4d24dd4e7fb8baaa9e30aea1395caa50f583630f69047c8e20f2e8d9554",
+        "reconstruction_mse_delta": 0.0
+      },
+      {
+        "source": "20119b0b7869f98acb0f0f7557893474a7b84c34e50ec6dcc6d3afb953758f12",
+        "target": "20119b0b7869f98acb0f0f7557893474a7b84c34e50ec6dcc6d3afb953758f12",
+        "reconstruction_mse_delta": 0.0
+      },
+      {
+        "source": "b58ba81e712e15281eb93074ed026a844f5100024d91b25f2742b5d5e8bedd9f",
+        "target": "b58ba81e712e15281eb93074ed026a844f5100024d91b25f2742b5d5e8bedd9f",
+        "reconstruction_mse_delta": 0.0
+      },
+      {
+        "source": "24601dd8b36f856eb0a4d759866f475bc62cf843ffe0920e0d4d72ea1e84719c",
+        "target": "24601dd8b36f856eb0a4d759866f475bc62cf843ffe0920e0d4d72ea1e84719c",
+        "reconstruction_mse_delta": 0.0
+      },
+      {
+        "source": "4ab265f54516248ee8873be7d6441912456ce17e84f39918e01ddc4210e56da5",
+        "target": "4ab265f54516248ee8873be7d6441912456ce17e84f39918e01ddc4210e56da5",
+        "reconstruction_mse_delta": 0.0
+      },
+      {
+        "source": "a25db459a097f3b6aa173c3ed5dcd8377f2d342c591d6b5a1cf76cc51f99a489",
+        "target": "a25db459a097f3b6aa173c3ed5dcd8377f2d342c591d6b5a1cf76cc51f99a489",
+        "reconstruction_mse_delta": 0.0
+      },
+      {
+        "source": "35114acfb54c54fb9618f23cd28bbc57c765f597df140977d7030dcc52775ed4",
+        "target": "35114acfb54c54fb9618f23cd28bbc57c765f597df140977d7030dcc52775ed4",
+        "reconstruction_mse_delta": 0.0
+      },
+      {
+        "source": "73eab0278dbf5ccb67f1c303b0770627c6223871c4874f31cdb3dffaee54ac18",
+        "target": "3cab0a98767379fbcd059750c07ec42dbd0374cb114e0f8dc3a75bbaf4eed7d3",
+        "reconstruction_mse_delta": 0.0
+      },
+      {
+        "source": "175834ec8169f3bd8afd2382d063d7f4f6815d7c6c88399755cb57b9cad17783",
+        "target": "9a9e8613b6d7d1b573ba38dba19eec9c3cc460ab00cb49a7e7bfb0d93bac9262",
+        "reconstruction_mse_delta": 0.0
+      },
+      {
+        "source": "75e56c8fbb9336eb4dd40f5f609d5344203d374d73fd0b8d2bce19f754070f6a",
+        "target": "3cab0a98767379fbcd059750c07ec42dbd0374cb114e0f8dc3a75bbaf4eed7d3",
+        "reconstruction_mse_delta": 0.0
+      },
+      {
+        "source": "73eab0278dbf5ccb67f1c303b0770627c6223871c4874f31cdb3dffaee54ac18",
+        "target": "73eab0278dbf5ccb67f1c303b0770627c6223871c4874f31cdb3dffaee54ac18",
+        "reconstruction_mse_delta": 0.0
+      },
+      {
+        "source": "5cca70246befb1f4c9546d2912b9419dee54439218efa55a7a2e0e26e86ad749",
+        "target": "5cca70246befb1f4c9546d2912b9419dee54439218efa55a7a2e0e26e86ad749",
+        "reconstruction_mse_delta": 0.0
+      }
+    ]
+  },
+  "limitations": [
+    "Reconstruction, not classification or localization accuracy.",
+    "Full bounded-slice topology is transductive; no claim of future-topology generalization.",
+    "No graph-informed RCA accuracy comparison is possible from unlabelled Alibaba traces or metric-only RE1.",
+    "Zero mask fillers are internal tensors, never exported as observations."
+  ],
+  "elapsed_seconds": 3.21601630000805
+}

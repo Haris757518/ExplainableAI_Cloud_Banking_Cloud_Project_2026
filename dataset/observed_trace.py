@@ -28,7 +28,7 @@ def rows(path):
             yield from csv.DictReader(stream, fieldnames=next(csv.reader([first], delimiter=delimiter)), delimiter=delimiter)
 
 
-def measured_snapshot(root, *, trace_id=None, timestamp=None, max_services=40, max_edges=80, max_rows=100000, window_ms=30000):
+def measured_snapshot(root, *, trace_id=None, timestamp=None, max_services=40, max_edges=80, max_rows=100000, window_ms=30000, selection_end_ms=None):
     from dataset.alibaba_adapter import AlibabaGraphSnapshot, discover_sources, load_msresource_metrics
     sources = discover_sources(root)
     if sources.callgraph is None:
@@ -66,7 +66,8 @@ def measured_snapshot(root, *, trace_id=None, timestamp=None, max_services=40, m
         if key in seen:
             continue
         seen.add(key)
-        counts[(upstream, downstream, rpc)] += 1
+        if selection_end_ms is None or ts <= selection_end_ms:
+            counts[(upstream, downstream, rpc)] += 1
         calls.append((upstream, downstream, rpc, ts, abs(duration), side))
     if not calls:
         raise ValueError('No usable measured calls in selected trace slice.')
@@ -110,7 +111,7 @@ def measured_snapshot(root, *, trace_id=None, timestamp=None, max_services=40, m
         telemetry=telemetry,
         metadata={'timestamp_kind': 'relative_trace_milliseconds', 'time_range_ms': [first_ts, last_ts], 'window_ms': window_ms,
                   'rows_scanned': min(scanned, max_rows), 'row_limit': max_rows, 'bounded_prefix': scanned > max_rows,
-                  'invalid_rows': rejected, 'measured_calls': len(calls), 'series': dict(series),
+                  'topology_selection_end_ms': selection_end_ms, 'invalid_rows': rejected, 'measured_calls': len(calls), 'series': dict(series),
                   'raw_sources': {k: str(v) if v else None for k, v in sources.__dict__.items()},
                   'ground_truth_available': False, 'banking_data': False,
                   'notes': 'Observed call durations; DB type inferred from recorded DB protocol. No failure labels. Relative timestamps are not calendar dates.'})

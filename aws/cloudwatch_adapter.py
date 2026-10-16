@@ -71,6 +71,8 @@ class CloudWatchAdapter:
                     qid=f'm{len(queries)}'
                     queries.append({'Id':qid,'MetricStat':{'Metric':{'Namespace':'ExplainableAI/ObservedLab','MetricName':name,'Dimensions':[{'Name':'InstanceId','Value':rid},{'Name':'Service','Value':'observed-lab-probe'}]},'Period':self.period_seconds,'Stat':spec['stat']},'ReturnData':True})
                     targets[qid]=(item,name,spec,{})
+        statuses = {}
+        returned = set()
         for offset in range(0, len(queries), 500):
             token, seen_tokens = None, set()
             try:
@@ -83,14 +85,19 @@ class CloudWatchAdapter:
                     result['errors'].extend(response.get('Messages', []))
                     for entry in response.get('MetricDataResults', []):
                         if entry.get('Id') not in targets:
+                            result['errors'].append({'code': 'UnknownMetricId'})
                             continue
+                        returned.add(entry['Id'])
+                        statuses[entry['Id']] = entry.get('StatusCode', 'Complete')
+                        if len(entry.get('Timestamps', [])) != len(entry.get('Values', [])):
+                            result['errors'].append({'code': 'MismatchedMetricLengths', 'metric_id': entry['Id']})
                         item, name, spec, points = targets[entry['Id']]
                         if entry.get('StatusCode', 'Complete') not in ('Complete', 'PartialData'):
                             item['error'] = entry.get('StatusCode')
                             result['errors'].append({'resource': item['node_id'], 'metric': name, 'status': item['error']})
                             continue
                         for ts, value in zip(entry.get('Timestamps', []), entry.get('Values', [])):
-                            if isinstance(value, (int, float)) and math.isfinite(value) and value >= 0:
+                            if isinstance(ts, datetime) and ts.tzinfo is not None and isinstance(value, (int, float)) and math.isfinite(value) and value >= 0:
                                 points[ts.isoformat()] = float(value)
                     token = response.get('NextToken')
                     if not token:
@@ -100,6 +107,9 @@ class CloudWatchAdapter:
                     seen_tokens.add(token)
             except (BotoCoreError, ClientError, ValueError) as exc:
                 result['errors'].append({'code': type(exc).__name__, 'message': 'CloudWatch collection failed or was incomplete.'})
+        for qid in targets:
+            if qid not in returned or statuses.get(qid) != 'Complete':
+                result['errors'].append({'code': 'IncompleteMetricResponse', 'metric_id': qid, 'status': statuses.get(qid, 'omitted')})
         for item, name, spec, points in targets.values():
             if not points:
                 continue

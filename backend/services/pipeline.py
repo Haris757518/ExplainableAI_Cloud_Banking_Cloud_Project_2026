@@ -25,6 +25,10 @@ class AnalysisPipeline:
             result.assessment['gnn_evidence']=gnn
             result.assessment['gnn_used']=gnn['status']=='evaluated'
             result.assessment['gnn_reason']=('A measured-data GNN provides held-out reconstruction evidence; temporal deviations still determine candidate ranking.' if gnn['status']=='evaluated' else gnn['reason']+' Synthetic-trained checkpoints remain excluded.')
+            from backend.services.research_bridge import observed_incident
+            result.assessment['incident']=observed_incident(sample,gnn).model_dump(mode='json')
+            result.cfao.refinement['evidence_gated_frontier']=result.assessment['incident']['investigation']['resources']
+            result.cfao.refinement['evidence_requests']=result.assessment['incident']['investigation']['requests']
             return result
         if not get_settings().enable_simulation:
             raise ValueError('Synthetic analysis is disabled. Use Alibaba or live AWS telemetry.')
@@ -94,7 +98,7 @@ class AnalysisPipeline:
         top=[x["feature"] for x in features[:3]]
         return (
             f"The {sample.transaction.type} transaction uses a graph path through "
-            f"{' → '.join(sample.transaction.path)}. The model flagged the graph as anomalous; "
+            f"{' â†’ '.join(sample.transaction.path)}. The model flagged the graph as anomalous; "
             f"{root} is the leading RCA candidate because it combines node anomaly evidence, "
             f"transaction-path relevance, and dependency propagation. Important signals include: {', '.join(top)}."
         )

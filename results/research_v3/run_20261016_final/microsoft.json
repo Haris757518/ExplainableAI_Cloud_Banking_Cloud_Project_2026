@@ -1,0 +1,4620 @@
+{
+  "dataset": "Microsoft cloud-monitoring-dataset",
+  "series": 60,
+  "split": "Each series: first60% train, next20% validation, final20% test; no point adjustment; same common-valid-point mask for both detectors",
+  "label_source": "Official CSV Label column, retained unchanged; conflicting annotations excluded rather than changed",
+  "methods": {
+    "median_mad": {
+      "threshold": 5.0,
+      "persistence": 1,
+      "selection": "F1 on chronological validation only; frozen before held-out scoring",
+      "heldout": {
+        "tp": 254,
+        "fp": 728,
+        "fn": 318,
+        "tn": 43717,
+        "precision": 0.25865580448065173,
+        "recall": 0.44405594405594406,
+        "f1": 0.3268983268983269,
+        "false_alarm_rate": 0.016379795252559344,
+        "evaluated_points": 45017
+      },
+      "unscorable_points": 35,
+      "mean_detected_event_delay_source_seconds": 4368.421052631579,
+      "detected_events_with_delay": 57,
+      "delay_limitation": "Conditional on detected labelled events; undetected events remain false negatives. Source-local time differences only when timezone is absent.",
+      "by_series": [
+        {
+          "case_id": "5dae691e6b2beb558575",
+          "tp": 11,
+          "fp": 1,
+          "fn": 8,
+          "tn": 50,
+          "precision": 0.9166666666666666,
+          "recall": 0.5789473684210527,
+          "f1": 0.7096774193548387,
+          "false_alarm_rate": 0.0196078431372549,
+          "evaluated_points": 70
+        },
+        {
+          "case_id": "27a06adfd8de9abc282b",
+          "tp": 33,
+          "fp": 1,
+          "fn": 44,
+          "tn": 62,
+          "precision": 0.9705882352941176,
+          "recall": 0.42857142857142855,
+          "f1": 0.5945945945945946,
+          "false_alarm_rate": 0.015873015873015872,
+          "evaluated_points": 140
+        },
+        {
+          "case_id": "82303b6e9a72b7522642",
+          "tp": 13,
+          "fp": 0,
+          "fn": 5,
+          "tn": 122,
+          "precision": 1.0,
+          "recall": 0.7222222222222222,
+          "f1": 0.8387096774193549,
+          "false_alarm_rate": 0.0,
+          "evaluated_points": 140
+        },
+        {
+          "case_id": "31ef2e1018fdf59f55e7",
+          "tp": 8,
+          "fp": 0,
+          "fn": 18,
+          "tn": 114,
+          "precision": 1.0,
+          "recall": 0.3076923076923077,
+          "f1": 0.47058823529411764,
+          "false_alarm_rate": 0.0,
+          "evaluated_points": 140
+        },
+        {
+          "case_id": "a4c77275f2867b987802",
+          "tp": 7,
+          "fp": 3,
+          "fn": 6,
+          "tn": 93,
+          "precision": 0.7,
+          "recall": 0.5384615384615384,
+          "f1": 0.6086956521739131,
+          "false_alarm_rate": 0.03125,
+          "evaluated_points": 109
+        },
+        {
+          "case_id": "2599193f2f2326f95a02",
+          "tp": 4,
+          "fp": 3,
+          "fn": 2,
+          "tn": 128,
+          "precision": 0.5714285714285714,
+          "recall": 0.6666666666666666,
+          "f1": 0.6153846153846154,
+          "false_alarm_rate": 0.022900763358778626,
+          "evaluated_points": 137
+        },
+        {
+          "case_id": "05f3822f102aa4c7526a",
+          "tp": 4,
+          "fp": 0,
+          "fn": 2,
+          "tn": 134,
+          "precision": 1.0,
+          "recall": 0.6666666666666666,
+          "f1": 0.8,
+          "false_alarm_rate": 0.0,
+          "evaluated_points": 140
+        },
+        {
+          "case_id": "e3102b86e15c7f557a37",
+          "tp": 7,
+          "fp": 0,
+          "fn": 21,
+          "tn": 111,
+          "precision": 1.0,
+          "recall": 0.25,
+          "f1": 0.4,
+          "false_alarm_rate": 0.0,
+          "evaluated_points": 139
+        },
+        {
+          "case_id": "8902eacb819ef429b4be",
+          "tp": 4,
+          "fp": 0,
+          "fn": 3,
+          "tn": 27,
+          "precision": 1.0,
+          "recall": 0.5714285714285714,
+          "f1": 0.7272727272727273,
+          "false_alarm_rate": 0.0,
+          "evaluated_points": 34
+        },
+        {
+          "case_id": "535536d8b6c002503527",
+          "tp": 6,
+          "fp": 0,
+          "fn": 16,
+          "tn": 199,
+          "precision": 1.0,
+          "recall": 0.2727272727272727,
+          "f1": 0.42857142857142855,
+          "false_alarm_rate": 0.0,
+          "evaluated_points": 221
+        },
+        {
+          "case_id": "909f6fa55cd74a54e427",
+          "tp": 25,
+          "fp": 25,
+          "fn": 3,
+          "tn": 168,
+          "precision": 0.5,
+          "recall": 0.8928571428571429,
+          "f1": 0.6410256410256411,
+          "false_alarm_rate": 0.12953367875647667,
+          "evaluated_points": 221
+        },
+        {
+          "case_id": "56a1398321c5535bddd7",
+          "tp": 5,
+          "fp": 19,
+          "fn": 2,
+          "tn": 195,
+          "precision": 0.20833333333333334,
+          "recall": 0.7142857142857143,
+          "f1": 0.3225806451612903,
+          "false_alarm_rate": 0.08878504672897196,
+          "evaluated_points": 221
+        },
+        {
+          "case_id": "b035997d2dc209f57a04",
+          "tp": 3,
+          "fp": 3,
+          "fn": 2,
+          "tn": 213,
+          "precision": 0.5,
+          "recall": 0.6,
+          "f1": 0.5454545454545454,
+          "false_alarm_rate": 0.013888888888888888,
+          "evaluated_points": 221
+        },
+        {
+          "case_id": "7737fe5ea9e3fbd00e73",
+          "tp": 19,
+          "fp": 4,
+          "fn": 20,
+          "tn": 178,
+          "precision": 0.8260869565217391,
+          "recall": 0.48717948717948717,
+          "f1": 0.6129032258064516,
+          "false_alarm_rate": 0.02197802197802198,
+          "evaluated_points": 221
+        },
+        {
+          "case_id": "f27de69ba6c4f54282f8",
+          "tp": 5,
+          "fp": 11,
+          "fn": 6,
+          "tn": 199,
+          "precision": 0.3125,
+          "recall": 0.45454545454545453,
+          "f1": 0.37037037037037035,
+          "false_alarm_rate": 0.05238095238095238,
+          "evaluated_points": 221
+        },
+        {
+          "case_id": "72344d2f9e0b5500eec4",
+          "tp": 6,
+          "fp": 6,
+          "fn": 11,
+          "tn": 197,
+          "precision": 0.5,
+          "recall": 0.35294117647058826,
+          "f1": 0.41379310344827586,
+          "false_alarm_rate": 0.029556650246305417,
+          "evaluated_points": 220
+        },
+        {
+          "case_id": "5c51b611616582cb4ff6",
+          "tp": 2,
+          "fp": 6,
+          "fn": 3,
+          "tn": 210,
+          "precision": 0.25,
+          "recall": 0.4,
+          "f1": 0.3076923076923077,
+          "false_alarm_rate": 0.027777777777777776,
+          "evaluated_points": 221
+        },
+        {
+          "case_id": "2bffc09469c448457045",
+          "tp": 2,
+          "fp": 4,
+          "fn": 2,
+          "tn": 213,
+          "precision": 0.3333333333333333,
+          "recall": 0.5,
+          "f1": 0.4,
+          "false_alarm_rate": 0.018433179723502304,
+          "evaluated_points": 221
+        },
+        {
+          "case_id": "2c7abd3e0118752897c3",
+          "tp": 3,
+          "fp": 14,
+          "fn": 4,
+          "tn": 196,
+          "precision": 0.17647058823529413,
+          "recall": 0.42857142857142855,
+          "f1": 0.25,
+          "false_alarm_rate": 0.06666666666666667,
+          "evaluated_points": 217
+        },
+        {
+          "case_id": "19b9db88bdc48e6a71a9",
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 250,
+          "precision": null,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.0,
+          "evaluated_points": 250
+        },
+        {
+          "case_id": "b1a9eb1acde2e1445c76",
+          "tp": 2,
+          "fp": 0,
+          "fn": 27,
+          "tn": 221,
+          "precision": 1.0,
+          "recall": 0.06896551724137931,
+          "f1": 0.12903225806451613,
+          "false_alarm_rate": 0.0,
+          "evaluated_points": 250
+        },
+        {
+          "case_id": "61ae5d525deb8c143513",
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 250,
+          "precision": null,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.0,
+          "evaluated_points": 250
+        },
+        {
+          "case_id": "28a6592364ee4876cc15",
+          "tp": 0,
+          "fp": 1,
+          "fn": 0,
+          "tn": 249,
+          "precision": 0.0,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.004,
+          "evaluated_points": 250
+        },
+        {
+          "case_id": "7713d3882d57655951e9",
+          "tp": 0,
+          "fp": 1,
+          "fn": 0,
+          "tn": 249,
+          "precision": 0.0,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.004,
+          "evaluated_points": 250
+        },
+        {
+          "case_id": "3386a175a1792c52e331",
+          "tp": 0,
+          "fp": 79,
+          "fn": 0,
+          "tn": 171,
+          "precision": 0.0,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.316,
+          "evaluated_points": 250
+        },
+        {
+          "case_id": "f7a591acf4e3716629f8",
+          "tp": 0,
+          "fp": 1,
+          "fn": 0,
+          "tn": 3167,
+          "precision": 0.0,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.0003156565656565657,
+          "evaluated_points": 3168
+        },
+        {
+          "case_id": "9d29e89d5d54fd09792f",
+          "tp": 0,
+          "fp": 0,
+          "fn": 49,
+          "tn": 3119,
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0,
+          "false_alarm_rate": 0.0,
+          "evaluated_points": 3168
+        },
+        {
+          "case_id": "e55645fd54e5a8aa37a0",
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 3168,
+          "precision": null,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.0,
+          "evaluated_points": 3168
+        },
+        {
+          "case_id": "80a80d5113e61d817546",
+          "tp": 0,
+          "fp": 39,
+          "fn": 0,
+          "tn": 3129,
+          "precision": 0.0,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.01231060606060606,
+          "evaluated_points": 3168
+        },
+        {
+          "case_id": "89943b8e8a0d1bf5cd9f",
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 3168,
+          "precision": null,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.0,
+          "evaluated_points": 3168
+        },
+        {
+          "case_id": "caac7113cc1cf25edd3e",
+          "tp": 2,
+          "fp": 2,
+          "fn": 25,
+          "tn": 1210,
+          "precision": 0.5,
+          "recall": 0.07407407407407407,
+          "f1": 0.12903225806451613,
+          "false_alarm_rate": 0.0016501650165016502,
+          "evaluated_points": 1239
+        },
+        {
+          "case_id": "24eaf9247e9ed454bbb9",
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 144,
+          "precision": null,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.0,
+          "evaluated_points": 144
+        },
+        {
+          "case_id": "e9e344162e2a2bd217f1",
+          "tp": 0,
+          "fp": 51,
+          "fn": 0,
+          "tn": 93,
+          "precision": 0.0,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.3541666666666667,
+          "evaluated_points": 144
+        },
+        {
+          "case_id": "e11d68d0eee3818580ee",
+          "tp": 0,
+          "fp": 13,
+          "fn": 0,
+          "tn": 131,
+          "precision": 0.0,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.09027777777777778,
+          "evaluated_points": 144
+        },
+        {
+          "case_id": "7b17fd3b3d9341790fe5",
+          "tp": 18,
+          "fp": 0,
+          "fn": 5,
+          "tn": 121,
+          "precision": 1.0,
+          "recall": 0.782608695652174,
+          "f1": 0.8780487804878049,
+          "false_alarm_rate": 0.0,
+          "evaluated_points": 144
+        },
+        {
+          "case_id": "f287b76f10a89ebcaf31",
+          "tp": 20,
+          "fp": 0,
+          "fn": 3,
+          "tn": 121,
+          "precision": 1.0,
+          "recall": 0.8695652173913043,
+          "f1": 0.9302325581395349,
+          "false_alarm_rate": 0.0,
+          "evaluated_points": 144
+        },
+        {
+          "case_id": "c9b4f878ae44b2dcbd2b",
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 144,
+          "precision": null,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.0,
+          "evaluated_points": 144
+        },
+        {
+          "case_id": "0aa4179a2e49c08f769a",
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 144,
+          "precision": null,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.0,
+          "evaluated_points": 144
+        },
+        {
+          "case_id": "d5fca9d56d4058c72041",
+          "tp": 21,
+          "fp": 3,
+          "fn": 2,
+          "tn": 118,
+          "precision": 0.875,
+          "recall": 0.9130434782608695,
+          "f1": 0.8936170212765957,
+          "false_alarm_rate": 0.024793388429752067,
+          "evaluated_points": 144
+        },
+        {
+          "case_id": "ef95ac1653bbffd76e2f",
+          "tp": 0,
+          "fp": 1,
+          "fn": 0,
+          "tn": 143,
+          "precision": 0.0,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.006944444444444444,
+          "evaluated_points": 144
+        },
+        {
+          "case_id": "323ae1ef974c915a5fbf",
+          "tp": 7,
+          "fp": 1,
+          "fn": 1,
+          "tn": 135,
+          "precision": 0.875,
+          "recall": 0.875,
+          "f1": 0.875,
+          "false_alarm_rate": 0.007352941176470588,
+          "evaluated_points": 144
+        },
+        {
+          "case_id": "3a945714e2e527d7700f",
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 144,
+          "precision": null,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.0,
+          "evaluated_points": 144
+        },
+        {
+          "case_id": "fc42ead1e20ac61f3299",
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 144,
+          "precision": null,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.0,
+          "evaluated_points": 144
+        },
+        {
+          "case_id": "8c45049feaa381f0199b",
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 144,
+          "precision": null,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.0,
+          "evaluated_points": 144
+        },
+        {
+          "case_id": "197afc62b5392cb1beae",
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 144,
+          "precision": null,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.0,
+          "evaluated_points": 144
+        },
+        {
+          "case_id": "97b8eb59c55c11584765",
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 144,
+          "precision": null,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.0,
+          "evaluated_points": 144
+        },
+        {
+          "case_id": "30336d2638125ad8047c",
+          "tp": 0,
+          "fp": 1,
+          "fn": 0,
+          "tn": 143,
+          "precision": 0.0,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.006944444444444444,
+          "evaluated_points": 144
+        },
+        {
+          "case_id": "cfdcdef1d7529e2d59d7",
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 144,
+          "precision": null,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.0,
+          "evaluated_points": 144
+        },
+        {
+          "case_id": "ed39ad7a5f01b549801b",
+          "tp": 0,
+          "fp": 10,
+          "fn": 0,
+          "tn": 134,
+          "precision": 0.0,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.06944444444444445,
+          "evaluated_points": 144
+        },
+        {
+          "case_id": "c0e3c26bc628f1fdda4f",
+          "tp": 2,
+          "fp": 4,
+          "fn": 2,
+          "tn": 136,
+          "precision": 0.3333333333333333,
+          "recall": 0.5,
+          "f1": 0.4,
+          "false_alarm_rate": 0.02857142857142857,
+          "evaluated_points": 144
+        },
+        {
+          "case_id": "e2b1d0b00f8f0fe9b07a",
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 144,
+          "precision": null,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.0,
+          "evaluated_points": 144
+        },
+        {
+          "case_id": "9dd5ca0debcd7fba6d31",
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 144,
+          "precision": null,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.0,
+          "evaluated_points": 144
+        },
+        {
+          "case_id": "7c9d6eef6dfb927b6858",
+          "tp": 7,
+          "fp": 1,
+          "fn": 1,
+          "tn": 135,
+          "precision": 0.875,
+          "recall": 0.875,
+          "f1": 0.875,
+          "false_alarm_rate": 0.007352941176470588,
+          "evaluated_points": 144
+        },
+        {
+          "case_id": "951caf75c5175a4fca3b",
+          "tp": 0,
+          "fp": 6,
+          "fn": 0,
+          "tn": 138,
+          "precision": 0.0,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.041666666666666664,
+          "evaluated_points": 144
+        },
+        {
+          "case_id": "c40741ed0c26eb22e3e9",
+          "tp": 0,
+          "fp": 261,
+          "fn": 0,
+          "tn": 2907,
+          "precision": 0.0,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.08238636363636363,
+          "evaluated_points": 3168
+        },
+        {
+          "case_id": "e915b3451751dda381e1",
+          "tp": 0,
+          "fp": 1,
+          "fn": 0,
+          "tn": 3167,
+          "precision": 0.0,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.0003156565656565657,
+          "evaluated_points": 3168
+        },
+        {
+          "case_id": "46601e080c7bfe56897b",
+          "tp": 0,
+          "fp": 29,
+          "fn": 0,
+          "tn": 3139,
+          "precision": 0.0,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.009154040404040404,
+          "evaluated_points": 3168
+        },
+        {
+          "case_id": "faa465907cbc69997075",
+          "tp": 0,
+          "fp": 100,
+          "fn": 0,
+          "tn": 3068,
+          "precision": 0.0,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.03156565656565657,
+          "evaluated_points": 3168
+        },
+        {
+          "case_id": "fd17851ee48087520f8d",
+          "tp": 8,
+          "fp": 23,
+          "fn": 25,
+          "tn": 3976,
+          "precision": 0.25806451612903225,
+          "recall": 0.24242424242424243,
+          "f1": 0.25,
+          "false_alarm_rate": 0.005751437859464866,
+          "evaluated_points": 4032
+        },
+        {
+          "case_id": "736fbe19d92bdb656f0f",
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 3168,
+          "precision": null,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.0,
+          "evaluated_points": 3168
+        }
+      ]
+    },
+    "forecast_residual": {
+      "threshold": 3.5,
+      "persistence": 1,
+      "selection": "F1 on chronological validation only; frozen before held-out scoring",
+      "heldout": {
+        "tp": 327,
+        "fp": 4478,
+        "fn": 245,
+        "tn": 39967,
+        "precision": 0.06805411030176899,
+        "recall": 0.5716783216783217,
+        "f1": 0.12162916124232843,
+        "false_alarm_rate": 0.10075374057824277,
+        "evaluated_points": 45017
+      },
+      "unscorable_points": 35,
+      "mean_detected_event_delay_source_seconds": 4354.8387096774195,
+      "detected_events_with_delay": 62,
+      "delay_limitation": "Conditional on detected labelled events; undetected events remain false negatives. Source-local time differences only when timezone is absent.",
+      "by_series": [
+        {
+          "case_id": "5dae691e6b2beb558575",
+          "tp": 15,
+          "fp": 8,
+          "fn": 4,
+          "tn": 43,
+          "precision": 0.6521739130434783,
+          "recall": 0.7894736842105263,
+          "f1": 0.7142857142857143,
+          "false_alarm_rate": 0.1568627450980392,
+          "evaluated_points": 70
+        },
+        {
+          "case_id": "27a06adfd8de9abc282b",
+          "tp": 60,
+          "fp": 27,
+          "fn": 17,
+          "tn": 36,
+          "precision": 0.6896551724137931,
+          "recall": 0.7792207792207793,
+          "f1": 0.7317073170731707,
+          "false_alarm_rate": 0.42857142857142855,
+          "evaluated_points": 140
+        },
+        {
+          "case_id": "82303b6e9a72b7522642",
+          "tp": 8,
+          "fp": 1,
+          "fn": 10,
+          "tn": 121,
+          "precision": 0.8888888888888888,
+          "recall": 0.4444444444444444,
+          "f1": 0.5925925925925926,
+          "false_alarm_rate": 0.00819672131147541,
+          "evaluated_points": 140
+        },
+        {
+          "case_id": "31ef2e1018fdf59f55e7",
+          "tp": 11,
+          "fp": 1,
+          "fn": 15,
+          "tn": 113,
+          "precision": 0.9166666666666666,
+          "recall": 0.4230769230769231,
+          "f1": 0.5789473684210527,
+          "false_alarm_rate": 0.008771929824561403,
+          "evaluated_points": 140
+        },
+        {
+          "case_id": "a4c77275f2867b987802",
+          "tp": 8,
+          "fp": 4,
+          "fn": 5,
+          "tn": 92,
+          "precision": 0.6666666666666666,
+          "recall": 0.6153846153846154,
+          "f1": 0.64,
+          "false_alarm_rate": 0.041666666666666664,
+          "evaluated_points": 109
+        },
+        {
+          "case_id": "2599193f2f2326f95a02",
+          "tp": 4,
+          "fp": 0,
+          "fn": 2,
+          "tn": 131,
+          "precision": 1.0,
+          "recall": 0.6666666666666666,
+          "f1": 0.8,
+          "false_alarm_rate": 0.0,
+          "evaluated_points": 137
+        },
+        {
+          "case_id": "05f3822f102aa4c7526a",
+          "tp": 5,
+          "fp": 9,
+          "fn": 1,
+          "tn": 125,
+          "precision": 0.35714285714285715,
+          "recall": 0.8333333333333334,
+          "f1": 0.5,
+          "false_alarm_rate": 0.06716417910447761,
+          "evaluated_points": 140
+        },
+        {
+          "case_id": "e3102b86e15c7f557a37",
+          "tp": 10,
+          "fp": 4,
+          "fn": 18,
+          "tn": 107,
+          "precision": 0.7142857142857143,
+          "recall": 0.35714285714285715,
+          "f1": 0.47619047619047616,
+          "false_alarm_rate": 0.036036036036036036,
+          "evaluated_points": 139
+        },
+        {
+          "case_id": "8902eacb819ef429b4be",
+          "tp": 6,
+          "fp": 7,
+          "fn": 1,
+          "tn": 20,
+          "precision": 0.46153846153846156,
+          "recall": 0.8571428571428571,
+          "f1": 0.6,
+          "false_alarm_rate": 0.25925925925925924,
+          "evaluated_points": 34
+        },
+        {
+          "case_id": "535536d8b6c002503527",
+          "tp": 6,
+          "fp": 4,
+          "fn": 16,
+          "tn": 195,
+          "precision": 0.6,
+          "recall": 0.2727272727272727,
+          "f1": 0.375,
+          "false_alarm_rate": 0.020100502512562814,
+          "evaluated_points": 221
+        },
+        {
+          "case_id": "909f6fa55cd74a54e427",
+          "tp": 28,
+          "fp": 41,
+          "fn": 0,
+          "tn": 152,
+          "precision": 0.4057971014492754,
+          "recall": 1.0,
+          "f1": 0.5773195876288659,
+          "false_alarm_rate": 0.21243523316062177,
+          "evaluated_points": 221
+        },
+        {
+          "case_id": "56a1398321c5535bddd7",
+          "tp": 5,
+          "fp": 16,
+          "fn": 2,
+          "tn": 198,
+          "precision": 0.23809523809523808,
+          "recall": 0.7142857142857143,
+          "f1": 0.35714285714285715,
+          "false_alarm_rate": 0.07476635514018691,
+          "evaluated_points": 221
+        },
+        {
+          "case_id": "b035997d2dc209f57a04",
+          "tp": 4,
+          "fp": 14,
+          "fn": 1,
+          "tn": 202,
+          "precision": 0.2222222222222222,
+          "recall": 0.8,
+          "f1": 0.34782608695652173,
+          "false_alarm_rate": 0.06481481481481481,
+          "evaluated_points": 221
+        },
+        {
+          "case_id": "7737fe5ea9e3fbd00e73",
+          "tp": 19,
+          "fp": 9,
+          "fn": 20,
+          "tn": 173,
+          "precision": 0.6785714285714286,
+          "recall": 0.48717948717948717,
+          "f1": 0.5671641791044776,
+          "false_alarm_rate": 0.04945054945054945,
+          "evaluated_points": 221
+        },
+        {
+          "case_id": "f27de69ba6c4f54282f8",
+          "tp": 6,
+          "fp": 7,
+          "fn": 5,
+          "tn": 203,
+          "precision": 0.46153846153846156,
+          "recall": 0.5454545454545454,
+          "f1": 0.5,
+          "false_alarm_rate": 0.03333333333333333,
+          "evaluated_points": 221
+        },
+        {
+          "case_id": "72344d2f9e0b5500eec4",
+          "tp": 7,
+          "fp": 2,
+          "fn": 10,
+          "tn": 201,
+          "precision": 0.7777777777777778,
+          "recall": 0.4117647058823529,
+          "f1": 0.5384615384615384,
+          "false_alarm_rate": 0.009852216748768473,
+          "evaluated_points": 220
+        },
+        {
+          "case_id": "5c51b611616582cb4ff6",
+          "tp": 1,
+          "fp": 0,
+          "fn": 4,
+          "tn": 216,
+          "precision": 1.0,
+          "recall": 0.2,
+          "f1": 0.3333333333333333,
+          "false_alarm_rate": 0.0,
+          "evaluated_points": 221
+        },
+        {
+          "case_id": "2bffc09469c448457045",
+          "tp": 2,
+          "fp": 4,
+          "fn": 2,
+          "tn": 213,
+          "precision": 0.3333333333333333,
+          "recall": 0.5,
+          "f1": 0.4,
+          "false_alarm_rate": 0.018433179723502304,
+          "evaluated_points": 221
+        },
+        {
+          "case_id": "2c7abd3e0118752897c3",
+          "tp": 4,
+          "fp": 12,
+          "fn": 3,
+          "tn": 198,
+          "precision": 0.25,
+          "recall": 0.5714285714285714,
+          "f1": 0.34782608695652173,
+          "false_alarm_rate": 0.05714285714285714,
+          "evaluated_points": 217
+        },
+        {
+          "case_id": "19b9db88bdc48e6a71a9",
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 250,
+          "precision": null,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.0,
+          "evaluated_points": 250
+        },
+        {
+          "case_id": "b1a9eb1acde2e1445c76",
+          "tp": 10,
+          "fp": 9,
+          "fn": 19,
+          "tn": 212,
+          "precision": 0.5263157894736842,
+          "recall": 0.3448275862068966,
+          "f1": 0.4166666666666667,
+          "false_alarm_rate": 0.04072398190045249,
+          "evaluated_points": 250
+        },
+        {
+          "case_id": "61ae5d525deb8c143513",
+          "tp": 0,
+          "fp": 19,
+          "fn": 0,
+          "tn": 231,
+          "precision": 0.0,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.076,
+          "evaluated_points": 250
+        },
+        {
+          "case_id": "28a6592364ee4876cc15",
+          "tp": 0,
+          "fp": 5,
+          "fn": 0,
+          "tn": 245,
+          "precision": 0.0,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.02,
+          "evaluated_points": 250
+        },
+        {
+          "case_id": "7713d3882d57655951e9",
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 250,
+          "precision": null,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.0,
+          "evaluated_points": 250
+        },
+        {
+          "case_id": "3386a175a1792c52e331",
+          "tp": 0,
+          "fp": 6,
+          "fn": 0,
+          "tn": 244,
+          "precision": 0.0,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.024,
+          "evaluated_points": 250
+        },
+        {
+          "case_id": "f7a591acf4e3716629f8",
+          "tp": 0,
+          "fp": 24,
+          "fn": 0,
+          "tn": 3144,
+          "precision": 0.0,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.007575757575757576,
+          "evaluated_points": 3168
+        },
+        {
+          "case_id": "9d29e89d5d54fd09792f",
+          "tp": 49,
+          "fp": 3119,
+          "fn": 0,
+          "tn": 0,
+          "precision": 0.015467171717171718,
+          "recall": 1.0,
+          "f1": 0.030463164438918246,
+          "false_alarm_rate": 1.0,
+          "evaluated_points": 3168
+        },
+        {
+          "case_id": "e55645fd54e5a8aa37a0",
+          "tp": 0,
+          "fp": 7,
+          "fn": 0,
+          "tn": 3161,
+          "precision": 0.0,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.0022095959595959595,
+          "evaluated_points": 3168
+        },
+        {
+          "case_id": "80a80d5113e61d817546",
+          "tp": 0,
+          "fp": 91,
+          "fn": 0,
+          "tn": 3077,
+          "precision": 0.0,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.028724747474747476,
+          "evaluated_points": 3168
+        },
+        {
+          "case_id": "89943b8e8a0d1bf5cd9f",
+          "tp": 0,
+          "fp": 75,
+          "fn": 0,
+          "tn": 3093,
+          "precision": 0.0,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.023674242424242424,
+          "evaluated_points": 3168
+        },
+        {
+          "case_id": "caac7113cc1cf25edd3e",
+          "tp": 14,
+          "fp": 47,
+          "fn": 13,
+          "tn": 1165,
+          "precision": 0.22950819672131148,
+          "recall": 0.5185185185185185,
+          "f1": 0.3181818181818182,
+          "false_alarm_rate": 0.038778877887788776,
+          "evaluated_points": 1239
+        },
+        {
+          "case_id": "24eaf9247e9ed454bbb9",
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 144,
+          "precision": null,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.0,
+          "evaluated_points": 144
+        },
+        {
+          "case_id": "e9e344162e2a2bd217f1",
+          "tp": 0,
+          "fp": 2,
+          "fn": 0,
+          "tn": 142,
+          "precision": 0.0,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.013888888888888888,
+          "evaluated_points": 144
+        },
+        {
+          "case_id": "e11d68d0eee3818580ee",
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 144,
+          "precision": null,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.0,
+          "evaluated_points": 144
+        },
+        {
+          "case_id": "7b17fd3b3d9341790fe5",
+          "tp": 0,
+          "fp": 0,
+          "fn": 23,
+          "tn": 121,
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0,
+          "false_alarm_rate": 0.0,
+          "evaluated_points": 144
+        },
+        {
+          "case_id": "f287b76f10a89ebcaf31",
+          "tp": 8,
+          "fp": 0,
+          "fn": 15,
+          "tn": 121,
+          "precision": 1.0,
+          "recall": 0.34782608695652173,
+          "f1": 0.5161290322580645,
+          "false_alarm_rate": 0.0,
+          "evaluated_points": 144
+        },
+        {
+          "case_id": "c9b4f878ae44b2dcbd2b",
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 144,
+          "precision": null,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.0,
+          "evaluated_points": 144
+        },
+        {
+          "case_id": "0aa4179a2e49c08f769a",
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 144,
+          "precision": null,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.0,
+          "evaluated_points": 144
+        },
+        {
+          "case_id": "d5fca9d56d4058c72041",
+          "tp": 0,
+          "fp": 0,
+          "fn": 23,
+          "tn": 121,
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0,
+          "false_alarm_rate": 0.0,
+          "evaluated_points": 144
+        },
+        {
+          "case_id": "ef95ac1653bbffd76e2f",
+          "tp": 0,
+          "fp": 5,
+          "fn": 0,
+          "tn": 139,
+          "precision": 0.0,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.034722222222222224,
+          "evaluated_points": 144
+        },
+        {
+          "case_id": "323ae1ef974c915a5fbf",
+          "tp": 4,
+          "fp": 0,
+          "fn": 4,
+          "tn": 136,
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6666666666666666,
+          "false_alarm_rate": 0.0,
+          "evaluated_points": 144
+        },
+        {
+          "case_id": "3a945714e2e527d7700f",
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 144,
+          "precision": null,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.0,
+          "evaluated_points": 144
+        },
+        {
+          "case_id": "fc42ead1e20ac61f3299",
+          "tp": 0,
+          "fp": 7,
+          "fn": 0,
+          "tn": 137,
+          "precision": 0.0,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.04861111111111111,
+          "evaluated_points": 144
+        },
+        {
+          "case_id": "8c45049feaa381f0199b",
+          "tp": 0,
+          "fp": 2,
+          "fn": 0,
+          "tn": 142,
+          "precision": 0.0,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.013888888888888888,
+          "evaluated_points": 144
+        },
+        {
+          "case_id": "197afc62b5392cb1beae",
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 144,
+          "precision": null,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.0,
+          "evaluated_points": 144
+        },
+        {
+          "case_id": "97b8eb59c55c11584765",
+          "tp": 0,
+          "fp": 3,
+          "fn": 0,
+          "tn": 141,
+          "precision": 0.0,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.020833333333333332,
+          "evaluated_points": 144
+        },
+        {
+          "case_id": "30336d2638125ad8047c",
+          "tp": 0,
+          "fp": 1,
+          "fn": 0,
+          "tn": 143,
+          "precision": 0.0,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.006944444444444444,
+          "evaluated_points": 144
+        },
+        {
+          "case_id": "cfdcdef1d7529e2d59d7",
+          "tp": 0,
+          "fp": 1,
+          "fn": 0,
+          "tn": 143,
+          "precision": 0.0,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.006944444444444444,
+          "evaluated_points": 144
+        },
+        {
+          "case_id": "ed39ad7a5f01b549801b",
+          "tp": 0,
+          "fp": 1,
+          "fn": 0,
+          "tn": 143,
+          "precision": 0.0,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.006944444444444444,
+          "evaluated_points": 144
+        },
+        {
+          "case_id": "c0e3c26bc628f1fdda4f",
+          "tp": 2,
+          "fp": 4,
+          "fn": 2,
+          "tn": 136,
+          "precision": 0.3333333333333333,
+          "recall": 0.5,
+          "f1": 0.4,
+          "false_alarm_rate": 0.02857142857142857,
+          "evaluated_points": 144
+        },
+        {
+          "case_id": "e2b1d0b00f8f0fe9b07a",
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 144,
+          "precision": null,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.0,
+          "evaluated_points": 144
+        },
+        {
+          "case_id": "9dd5ca0debcd7fba6d31",
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 144,
+          "precision": null,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.0,
+          "evaluated_points": 144
+        },
+        {
+          "case_id": "7c9d6eef6dfb927b6858",
+          "tp": 4,
+          "fp": 0,
+          "fn": 4,
+          "tn": 136,
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6666666666666666,
+          "false_alarm_rate": 0.0,
+          "evaluated_points": 144
+        },
+        {
+          "case_id": "951caf75c5175a4fca3b",
+          "tp": 0,
+          "fp": 1,
+          "fn": 0,
+          "tn": 143,
+          "precision": 0.0,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.006944444444444444,
+          "evaluated_points": 144
+        },
+        {
+          "case_id": "c40741ed0c26eb22e3e9",
+          "tp": 0,
+          "fp": 114,
+          "fn": 0,
+          "tn": 3054,
+          "precision": 0.0,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.03598484848484849,
+          "evaluated_points": 3168
+        },
+        {
+          "case_id": "e915b3451751dda381e1",
+          "tp": 0,
+          "fp": 28,
+          "fn": 0,
+          "tn": 3140,
+          "precision": 0.0,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.008838383838383838,
+          "evaluated_points": 3168
+        },
+        {
+          "case_id": "46601e080c7bfe56897b",
+          "tp": 0,
+          "fp": 487,
+          "fn": 0,
+          "tn": 2681,
+          "precision": 0.0,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.1537247474747475,
+          "evaluated_points": 3168
+        },
+        {
+          "case_id": "faa465907cbc69997075",
+          "tp": 0,
+          "fp": 133,
+          "fn": 0,
+          "tn": 3035,
+          "precision": 0.0,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.04198232323232323,
+          "evaluated_points": 3168
+        },
+        {
+          "case_id": "fd17851ee48087520f8d",
+          "tp": 27,
+          "fp": 117,
+          "fn": 6,
+          "tn": 3882,
+          "precision": 0.1875,
+          "recall": 0.8181818181818182,
+          "f1": 0.3050847457627119,
+          "false_alarm_rate": 0.029257314328582147,
+          "evaluated_points": 4032
+        },
+        {
+          "case_id": "736fbe19d92bdb656f0f",
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 3168,
+          "precision": null,
+          "recall": null,
+          "f1": 0.0,
+          "false_alarm_rate": 0.0,
+          "evaluated_points": 3168
+        }
+      ]
+    }
+  },
+  "forecasting": [
+    {
+      "case_id": "5dae691e6b2beb558575",
+      "status": "evaluated",
+      "selected_on_validation": "ridge_ar12",
+      "split": {
+        "train": [
+          0,
+          208
+        ],
+        "validation": [
+          208,
+          277
+        ],
+        "test": [
+          277,
+          347
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 31.214285714285715,
+          "rmse": 77.2727081741764,
+          "targets": 70
+        },
+        "seasonal_naive_24": {
+          "mae": 45.385714285714286,
+          "rmse": 119.8851235856345,
+          "targets": 70
+        },
+        "ridge_ar12": {
+          "mae": 40.30941169490828,
+          "rmse": 93.2796273120211,
+          "targets": 70
+        }
+      },
+      "validation_mae": {
+        "persistence": 8.594202898550725,
+        "seasonal_naive_24": 9.91304347826087,
+        "ridge_ar12": 7.2727144597729785
+      },
+      "interval_radius": 18.35163749689312,
+      "interval_coverage": 0.6714285714285714,
+      "interval_nominal": 0.9,
+      "threshold_reference": 18.0,
+      "threshold_warning": {
+        "true_positive": 9,
+        "false_positive": 5,
+        "false_negative": 10
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "27a06adfd8de9abc282b",
+      "status": "evaluated",
+      "selected_on_validation": "ridge_ar12",
+      "split": {
+        "train": [
+          0,
+          418
+        ],
+        "validation": [
+          418,
+          557
+        ],
+        "test": [
+          557,
+          697
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 64.82142857142857,
+          "rmse": 142.92188175963219,
+          "targets": 140
+        },
+        "seasonal_naive_24": {
+          "mae": 155.85714285714286,
+          "rmse": 350.01575474745215,
+          "targets": 140
+        },
+        "ridge_ar12": {
+          "mae": 73.66571890967147,
+          "rmse": 168.27427678857183,
+          "targets": 140
+        }
+      },
+      "validation_mae": {
+        "persistence": 5.546762589928058,
+        "seasonal_naive_24": 7.7913669064748206,
+        "ridge_ar12": 4.760426828084358
+      },
+      "interval_radius": 13.3030618661586,
+      "interval_coverage": 0.42857142857142855,
+      "interval_nominal": 0.9,
+      "threshold_reference": 21.149999999999977,
+      "threshold_warning": {
+        "true_positive": 55,
+        "false_positive": 21,
+        "false_negative": 12
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "82303b6e9a72b7522642",
+      "status": "evaluated",
+      "selected_on_validation": "persistence",
+      "split": {
+        "train": [
+          0,
+          418
+        ],
+        "validation": [
+          418,
+          557
+        ],
+        "test": [
+          557,
+          697
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 32.22142857142857,
+          "rmse": 69.75380173971062,
+          "targets": 140
+        },
+        "seasonal_naive_24": {
+          "mae": 67.68571428571428,
+          "rmse": 134.02350540110493,
+          "targets": 140
+        },
+        "ridge_ar12": {
+          "mae": 34.345497627409216,
+          "rmse": 69.4865593942577,
+          "targets": 140
+        }
+      },
+      "validation_mae": {
+        "persistence": 20.784172661870503,
+        "seasonal_naive_24": 28.892086330935253,
+        "ridge_ar12": 21.67477936847217
+      },
+      "interval_radius": 42.0,
+      "interval_coverage": 0.8571428571428571,
+      "interval_nominal": 0.9,
+      "threshold_reference": 561.6499999999993,
+      "threshold_warning": {
+        "true_positive": 0,
+        "false_positive": 1,
+        "false_negative": 1
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "31ef2e1018fdf59f55e7",
+      "status": "evaluated",
+      "selected_on_validation": "persistence",
+      "split": {
+        "train": [
+          0,
+          418
+        ],
+        "validation": [
+          418,
+          557
+        ],
+        "test": [
+          557,
+          697
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 177.47857142857143,
+          "rmse": 560.319914997546,
+          "targets": 140
+        },
+        "seasonal_naive_24": {
+          "mae": 196.55714285714285,
+          "rmse": 470.6279391864205,
+          "targets": 140
+        },
+        "ridge_ar12": {
+          "mae": 181.13406749067423,
+          "rmse": 426.62514890236605,
+          "targets": 140
+        }
+      },
+      "validation_mae": {
+        "persistence": 80.77372262773723,
+        "seasonal_naive_24": 118.59558823529412,
+        "ridge_ar12": 131.6421684869099
+      },
+      "interval_radius": 121.0,
+      "interval_coverage": 0.85,
+      "interval_nominal": 0.9,
+      "threshold_reference": 604.9499999999994,
+      "threshold_warning": {
+        "true_positive": 1,
+        "false_positive": 6,
+        "false_negative": 6
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "a4c77275f2867b987802",
+      "status": "evaluated",
+      "selected_on_validation": "ridge_ar12",
+      "split": {
+        "train": [
+          0,
+          418
+        ],
+        "validation": [
+          418,
+          557
+        ],
+        "test": [
+          557,
+          697
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 30.191176470588236,
+          "rmse": 75.51343861700848,
+          "targets": 136
+        },
+        "seasonal_naive_24": {
+          "mae": 33.88721804511278,
+          "rmse": 85.99829513959735,
+          "targets": 133
+        },
+        "ridge_ar12": {
+          "mae": 33.33963943065113,
+          "rmse": 76.27282290667678,
+          "targets": 109
+        }
+      },
+      "validation_mae": {
+        "persistence": 42.02189781021898,
+        "seasonal_naive_24": 50.13868613138686,
+        "ridge_ar12": 35.49172543425791
+      },
+      "interval_radius": 74.75465105935461,
+      "interval_coverage": 0.8990825688073395,
+      "interval_nominal": 0.9,
+      "threshold_reference": 62.09999999999991,
+      "threshold_warning": {
+        "true_positive": 3,
+        "false_positive": 1,
+        "false_negative": 7
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "2599193f2f2326f95a02",
+      "status": "evaluated",
+      "selected_on_validation": "persistence",
+      "split": {
+        "train": [
+          0,
+          418
+        ],
+        "validation": [
+          418,
+          557
+        ],
+        "test": [
+          557,
+          697
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 39.69285714285714,
+          "rmse": 127.45786418600126,
+          "targets": 140
+        },
+        "seasonal_naive_24": {
+          "mae": 124.80575539568345,
+          "rmse": 427.2609264613084,
+          "targets": 139
+        },
+        "ridge_ar12": {
+          "mae": 60.170796901645915,
+          "rmse": 117.40385227258174,
+          "targets": 137
+        }
+      },
+      "validation_mae": {
+        "persistence": 98.92857142857143,
+        "seasonal_naive_24": 262.198347107438,
+        "ridge_ar12": 117.18690059808904
+      },
+      "interval_radius": 194.0,
+      "interval_coverage": 0.9714285714285714,
+      "interval_nominal": 0.9,
+      "threshold_reference": 2204.1,
+      "threshold_warning": {
+        "true_positive": 0,
+        "false_positive": 0,
+        "false_negative": 0
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "05f3822f102aa4c7526a",
+      "status": "evaluated",
+      "selected_on_validation": "ridge_ar12",
+      "split": {
+        "train": [
+          0,
+          418
+        ],
+        "validation": [
+          418,
+          557
+        ],
+        "test": [
+          557,
+          697
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 49.05,
+          "rmse": 226.48372694617282,
+          "targets": 140
+        },
+        "seasonal_naive_24": {
+          "mae": 60.34285714285714,
+          "rmse": 289.8370231699187,
+          "targets": 140
+        },
+        "ridge_ar12": {
+          "mae": 64.13330822827271,
+          "rmse": 235.20860755811762,
+          "targets": 140
+        }
+      },
+      "validation_mae": {
+        "persistence": 13.784172661870503,
+        "seasonal_naive_24": 17.294964028776977,
+        "ridge_ar12": 13.439553396165854
+      },
+      "interval_radius": 28.244464966833533,
+      "interval_coverage": 0.8428571428571429,
+      "interval_nominal": 0.9,
+      "threshold_reference": 133.0,
+      "threshold_warning": {
+        "true_positive": 3,
+        "false_positive": 2,
+        "false_negative": 1
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "e3102b86e15c7f557a37",
+      "status": "evaluated",
+      "selected_on_validation": "persistence",
+      "split": {
+        "train": [
+          0,
+          418
+        ],
+        "validation": [
+          418,
+          557
+        ],
+        "test": [
+          557,
+          697
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 29.714285714285715,
+          "rmse": 83.88904236294171,
+          "targets": 140
+        },
+        "seasonal_naive_24": {
+          "mae": 34.628571428571426,
+          "rmse": 87.95810691135054,
+          "targets": 140
+        },
+        "ridge_ar12": {
+          "mae": 28.706438897621375,
+          "rmse": 72.61393804750594,
+          "targets": 140
+        }
+      },
+      "validation_mae": {
+        "persistence": 12.906474820143885,
+        "seasonal_naive_24": 16.12230215827338,
+        "ridge_ar12": 13.268453520698088
+      },
+      "interval_radius": 30.0,
+      "interval_coverage": 0.7785714285714286,
+      "interval_nominal": 0.9,
+      "threshold_reference": 77.14999999999998,
+      "threshold_warning": {
+        "true_positive": 5,
+        "false_positive": 7,
+        "false_negative": 7
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "8902eacb819ef429b4be",
+      "status": "evaluated",
+      "selected_on_validation": "persistence",
+      "split": {
+        "train": [
+          0,
+          100
+        ],
+        "validation": [
+          100,
+          134
+        ],
+        "test": [
+          134,
+          168
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 85.29411764705883,
+          "rmse": 229.63282712651875,
+          "targets": 34
+        },
+        "seasonal_naive_24": {
+          "mae": 123.11764705882354,
+          "rmse": 324.4793114043047,
+          "targets": 34
+        },
+        "ridge_ar12": {
+          "mae": 135.72928835932063,
+          "rmse": 269.48174699247164,
+          "targets": 34
+        }
+      },
+      "validation_mae": {
+        "persistence": 20.235294117647058,
+        "seasonal_naive_24": 25.205882352941178,
+        "ridge_ar12": 26.19867988656276
+      },
+      "interval_radius": 48.0,
+      "interval_coverage": 0.7647058823529411,
+      "interval_nominal": 0.9,
+      "threshold_reference": 95.1,
+      "threshold_warning": {
+        "true_positive": 11,
+        "false_positive": 3,
+        "false_negative": 3
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "535536d8b6c002503527",
+      "status": "evaluated",
+      "selected_on_validation": "persistence",
+      "split": {
+        "train": [
+          0,
+          660
+        ],
+        "validation": [
+          660,
+          880
+        ],
+        "test": [
+          880,
+          1101
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 0.02343178044524887,
+          "rmse": 0.040944348792878324,
+          "targets": 221
+        },
+        "seasonal_naive_24": {
+          "mae": 0.041488338649773755,
+          "rmse": 0.06737565921648589,
+          "targets": 221
+        },
+        "ridge_ar12": {
+          "mae": 0.028647094785154294,
+          "rmse": 0.04735400292088077,
+          "targets": 221
+        }
+      },
+      "validation_mae": {
+        "persistence": 0.01871945114327273,
+        "seasonal_naive_24": 0.026989203922818183,
+        "ridge_ar12": 0.02064566532584703
+      },
+      "interval_radius": 0.0405410546,
+      "interval_coverage": 0.8642533936651584,
+      "interval_nominal": 0.9,
+      "threshold_reference": 0.23530582009999992,
+      "threshold_warning": {
+        "true_positive": 6,
+        "false_positive": 2,
+        "false_negative": 2
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "909f6fa55cd74a54e427",
+      "status": "evaluated",
+      "selected_on_validation": "ridge_ar12",
+      "split": {
+        "train": [
+          0,
+          662
+        ],
+        "validation": [
+          662,
+          883
+        ],
+        "test": [
+          883,
+          1104
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 0.01091656415081448,
+          "rmse": 0.034168919580695505,
+          "targets": 221
+        },
+        "seasonal_naive_24": {
+          "mae": 0.03579402209651584,
+          "rmse": 0.10266595745351927,
+          "targets": 221
+        },
+        "ridge_ar12": {
+          "mae": 0.015601748871778072,
+          "rmse": 0.054695428816970995,
+          "targets": 221
+        }
+      },
+      "validation_mae": {
+        "persistence": 0.0005782498690678732,
+        "seasonal_naive_24": 0.0006542595442262442,
+        "ridge_ar12": 0.0005432264706342146
+      },
+      "interval_radius": 0.0008530126289865974,
+      "interval_coverage": 0.6153846153846154,
+      "interval_nominal": 0.9,
+      "threshold_reference": 0.003589332049499999,
+      "threshold_warning": {
+        "true_positive": 36,
+        "false_positive": 8,
+        "false_negative": 15
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "56a1398321c5535bddd7",
+      "status": "evaluated",
+      "selected_on_validation": "persistence",
+      "split": {
+        "train": [
+          0,
+          663
+        ],
+        "validation": [
+          663,
+          884
+        ],
+        "test": [
+          884,
+          1105
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 2.293696207710407,
+          "rmse": 5.859679864432263,
+          "targets": 221
+        },
+        "seasonal_naive_24": {
+          "mae": 3.106234055859728,
+          "rmse": 6.602613635712691,
+          "targets": 221
+        },
+        "ridge_ar12": {
+          "mae": 2.525110292225815,
+          "rmse": 6.888659630686529,
+          "targets": 221
+        }
+      },
+      "validation_mae": {
+        "persistence": 0.8872825620090496,
+        "seasonal_naive_24": 1.0683964507601809,
+        "ridge_ar12": 1.2138248277754817
+      },
+      "interval_radius": 1.9542382900000002,
+      "interval_coverage": 0.7601809954751131,
+      "interval_nominal": 0.9,
+      "threshold_reference": 5.364866599999999,
+      "threshold_warning": {
+        "true_positive": 28,
+        "false_positive": 13,
+        "false_negative": 13
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "b035997d2dc209f57a04",
+      "status": "evaluated",
+      "selected_on_validation": "ridge_ar12",
+      "split": {
+        "train": [
+          0,
+          663
+        ],
+        "validation": [
+          663,
+          884
+        ],
+        "test": [
+          884,
+          1105
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 0.0012585154041447964,
+          "rmse": 0.0037903931388009854,
+          "targets": 221
+        },
+        "seasonal_naive_24": {
+          "mae": 0.0016558398093076921,
+          "rmse": 0.005484390035017278,
+          "targets": 221
+        },
+        "ridge_ar12": {
+          "mae": 0.0011605025741859558,
+          "rmse": 0.003822018582310458,
+          "targets": 221
+        }
+      },
+      "validation_mae": {
+        "persistence": 0.0010918089216651584,
+        "seasonal_naive_24": 0.0014451617897737557,
+        "ridge_ar12": 0.0010015295214983524
+      },
+      "interval_radius": 0.00185279072097969,
+      "interval_coverage": 0.9095022624434389,
+      "interval_nominal": 0.9,
+      "threshold_reference": 0.002232371246,
+      "threshold_warning": {
+        "true_positive": 4,
+        "false_positive": 3,
+        "false_negative": 29
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "7737fe5ea9e3fbd00e73",
+      "status": "evaluated",
+      "selected_on_validation": "persistence",
+      "split": {
+        "train": [
+          0,
+          663
+        ],
+        "validation": [
+          663,
+          884
+        ],
+        "test": [
+          884,
+          1105
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 0.0020940224051583713,
+          "rmse": 0.004218031025344213,
+          "targets": 221
+        },
+        "seasonal_naive_24": {
+          "mae": 0.0034757192077375563,
+          "rmse": 0.00661751654838664,
+          "targets": 221
+        },
+        "ridge_ar12": {
+          "mae": 0.001974185812797477,
+          "rmse": 0.003929054900360101,
+          "targets": 221
+        }
+      },
+      "validation_mae": {
+        "persistence": 0.0007738726337647059,
+        "seasonal_naive_24": 0.0016659053558009053,
+        "ridge_ar12": 0.0008021471822525322
+      },
+      "interval_radius": 0.0017902424299999992,
+      "interval_coverage": 0.6832579185520362,
+      "interval_nominal": 0.9,
+      "threshold_reference": 0.008347243599999998,
+      "threshold_warning": {
+        "true_positive": 19,
+        "false_positive": 8,
+        "false_negative": 9
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "f27de69ba6c4f54282f8",
+      "status": "evaluated",
+      "selected_on_validation": "persistence",
+      "split": {
+        "train": [
+          0,
+          661
+        ],
+        "validation": [
+          661,
+          882
+        ],
+        "test": [
+          882,
+          1103
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 0.004434923498280542,
+          "rmse": 0.009422221980532018,
+          "targets": 221
+        },
+        "seasonal_naive_24": {
+          "mae": 0.007134132003475113,
+          "rmse": 0.015876982578999364,
+          "targets": 221
+        },
+        "ridge_ar12": {
+          "mae": 0.004909750609451457,
+          "rmse": 0.009071881765116757,
+          "targets": 221
+        }
+      },
+      "validation_mae": {
+        "persistence": 0.003996756084986426,
+        "seasonal_naive_24": 0.013253674681031674,
+        "ridge_ar12": 0.0048854081295991525
+      },
+      "interval_radius": 0.0105672177,
+      "interval_coverage": 0.9095022624434389,
+      "interval_nominal": 0.9,
+      "threshold_reference": 0.0192515645,
+      "threshold_warning": {
+        "true_positive": 9,
+        "false_positive": 6,
+        "false_negative": 6
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "72344d2f9e0b5500eec4",
+      "status": "evaluated",
+      "selected_on_validation": "persistence",
+      "split": {
+        "train": [
+          0,
+          657
+        ],
+        "validation": [
+          657,
+          876
+        ],
+        "test": [
+          876,
+          1096
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 0.04919001535,
+          "rmse": 0.1627672324788663,
+          "targets": 220
+        },
+        "seasonal_naive_24": {
+          "mae": 0.055389572281818185,
+          "rmse": 0.165095738210705,
+          "targets": 220
+        },
+        "ridge_ar12": {
+          "mae": 0.05643372199490517,
+          "rmse": 0.14873300351830707,
+          "targets": 220
+        }
+      },
+      "validation_mae": {
+        "persistence": 0.048116617521826485,
+        "seasonal_naive_24": 0.07715509291497717,
+        "ridge_ar12": 0.055668654444297465
+      },
+      "interval_radius": 0.066545346,
+      "interval_coverage": 0.8909090909090909,
+      "interval_nominal": 0.9,
+      "threshold_reference": 0.43832020179999986,
+      "threshold_warning": {
+        "true_positive": 1,
+        "false_positive": 3,
+        "false_negative": 3
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "5c51b611616582cb4ff6",
+      "status": "evaluated",
+      "selected_on_validation": "persistence",
+      "split": {
+        "train": [
+          0,
+          663
+        ],
+        "validation": [
+          663,
+          884
+        ],
+        "test": [
+          884,
+          1105
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 0.0030644914285972847,
+          "rmse": 0.0056288726094889776,
+          "targets": 221
+        },
+        "seasonal_naive_24": {
+          "mae": 0.0039872169041628965,
+          "rmse": 0.006411109865956403,
+          "targets": 221
+        },
+        "ridge_ar12": {
+          "mae": 0.007394385626563965,
+          "rmse": 0.008252091552730684,
+          "targets": 221
+        }
+      },
+      "validation_mae": {
+        "persistence": 0.002680294701357466,
+        "seasonal_naive_24": 0.0029776041140271493,
+        "ridge_ar12": 0.006167666602408429
+      },
+      "interval_radius": 0.005801822,
+      "interval_coverage": 0.8959276018099548,
+      "interval_nominal": 0.9,
+      "threshold_reference": 0.04064495561,
+      "threshold_warning": {
+        "true_positive": 1,
+        "false_positive": 1,
+        "false_negative": 1
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "2bffc09469c448457045",
+      "status": "evaluated",
+      "selected_on_validation": "ridge_ar12",
+      "split": {
+        "train": [
+          0,
+          663
+        ],
+        "validation": [
+          663,
+          884
+        ],
+        "test": [
+          884,
+          1105
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 0.007304700496832579,
+          "rmse": 0.010652459150449456,
+          "targets": 221
+        },
+        "seasonal_naive_24": {
+          "mae": 0.007435618332126697,
+          "rmse": 0.011879052821088098,
+          "targets": 221
+        },
+        "ridge_ar12": {
+          "mae": 0.006904698175914412,
+          "rmse": 0.010019927132727723,
+          "targets": 221
+        }
+      },
+      "validation_mae": {
+        "persistence": 0.007424725138461539,
+        "seasonal_naive_24": 0.008018738590950225,
+        "ridge_ar12": 0.007286956807455391
+      },
+      "interval_radius": 0.01479921953141955,
+      "interval_coverage": 0.8959276018099548,
+      "interval_nominal": 0.9,
+      "threshold_reference": 0.05425747634,
+      "threshold_warning": {
+        "true_positive": 1,
+        "false_positive": 1,
+        "false_negative": 7
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "2c7abd3e0118752897c3",
+      "status": "evaluated",
+      "selected_on_validation": "persistence",
+      "split": {
+        "train": [
+          0,
+          649
+        ],
+        "validation": [
+          649,
+          865
+        ],
+        "test": [
+          865,
+          1082
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 0.0429903524959447,
+          "rmse": 0.19292982776181053,
+          "targets": 217
+        },
+        "seasonal_naive_24": {
+          "mae": 0.03459784135834102,
+          "rmse": 0.14295102689709782,
+          "targets": 217
+        },
+        "ridge_ar12": {
+          "mae": 0.04132577794291234,
+          "rmse": 0.15834755706009096,
+          "targets": 217
+        }
+      },
+      "validation_mae": {
+        "persistence": 0.016647487945925927,
+        "seasonal_naive_24": 0.016747098748287035,
+        "ridge_ar12": 0.017415599176437885
+      },
+      "interval_radius": 0.0383413471,
+      "interval_coverage": 0.8294930875576036,
+      "interval_nominal": 0.9,
+      "threshold_reference": 0.111111112,
+      "threshold_warning": {
+        "true_positive": 0,
+        "false_positive": 7,
+        "false_negative": 7
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "19b9db88bdc48e6a71a9",
+      "status": "evaluated",
+      "selected_on_validation": "persistence",
+      "split": {
+        "train": [
+          0,
+          748
+        ],
+        "validation": [
+          748,
+          998
+        ],
+        "test": [
+          998,
+          1248
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 0.0,
+          "rmse": 0.0,
+          "targets": 250
+        },
+        "seasonal_naive_24": {
+          "mae": 0.0,
+          "rmse": 0.0,
+          "targets": 250
+        },
+        "ridge_ar12": {
+          "mae": 0.028980775746674965,
+          "rmse": 0.02898077574667497,
+          "targets": 250
+        }
+      },
+      "validation_mae": {
+        "persistence": 0.032,
+        "seasonal_naive_24": 0.032,
+        "ridge_ar12": 0.042093155557307506
+      },
+      "interval_radius": 0.0,
+      "interval_coverage": 1.0,
+      "interval_nominal": 0.9,
+      "threshold_reference": 0.0,
+      "threshold_warning": {
+        "true_positive": 0,
+        "false_positive": 0,
+        "false_negative": 0
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "b1a9eb1acde2e1445c76",
+      "status": "evaluated",
+      "selected_on_validation": "ridge_ar12",
+      "split": {
+        "train": [
+          0,
+          748
+        ],
+        "validation": [
+          748,
+          998
+        ],
+        "test": [
+          998,
+          1248
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 4.82,
+          "rmse": 7.033349131103901,
+          "targets": 250
+        },
+        "seasonal_naive_24": {
+          "mae": 6.336,
+          "rmse": 9.374859998954651,
+          "targets": 250
+        },
+        "ridge_ar12": {
+          "mae": 4.338892473195354,
+          "rmse": 6.526188383195416,
+          "targets": 250
+        }
+      },
+      "validation_mae": {
+        "persistence": 3.348,
+        "seasonal_naive_24": 4.02,
+        "ridge_ar12": 3.0045675783910633
+      },
+      "interval_radius": 6.194913066848013,
+      "interval_coverage": 0.756,
+      "interval_nominal": 0.9,
+      "threshold_reference": 18.0,
+      "threshold_warning": {
+        "true_positive": 18,
+        "false_positive": 6,
+        "false_negative": 26
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "61ae5d525deb8c143513",
+      "status": "evaluated",
+      "selected_on_validation": "ridge_ar12",
+      "split": {
+        "train": [
+          0,
+          748
+        ],
+        "validation": [
+          748,
+          998
+        ],
+        "test": [
+          998,
+          1248
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 1155.256,
+          "rmse": 1751.5350752982367,
+          "targets": 250
+        },
+        "seasonal_naive_24": {
+          "mae": 1557.524,
+          "rmse": 2590.6092912672107,
+          "targets": 250
+        },
+        "ridge_ar12": {
+          "mae": 842.6023124088853,
+          "rmse": 1392.4712283038862,
+          "targets": 250
+        }
+      },
+      "validation_mae": {
+        "persistence": 982.6,
+        "seasonal_naive_24": 1250.608,
+        "ridge_ar12": 650.8235957541107
+      },
+      "interval_radius": 1470.5779792395224,
+      "interval_coverage": 0.836,
+      "interval_nominal": 0.9,
+      "threshold_reference": 16214.349999999997,
+      "threshold_warning": {
+        "true_positive": 3,
+        "false_positive": 1,
+        "false_negative": 2
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "28a6592364ee4876cc15",
+      "status": "evaluated",
+      "selected_on_validation": "ridge_ar12",
+      "split": {
+        "train": [
+          0,
+          748
+        ],
+        "validation": [
+          748,
+          998
+        ],
+        "test": [
+          998,
+          1248
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 51.744,
+          "rmse": 71.98260901078815,
+          "targets": 250
+        },
+        "seasonal_naive_24": {
+          "mae": 70.364,
+          "rmse": 119.42621152829057,
+          "targets": 250
+        },
+        "ridge_ar12": {
+          "mae": 37.90653471513063,
+          "rmse": 56.20537736348199,
+          "targets": 250
+        }
+      },
+      "validation_mae": {
+        "persistence": 52.044,
+        "seasonal_naive_24": 79.724,
+        "ridge_ar12": 39.3023992513737
+      },
+      "interval_radius": 86.26042363432589,
+      "interval_coverage": 0.916,
+      "interval_nominal": 0.9,
+      "threshold_reference": 697.0,
+      "threshold_warning": {
+        "true_positive": 0,
+        "false_positive": 3,
+        "false_negative": 1
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "7713d3882d57655951e9",
+      "status": "evaluated",
+      "selected_on_validation": "ridge_ar12",
+      "split": {
+        "train": [
+          0,
+          748
+        ],
+        "validation": [
+          748,
+          998
+        ],
+        "test": [
+          998,
+          1248
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 1.44,
+          "rmse": 2.0726794252850587,
+          "targets": 250
+        },
+        "seasonal_naive_24": {
+          "mae": 1.552,
+          "rmse": 2.219909908081857,
+          "targets": 250
+        },
+        "ridge_ar12": {
+          "mae": 1.4524837206062888,
+          "rmse": 1.8101015168254038,
+          "targets": 250
+        }
+      },
+      "validation_mae": {
+        "persistence": 1.72,
+        "seasonal_naive_24": 2.072,
+        "ridge_ar12": 1.6731592066973686
+      },
+      "interval_radius": 3.413369226655483,
+      "interval_coverage": 0.944,
+      "interval_nominal": 0.9,
+      "threshold_reference": 17.0,
+      "threshold_warning": {
+        "true_positive": 0,
+        "false_positive": 0,
+        "false_negative": 0
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "3386a175a1792c52e331",
+      "status": "evaluated",
+      "selected_on_validation": "seasonal_naive_24",
+      "split": {
+        "train": [
+          0,
+          748
+        ],
+        "validation": [
+          748,
+          998
+        ],
+        "test": [
+          998,
+          1248
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 0.62,
+          "rmse": 1.1575836902790226,
+          "targets": 250
+        },
+        "seasonal_naive_24": {
+          "mae": 0.7,
+          "rmse": 1.2312595177297108,
+          "targets": 250
+        },
+        "ridge_ar12": {
+          "mae": 0.7214014803776073,
+          "rmse": 0.9764437595270142,
+          "targets": 250
+        }
+      },
+      "validation_mae": {
+        "persistence": 0.436,
+        "seasonal_naive_24": 0.428,
+        "ridge_ar12": 0.6044091655088791
+      },
+      "interval_radius": 1.0,
+      "interval_coverage": 0.876,
+      "interval_nominal": 0.9,
+      "threshold_reference": 3.0,
+      "threshold_warning": {
+        "true_positive": 0,
+        "false_positive": 5,
+        "false_negative": 4
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "f7a591acf4e3716629f8",
+      "status": "evaluated",
+      "selected_on_validation": "persistence",
+      "split": {
+        "train": [
+          0,
+          9504
+        ],
+        "validation": [
+          9504,
+          12672
+        ],
+        "test": [
+          12672,
+          15840
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 19664.673190235655,
+          "rmse": 28548.928048086345,
+          "targets": 3168
+        },
+        "seasonal_naive_24": {
+          "mae": 40965.25522937705,
+          "rmse": 54178.63223484507,
+          "targets": 3168
+        },
+        "ridge_ar12": {
+          "mae": 21481.384157286473,
+          "rmse": 29741.24306509262,
+          "targets": 3168
+        }
+      },
+      "validation_mae": {
+        "persistence": 24435.354282407454,
+        "seasonal_naive_24": 64159.6954387626,
+        "ridge_ar12": 24669.140950990233
+      },
+      "interval_radius": 48299.233333330136,
+      "interval_coverage": 0.9337121212121212,
+      "interval_nominal": 0.9,
+      "threshold_reference": 2273629.6208333313,
+      "threshold_warning": {
+        "true_positive": 0,
+        "false_positive": 0,
+        "false_negative": 0
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "9d29e89d5d54fd09792f",
+      "status": "evaluated",
+      "selected_on_validation": "persistence",
+      "split": {
+        "train": [
+          0,
+          9504
+        ],
+        "validation": [
+          9504,
+          12672
+        ],
+        "test": [
+          12672,
+          15840
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 3217.549131944443,
+          "rmse": 4133.367310788435,
+          "targets": 3168
+        },
+        "seasonal_naive_24": {
+          "mae": 4622.470864898986,
+          "rmse": 5910.193635732033,
+          "targets": 3168
+        },
+        "ridge_ar12": {
+          "mae": 50401.73619002525,
+          "rmse": 57963.69984267571,
+          "targets": 3168
+        }
+      },
+      "validation_mae": {
+        "persistence": 2415.967461069024,
+        "seasonal_naive_24": 3417.4983533249165,
+        "ridge_ar12": 23498.36101641414
+      },
+      "interval_radius": 5629.116666666701,
+      "interval_coverage": 0.8345959595959596,
+      "interval_nominal": 0.9,
+      "threshold_reference": 0.0,
+      "threshold_warning": {
+        "true_positive": 3168,
+        "false_positive": 0,
+        "false_negative": 0
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "e55645fd54e5a8aa37a0",
+      "status": "evaluated",
+      "selected_on_validation": "ridge_ar12",
+      "split": {
+        "train": [
+          0,
+          9504
+        ],
+        "validation": [
+          9504,
+          12672
+        ],
+        "test": [
+          12672,
+          15840
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 7298.415235690239,
+          "rmse": 9298.739588634917,
+          "targets": 3168
+        },
+        "seasonal_naive_24": {
+          "mae": 15541.831155303042,
+          "rmse": 19917.646714887687,
+          "targets": 3168
+        },
+        "ridge_ar12": {
+          "mae": 6962.159788329416,
+          "rmse": 8841.014856123502,
+          "targets": 3168
+        }
+      },
+      "validation_mae": {
+        "persistence": 8004.202835648159,
+        "seasonal_naive_24": 15701.970070496625,
+        "ridge_ar12": 7474.387701394554
+      },
+      "interval_radius": 15471.047418714967,
+      "interval_coverage": 0.9201388888888888,
+      "interval_nominal": 0.9,
+      "threshold_reference": 417432.845,
+      "threshold_warning": {
+        "true_positive": 70,
+        "false_positive": 22,
+        "false_negative": 20
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "80a80d5113e61d817546",
+      "status": "evaluated",
+      "selected_on_validation": "ridge_ar12",
+      "split": {
+        "train": [
+          0,
+          9504
+        ],
+        "validation": [
+          9504,
+          12672
+        ],
+        "test": [
+          12672,
+          15840
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 2509.0558869949436,
+          "rmse": 4210.97269556338,
+          "targets": 3168
+        },
+        "seasonal_naive_24": {
+          "mae": 12795.468918350163,
+          "rmse": 19697.69780200279,
+          "targets": 3168
+        },
+        "ridge_ar12": {
+          "mae": 2506.3273765415565,
+          "rmse": 4202.293832306146,
+          "targets": 3168
+        }
+      },
+      "validation_mae": {
+        "persistence": 3188.045049452853,
+        "seasonal_naive_24": 17184.543002946128,
+        "ridge_ar12": 3172.0562909106134
+      },
+      "interval_radius": 6255.054929889971,
+      "interval_coverage": 0.928030303030303,
+      "interval_nominal": 0.9,
+      "threshold_reference": 303960.01000000007,
+      "threshold_warning": {
+        "true_positive": 89,
+        "false_positive": 5,
+        "false_negative": 6
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "89943b8e8a0d1bf5cd9f",
+      "status": "evaluated",
+      "selected_on_validation": "ridge_ar12",
+      "split": {
+        "train": [
+          0,
+          9504
+        ],
+        "validation": [
+          9504,
+          12672
+        ],
+        "test": [
+          12672,
+          15840
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 7913.281171085863,
+          "rmse": 12294.962296520791,
+          "targets": 3168
+        },
+        "seasonal_naive_24": {
+          "mae": 17936.68527988215,
+          "rmse": 24404.363302123533,
+          "targets": 3168
+        },
+        "ridge_ar12": {
+          "mae": 7739.61160391109,
+          "rmse": 11659.955978510992,
+          "targets": 3168
+        }
+      },
+      "validation_mae": {
+        "persistence": 8386.117608375424,
+        "seasonal_naive_24": 17347.16382575758,
+        "ridge_ar12": 8204.078586672536
+      },
+      "interval_radius": 15951.03082651028,
+      "interval_coverage": 0.9034090909090909,
+      "interval_nominal": 0.9,
+      "threshold_reference": 612521.844166667,
+      "threshold_warning": {
+        "true_positive": 2124,
+        "false_positive": 88,
+        "false_negative": 107
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "caac7113cc1cf25edd3e",
+      "status": "evaluated",
+      "selected_on_validation": "ridge_ar12",
+      "split": {
+        "train": [
+          0,
+          3714
+        ],
+        "validation": [
+          3714,
+          4952
+        ],
+        "test": [
+          4952,
+          6191
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 7.088905030938925,
+          "rmse": 13.064881443033155,
+          "targets": 1239
+        },
+        "seasonal_naive_24": {
+          "mae": 9.40548896959914,
+          "rmse": 18.17920743229945,
+          "targets": 1239
+        },
+        "ridge_ar12": {
+          "mae": 5.728133744147141,
+          "rmse": 12.372146015848939,
+          "targets": 1239
+        }
+      },
+      "validation_mae": {
+        "persistence": 6.218957996768985,
+        "seasonal_naive_24": 10.392002782265303,
+        "ridge_ar12": 4.871184120387519
+      },
+      "interval_radius": 11.047686549079415,
+      "interval_coverage": 0.9063761097659403,
+      "interval_nominal": 0.9,
+      "threshold_reference": 116.39533333333333,
+      "threshold_warning": {
+        "true_positive": 28,
+        "false_positive": 5,
+        "false_negative": 22
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "24eaf9247e9ed454bbb9",
+      "status": "evaluated",
+      "selected_on_validation": "persistence",
+      "split": {
+        "train": [
+          0,
+          432
+        ],
+        "validation": [
+          432,
+          576
+        ],
+        "test": [
+          576,
+          720
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 1.3614900269759045,
+          "rmse": 1.800055336421219,
+          "targets": 144
+        },
+        "seasonal_naive_24": {
+          "mae": 4.928247896805043,
+          "rmse": 7.1203752876359925,
+          "targets": 144
+        },
+        "ridge_ar12": {
+          "mae": 6.739472138482602,
+          "rmse": 7.434284181225129,
+          "targets": 144
+        }
+      },
+      "validation_mae": {
+        "persistence": 2.0716631598865485,
+        "seasonal_naive_24": 3.995253564940911,
+        "ridge_ar12": 6.438401607280239
+      },
+      "interval_radius": 4.011829858478201,
+      "interval_coverage": 0.9652777777777778,
+      "interval_nominal": 0.9,
+      "threshold_reference": 85.25266879172122,
+      "threshold_warning": {
+        "true_positive": 0,
+        "false_positive": 0,
+        "false_negative": 0
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "e9e344162e2a2bd217f1",
+      "status": "evaluated",
+      "selected_on_validation": "seasonal_naive_24",
+      "split": {
+        "train": [
+          0,
+          432
+        ],
+        "validation": [
+          432,
+          576
+        ],
+        "test": [
+          576,
+          720
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 333.64756944444446,
+          "rmse": 508.2589876026439,
+          "targets": 144
+        },
+        "seasonal_naive_24": {
+          "mae": 262.10780147707237,
+          "rmse": 525.0009907592513,
+          "targets": 144
+        },
+        "ridge_ar12": {
+          "mae": 341.7530066300833,
+          "rmse": 385.6744344030296,
+          "targets": 144
+        }
+      },
+      "validation_mae": {
+        "persistence": 424.6209851491101,
+        "seasonal_naive_24": 291.9332975088183,
+        "ridge_ar12": 371.68551277329584
+      },
+      "interval_radius": 782.0,
+      "interval_coverage": 0.9097222222222222,
+      "interval_nominal": 0.9,
+      "threshold_reference": 806.6124999999998,
+      "threshold_warning": {
+        "true_positive": 5,
+        "false_positive": 13,
+        "false_negative": 12
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "e11d68d0eee3818580ee",
+      "status": "evaluated",
+      "selected_on_validation": "persistence",
+      "split": {
+        "train": [
+          0,
+          432
+        ],
+        "validation": [
+          432,
+          576
+        ],
+        "test": [
+          576,
+          720
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 1.8910263567404786,
+          "rmse": 2.9409695180256987,
+          "targets": 144
+        },
+        "seasonal_naive_24": {
+          "mae": 8.993383088750058,
+          "rmse": 16.399921076011665,
+          "targets": 144
+        },
+        "ridge_ar12": {
+          "mae": 8.662162194009884,
+          "rmse": 9.006409255129956,
+          "targets": 144
+        }
+      },
+      "validation_mae": {
+        "persistence": 1.6247639117738562,
+        "seasonal_naive_24": 7.211491888762898,
+        "ridge_ar12": 7.77681266020111
+      },
+      "interval_radius": 4.145437275707302,
+      "interval_coverage": 0.9097222222222222,
+      "interval_nominal": 0.9,
+      "threshold_reference": 71.60213746153602,
+      "threshold_warning": {
+        "true_positive": 4,
+        "false_positive": 1,
+        "false_negative": 1
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "7b17fd3b3d9341790fe5",
+      "status": "evaluated",
+      "selected_on_validation": "persistence",
+      "split": {
+        "train": [
+          0,
+          432
+        ],
+        "validation": [
+          432,
+          576
+        ],
+        "test": [
+          576,
+          720
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 1.8549309062038506,
+          "rmse": 4.222727751313767,
+          "targets": 144
+        },
+        "seasonal_naive_24": {
+          "mae": 16.74736967419972,
+          "rmse": 30.938049079142544,
+          "targets": 144
+        },
+        "ridge_ar12": {
+          "mae": 9.793087742027335,
+          "rmse": 13.093603111111548,
+          "targets": 144
+        }
+      },
+      "validation_mae": {
+        "persistence": 0.8691960638246389,
+        "seasonal_naive_24": 2.2375091326628973,
+        "ridge_ar12": 6.388160139666701
+      },
+      "interval_radius": 1.730614725137201,
+      "interval_coverage": 0.7916666666666666,
+      "interval_nominal": 0.9,
+      "threshold_reference": 77.0723906371211,
+      "threshold_warning": {
+        "true_positive": 19,
+        "false_positive": 2,
+        "false_negative": 2
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "f287b76f10a89ebcaf31",
+      "status": "evaluated",
+      "selected_on_validation": "persistence",
+      "split": {
+        "train": [
+          0,
+          432
+        ],
+        "validation": [
+          432,
+          576
+        ],
+        "test": [
+          576,
+          720
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 1.9298863092783034,
+          "rmse": 4.069434865803078,
+          "targets": 144
+        },
+        "seasonal_naive_24": {
+          "mae": 14.629440019041915,
+          "rmse": 27.25291218375846,
+          "targets": 144
+        },
+        "ridge_ar12": {
+          "mae": 8.303166928421449,
+          "rmse": 11.683842587073784,
+          "targets": 144
+        }
+      },
+      "validation_mae": {
+        "persistence": 1.2902663901613591,
+        "seasonal_naive_24": 2.257651912696938,
+        "ridge_ar12": 4.936769461680472
+      },
+      "interval_radius": 3.551347593365705,
+      "interval_coverage": 0.8680555555555556,
+      "interval_nominal": 0.9,
+      "threshold_reference": 39.58206080934012,
+      "threshold_warning": {
+        "true_positive": 18,
+        "false_positive": 1,
+        "false_negative": 1
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "c9b4f878ae44b2dcbd2b",
+      "status": "evaluated",
+      "selected_on_validation": "persistence",
+      "split": {
+        "train": [
+          0,
+          432
+        ],
+        "validation": [
+          432,
+          576
+        ],
+        "test": [
+          576,
+          720
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 0.036421040208447164,
+          "rmse": 0.05432609751980477,
+          "targets": 144
+        },
+        "seasonal_naive_24": {
+          "mae": 0.06432095021791591,
+          "rmse": 0.0916369126334137,
+          "targets": 144
+        },
+        "ridge_ar12": {
+          "mae": 0.07953426578199424,
+          "rmse": 0.0907663410475098,
+          "targets": 144
+        }
+      },
+      "validation_mae": {
+        "persistence": 0.046001679362855964,
+        "seasonal_naive_24": 0.06949245384542423,
+        "ridge_ar12": 0.08613969182193126
+      },
+      "interval_radius": 0.11307919701639979,
+      "interval_coverage": 0.9583333333333334,
+      "interval_nominal": 0.9,
+      "threshold_reference": 1.8954129402672806,
+      "threshold_warning": {
+        "true_positive": 0,
+        "false_positive": 0,
+        "false_negative": 0
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "0aa4179a2e49c08f769a",
+      "status": "evaluated",
+      "selected_on_validation": "seasonal_naive_24",
+      "split": {
+        "train": [
+          0,
+          432
+        ],
+        "validation": [
+          432,
+          576
+        ],
+        "test": [
+          576,
+          720
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 0.5804587154890881,
+          "rmse": 0.8057845077883226,
+          "targets": 144
+        },
+        "seasonal_naive_24": {
+          "mae": 0.3793170817421117,
+          "rmse": 0.5030225689142747,
+          "targets": 144
+        },
+        "ridge_ar12": {
+          "mae": 0.9651911093148734,
+          "rmse": 1.1846294050690505,
+          "targets": 144
+        }
+      },
+      "validation_mae": {
+        "persistence": 0.5753458623358659,
+        "seasonal_naive_24": 0.4177390152669534,
+        "ridge_ar12": 0.8646891358354483
+      },
+      "interval_radius": 0.9234968308579994,
+      "interval_coverage": 0.9236111111111112,
+      "interval_nominal": 0.9,
+      "threshold_reference": 30.543555177937808,
+      "threshold_warning": {
+        "true_positive": 0,
+        "false_positive": 0,
+        "false_negative": 0
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "d5fca9d56d4058c72041",
+      "status": "evaluated",
+      "selected_on_validation": "persistence",
+      "split": {
+        "train": [
+          0,
+          432
+        ],
+        "validation": [
+          432,
+          576
+        ],
+        "test": [
+          576,
+          720
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 1.6174651181344768,
+          "rmse": 5.550971873366767,
+          "targets": 144
+        },
+        "seasonal_naive_24": {
+          "mae": 19.720099879334597,
+          "rmse": 36.32013942137948,
+          "targets": 144
+        },
+        "ridge_ar12": {
+          "mae": 12.499572853332884,
+          "rmse": 14.972028064162037,
+          "targets": 144
+        }
+      },
+      "validation_mae": {
+        "persistence": 0.41952077878880606,
+        "seasonal_naive_24": 3.012074589962255,
+        "ridge_ar12": 10.161715185841944
+      },
+      "interval_radius": 0.9509072486347989,
+      "interval_coverage": 0.8055555555555556,
+      "interval_nominal": 0.9,
+      "threshold_reference": 21.936786846829392,
+      "threshold_warning": {
+        "true_positive": 19,
+        "false_positive": 1,
+        "false_negative": 1
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "ef95ac1653bbffd76e2f",
+      "status": "evaluated",
+      "selected_on_validation": "seasonal_naive_24",
+      "split": {
+        "train": [
+          0,
+          432
+        ],
+        "validation": [
+          432,
+          576
+        ],
+        "test": [
+          576,
+          720
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 56.42219703836594,
+          "rmse": 88.2674720847773,
+          "targets": 144
+        },
+        "seasonal_naive_24": {
+          "mae": 94.4833769555428,
+          "rmse": 148.16532025525174,
+          "targets": 144
+        },
+        "ridge_ar12": {
+          "mae": 59.000847853313694,
+          "rmse": 87.93394276309385,
+          "targets": 144
+        }
+      },
+      "validation_mae": {
+        "persistence": 67.08030376319098,
+        "seasonal_naive_24": 60.3992366568182,
+        "ridge_ar12": 75.00948534723811
+      },
+      "interval_radius": 119.65450089173191,
+      "interval_coverage": 0.75,
+      "interval_nominal": 0.9,
+      "threshold_reference": 927.2879858480123,
+      "threshold_warning": {
+        "true_positive": 0,
+        "false_positive": 3,
+        "false_negative": 0
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "323ae1ef974c915a5fbf",
+      "status": "evaluated",
+      "selected_on_validation": "persistence",
+      "split": {
+        "train": [
+          0,
+          432
+        ],
+        "validation": [
+          432,
+          576
+        ],
+        "test": [
+          576,
+          720
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 2.2707456770060803,
+          "rmse": 4.292057048425439,
+          "targets": 144
+        },
+        "seasonal_naive_24": {
+          "mae": 4.619925540456617,
+          "rmse": 10.070162470836818,
+          "targets": 144
+        },
+        "ridge_ar12": {
+          "mae": 3.442564290323225,
+          "rmse": 5.285948643098246,
+          "targets": 144
+        }
+      },
+      "validation_mae": {
+        "persistence": 1.4545194638171757,
+        "seasonal_naive_24": 1.970378138933655,
+        "ridge_ar12": 2.2699747369728005
+      },
+      "interval_radius": 2.9333438153727016,
+      "interval_coverage": 0.7847222222222222,
+      "interval_nominal": 0.9,
+      "threshold_reference": 352.9635026839986,
+      "threshold_warning": {
+        "true_positive": 0,
+        "false_positive": 0,
+        "false_negative": 0
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "3a945714e2e527d7700f",
+      "status": "evaluated",
+      "selected_on_validation": "persistence",
+      "split": {
+        "train": [
+          0,
+          432
+        ],
+        "validation": [
+          432,
+          576
+        ],
+        "test": [
+          576,
+          720
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 8.469949667697039,
+          "rmse": 12.294939582554564,
+          "targets": 144
+        },
+        "seasonal_naive_24": {
+          "mae": 11.981810930715524,
+          "rmse": 16.976761515594806,
+          "targets": 144
+        },
+        "ridge_ar12": {
+          "mae": 9.060292104686166,
+          "rmse": 12.11615337309629,
+          "targets": 144
+        }
+      },
+      "validation_mae": {
+        "persistence": 18.657699054155753,
+        "seasonal_naive_24": 63.118256645606074,
+        "ridge_ar12": 20.761624679048694
+      },
+      "interval_radius": 47.44941571840398,
+      "interval_coverage": 0.9930555555555556,
+      "interval_nominal": 0.9,
+      "threshold_reference": 215.21211239209396,
+      "threshold_warning": {
+        "true_positive": 0,
+        "false_positive": 0,
+        "false_negative": 0
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "fc42ead1e20ac61f3299",
+      "status": "evaluated",
+      "selected_on_validation": "persistence",
+      "split": {
+        "train": [
+          0,
+          432
+        ],
+        "validation": [
+          432,
+          576
+        ],
+        "test": [
+          576,
+          720
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 90.6881691199431,
+          "rmse": 139.63953057188758,
+          "targets": 144
+        },
+        "seasonal_naive_24": {
+          "mae": 186.17756564802772,
+          "rmse": 260.98393306269736,
+          "targets": 144
+        },
+        "ridge_ar12": {
+          "mae": 107.19078618508752,
+          "rmse": 146.58543815600197,
+          "targets": 144
+        }
+      },
+      "validation_mae": {
+        "persistence": 87.78860567606158,
+        "seasonal_naive_24": 147.04576859106072,
+        "ridge_ar12": 108.96082841194246
+      },
+      "interval_radius": 256.67997096477006,
+      "interval_coverage": 0.8958333333333334,
+      "interval_nominal": 0.9,
+      "threshold_reference": 2987.794384343122,
+      "threshold_warning": {
+        "true_positive": 0,
+        "false_positive": 0,
+        "false_negative": 0
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "8c45049feaa381f0199b",
+      "status": "evaluated",
+      "selected_on_validation": "seasonal_naive_24",
+      "split": {
+        "train": [
+          0,
+          432
+        ],
+        "validation": [
+          432,
+          576
+        ],
+        "test": [
+          576,
+          720
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 3.7659372177533896,
+          "rmse": 4.739717609389474,
+          "targets": 144
+        },
+        "seasonal_naive_24": {
+          "mae": 2.4462117370702567,
+          "rmse": 3.31582597891767,
+          "targets": 144
+        },
+        "ridge_ar12": {
+          "mae": 2.73541919516988,
+          "rmse": 3.752943080531021,
+          "targets": 144
+        }
+      },
+      "validation_mae": {
+        "persistence": 3.648964460290074,
+        "seasonal_naive_24": 2.2437615281266874,
+        "ridge_ar12": 2.6852793477718055
+      },
+      "interval_radius": 5.302936900748698,
+      "interval_coverage": 0.9097222222222222,
+      "interval_nominal": 0.9,
+      "threshold_reference": 77.50684902268249,
+      "threshold_warning": {
+        "true_positive": 0,
+        "false_positive": 0,
+        "false_negative": 0
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "197afc62b5392cb1beae",
+      "status": "evaluated",
+      "selected_on_validation": "seasonal_naive_24",
+      "split": {
+        "train": [
+          0,
+          432
+        ],
+        "validation": [
+          432,
+          576
+        ],
+        "test": [
+          576,
+          720
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 4.426396314755103,
+          "rmse": 5.433139622307102,
+          "targets": 144
+        },
+        "seasonal_naive_24": {
+          "mae": 3.939028538502422,
+          "rmse": 5.091235500456743,
+          "targets": 144
+        },
+        "ridge_ar12": {
+          "mae": 3.3152972344976814,
+          "rmse": 4.1166512828609685,
+          "targets": 144
+        }
+      },
+      "validation_mae": {
+        "persistence": 4.418469072018041,
+        "seasonal_naive_24": 2.8081415650590316,
+        "ridge_ar12": 2.8648580859100026
+      },
+      "interval_radius": 5.995470856183999,
+      "interval_coverage": 0.7777777777777778,
+      "interval_nominal": 0.9,
+      "threshold_reference": 73.07125751899636,
+      "threshold_warning": {
+        "true_positive": 3,
+        "false_positive": 6,
+        "false_negative": 5
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "97b8eb59c55c11584765",
+      "status": "evaluated",
+      "selected_on_validation": "seasonal_naive_24",
+      "split": {
+        "train": [
+          0,
+          432
+        ],
+        "validation": [
+          432,
+          576
+        ],
+        "test": [
+          576,
+          720
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 2.830858806464985,
+          "rmse": 3.760622282836917,
+          "targets": 144
+        },
+        "seasonal_naive_24": {
+          "mae": 2.930313564091582,
+          "rmse": 4.302529619160108,
+          "targets": 144
+        },
+        "ridge_ar12": {
+          "mae": 2.9784252333627443,
+          "rmse": 3.935818011224282,
+          "targets": 144
+        }
+      },
+      "validation_mae": {
+        "persistence": 2.0888131954960087,
+        "seasonal_naive_24": 1.852544587349457,
+        "ridge_ar12": 2.1959693506035367
+      },
+      "interval_radius": 4.523099136124202,
+      "interval_coverage": 0.7986111111111112,
+      "interval_nominal": 0.9,
+      "threshold_reference": 67.6249132424952,
+      "threshold_warning": {
+        "true_positive": 0,
+        "false_positive": 0,
+        "false_negative": 0
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "30336d2638125ad8047c",
+      "status": "evaluated",
+      "selected_on_validation": "ridge_ar12",
+      "split": {
+        "train": [
+          0,
+          432
+        ],
+        "validation": [
+          432,
+          576
+        ],
+        "test": [
+          576,
+          720
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 0.25,
+          "rmse": 2.1213203435596424,
+          "targets": 144
+        },
+        "seasonal_naive_24": {
+          "mae": 0.25,
+          "rmse": 2.1213203435596424,
+          "targets": 144
+        },
+        "ridge_ar12": {
+          "mae": 0.22601312575401827,
+          "rmse": 1.4945568888708831,
+          "targets": 144
+        }
+      },
+      "validation_mae": {
+        "persistence": 0.20833333333333334,
+        "seasonal_naive_24": 0.20833333333333334,
+        "ridge_ar12": 0.20326012651703657
+      },
+      "interval_radius": 0.1092143963375122,
+      "interval_coverage": 0.9930555555555556,
+      "interval_nominal": 0.9,
+      "threshold_reference": 0.0,
+      "threshold_warning": {
+        "true_positive": 1,
+        "false_positive": 131,
+        "false_negative": 0
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "cfdcdef1d7529e2d59d7",
+      "status": "evaluated",
+      "selected_on_validation": "ridge_ar12",
+      "split": {
+        "train": [
+          0,
+          432
+        ],
+        "validation": [
+          432,
+          576
+        ],
+        "test": [
+          576,
+          720
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 6.248616971138318,
+          "rmse": 8.161012730860715,
+          "targets": 144
+        },
+        "seasonal_naive_24": {
+          "mae": 6.577643133695343,
+          "rmse": 9.021553674677405,
+          "targets": 144
+        },
+        "ridge_ar12": {
+          "mae": 5.982956355139583,
+          "rmse": 7.745560892447741,
+          "targets": 144
+        }
+      },
+      "validation_mae": {
+        "persistence": 6.1257139035407056,
+        "seasonal_naive_24": 5.990091113768468,
+        "ridge_ar12": 4.847925676077299
+      },
+      "interval_radius": 11.071435567038918,
+      "interval_coverage": 0.8472222222222222,
+      "interval_nominal": 0.9,
+      "threshold_reference": 82.87969327420548,
+      "threshold_warning": {
+        "true_positive": 2,
+        "false_positive": 1,
+        "false_negative": 16
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "ed39ad7a5f01b549801b",
+      "status": "evaluated",
+      "selected_on_validation": "seasonal_naive_24",
+      "split": {
+        "train": [
+          0,
+          432
+        ],
+        "validation": [
+          432,
+          576
+        ],
+        "test": [
+          576,
+          720
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 0.8916918839245369,
+          "rmse": 1.2691107331221207,
+          "targets": 144
+        },
+        "seasonal_naive_24": {
+          "mae": 1.3256045657693398,
+          "rmse": 2.319667939468274,
+          "targets": 144
+        },
+        "ridge_ar12": {
+          "mae": 0.9777486102500733,
+          "rmse": 1.2893427329320784,
+          "targets": 144
+        }
+      },
+      "validation_mae": {
+        "persistence": 0.5424857661646687,
+        "seasonal_naive_24": 0.5186337365128159,
+        "ridge_ar12": 0.6510173337163009
+      },
+      "interval_radius": 1.186097532511301,
+      "interval_coverage": 0.75,
+      "interval_nominal": 0.9,
+      "threshold_reference": 48.70279579705226,
+      "threshold_warning": {
+        "true_positive": 0,
+        "false_positive": 0,
+        "false_negative": 0
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "c0e3c26bc628f1fdda4f",
+      "status": "evaluated",
+      "selected_on_validation": "ridge_ar12",
+      "split": {
+        "train": [
+          0,
+          432
+        ],
+        "validation": [
+          432,
+          576
+        ],
+        "test": [
+          576,
+          720
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 8.078967647705333,
+          "rmse": 12.449283968552638,
+          "targets": 144
+        },
+        "seasonal_naive_24": {
+          "mae": 8.676685142315288,
+          "rmse": 13.82519432415532,
+          "targets": 144
+        },
+        "ridge_ar12": {
+          "mae": 7.052685463150377,
+          "rmse": 10.700199792077775,
+          "targets": 144
+        }
+      },
+      "validation_mae": {
+        "persistence": 7.4092349095670516,
+        "seasonal_naive_24": 6.7908996751689745,
+        "ridge_ar12": 5.729343176682262
+      },
+      "interval_radius": 12.041919960312175,
+      "interval_coverage": 0.8333333333333334,
+      "interval_nominal": 0.9,
+      "threshold_reference": 50.623877551020406,
+      "threshold_warning": {
+        "true_positive": 1,
+        "false_positive": 1,
+        "false_negative": 6
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "e2b1d0b00f8f0fe9b07a",
+      "status": "evaluated",
+      "selected_on_validation": "persistence",
+      "split": {
+        "train": [
+          0,
+          432
+        ],
+        "validation": [
+          432,
+          576
+        ],
+        "test": [
+          576,
+          720
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 1.2241456587432686,
+          "rmse": 1.625899398881274,
+          "targets": 144
+        },
+        "seasonal_naive_24": {
+          "mae": 1.5107623729076367,
+          "rmse": 1.9425979299165839,
+          "targets": 144
+        },
+        "ridge_ar12": {
+          "mae": 3.149027383246084,
+          "rmse": 3.6690812721320873,
+          "targets": 144
+        }
+      },
+      "validation_mae": {
+        "persistence": 1.5983391970881142,
+        "seasonal_naive_24": 1.873685580308608,
+        "ridge_ar12": 3.26747995819477
+      },
+      "interval_radius": 4.019661524820602,
+      "interval_coverage": 0.9791666666666666,
+      "interval_nominal": 0.9,
+      "threshold_reference": 91.94599130512984,
+      "threshold_warning": {
+        "true_positive": 0,
+        "false_positive": 0,
+        "false_negative": 0
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "9dd5ca0debcd7fba6d31",
+      "status": "evaluated",
+      "selected_on_validation": "persistence",
+      "split": {
+        "train": [
+          0,
+          432
+        ],
+        "validation": [
+          432,
+          576
+        ],
+        "test": [
+          576,
+          720
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 0.06466676025347345,
+          "rmse": 0.08190789605222981,
+          "targets": 144
+        },
+        "seasonal_naive_24": {
+          "mae": 0.16169727040952195,
+          "rmse": 0.3051040486903265,
+          "targets": 144
+        },
+        "ridge_ar12": {
+          "mae": 0.5727163310975477,
+          "rmse": 0.5807567009318424,
+          "targets": 144
+        }
+      },
+      "validation_mae": {
+        "persistence": 0.4932998172733664,
+        "seasonal_naive_24": 2.714882886971786,
+        "ridge_ar12": 1.3753243776411896
+      },
+      "interval_radius": 1.1294552720704996,
+      "interval_coverage": 1.0,
+      "interval_nominal": 0.9,
+      "threshold_reference": 7.059915902701876,
+      "threshold_warning": {
+        "true_positive": 0,
+        "false_positive": 0,
+        "false_negative": 0
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "7c9d6eef6dfb927b6858",
+      "status": "evaluated",
+      "selected_on_validation": "persistence",
+      "split": {
+        "train": [
+          0,
+          432
+        ],
+        "validation": [
+          432,
+          576
+        ],
+        "test": [
+          576,
+          720
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 2.2707456770060803,
+          "rmse": 4.292057048425439,
+          "targets": 144
+        },
+        "seasonal_naive_24": {
+          "mae": 4.619925540456617,
+          "rmse": 10.070162470836818,
+          "targets": 144
+        },
+        "ridge_ar12": {
+          "mae": 3.442564290323225,
+          "rmse": 5.285948643098246,
+          "targets": 144
+        }
+      },
+      "validation_mae": {
+        "persistence": 1.4545194638171757,
+        "seasonal_naive_24": 1.970378138933655,
+        "ridge_ar12": 2.2699747369728005
+      },
+      "interval_radius": 2.9333438153727016,
+      "interval_coverage": 0.7847222222222222,
+      "interval_nominal": 0.9,
+      "threshold_reference": 352.9635026839986,
+      "threshold_warning": {
+        "true_positive": 0,
+        "false_positive": 0,
+        "false_negative": 0
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "951caf75c5175a4fca3b",
+      "status": "evaluated",
+      "selected_on_validation": "seasonal_naive_24",
+      "split": {
+        "train": [
+          0,
+          432
+        ],
+        "validation": [
+          432,
+          576
+        ],
+        "test": [
+          576,
+          720
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 8.726438492063487,
+          "rmse": 30.461079002663677,
+          "targets": 144
+        },
+        "seasonal_naive_24": {
+          "mae": 3.3680555555555554,
+          "rmse": 17.499357171543,
+          "targets": 144
+        },
+        "ridge_ar12": {
+          "mae": 22.4163589622276,
+          "rmse": 26.032660939580747,
+          "targets": 144
+        }
+      },
+      "validation_mae": {
+        "persistence": 20.281415343915334,
+        "seasonal_naive_24": 15.296750992063481,
+        "ridge_ar12": 27.03722598263871
+      },
+      "interval_radius": 4.75,
+      "interval_coverage": 0.9513888888888888,
+      "interval_nominal": 0.9,
+      "threshold_reference": 108.40625,
+      "threshold_warning": {
+        "true_positive": 1,
+        "false_positive": 1,
+        "false_negative": 1
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "c40741ed0c26eb22e3e9",
+      "status": "evaluated",
+      "selected_on_validation": "ridge_ar12",
+      "split": {
+        "train": [
+          0,
+          9504
+        ],
+        "validation": [
+          9504,
+          12672
+        ],
+        "test": [
+          12672,
+          15840
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 38.079934764309684,
+          "rmse": 105.28454436507721,
+          "targets": 3168
+        },
+        "seasonal_naive_24": {
+          "mae": 472.100962752525,
+          "rmse": 815.0392091901301,
+          "targets": 3168
+        },
+        "ridge_ar12": {
+          "mae": 34.84385021052301,
+          "rmse": 94.20819469070864,
+          "targets": 3168
+        }
+      },
+      "validation_mae": {
+        "persistence": 50.45249894781127,
+        "seasonal_naive_24": 527.6263783670034,
+        "ridge_ar12": 48.38984552753846
+      },
+      "interval_radius": 93.95305781157185,
+      "interval_coverage": 0.9387626262626263,
+      "interval_nominal": 0.9,
+      "threshold_reference": 9092.52916666667,
+      "threshold_warning": {
+        "true_positive": 72,
+        "false_positive": 2,
+        "false_negative": 3
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "e915b3451751dda381e1",
+      "status": "evaluated",
+      "selected_on_validation": "ridge_ar12",
+      "split": {
+        "train": [
+          0,
+          9504
+        ],
+        "validation": [
+          9504,
+          12672
+        ],
+        "test": [
+          12672,
+          15840
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 4.089725294507576,
+          "rmse": 5.882675325087922,
+          "targets": 3168
+        },
+        "seasonal_naive_24": {
+          "mae": 13.830692291982322,
+          "rmse": 17.398485437574788,
+          "targets": 3168
+        },
+        "ridge_ar12": {
+          "mae": 3.9879628350504355,
+          "rmse": 5.751937915569667,
+          "targets": 3168
+        }
+      },
+      "validation_mae": {
+        "persistence": 4.763167740530303,
+        "seasonal_naive_24": 17.152614453282826,
+        "ridge_ar12": 4.673473006311997
+      },
+      "interval_radius": 9.268011949535662,
+      "interval_coverage": 0.9384469696969697,
+      "interval_nominal": 0.9,
+      "threshold_reference": 648.097495,
+      "threshold_warning": {
+        "true_positive": 6,
+        "false_positive": 10,
+        "false_negative": 13
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "46601e080c7bfe56897b",
+      "status": "evaluated",
+      "selected_on_validation": "ridge_ar12",
+      "split": {
+        "train": [
+          0,
+          9504
+        ],
+        "validation": [
+          9504,
+          12672
+        ],
+        "test": [
+          12672,
+          15840
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 8.526994038825759,
+          "rmse": 13.754250024214794,
+          "targets": 3168
+        },
+        "seasonal_naive_24": {
+          "mae": 20.35274069097222,
+          "rmse": 32.87450915421674,
+          "targets": 3168
+        },
+        "ridge_ar12": {
+          "mae": 8.536242223796979,
+          "rmse": 13.585561463148847,
+          "targets": 3168
+        }
+      },
+      "validation_mae": {
+        "persistence": 11.531465754987375,
+        "seasonal_naive_24": 24.176689047285354,
+        "ridge_ar12": 11.005599853433784
+      },
+      "interval_radius": 23.80459247043723,
+      "interval_coverage": 0.9441287878787878,
+      "interval_nominal": 0.9,
+      "threshold_reference": 191.29916610000004,
+      "threshold_warning": {
+        "true_positive": 2373,
+        "false_positive": 55,
+        "false_negative": 60
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "faa465907cbc69997075",
+      "status": "evaluated",
+      "selected_on_validation": "persistence",
+      "split": {
+        "train": [
+          0,
+          9504
+        ],
+        "validation": [
+          9504,
+          12672
+        ],
+        "test": [
+          12672,
+          15840
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 3.6679240319865403,
+          "rmse": 10.64661243088652,
+          "targets": 3168
+        },
+        "seasonal_naive_24": {
+          "mae": 10.164099326599327,
+          "rmse": 24.497607292287515,
+          "targets": 3168
+        },
+        "ridge_ar12": {
+          "mae": 3.7636214289854815,
+          "rmse": 10.471652681088901,
+          "targets": 3168
+        }
+      },
+      "validation_mae": {
+        "persistence": 3.033585858585855,
+        "seasonal_naive_24": 8.712752525252526,
+        "ridge_ar12": 3.135067314295501
+      },
+      "interval_radius": 4.900000000000006,
+      "interval_coverage": 0.8791035353535354,
+      "interval_nominal": 0.9,
+      "threshold_reference": 147.809166666667,
+      "threshold_warning": {
+        "true_positive": 130,
+        "false_positive": 39,
+        "false_negative": 39
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "fd17851ee48087520f8d",
+      "status": "evaluated",
+      "selected_on_validation": "ridge_ar12",
+      "split": {
+        "train": [
+          0,
+          12096
+        ],
+        "validation": [
+          12096,
+          16128
+        ],
+        "test": [
+          16128,
+          20160
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 54.098958333333336,
+          "rmse": 109.70659033212903,
+          "targets": 4032
+        },
+        "seasonal_naive_24": {
+          "mae": 84.66319444444444,
+          "rmse": 149.03843916656652,
+          "targets": 4032
+        },
+        "ridge_ar12": {
+          "mae": 44.97502154692222,
+          "rmse": 91.45818067819522,
+          "targets": 4032
+        }
+      },
+      "validation_mae": {
+        "persistence": 40.81894841269841,
+        "seasonal_naive_24": 60.28720238095238,
+        "ridge_ar12": 34.09466662742018
+      },
+      "interval_radius": 68.61479845105328,
+      "interval_coverage": 0.8521825396825397,
+      "interval_nominal": 0.9,
+      "threshold_reference": 1449.25,
+      "threshold_warning": {
+        "true_positive": 156,
+        "false_positive": 25,
+        "false_negative": 29
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    },
+    {
+      "case_id": "736fbe19d92bdb656f0f",
+      "status": "evaluated",
+      "selected_on_validation": "persistence",
+      "split": {
+        "train": [
+          0,
+          9504
+        ],
+        "validation": [
+          9504,
+          12672
+        ],
+        "test": [
+          12672,
+          15840
+        ]
+      },
+      "methods": {
+        "persistence": {
+          "mae": 0.0,
+          "rmse": 0.0,
+          "targets": 3168
+        },
+        "seasonal_naive_24": {
+          "mae": 0.0,
+          "rmse": 0.0,
+          "targets": 3168
+        },
+        "ridge_ar12": {
+          "mae": 0.00021123779750101021,
+          "rmse": 0.00021123779750101024,
+          "targets": 3168
+        }
+      },
+      "validation_mae": {
+        "persistence": 0.0,
+        "seasonal_naive_24": 0.0,
+        "ridge_ar12": 0.00021123779750101021
+      },
+      "interval_radius": 0.0,
+      "interval_coverage": 1.0,
+      "interval_nominal": 0.9,
+      "threshold_reference": 0.0,
+      "threshold_warning": {
+        "true_positive": 0,
+        "false_positive": 0,
+        "false_negative": 0
+      },
+      "warning_definition": "Exceeds training-only 95th percentile; not a verified incident label.",
+      "interval_limit": "Validation absolute residual quantile; dependent series violate exchangeability, so nominal coverage is not guaranteed."
+    }
+  ],
+  "limitations": [
+    "Point labels do not establish a root cause or service graph.",
+    "Chronological splits share series; this is not unseen-series generalization.",
+    "Pooled validation threshold calibration may weight long series more heavily."
+  ],
+  "source_revision": "6a07a53c2fac495fb6831811df4c980d6c04bd10"
+}

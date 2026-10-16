@@ -1,0 +1,2971 @@
+{
+  "dataset": "RCAEval RE1 held-out cases only",
+  "cases": 30,
+  "summary": {
+    "broad": {
+      "resources": 55.833333333333336,
+      "metric_columns": 190.66666666666666,
+      "file_read_calls": 1.0,
+      "new_valid_measurements": 11392.5,
+      "elapsed_ms": 1405.4659966684994,
+      "table_memory_bytes": 1326165.0,
+      "top1": 0.5666666666666667,
+      "top3": 0.8333333333333334,
+      "mrr": 0.6972619047619047
+    },
+    "uniform_first3": {
+      "resources": 3.0,
+      "metric_columns": 10.3,
+      "file_read_calls": 1.0,
+      "new_valid_measurements": 618.0,
+      "elapsed_ms": 156.567216666978,
+      "table_memory_bytes": 76801.7,
+      "top1": 0.16666666666666666,
+      "top3": 0.16666666666666666,
+      "mrr": 0.16666666666666666
+    },
+    "random3_seed42": {
+      "resources": 3.0,
+      "metric_columns": 11.166666666666666,
+      "file_read_calls": 1.0,
+      "new_valid_measurements": 668.5333333333333,
+      "elapsed_ms": 105.47508333450726,
+      "table_memory_bytes": 82594.5,
+      "top1": 0.16666666666666666,
+      "top3": 0.16666666666666666,
+      "mrr": 0.16666666666666666
+    },
+    "static_one_hop": {
+      "resources": 2.933333333333333,
+      "metric_columns": 15.333333333333334,
+      "file_read_calls": 1.0,
+      "new_valid_measurements": 920.0,
+      "elapsed_ms": 110.15191666568474,
+      "table_memory_bytes": 111492.0,
+      "top1": 0.7666666666666667,
+      "top3": 0.8666666666666667,
+      "mrr": 0.8111111111111111
+    },
+    "evidence_frontier": {
+      "resources": 2.933333333333333,
+      "metric_columns": 15.333333333333334,
+      "file_read_calls": 1.0,
+      "new_valid_measurements": 920.0,
+      "elapsed_ms": 107.603343334146,
+      "table_memory_bytes": 111492.0,
+      "top1": 0.7666666666666667,
+      "top3": 0.8666666666666667,
+      "mrr": 0.8111111111111111
+    },
+    "legacy_top1_frontier": {
+      "resources": 1.0,
+      "metric_columns": 5.266666666666667,
+      "file_read_calls": 1.0,
+      "new_valid_measurements": 316.0,
+      "elapsed_ms": 43.45633333286969,
+      "table_memory_bytes": 42891.4,
+      "top1": 0.6,
+      "top3": 0.6,
+      "mrr": 0.6
+    }
+  },
+  "details": [
+    {
+      "case_id": "0edd5ea1fe0183346e6f",
+      "strategies": {
+        "broad": {
+          "resources": 15,
+          "metric_columns": 59,
+          "file_read_calls": 1,
+          "new_valid_measurements": 3540,
+          "ranked": [
+            "carts",
+            "front-end",
+            "orders",
+            "catalogue",
+            "carts-db",
+            "user",
+            "user-db"
+          ],
+          "elapsed_ms": 153.8111999980174,
+          "table_memory_bytes": 351540,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "uniform_first3": {
+          "resources": 3,
+          "metric_columns": 13,
+          "file_read_calls": 1,
+          "new_valid_measurements": 780,
+          "ranked": [
+            "carts",
+            "catalogue",
+            "carts-db"
+          ],
+          "elapsed_ms": 72.27110001258552,
+          "table_memory_bytes": 82026,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "random3_seed42": {
+          "resources": 3,
+          "metric_columns": 10,
+          "file_read_calls": 1,
+          "new_valid_measurements": 600,
+          "ranked": [
+            "carts",
+            "carts-db"
+          ],
+          "elapsed_ms": 21.259100001771003,
+          "table_memory_bytes": 64449,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "static_one_hop": {
+          "resources": 3,
+          "metric_columns": 18,
+          "file_read_calls": 1,
+          "new_valid_measurements": 1080,
+          "ranked": [
+            "carts",
+            "front-end",
+            "orders"
+          ],
+          "elapsed_ms": 35.18160000385251,
+          "table_memory_bytes": 111321,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "evidence_frontier": {
+          "resources": 3,
+          "metric_columns": 18,
+          "file_read_calls": 1,
+          "new_valid_measurements": 1080,
+          "ranked": [
+            "carts",
+            "front-end",
+            "orders"
+          ],
+          "elapsed_ms": 75.7836000120733,
+          "table_memory_bytes": 111321,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "legacy_top1_frontier": {
+          "resources": 1,
+          "metric_columns": 6,
+          "file_read_calls": 1,
+          "new_valid_measurements": 360,
+          "ranked": [
+            "carts"
+          ],
+          "elapsed_ms": 15.057300013722852,
+          "table_memory_bytes": 41013,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        }
+      }
+    },
+    {
+      "case_id": "f015490bd8ccec4f3d1b",
+      "strategies": {
+        "broad": {
+          "resources": 15,
+          "metric_columns": 58,
+          "file_read_calls": 1,
+          "new_valid_measurements": 3480,
+          "ranked": [
+            "carts",
+            "orders",
+            "front-end",
+            "carts-db",
+            "catalogue",
+            "user-db"
+          ],
+          "elapsed_ms": 163.22950000176206,
+          "table_memory_bytes": 345681,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "uniform_first3": {
+          "resources": 3,
+          "metric_columns": 13,
+          "file_read_calls": 1,
+          "new_valid_measurements": 780,
+          "ranked": [
+            "carts",
+            "carts-db",
+            "catalogue"
+          ],
+          "elapsed_ms": 32.97859999292996,
+          "table_memory_bytes": 82026,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "random3_seed42": {
+          "resources": 3,
+          "metric_columns": 10,
+          "file_read_calls": 1,
+          "new_valid_measurements": 600,
+          "ranked": [
+            "carts",
+            "carts-db"
+          ],
+          "elapsed_ms": 21.173500004806556,
+          "table_memory_bytes": 64449,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "static_one_hop": {
+          "resources": 3,
+          "metric_columns": 17,
+          "file_read_calls": 1,
+          "new_valid_measurements": 1020,
+          "ranked": [
+            "carts",
+            "orders",
+            "front-end"
+          ],
+          "elapsed_ms": 84.7051000018837,
+          "table_memory_bytes": 105462,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "evidence_frontier": {
+          "resources": 3,
+          "metric_columns": 17,
+          "file_read_calls": 1,
+          "new_valid_measurements": 1020,
+          "ranked": [
+            "carts",
+            "orders",
+            "front-end"
+          ],
+          "elapsed_ms": 34.64680000615772,
+          "table_memory_bytes": 105462,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "legacy_top1_frontier": {
+          "resources": 1,
+          "metric_columns": 6,
+          "file_read_calls": 1,
+          "new_valid_measurements": 360,
+          "ranked": [
+            "carts"
+          ],
+          "elapsed_ms": 15.084699989529327,
+          "table_memory_bytes": 41013,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        }
+      }
+    },
+    {
+      "case_id": "c2ce21088423515461c4",
+      "strategies": {
+        "broad": {
+          "resources": 15,
+          "metric_columns": 58,
+          "file_read_calls": 1,
+          "new_valid_measurements": 3480,
+          "ranked": [
+            "carts",
+            "orders",
+            "front-end",
+            "queue-master",
+            "carts-db",
+            "shipping"
+          ],
+          "elapsed_ms": 239.78030000580475,
+          "table_memory_bytes": 345681,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "uniform_first3": {
+          "resources": 3,
+          "metric_columns": 13,
+          "file_read_calls": 1,
+          "new_valid_measurements": 780,
+          "ranked": [
+            "carts",
+            "carts-db"
+          ],
+          "elapsed_ms": 32.8157000039937,
+          "table_memory_bytes": 82026,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "random3_seed42": {
+          "resources": 3,
+          "metric_columns": 10,
+          "file_read_calls": 1,
+          "new_valid_measurements": 600,
+          "ranked": [
+            "carts",
+            "carts-db"
+          ],
+          "elapsed_ms": 26.88960000523366,
+          "table_memory_bytes": 64449,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "static_one_hop": {
+          "resources": 3,
+          "metric_columns": 17,
+          "file_read_calls": 1,
+          "new_valid_measurements": 1020,
+          "ranked": [
+            "carts",
+            "orders",
+            "front-end"
+          ],
+          "elapsed_ms": 35.6228999880841,
+          "table_memory_bytes": 105462,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "evidence_frontier": {
+          "resources": 3,
+          "metric_columns": 17,
+          "file_read_calls": 1,
+          "new_valid_measurements": 1020,
+          "ranked": [
+            "carts",
+            "orders",
+            "front-end"
+          ],
+          "elapsed_ms": 78.81379999162164,
+          "table_memory_bytes": 105462,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "legacy_top1_frontier": {
+          "resources": 1,
+          "metric_columns": 6,
+          "file_read_calls": 1,
+          "new_valid_measurements": 360,
+          "ranked": [
+            "carts"
+          ],
+          "elapsed_ms": 16.519299999345094,
+          "table_memory_bytes": 41013,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        }
+      }
+    },
+    {
+      "case_id": "dc4961dcf856a757ad91",
+      "strategies": {
+        "broad": {
+          "resources": 15,
+          "metric_columns": 59,
+          "file_read_calls": 1,
+          "new_valid_measurements": 3540,
+          "ranked": [
+            "carts",
+            "front-end",
+            "orders",
+            "carts-db",
+            "catalogue",
+            "user",
+            "user-db"
+          ],
+          "elapsed_ms": 164.94600000442006,
+          "table_memory_bytes": 351540,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "uniform_first3": {
+          "resources": 3,
+          "metric_columns": 13,
+          "file_read_calls": 1,
+          "new_valid_measurements": 780,
+          "ranked": [
+            "carts",
+            "carts-db",
+            "catalogue"
+          ],
+          "elapsed_ms": 93.08700000110548,
+          "table_memory_bytes": 82026,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "random3_seed42": {
+          "resources": 3,
+          "metric_columns": 10,
+          "file_read_calls": 1,
+          "new_valid_measurements": 600,
+          "ranked": [
+            "carts",
+            "carts-db"
+          ],
+          "elapsed_ms": 23.442500008968636,
+          "table_memory_bytes": 64449,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "static_one_hop": {
+          "resources": 3,
+          "metric_columns": 18,
+          "file_read_calls": 1,
+          "new_valid_measurements": 1080,
+          "ranked": [
+            "carts",
+            "front-end",
+            "orders"
+          ],
+          "elapsed_ms": 34.60769999946933,
+          "table_memory_bytes": 111321,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "evidence_frontier": {
+          "resources": 3,
+          "metric_columns": 18,
+          "file_read_calls": 1,
+          "new_valid_measurements": 1080,
+          "ranked": [
+            "carts",
+            "front-end",
+            "orders"
+          ],
+          "elapsed_ms": 36.112599991611205,
+          "table_memory_bytes": 111321,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "legacy_top1_frontier": {
+          "resources": 1,
+          "metric_columns": 6,
+          "file_read_calls": 1,
+          "new_valid_measurements": 360,
+          "ranked": [
+            "carts"
+          ],
+          "elapsed_ms": 16.193900009966455,
+          "table_memory_bytes": 41013,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        }
+      }
+    },
+    {
+      "case_id": "8c5e6ed5e4d2ab83081b",
+      "strategies": {
+        "broad": {
+          "resources": 15,
+          "metric_columns": 59,
+          "file_read_calls": 1,
+          "new_valid_measurements": 3540,
+          "ranked": [
+            "carts",
+            "orders",
+            "front-end",
+            "carts-db",
+            "catalogue",
+            "shipping",
+            "queue-master"
+          ],
+          "elapsed_ms": 474.6012999967206,
+          "table_memory_bytes": 351540,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "uniform_first3": {
+          "resources": 3,
+          "metric_columns": 13,
+          "file_read_calls": 1,
+          "new_valid_measurements": 780,
+          "ranked": [
+            "carts",
+            "carts-db",
+            "catalogue"
+          ],
+          "elapsed_ms": 99.67520000645891,
+          "table_memory_bytes": 82026,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "random3_seed42": {
+          "resources": 3,
+          "metric_columns": 10,
+          "file_read_calls": 1,
+          "new_valid_measurements": 600,
+          "ranked": [
+            "carts",
+            "carts-db"
+          ],
+          "elapsed_ms": 68.22029998875223,
+          "table_memory_bytes": 64449,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "static_one_hop": {
+          "resources": 3,
+          "metric_columns": 18,
+          "file_read_calls": 1,
+          "new_valid_measurements": 1080,
+          "ranked": [
+            "carts",
+            "orders",
+            "front-end"
+          ],
+          "elapsed_ms": 210.6445000099484,
+          "table_memory_bytes": 111321,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "evidence_frontier": {
+          "resources": 3,
+          "metric_columns": 18,
+          "file_read_calls": 1,
+          "new_valid_measurements": 1080,
+          "ranked": [
+            "carts",
+            "orders",
+            "front-end"
+          ],
+          "elapsed_ms": 122.46939999749884,
+          "table_memory_bytes": 111321,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "legacy_top1_frontier": {
+          "resources": 1,
+          "metric_columns": 6,
+          "file_read_calls": 1,
+          "new_valid_measurements": 360,
+          "ranked": [
+            "carts"
+          ],
+          "elapsed_ms": 39.16620000381954,
+          "table_memory_bytes": 41013,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        }
+      }
+    },
+    {
+      "case_id": "7d1798d0c1b8730a1db6",
+      "strategies": {
+        "broad": {
+          "resources": 64,
+          "metric_columns": 228,
+          "file_read_calls": 1,
+          "new_valid_measurements": 13680,
+          "ranked": [
+            "ts-food-service",
+            "ts-food-map-service",
+            "ts-auth-service",
+            "ts-preserve-other-service",
+            "ts-consign-price-service",
+            "ts-route-plan-service",
+            "ts-admin-user-service",
+            "ts-train-service",
+            "ts-order-service"
+          ],
+          "elapsed_ms": 652.7159999968717,
+          "table_memory_bytes": 1341711,
+          "top1": false,
+          "top3": true,
+          "mrr": 0.3333333333333333
+        },
+        "uniform_first3": {
+          "resources": 3,
+          "metric_columns": 9,
+          "file_read_calls": 1,
+          "new_valid_measurements": 540,
+          "ranked": [],
+          "elapsed_ms": 45.8029000001261,
+          "table_memory_bytes": 58590,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "random3_seed42": {
+          "resources": 3,
+          "metric_columns": 12,
+          "file_read_calls": 1,
+          "new_valid_measurements": 720,
+          "ranked": [
+            "ts-preserve-other-service"
+          ],
+          "elapsed_ms": 33.78009999869391,
+          "table_memory_bytes": 76167,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "static_one_hop": {
+          "resources": 3,
+          "metric_columns": 13,
+          "file_read_calls": 1,
+          "new_valid_measurements": 780,
+          "ranked": [
+            "ts-auth-service",
+            "ts-admin-user-service"
+          ],
+          "elapsed_ms": 148.7059000064619,
+          "table_memory_bytes": 82026,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "evidence_frontier": {
+          "resources": 3,
+          "metric_columns": 13,
+          "file_read_calls": 1,
+          "new_valid_measurements": 780,
+          "ranked": [
+            "ts-auth-service",
+            "ts-admin-user-service"
+          ],
+          "elapsed_ms": 37.3360999947181,
+          "table_memory_bytes": 82026,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "legacy_top1_frontier": {
+          "resources": 1,
+          "metric_columns": 6,
+          "file_read_calls": 1,
+          "new_valid_measurements": 360,
+          "ranked": [],
+          "elapsed_ms": 23.183900004369207,
+          "table_memory_bytes": 41013,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        }
+      }
+    },
+    {
+      "case_id": "bb9c21f8da97953bc155",
+      "strategies": {
+        "broad": {
+          "resources": 64,
+          "metric_columns": 228,
+          "file_read_calls": 1,
+          "new_valid_measurements": 13636,
+          "ranked": [
+            "ts-food-map-service",
+            "ts-food-service",
+            "ts-route-plan-service",
+            "ts-admin-user-service",
+            "ts-auth-service",
+            "ts-ui-dashboard"
+          ],
+          "elapsed_ms": 637.8256999887526,
+          "table_memory_bytes": 1341711,
+          "top1": false,
+          "top3": false,
+          "mrr": 0.2
+        },
+        "uniform_first3": {
+          "resources": 3,
+          "metric_columns": 9,
+          "file_read_calls": 1,
+          "new_valid_measurements": 540,
+          "ranked": [],
+          "elapsed_ms": 50.58110000391025,
+          "table_memory_bytes": 58590,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "random3_seed42": {
+          "resources": 3,
+          "metric_columns": 12,
+          "file_read_calls": 1,
+          "new_valid_measurements": 676,
+          "ranked": [],
+          "elapsed_ms": 199.96130000799894,
+          "table_memory_bytes": 76167,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "static_one_hop": {
+          "resources": 3,
+          "metric_columns": 16,
+          "file_read_calls": 1,
+          "new_valid_measurements": 960,
+          "ranked": [
+            "ts-food-map-service"
+          ],
+          "elapsed_ms": 39.375799999106675,
+          "table_memory_bytes": 99603,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "evidence_frontier": {
+          "resources": 3,
+          "metric_columns": 16,
+          "file_read_calls": 1,
+          "new_valid_measurements": 960,
+          "ranked": [
+            "ts-food-map-service"
+          ],
+          "elapsed_ms": 41.64409999793861,
+          "table_memory_bytes": 99603,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "legacy_top1_frontier": {
+          "resources": 1,
+          "metric_columns": 5,
+          "file_read_calls": 1,
+          "new_valid_measurements": 300,
+          "ranked": [
+            "ts-food-map-service"
+          ],
+          "elapsed_ms": 21.051700008683838,
+          "table_memory_bytes": 35154,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        }
+      }
+    },
+    {
+      "case_id": "cf4fa26ae131fee5754a",
+      "strategies": {
+        "broad": {
+          "resources": 64,
+          "metric_columns": 228,
+          "file_read_calls": 1,
+          "new_valid_measurements": 13680,
+          "ranked": [
+            "ts-preserve-service",
+            "ts-notification-service",
+            "ts-preserve-other-service",
+            "ts-route-plan-service",
+            "ts-admin-user-service",
+            "ts-avatar-service",
+            "ts-consign-service",
+            "ts-auth-service",
+            "ts-user-service",
+            "ts-contacts-service"
+          ],
+          "elapsed_ms": 606.6011000075378,
+          "table_memory_bytes": 1341711,
+          "top1": false,
+          "top3": false,
+          "mrr": 0.125
+        },
+        "uniform_first3": {
+          "resources": 3,
+          "metric_columns": 9,
+          "file_read_calls": 1,
+          "new_valid_measurements": 540,
+          "ranked": [],
+          "elapsed_ms": 43.63889999513049,
+          "table_memory_bytes": 58590,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "random3_seed42": {
+          "resources": 3,
+          "metric_columns": 12,
+          "file_read_calls": 1,
+          "new_valid_measurements": 720,
+          "ranked": [
+            "ts-preserve-other-service"
+          ],
+          "elapsed_ms": 32.52369999245275,
+          "table_memory_bytes": 76167,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "static_one_hop": {
+          "resources": 3,
+          "metric_columns": 16,
+          "file_read_calls": 1,
+          "new_valid_measurements": 960,
+          "ranked": [
+            "ts-auth-service"
+          ],
+          "elapsed_ms": 38.93989999778569,
+          "table_memory_bytes": 99603,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "evidence_frontier": {
+          "resources": 3,
+          "metric_columns": 16,
+          "file_read_calls": 1,
+          "new_valid_measurements": 960,
+          "ranked": [
+            "ts-auth-service"
+          ],
+          "elapsed_ms": 38.59549999469891,
+          "table_memory_bytes": 99603,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "legacy_top1_frontier": {
+          "resources": 1,
+          "metric_columns": 5,
+          "file_read_calls": 1,
+          "new_valid_measurements": 300,
+          "ranked": [],
+          "elapsed_ms": 20.375899999635294,
+          "table_memory_bytes": 35154,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        }
+      }
+    },
+    {
+      "case_id": "3d1788d547ddcf273f9b",
+      "strategies": {
+        "broad": {
+          "resources": 64,
+          "metric_columns": 228,
+          "file_read_calls": 1,
+          "new_valid_measurements": 13680,
+          "ranked": [
+            "ts-user-service",
+            "ts-route-plan-service",
+            "ts-admin-user-service",
+            "ts-travel-plan-service",
+            "ts-security-service",
+            "ts-seat-service",
+            "ts-auth-service",
+            "ts-food-service",
+            "ts-rebook-service",
+            "ts-order-other-service"
+          ],
+          "elapsed_ms": 1838.7157999968622,
+          "table_memory_bytes": 1341711,
+          "top1": false,
+          "top3": false,
+          "mrr": 0.14285714285714285
+        },
+        "uniform_first3": {
+          "resources": 3,
+          "metric_columns": 9,
+          "file_read_calls": 1,
+          "new_valid_measurements": 540,
+          "ranked": [
+            "ts-admin-order-service"
+          ],
+          "elapsed_ms": 142.20610000484157,
+          "table_memory_bytes": 58590,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "random3_seed42": {
+          "resources": 3,
+          "metric_columns": 12,
+          "file_read_calls": 1,
+          "new_valid_measurements": 720,
+          "ranked": [],
+          "elapsed_ms": 101.11109999706969,
+          "table_memory_bytes": 76167,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "static_one_hop": {
+          "resources": 3,
+          "metric_columns": 17,
+          "file_read_calls": 1,
+          "new_valid_measurements": 1020,
+          "ranked": [
+            "ts-security-service",
+            "ts-consign-price-service"
+          ],
+          "elapsed_ms": 130.44379999337252,
+          "table_memory_bytes": 105462,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "evidence_frontier": {
+          "resources": 3,
+          "metric_columns": 17,
+          "file_read_calls": 1,
+          "new_valid_measurements": 1020,
+          "ranked": [
+            "ts-security-service",
+            "ts-consign-price-service"
+          ],
+          "elapsed_ms": 117.93009999382775,
+          "table_memory_bytes": 105462,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "legacy_top1_frontier": {
+          "resources": 1,
+          "metric_columns": 5,
+          "file_read_calls": 1,
+          "new_valid_measurements": 300,
+          "ranked": [
+            "ts-consign-price-service"
+          ],
+          "elapsed_ms": 56.62279999523889,
+          "table_memory_bytes": 35154,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        }
+      }
+    },
+    {
+      "case_id": "4da85f82ca76ea788b95",
+      "strategies": {
+        "broad": {
+          "resources": 64,
+          "metric_columns": 231,
+          "file_read_calls": 1,
+          "new_valid_measurements": 13860,
+          "ranked": [
+            "ts-route-plan-service",
+            "ts-admin-user-service",
+            "ts-auth-service",
+            "ts-train-service",
+            "ts-ui-dashboard",
+            "ts-station-mongo"
+          ],
+          "elapsed_ms": 2175.9005000058096,
+          "table_memory_bytes": 1359288,
+          "top1": false,
+          "top3": true,
+          "mrr": 0.3333333333333333
+        },
+        "uniform_first3": {
+          "resources": 3,
+          "metric_columns": 10,
+          "file_read_calls": 1,
+          "new_valid_measurements": 600,
+          "ranked": [],
+          "elapsed_ms": 112.57740001019556,
+          "table_memory_bytes": 64449,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "random3_seed42": {
+          "resources": 3,
+          "metric_columns": 13,
+          "file_read_calls": 1,
+          "new_valid_measurements": 780,
+          "ranked": [],
+          "elapsed_ms": 81.63600000261795,
+          "table_memory_bytes": 82026,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "static_one_hop": {
+          "resources": 3,
+          "metric_columns": 9,
+          "file_read_calls": 1,
+          "new_valid_measurements": 540,
+          "ranked": [
+            "ts-route-plan-service",
+            "ts-admin-user-service",
+            "ts-auth-service"
+          ],
+          "elapsed_ms": 66.35059999825899,
+          "table_memory_bytes": 58590,
+          "top1": false,
+          "top3": true,
+          "mrr": 0.3333333333333333
+        },
+        "evidence_frontier": {
+          "resources": 3,
+          "metric_columns": 9,
+          "file_read_calls": 1,
+          "new_valid_measurements": 540,
+          "ranked": [
+            "ts-route-plan-service",
+            "ts-admin-user-service",
+            "ts-auth-service"
+          ],
+          "elapsed_ms": 76.46380001096986,
+          "table_memory_bytes": 58590,
+          "top1": false,
+          "top3": true,
+          "mrr": 0.3333333333333333
+        },
+        "legacy_top1_frontier": {
+          "resources": 1,
+          "metric_columns": 2,
+          "file_read_calls": 1,
+          "new_valid_measurements": 120,
+          "ranked": [
+            "ts-route-plan-service"
+          ],
+          "elapsed_ms": 37.26280000410043,
+          "table_memory_bytes": 17577,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        }
+      }
+    },
+    {
+      "case_id": "180279a0e4c4d7bdd5f6",
+      "strategies": {
+        "broad": {
+          "resources": 64,
+          "metric_columns": 222,
+          "file_read_calls": 1,
+          "new_valid_measurements": 13200,
+          "ranked": [
+            "ts-assurance-service",
+            "ts-notification-service",
+            "ts-security-service",
+            "ts-auth-service",
+            "ts-ui-dashboard",
+            "ts-food-service",
+            "ts-admin-travel-service",
+            "ts-travel-service",
+            "ts-cancel-service",
+            "ts-preserve-other-service"
+          ],
+          "elapsed_ms": 2160.109899996314,
+          "table_memory_bytes": 1741407,
+          "top1": false,
+          "top3": false,
+          "mrr": 0.25
+        },
+        "uniform_first3": {
+          "resources": 3,
+          "metric_columns": 10,
+          "file_read_calls": 1,
+          "new_valid_measurements": 600,
+          "ranked": [],
+          "elapsed_ms": 137.7208000048995,
+          "table_memory_bytes": 85899,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "random3_seed42": {
+          "resources": 3,
+          "metric_columns": 13,
+          "file_read_calls": 1,
+          "new_valid_measurements": 780,
+          "ranked": [
+            "ts-admin-travel-service",
+            "ts-preserve-other-service"
+          ],
+          "elapsed_ms": 128.9007000013953,
+          "table_memory_bytes": 109326,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "static_one_hop": {
+          "resources": 3,
+          "metric_columns": 16,
+          "file_read_calls": 1,
+          "new_valid_measurements": 960,
+          "ranked": [
+            "ts-auth-service",
+            "ts-ui-dashboard"
+          ],
+          "elapsed_ms": 116.24979999032803,
+          "table_memory_bytes": 132753,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "evidence_frontier": {
+          "resources": 3,
+          "metric_columns": 16,
+          "file_read_calls": 1,
+          "new_valid_measurements": 960,
+          "ranked": [
+            "ts-auth-service",
+            "ts-ui-dashboard"
+          ],
+          "elapsed_ms": 117.81760001031216,
+          "table_memory_bytes": 132753,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "legacy_top1_frontier": {
+          "resources": 1,
+          "metric_columns": 5,
+          "file_read_calls": 1,
+          "new_valid_measurements": 300,
+          "ranked": [
+            "ts-auth-service"
+          ],
+          "elapsed_ms": 61.21949999942444,
+          "table_memory_bytes": 46854,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        }
+      }
+    },
+    {
+      "case_id": "4103c1a3bccae4101d3d",
+      "strategies": {
+        "broad": {
+          "resources": 64,
+          "metric_columns": 199,
+          "file_read_calls": 1,
+          "new_valid_measurements": 11820,
+          "ranked": [
+            "ts-order-other-service",
+            "ts-consign-service",
+            "ts-consign-price-service",
+            "ts-ui-dashboard",
+            "ts-auth-service",
+            "ts-admin-travel-service",
+            "ts-food-service",
+            "ts-assurance-service",
+            "ts-food-map-service",
+            "ts-inside-payment-service"
+          ],
+          "elapsed_ms": 1970.4073000029894,
+          "table_memory_bytes": 1561800,
+          "top1": false,
+          "top3": false,
+          "mrr": 0.2
+        },
+        "uniform_first3": {
+          "resources": 3,
+          "metric_columns": 10,
+          "file_read_calls": 1,
+          "new_valid_measurements": 600,
+          "ranked": [],
+          "elapsed_ms": 135.9307000093395,
+          "table_memory_bytes": 85899,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "random3_seed42": {
+          "resources": 3,
+          "metric_columns": 10,
+          "file_read_calls": 1,
+          "new_valid_measurements": 600,
+          "ranked": [
+            "ts-admin-travel-service"
+          ],
+          "elapsed_ms": 84.89840000402182,
+          "table_memory_bytes": 85899,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "static_one_hop": {
+          "resources": 3,
+          "metric_columns": 16,
+          "file_read_calls": 1,
+          "new_valid_measurements": 960,
+          "ranked": [
+            "ts-ui-dashboard",
+            "ts-auth-service",
+            "ts-food-map-service"
+          ],
+          "elapsed_ms": 142.4031000060495,
+          "table_memory_bytes": 132753,
+          "top1": false,
+          "top3": true,
+          "mrr": 0.5
+        },
+        "evidence_frontier": {
+          "resources": 3,
+          "metric_columns": 16,
+          "file_read_calls": 1,
+          "new_valid_measurements": 960,
+          "ranked": [
+            "ts-ui-dashboard",
+            "ts-auth-service",
+            "ts-food-map-service"
+          ],
+          "elapsed_ms": 192.05880000663456,
+          "table_memory_bytes": 132753,
+          "top1": false,
+          "top3": true,
+          "mrr": 0.5
+        },
+        "legacy_top1_frontier": {
+          "resources": 1,
+          "metric_columns": 5,
+          "file_read_calls": 1,
+          "new_valid_measurements": 300,
+          "ranked": [
+            "ts-food-map-service"
+          ],
+          "elapsed_ms": 122.46430000232067,
+          "table_memory_bytes": 46854,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        }
+      }
+    },
+    {
+      "case_id": "57b40a442f82ce896b37",
+      "strategies": {
+        "broad": {
+          "resources": 64,
+          "metric_columns": 218,
+          "file_read_calls": 1,
+          "new_valid_measurements": 13033,
+          "ranked": [
+            "ts-auth-service",
+            "ts-ui-dashboard",
+            "ts-price-service",
+            "ts-admin-travel-service",
+            "ts-preserve-service",
+            "ts-food-service",
+            "ts-travel-service",
+            "ts-order-other-service",
+            "ts-station-service",
+            "ts-ticketinfo-service"
+          ],
+          "elapsed_ms": 1504.4569000019692,
+          "table_memory_bytes": 1710171,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "uniform_first3": {
+          "resources": 3,
+          "metric_columns": 10,
+          "file_read_calls": 1,
+          "new_valid_measurements": 600,
+          "ranked": [],
+          "elapsed_ms": 819.7041999956127,
+          "table_memory_bytes": 85899,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "random3_seed42": {
+          "resources": 3,
+          "metric_columns": 10,
+          "file_read_calls": 1,
+          "new_valid_measurements": 600,
+          "ranked": [
+            "ts-admin-travel-service"
+          ],
+          "elapsed_ms": 93.15320001041982,
+          "table_memory_bytes": 85899,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "static_one_hop": {
+          "resources": 3,
+          "metric_columns": 15,
+          "file_read_calls": 1,
+          "new_valid_measurements": 900,
+          "ranked": [
+            "ts-auth-service",
+            "ts-food-service",
+            "ts-food-map-service"
+          ],
+          "elapsed_ms": 120.94039999647066,
+          "table_memory_bytes": 124944,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "evidence_frontier": {
+          "resources": 3,
+          "metric_columns": 15,
+          "file_read_calls": 1,
+          "new_valid_measurements": 900,
+          "ranked": [
+            "ts-auth-service",
+            "ts-food-service",
+            "ts-food-map-service"
+          ],
+          "elapsed_ms": 148.90829999058042,
+          "table_memory_bytes": 124944,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "legacy_top1_frontier": {
+          "resources": 1,
+          "metric_columns": 5,
+          "file_read_calls": 1,
+          "new_valid_measurements": 300,
+          "ranked": [
+            "ts-food-map-service"
+          ],
+          "elapsed_ms": 87.208400000236,
+          "table_memory_bytes": 46854,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        }
+      }
+    },
+    {
+      "case_id": "782b41aefaec285825d4",
+      "strategies": {
+        "broad": {
+          "resources": 64,
+          "metric_columns": 199,
+          "file_read_calls": 1,
+          "new_valid_measurements": 11820,
+          "ranked": [
+            "ts-auth-service",
+            "ts-ui-dashboard",
+            "ts-consign-service",
+            "ts-food-service",
+            "ts-assurance-service",
+            "ts-admin-travel-service",
+            "ts-ticketinfo-service",
+            "ts-inside-payment-service",
+            "ts-travel-plan-service",
+            "ts-consign-price-service"
+          ],
+          "elapsed_ms": 2462.9122000042116,
+          "table_memory_bytes": 1561800,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "uniform_first3": {
+          "resources": 3,
+          "metric_columns": 9,
+          "file_read_calls": 1,
+          "new_valid_measurements": 540,
+          "ranked": [],
+          "elapsed_ms": 144.4203999999445,
+          "table_memory_bytes": 78090,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "random3_seed42": {
+          "resources": 3,
+          "metric_columns": 10,
+          "file_read_calls": 1,
+          "new_valid_measurements": 600,
+          "ranked": [
+            "ts-admin-travel-service"
+          ],
+          "elapsed_ms": 112.73420001089107,
+          "table_memory_bytes": 85899,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "static_one_hop": {
+          "resources": 3,
+          "metric_columns": 17,
+          "file_read_calls": 1,
+          "new_valid_measurements": 1020,
+          "ranked": [
+            "ts-auth-service",
+            "ts-ui-dashboard",
+            "ts-food-service"
+          ],
+          "elapsed_ms": 150.39660000184085,
+          "table_memory_bytes": 140562,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "evidence_frontier": {
+          "resources": 3,
+          "metric_columns": 17,
+          "file_read_calls": 1,
+          "new_valid_measurements": 1020,
+          "ranked": [
+            "ts-auth-service",
+            "ts-ui-dashboard",
+            "ts-food-service"
+          ],
+          "elapsed_ms": 660.7949000026565,
+          "table_memory_bytes": 140562,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "legacy_top1_frontier": {
+          "resources": 1,
+          "metric_columns": 5,
+          "file_read_calls": 1,
+          "new_valid_measurements": 300,
+          "ranked": [
+            "ts-auth-service"
+          ],
+          "elapsed_ms": 72.84370000706986,
+          "table_memory_bytes": 46854,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        }
+      }
+    },
+    {
+      "case_id": "6e4d5647089498efa1fd",
+      "strategies": {
+        "broad": {
+          "resources": 64,
+          "metric_columns": 198,
+          "file_read_calls": 1,
+          "new_valid_measurements": 11760,
+          "ranked": [
+            "ts-auth-service",
+            "ts-ui-dashboard",
+            "ts-food-service",
+            "ts-config-service",
+            "ts-travel-service",
+            "ts-inside-payment-service",
+            "ts-route-service",
+            "ts-travel2-service",
+            "ts-price-service",
+            "ts-admin-travel-service"
+          ],
+          "elapsed_ms": 1990.4021999973338,
+          "table_memory_bytes": 1553991,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "uniform_first3": {
+          "resources": 3,
+          "metric_columns": 10,
+          "file_read_calls": 1,
+          "new_valid_measurements": 600,
+          "ranked": [],
+          "elapsed_ms": 137.5813000049675,
+          "table_memory_bytes": 85899,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "random3_seed42": {
+          "resources": 3,
+          "metric_columns": 9,
+          "file_read_calls": 1,
+          "new_valid_measurements": 540,
+          "ranked": [
+            "ts-admin-travel-service"
+          ],
+          "elapsed_ms": 621.8482000112999,
+          "table_memory_bytes": 78090,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "static_one_hop": {
+          "resources": 3,
+          "metric_columns": 15,
+          "file_read_calls": 1,
+          "new_valid_measurements": 900,
+          "ranked": [],
+          "elapsed_ms": 165.01879999123048,
+          "table_memory_bytes": 124944,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "evidence_frontier": {
+          "resources": 3,
+          "metric_columns": 15,
+          "file_read_calls": 1,
+          "new_valid_measurements": 900,
+          "ranked": [],
+          "elapsed_ms": 223.49270000995602,
+          "table_memory_bytes": 124944,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "legacy_top1_frontier": {
+          "resources": 1,
+          "metric_columns": 5,
+          "file_read_calls": 1,
+          "new_valid_measurements": 300,
+          "ranked": [],
+          "elapsed_ms": 58.744099995237775,
+          "table_memory_bytes": 46854,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        }
+      }
+    },
+    {
+      "case_id": "05035f50112c0e25d5f9",
+      "strategies": {
+        "broad": {
+          "resources": 64,
+          "metric_columns": 219,
+          "file_read_calls": 1,
+          "new_valid_measurements": 13140,
+          "ranked": [
+            "ts-order-service",
+            "ts-config-service",
+            "ts-payment-service",
+            "ts-inside-payment-service",
+            "ts-travel-plan-service"
+          ],
+          "elapsed_ms": 2527.8870000038296,
+          "table_memory_bytes": 1717980,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "uniform_first3": {
+          "resources": 3,
+          "metric_columns": 10,
+          "file_read_calls": 1,
+          "new_valid_measurements": 600,
+          "ranked": [],
+          "elapsed_ms": 133.6477000004379,
+          "table_memory_bytes": 85899,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "random3_seed42": {
+          "resources": 3,
+          "metric_columns": 13,
+          "file_read_calls": 1,
+          "new_valid_measurements": 780,
+          "ranked": [],
+          "elapsed_ms": 100.29889999714214,
+          "table_memory_bytes": 109326,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "static_one_hop": {
+          "resources": 3,
+          "metric_columns": 13,
+          "file_read_calls": 1,
+          "new_valid_measurements": 780,
+          "ranked": [
+            "ts-order-service"
+          ],
+          "elapsed_ms": 123.41770000057295,
+          "table_memory_bytes": 109326,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "evidence_frontier": {
+          "resources": 3,
+          "metric_columns": 13,
+          "file_read_calls": 1,
+          "new_valid_measurements": 780,
+          "ranked": [
+            "ts-order-service"
+          ],
+          "elapsed_ms": 134.2914999986533,
+          "table_memory_bytes": 109326,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "legacy_top1_frontier": {
+          "resources": 1,
+          "metric_columns": 5,
+          "file_read_calls": 1,
+          "new_valid_measurements": 300,
+          "ranked": [
+            "ts-order-service"
+          ],
+          "elapsed_ms": 66.56249999650754,
+          "table_memory_bytes": 46854,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        }
+      }
+    },
+    {
+      "case_id": "d0bd03f2b16d3d1ad975",
+      "strategies": {
+        "broad": {
+          "resources": 64,
+          "metric_columns": 215,
+          "file_read_calls": 1,
+          "new_valid_measurements": 12898,
+          "ranked": [
+            "ts-order-other-service",
+            "ts-inside-payment-service",
+            "ts-order-service",
+            "ts-contacts-service"
+          ],
+          "elapsed_ms": 2951.14740000281,
+          "table_memory_bytes": 1686744,
+          "top1": false,
+          "top3": true,
+          "mrr": 0.3333333333333333
+        },
+        "uniform_first3": {
+          "resources": 3,
+          "metric_columns": 10,
+          "file_read_calls": 1,
+          "new_valid_measurements": 600,
+          "ranked": [],
+          "elapsed_ms": 160.88869998930022,
+          "table_memory_bytes": 85899,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "random3_seed42": {
+          "resources": 3,
+          "metric_columns": 10,
+          "file_read_calls": 1,
+          "new_valid_measurements": 600,
+          "ranked": [],
+          "elapsed_ms": 103.64430000481661,
+          "table_memory_bytes": 85899,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "static_one_hop": {
+          "resources": 3,
+          "metric_columns": 16,
+          "file_read_calls": 1,
+          "new_valid_measurements": 960,
+          "ranked": [
+            "ts-order-service"
+          ],
+          "elapsed_ms": 147.96909999859054,
+          "table_memory_bytes": 132753,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "evidence_frontier": {
+          "resources": 3,
+          "metric_columns": 16,
+          "file_read_calls": 1,
+          "new_valid_measurements": 960,
+          "ranked": [
+            "ts-order-service"
+          ],
+          "elapsed_ms": 159.73930001200642,
+          "table_memory_bytes": 132753,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "legacy_top1_frontier": {
+          "resources": 1,
+          "metric_columns": 5,
+          "file_read_calls": 1,
+          "new_valid_measurements": 300,
+          "ranked": [
+            "ts-order-service"
+          ],
+          "elapsed_ms": 70.93079999322072,
+          "table_memory_bytes": 46854,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        }
+      }
+    },
+    {
+      "case_id": "ee3b7ac034511aa5dafe",
+      "strategies": {
+        "broad": {
+          "resources": 64,
+          "metric_columns": 201,
+          "file_read_calls": 1,
+          "new_valid_measurements": 11940,
+          "ranked": [
+            "ts-order-service",
+            "ts-food-service",
+            "ts-assurance-service"
+          ],
+          "elapsed_ms": 2637.9793000087375,
+          "table_memory_bytes": 1577418,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "uniform_first3": {
+          "resources": 3,
+          "metric_columns": 10,
+          "file_read_calls": 1,
+          "new_valid_measurements": 600,
+          "ranked": [],
+          "elapsed_ms": 131.8118999915896,
+          "table_memory_bytes": 85899,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "random3_seed42": {
+          "resources": 3,
+          "metric_columns": 10,
+          "file_read_calls": 1,
+          "new_valid_measurements": 600,
+          "ranked": [],
+          "elapsed_ms": 103.4633999952348,
+          "table_memory_bytes": 85899,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "static_one_hop": {
+          "resources": 2,
+          "metric_columns": 11,
+          "file_read_calls": 1,
+          "new_valid_measurements": 660,
+          "ranked": [
+            "ts-order-service"
+          ],
+          "elapsed_ms": 86.90059999935329,
+          "table_memory_bytes": 93708,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "evidence_frontier": {
+          "resources": 2,
+          "metric_columns": 11,
+          "file_read_calls": 1,
+          "new_valid_measurements": 660,
+          "ranked": [
+            "ts-order-service"
+          ],
+          "elapsed_ms": 93.75709999585524,
+          "table_memory_bytes": 93708,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "legacy_top1_frontier": {
+          "resources": 1,
+          "metric_columns": 6,
+          "file_read_calls": 1,
+          "new_valid_measurements": 360,
+          "ranked": [
+            "ts-order-service"
+          ],
+          "elapsed_ms": 71.69540000904817,
+          "table_memory_bytes": 54663,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        }
+      }
+    },
+    {
+      "case_id": "7a8d338ba3b032344a08",
+      "strategies": {
+        "broad": {
+          "resources": 64,
+          "metric_columns": 200,
+          "file_read_calls": 1,
+          "new_valid_measurements": 11880,
+          "ranked": [
+            "ts-food-map-service",
+            "ts-food-service",
+            "ts-order-service",
+            "ts-station-service",
+            "ts-assurance-service",
+            "ts-admin-travel-service",
+            "ts-ui-dashboard",
+            "ts-price-service",
+            "ts-basic-service",
+            "ts-consign-price-service"
+          ],
+          "elapsed_ms": 2490.3017000033287,
+          "table_memory_bytes": 1569609,
+          "top1": false,
+          "top3": true,
+          "mrr": 0.3333333333333333
+        },
+        "uniform_first3": {
+          "resources": 3,
+          "metric_columns": 9,
+          "file_read_calls": 1,
+          "new_valid_measurements": 540,
+          "ranked": [],
+          "elapsed_ms": 136.988600002951,
+          "table_memory_bytes": 78090,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "random3_seed42": {
+          "resources": 3,
+          "metric_columns": 10,
+          "file_read_calls": 1,
+          "new_valid_measurements": 600,
+          "ranked": [
+            "ts-admin-travel-service"
+          ],
+          "elapsed_ms": 110.60539999743924,
+          "table_memory_bytes": 85899,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "static_one_hop": {
+          "resources": 3,
+          "metric_columns": 17,
+          "file_read_calls": 1,
+          "new_valid_measurements": 1020,
+          "ranked": [
+            "ts-food-map-service",
+            "ts-order-service",
+            "ts-admin-travel-service"
+          ],
+          "elapsed_ms": 698.0687000032049,
+          "table_memory_bytes": 140562,
+          "top1": false,
+          "top3": true,
+          "mrr": 0.5
+        },
+        "evidence_frontier": {
+          "resources": 3,
+          "metric_columns": 17,
+          "file_read_calls": 1,
+          "new_valid_measurements": 1020,
+          "ranked": [
+            "ts-food-map-service",
+            "ts-order-service",
+            "ts-admin-travel-service"
+          ],
+          "elapsed_ms": 139.21539999137167,
+          "table_memory_bytes": 140562,
+          "top1": false,
+          "top3": true,
+          "mrr": 0.5
+        },
+        "legacy_top1_frontier": {
+          "resources": 1,
+          "metric_columns": 5,
+          "file_read_calls": 1,
+          "new_valid_measurements": 300,
+          "ranked": [
+            "ts-food-map-service"
+          ],
+          "elapsed_ms": 54.55719999736175,
+          "table_memory_bytes": 46854,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        }
+      }
+    },
+    {
+      "case_id": "b41faccf52021ff220a6",
+      "strategies": {
+        "broad": {
+          "resources": 64,
+          "metric_columns": 201,
+          "file_read_calls": 1,
+          "new_valid_measurements": 11940,
+          "ranked": [
+            "ts-order-service",
+            "ts-inside-payment-service",
+            "ts-config-service",
+            "ts-order-other-service",
+            "ts-admin-user-service",
+            "ts-admin-route-service"
+          ],
+          "elapsed_ms": 2579.982800001744,
+          "table_memory_bytes": 1577418,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "uniform_first3": {
+          "resources": 3,
+          "metric_columns": 10,
+          "file_read_calls": 1,
+          "new_valid_measurements": 600,
+          "ranked": [
+            "ts-admin-route-service"
+          ],
+          "elapsed_ms": 143.76770000671968,
+          "table_memory_bytes": 85899,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "random3_seed42": {
+          "resources": 3,
+          "metric_columns": 10,
+          "file_read_calls": 1,
+          "new_valid_measurements": 600,
+          "ranked": [],
+          "elapsed_ms": 92.3480999917956,
+          "table_memory_bytes": 85899,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "static_one_hop": {
+          "resources": 3,
+          "metric_columns": 16,
+          "file_read_calls": 1,
+          "new_valid_measurements": 960,
+          "ranked": [
+            "ts-order-service",
+            "ts-inside-payment-service"
+          ],
+          "elapsed_ms": 147.29529999021906,
+          "table_memory_bytes": 132753,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "evidence_frontier": {
+          "resources": 3,
+          "metric_columns": 16,
+          "file_read_calls": 1,
+          "new_valid_measurements": 960,
+          "ranked": [
+            "ts-order-service",
+            "ts-inside-payment-service"
+          ],
+          "elapsed_ms": 142.59599999058992,
+          "table_memory_bytes": 132753,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "legacy_top1_frontier": {
+          "resources": 1,
+          "metric_columns": 6,
+          "file_read_calls": 1,
+          "new_valid_measurements": 360,
+          "ranked": [
+            "ts-order-service"
+          ],
+          "elapsed_ms": 79.57960000203457,
+          "table_memory_bytes": 54663,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        }
+      }
+    },
+    {
+      "case_id": "77eed0f0961848538188",
+      "strategies": {
+        "broad": {
+          "resources": 64,
+          "metric_columns": 232,
+          "file_read_calls": 1,
+          "new_valid_measurements": 13920,
+          "ranked": [
+            "ts-order-service",
+            "ts-rebook-service",
+            "ts-food-map-service",
+            "ts-config-service"
+          ],
+          "elapsed_ms": 2122.0810000086203,
+          "table_memory_bytes": 1365147,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "uniform_first3": {
+          "resources": 3,
+          "metric_columns": 10,
+          "file_read_calls": 1,
+          "new_valid_measurements": 600,
+          "ranked": [],
+          "elapsed_ms": 118.97969999699853,
+          "table_memory_bytes": 64449,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "random3_seed42": {
+          "resources": 3,
+          "metric_columns": 13,
+          "file_read_calls": 1,
+          "new_valid_measurements": 780,
+          "ranked": [],
+          "elapsed_ms": 576.6784000006737,
+          "table_memory_bytes": 82026,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "static_one_hop": {
+          "resources": 3,
+          "metric_columns": 9,
+          "file_read_calls": 1,
+          "new_valid_measurements": 540,
+          "ranked": [
+            "ts-order-service",
+            "ts-rebook-service"
+          ],
+          "elapsed_ms": 72.08559999708086,
+          "table_memory_bytes": 58590,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "evidence_frontier": {
+          "resources": 3,
+          "metric_columns": 9,
+          "file_read_calls": 1,
+          "new_valid_measurements": 540,
+          "ranked": [
+            "ts-order-service",
+            "ts-rebook-service"
+          ],
+          "elapsed_ms": 85.80250000522938,
+          "table_memory_bytes": 58590,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "legacy_top1_frontier": {
+          "resources": 1,
+          "metric_columns": 5,
+          "file_read_calls": 1,
+          "new_valid_measurements": 300,
+          "ranked": [
+            "ts-order-service"
+          ],
+          "elapsed_ms": 53.779399997438304,
+          "table_memory_bytes": 35154,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        }
+      }
+    },
+    {
+      "case_id": "1cff53bd32001281e17c",
+      "strategies": {
+        "broad": {
+          "resources": 64,
+          "metric_columns": 233,
+          "file_read_calls": 1,
+          "new_valid_measurements": 13980,
+          "ranked": [
+            "ts-order-service",
+            "ts-user-service",
+            "ts-security-service",
+            "ts-consign-price-service",
+            "ts-preserve-other-service",
+            "ts-inside-payment-service",
+            "ts-rebook-service",
+            "ts-notification-service",
+            "ts-seat-service",
+            "ts-admin-travel-service"
+          ],
+          "elapsed_ms": 1898.7325999914901,
+          "table_memory_bytes": 1371006,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "uniform_first3": {
+          "resources": 3,
+          "metric_columns": 10,
+          "file_read_calls": 1,
+          "new_valid_measurements": 600,
+          "ranked": [],
+          "elapsed_ms": 620.6127000041306,
+          "table_memory_bytes": 64449,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "random3_seed42": {
+          "resources": 3,
+          "metric_columns": 13,
+          "file_read_calls": 1,
+          "new_valid_measurements": 780,
+          "ranked": [
+            "ts-preserve-other-service",
+            "ts-admin-travel-service"
+          ],
+          "elapsed_ms": 82.08490000106394,
+          "table_memory_bytes": 82026,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "static_one_hop": {
+          "resources": 3,
+          "metric_columns": 16,
+          "file_read_calls": 1,
+          "new_valid_measurements": 960,
+          "ranked": [
+            "ts-order-service",
+            "ts-consign-price-service"
+          ],
+          "elapsed_ms": 99.26050000649411,
+          "table_memory_bytes": 99603,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "evidence_frontier": {
+          "resources": 3,
+          "metric_columns": 16,
+          "file_read_calls": 1,
+          "new_valid_measurements": 960,
+          "ranked": [
+            "ts-order-service",
+            "ts-consign-price-service"
+          ],
+          "elapsed_ms": 102.86900000937749,
+          "table_memory_bytes": 99603,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "legacy_top1_frontier": {
+          "resources": 1,
+          "metric_columns": 5,
+          "file_read_calls": 1,
+          "new_valid_measurements": 300,
+          "ranked": [
+            "ts-order-service"
+          ],
+          "elapsed_ms": 45.58050000923686,
+          "table_memory_bytes": 35154,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        }
+      }
+    },
+    {
+      "case_id": "f18ce4accabbd0ef5101",
+      "strategies": {
+        "broad": {
+          "resources": 64,
+          "metric_columns": 236,
+          "file_read_calls": 1,
+          "new_valid_measurements": 14160,
+          "ranked": [
+            "ts-preserve-other-service",
+            "ts-order-service",
+            "ts-inside-payment-service",
+            "ts-rebook-service",
+            "ts-security-service",
+            "ts-consign-price-service",
+            "ts-assurance-service",
+            "ts-config-service"
+          ],
+          "elapsed_ms": 2131.4005000022007,
+          "table_memory_bytes": 1388583,
+          "top1": false,
+          "top3": true,
+          "mrr": 0.5
+        },
+        "uniform_first3": {
+          "resources": 3,
+          "metric_columns": 10,
+          "file_read_calls": 1,
+          "new_valid_measurements": 600,
+          "ranked": [],
+          "elapsed_ms": 834.7871999867493,
+          "table_memory_bytes": 64449,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "random3_seed42": {
+          "resources": 3,
+          "metric_columns": 13,
+          "file_read_calls": 1,
+          "new_valid_measurements": 780,
+          "ranked": [
+            "ts-preserve-other-service"
+          ],
+          "elapsed_ms": 101.20210000604857,
+          "table_memory_bytes": 82026,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "static_one_hop": {
+          "resources": 3,
+          "metric_columns": 16,
+          "file_read_calls": 1,
+          "new_valid_measurements": 960,
+          "ranked": [
+            "ts-order-service",
+            "ts-security-service",
+            "ts-consign-price-service"
+          ],
+          "elapsed_ms": 103.46600000048056,
+          "table_memory_bytes": 99603,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "evidence_frontier": {
+          "resources": 3,
+          "metric_columns": 16,
+          "file_read_calls": 1,
+          "new_valid_measurements": 960,
+          "ranked": [
+            "ts-order-service",
+            "ts-security-service",
+            "ts-consign-price-service"
+          ],
+          "elapsed_ms": 65.30230000498705,
+          "table_memory_bytes": 99603,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "legacy_top1_frontier": {
+          "resources": 1,
+          "metric_columns": 5,
+          "file_read_calls": 1,
+          "new_valid_measurements": 300,
+          "ranked": [
+            "ts-order-service"
+          ],
+          "elapsed_ms": 27.053899990278296,
+          "table_memory_bytes": 35154,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        }
+      }
+    },
+    {
+      "case_id": "c66fd76035446d2f712c",
+      "strategies": {
+        "broad": {
+          "resources": 64,
+          "metric_columns": 236,
+          "file_read_calls": 1,
+          "new_valid_measurements": 14160,
+          "ranked": [
+            "ts-contacts-service",
+            "ts-user-service",
+            "ts-order-service",
+            "ts-security-service",
+            "ts-seat-service",
+            "ts-notification-service",
+            "ts-rebook-service",
+            "ts-food-map-service",
+            "ts-config-service"
+          ],
+          "elapsed_ms": 827.311600005487,
+          "table_memory_bytes": 1388583,
+          "top1": false,
+          "top3": true,
+          "mrr": 0.3333333333333333
+        },
+        "uniform_first3": {
+          "resources": 3,
+          "metric_columns": 10,
+          "file_read_calls": 1,
+          "new_valid_measurements": 600,
+          "ranked": [],
+          "elapsed_ms": 40.64079999807291,
+          "table_memory_bytes": 64449,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "random3_seed42": {
+          "resources": 3,
+          "metric_columns": 13,
+          "file_read_calls": 1,
+          "new_valid_measurements": 780,
+          "ranked": [],
+          "elapsed_ms": 33.59730000374839,
+          "table_memory_bytes": 82026,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "static_one_hop": {
+          "resources": 3,
+          "metric_columns": 16,
+          "file_read_calls": 1,
+          "new_valid_measurements": 960,
+          "ranked": [
+            "ts-order-service",
+            "ts-security-service",
+            "ts-notification-service"
+          ],
+          "elapsed_ms": 41.461200002231635,
+          "table_memory_bytes": 99603,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "evidence_frontier": {
+          "resources": 3,
+          "metric_columns": 16,
+          "file_read_calls": 1,
+          "new_valid_measurements": 960,
+          "ranked": [
+            "ts-order-service",
+            "ts-security-service",
+            "ts-notification-service"
+          ],
+          "elapsed_ms": 39.04820000752807,
+          "table_memory_bytes": 99603,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "legacy_top1_frontier": {
+          "resources": 1,
+          "metric_columns": 5,
+          "file_read_calls": 1,
+          "new_valid_measurements": 300,
+          "ranked": [
+            "ts-order-service"
+          ],
+          "elapsed_ms": 26.570599991828203,
+          "table_memory_bytes": 35154,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        }
+      }
+    },
+    {
+      "case_id": "e232cd0c9e47763d7b87",
+      "strategies": {
+        "broad": {
+          "resources": 64,
+          "metric_columns": 236,
+          "file_read_calls": 1,
+          "new_valid_measurements": 14160,
+          "ranked": [
+            "ts-order-service",
+            "ts-preserve-other-service",
+            "ts-assurance-service",
+            "ts-rebook-service",
+            "ts-payment-service",
+            "ts-inside-payment-service",
+            "ts-notification-service",
+            "ts-admin-basic-info-service",
+            "ts-food-map-service",
+            "ts-config-service"
+          ],
+          "elapsed_ms": 820.2027000079397,
+          "table_memory_bytes": 1388583,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "uniform_first3": {
+          "resources": 3,
+          "metric_columns": 10,
+          "file_read_calls": 1,
+          "new_valid_measurements": 600,
+          "ranked": [
+            "ts-admin-basic-info-service"
+          ],
+          "elapsed_ms": 43.93490000802558,
+          "table_memory_bytes": 64449,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "random3_seed42": {
+          "resources": 3,
+          "metric_columns": 13,
+          "file_read_calls": 1,
+          "new_valid_measurements": 780,
+          "ranked": [
+            "ts-preserve-other-service"
+          ],
+          "elapsed_ms": 35.03379999892786,
+          "table_memory_bytes": 82026,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "static_one_hop": {
+          "resources": 3,
+          "metric_columns": 16,
+          "file_read_calls": 1,
+          "new_valid_measurements": 960,
+          "ranked": [
+            "ts-order-service",
+            "ts-payment-service"
+          ],
+          "elapsed_ms": 40.183999997680075,
+          "table_memory_bytes": 99603,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "evidence_frontier": {
+          "resources": 3,
+          "metric_columns": 16,
+          "file_read_calls": 1,
+          "new_valid_measurements": 960,
+          "ranked": [
+            "ts-order-service",
+            "ts-payment-service"
+          ],
+          "elapsed_ms": 41.64979999768548,
+          "table_memory_bytes": 99603,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "legacy_top1_frontier": {
+          "resources": 1,
+          "metric_columns": 5,
+          "file_read_calls": 1,
+          "new_valid_measurements": 300,
+          "ranked": [
+            "ts-order-service"
+          ],
+          "elapsed_ms": 24.819600002956577,
+          "table_memory_bytes": 35154,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        }
+      }
+    },
+    {
+      "case_id": "900e7b37549929638e94",
+      "strategies": {
+        "broad": {
+          "resources": 64,
+          "metric_columns": 223,
+          "file_read_calls": 1,
+          "new_valid_measurements": 13350,
+          "ranked": [
+            "ts-order-service",
+            "ts-security-service",
+            "ts-seat-service",
+            "ts-preserve-service",
+            "ts-preserve-other-service",
+            "ts-consign-price-service",
+            "ts-assurance-service"
+          ],
+          "elapsed_ms": 723.7998000055086,
+          "table_memory_bytes": 1749216,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "uniform_first3": {
+          "resources": 3,
+          "metric_columns": 10,
+          "file_read_calls": 1,
+          "new_valid_measurements": 600,
+          "ranked": [],
+          "elapsed_ms": 51.67299999448005,
+          "table_memory_bytes": 85899,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "random3_seed42": {
+          "resources": 3,
+          "metric_columns": 14,
+          "file_read_calls": 1,
+          "new_valid_measurements": 840,
+          "ranked": [
+            "ts-preserve-other-service"
+          ],
+          "elapsed_ms": 41.90549999475479,
+          "table_memory_bytes": 117135,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "static_one_hop": {
+          "resources": 3,
+          "metric_columns": 17,
+          "file_read_calls": 1,
+          "new_valid_measurements": 1020,
+          "ranked": [
+            "ts-order-service",
+            "ts-security-service"
+          ],
+          "elapsed_ms": 50.30189998797141,
+          "table_memory_bytes": 140562,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "evidence_frontier": {
+          "resources": 3,
+          "metric_columns": 17,
+          "file_read_calls": 1,
+          "new_valid_measurements": 1020,
+          "ranked": [
+            "ts-order-service",
+            "ts-security-service"
+          ],
+          "elapsed_ms": 47.36869999032933,
+          "table_memory_bytes": 140562,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "legacy_top1_frontier": {
+          "resources": 1,
+          "metric_columns": 6,
+          "file_read_calls": 1,
+          "new_valid_measurements": 360,
+          "ranked": [
+            "ts-security-service"
+          ],
+          "elapsed_ms": 25.555699990945868,
+          "table_memory_bytes": 54663,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        }
+      }
+    },
+    {
+      "case_id": "9292b402cc72e36a3861",
+      "strategies": {
+        "broad": {
+          "resources": 64,
+          "metric_columns": 217,
+          "file_read_calls": 1,
+          "new_valid_measurements": 12918,
+          "ranked": [
+            "ts-order-service",
+            "ts-inside-payment-service",
+            "ts-seat-service",
+            "ts-security-service",
+            "ts-preserve-service",
+            "ts-ui-dashboard",
+            "ts-station-mongo"
+          ],
+          "elapsed_ms": 717.8715000045486,
+          "table_memory_bytes": 1702362,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "uniform_first3": {
+          "resources": 3,
+          "metric_columns": 10,
+          "file_read_calls": 1,
+          "new_valid_measurements": 600,
+          "ranked": [],
+          "elapsed_ms": 45.85909999150317,
+          "table_memory_bytes": 85899,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "random3_seed42": {
+          "resources": 3,
+          "metric_columns": 10,
+          "file_read_calls": 1,
+          "new_valid_measurements": 600,
+          "ranked": [],
+          "elapsed_ms": 33.5726000048453,
+          "table_memory_bytes": 85899,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "static_one_hop": {
+          "resources": 3,
+          "metric_columns": 16,
+          "file_read_calls": 1,
+          "new_valid_measurements": 960,
+          "ranked": [
+            "ts-order-service",
+            "ts-seat-service",
+            "ts-security-service"
+          ],
+          "elapsed_ms": 44.83559999789577,
+          "table_memory_bytes": 132753,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "evidence_frontier": {
+          "resources": 3,
+          "metric_columns": 16,
+          "file_read_calls": 1,
+          "new_valid_measurements": 960,
+          "ranked": [
+            "ts-order-service",
+            "ts-seat-service",
+            "ts-security-service"
+          ],
+          "elapsed_ms": 47.541899999487214,
+          "table_memory_bytes": 132753,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "legacy_top1_frontier": {
+          "resources": 1,
+          "metric_columns": 6,
+          "file_read_calls": 1,
+          "new_valid_measurements": 360,
+          "ranked": [
+            "ts-order-service"
+          ],
+          "elapsed_ms": 25.4199999908451,
+          "table_memory_bytes": 54663,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        }
+      }
+    },
+    {
+      "case_id": "860d4056df5eb31a2eda",
+      "strategies": {
+        "broad": {
+          "resources": 64,
+          "metric_columns": 200,
+          "file_read_calls": 1,
+          "new_valid_measurements": 11880,
+          "ranked": [
+            "ts-order-service",
+            "ts-inside-payment-service",
+            "ts-assurance-service",
+            "ts-travel2-service",
+            "ts-admin-travel-service",
+            "ts-consign-service",
+            "ts-ui-dashboard",
+            "ts-price-service",
+            "ts-ticketinfo-service"
+          ],
+          "elapsed_ms": 859.2498000070918,
+          "table_memory_bytes": 1569609,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "uniform_first3": {
+          "resources": 3,
+          "metric_columns": 10,
+          "file_read_calls": 1,
+          "new_valid_measurements": 600,
+          "ranked": [],
+          "elapsed_ms": 45.92899999988731,
+          "table_memory_bytes": 85899,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "random3_seed42": {
+          "resources": 3,
+          "metric_columns": 10,
+          "file_read_calls": 1,
+          "new_valid_measurements": 600,
+          "ranked": [
+            "ts-admin-travel-service"
+          ],
+          "elapsed_ms": 33.34690000338014,
+          "table_memory_bytes": 85899,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "static_one_hop": {
+          "resources": 3,
+          "metric_columns": 17,
+          "file_read_calls": 1,
+          "new_valid_measurements": 1020,
+          "ranked": [
+            "ts-order-service",
+            "ts-inside-payment-service",
+            "ts-assurance-service"
+          ],
+          "elapsed_ms": 50.58840000128839,
+          "table_memory_bytes": 140562,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "evidence_frontier": {
+          "resources": 3,
+          "metric_columns": 17,
+          "file_read_calls": 1,
+          "new_valid_measurements": 1020,
+          "ranked": [
+            "ts-order-service",
+            "ts-inside-payment-service",
+            "ts-assurance-service"
+          ],
+          "elapsed_ms": 47.1694000007119,
+          "table_memory_bytes": 140562,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "legacy_top1_frontier": {
+          "resources": 1,
+          "metric_columns": 5,
+          "file_read_calls": 1,
+          "new_valid_measurements": 300,
+          "ranked": [
+            "ts-inside-payment-service"
+          ],
+          "elapsed_ms": 23.73839999199845,
+          "table_memory_bytes": 46854,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        }
+      }
+    },
+    {
+      "case_id": "b354fd1de7b43307b2c2",
+      "strategies": {
+        "broad": {
+          "resources": 64,
+          "metric_columns": 199,
+          "file_read_calls": 1,
+          "new_valid_measurements": 11820,
+          "ranked": [
+            "ts-food-map-service",
+            "ts-food-service",
+            "ts-order-service",
+            "ts-inside-payment-service",
+            "ts-consign-price-service",
+            "ts-consign-service",
+            "ts-travel-service"
+          ],
+          "elapsed_ms": 852.6227999973344,
+          "table_memory_bytes": 1561800,
+          "top1": false,
+          "top3": true,
+          "mrr": 0.3333333333333333
+        },
+        "uniform_first3": {
+          "resources": 3,
+          "metric_columns": 10,
+          "file_read_calls": 1,
+          "new_valid_measurements": 600,
+          "ranked": [],
+          "elapsed_ms": 43.45469998952467,
+          "table_memory_bytes": 85899,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "random3_seed42": {
+          "resources": 3,
+          "metric_columns": 10,
+          "file_read_calls": 1,
+          "new_valid_measurements": 600,
+          "ranked": [],
+          "elapsed_ms": 32.207699987338856,
+          "table_memory_bytes": 85899,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "static_one_hop": {
+          "resources": 2,
+          "metric_columns": 11,
+          "file_read_calls": 1,
+          "new_valid_measurements": 660,
+          "ranked": [
+            "ts-order-service",
+            "ts-inside-payment-service"
+          ],
+          "elapsed_ms": 33.99660000286531,
+          "table_memory_bytes": 93708,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "evidence_frontier": {
+          "resources": 2,
+          "metric_columns": 11,
+          "file_read_calls": 1,
+          "new_valid_measurements": 660,
+          "ranked": [
+            "ts-order-service",
+            "ts-inside-payment-service"
+          ],
+          "elapsed_ms": 33.93770000548102,
+          "table_memory_bytes": 93708,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        },
+        "legacy_top1_frontier": {
+          "resources": 1,
+          "metric_columns": 6,
+          "file_read_calls": 1,
+          "new_valid_measurements": 360,
+          "ranked": [
+            "ts-order-service"
+          ],
+          "elapsed_ms": 22.97079999698326,
+          "table_memory_bytes": 54663,
+          "top1": true,
+          "top3": true,
+          "mrr": 1.0
+        }
+      }
+    },
+    {
+      "case_id": "1cc942e291b5b576c725",
+      "strategies": {
+        "broad": {
+          "resources": 64,
+          "metric_columns": 200,
+          "file_read_calls": 1,
+          "new_valid_measurements": 11880,
+          "ranked": [
+            "ts-food-map-service",
+            "ts-order-service",
+            "ts-assurance-service",
+            "ts-inside-payment-service",
+            "ts-order-other-service",
+            "ts-consign-service",
+            "ts-travel-service",
+            "ts-voucher-mysql",
+            "ts-consign-price-service",
+            "ts-cancel-service"
+          ],
+          "elapsed_ms": 826.9934999989346,
+          "table_memory_bytes": 1569609,
+          "top1": false,
+          "top3": true,
+          "mrr": 0.5
+        },
+        "uniform_first3": {
+          "resources": 3,
+          "metric_columns": 10,
+          "file_read_calls": 1,
+          "new_valid_measurements": 600,
+          "ranked": [],
+          "elapsed_ms": 43.04940000292845,
+          "table_memory_bytes": 85899,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "random3_seed42": {
+          "resources": 3,
+          "metric_columns": 10,
+          "file_read_calls": 1,
+          "new_valid_measurements": 600,
+          "ranked": [],
+          "elapsed_ms": 32.73130000161473,
+          "table_memory_bytes": 85899,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "static_one_hop": {
+          "resources": 3,
+          "metric_columns": 15,
+          "file_read_calls": 1,
+          "new_valid_measurements": 900,
+          "ranked": [
+            "ts-food-map-service",
+            "ts-inside-payment-service",
+            "ts-order-other-service"
+          ],
+          "elapsed_ms": 45.13980000047013,
+          "table_memory_bytes": 124944,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "evidence_frontier": {
+          "resources": 3,
+          "metric_columns": 15,
+          "file_read_calls": 1,
+          "new_valid_measurements": 900,
+          "ranked": [
+            "ts-food-map-service",
+            "ts-inside-payment-service",
+            "ts-order-other-service"
+          ],
+          "elapsed_ms": 44.9434000038309,
+          "table_memory_bytes": 124944,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        },
+        "legacy_top1_frontier": {
+          "resources": 1,
+          "metric_columns": 5,
+          "file_read_calls": 1,
+          "new_valid_measurements": 300,
+          "ranked": [
+            "ts-order-other-service"
+          ],
+          "elapsed_ms": 21.87709999270737,
+          "table_memory_bytes": 46854,
+          "top1": false,
+          "top3": false,
+          "mrr": 0
+        }
+      }
+    }
+  ],
+  "scope": "Actual local Parquet column reads and subsequent recorded measurements at checkpoint+60 seconds; not live data collection. Initial broad detection cost is excluded from marginal follow-up accounting.",
+  "limitations": [
+    "Static one-hop and evidence-frontier coincide when no recorded topology exists; no graph advantage claimed.",
+    "One file read per nonempty strategy; fewer columns are not fewer AWS API calls.",
+    "table_memory_bytes is an in-memory data-volume proxy, not cloud billing or disk bytes read.",
+    "Uniform/random selections can miss a cause; abstention is included in accuracy denominators.",
+    "No anomaly labels or root causes are used for resource selection."
+  ]
+}
