@@ -1,0 +1,552 @@
+{
+  "status": "evaluated",
+  "cases": 5,
+  "protocol": "Five pre-existing RE2-OB cases, fixed midpoint plus 120 seconds. Matching per-case prefix-trained GNNs; no diagnosis-label tuning. Same measured prefix across four methods. This is an illustrative compatibility study.",
+  "methods": {
+    "statistical_baseline": {
+      "cases": 5,
+      "top1": 1,
+      "top3": 1,
+      "mechanism_agreement": 0,
+      "driver_abstention": 1,
+      "mean_queries": 0,
+      "mean_effort_units": 0,
+      "mean_diagnosis_ms": 269.6804000013799,
+      "underlying_driver_accuracy": null,
+      "unsupported_diagnosis_rate": null
+    },
+    "gnn_only": {
+      "cases": 5,
+      "top1": 0.6,
+      "top3": 0.8,
+      "mechanism_agreement": 0,
+      "driver_abstention": 1,
+      "mean_queries": 0,
+      "mean_effort_units": 0,
+      "mean_diagnosis_ms": 301.8236200019601,
+      "underlying_driver_accuracy": null,
+      "unsupported_diagnosis_rate": null
+    },
+    "gnn_conventional_diagnosis": {
+      "cases": 5,
+      "top1": 0.6,
+      "top3": 0.8,
+      "mechanism_agreement": 0.2,
+      "driver_abstention": 1,
+      "mean_queries": 4.4,
+      "mean_effort_units": 4.4,
+      "mean_diagnosis_ms": 304.5289200017578,
+      "underlying_driver_accuracy": null,
+      "unsupported_diagnosis_rate": null
+    },
+    "gnn_probe_xai": {
+      "cases": 5,
+      "top1": 0.6,
+      "top3": 0.8,
+      "mechanism_agreement": 0.2,
+      "driver_abstention": 1,
+      "mean_queries": 2,
+      "mean_effort_units": 2,
+      "mean_diagnosis_ms": 303.6402000019734,
+      "underlying_driver_accuracy": null,
+      "unsupported_diagnosis_rate": null
+    }
+  },
+  "case_results": [
+    {
+      "case_id": "364d289fa7b7106f7a71",
+      "as_of": 1705354686.0,
+      "predictions": {
+        "statistical_baseline": {
+          "ranking": [
+            "checkoutservice",
+            "cartservice",
+            "currencyservice"
+          ],
+          "mechanism": null,
+          "underlying_driver": null,
+          "deepest_level": "mechanism",
+          "followup_queries": 0,
+          "effort_units": 0,
+          "diagnosis_ms": 989.997200002108,
+          "model_status": "not_applied"
+        },
+        "gnn_only": {
+          "ranking": [
+            "checkoutservice",
+            "paymentservice",
+            "emailservice",
+            "productcatalogservice",
+            "currencyservice",
+            "recommendationservice",
+            "frontend",
+            "adservice",
+            "shippingservice",
+            "cartservice",
+            "redis",
+            "frontend-external"
+          ],
+          "mechanism": null,
+          "underlying_driver": null,
+          "deepest_level": "mechanism",
+          "followup_queries": 0,
+          "effort_units": 0,
+          "diagnosis_ms": 1030.3969000051438,
+          "model_status": "evaluated"
+        },
+        "gnn_conventional_diagnosis": {
+          "ranking": [
+            "checkoutservice",
+            "paymentservice",
+            "emailservice",
+            "productcatalogservice",
+            "currencyservice",
+            "recommendationservice",
+            "frontend",
+            "adservice",
+            "shippingservice",
+            "cartservice",
+            "redis",
+            "frontend-external"
+          ],
+          "mechanism": "cpu_pressure",
+          "underlying_driver": null,
+          "deepest_level": "mechanism",
+          "followup_queries": 4,
+          "effort_units": 4,
+          "diagnosis_ms": 1033.1213000026764,
+          "model_status": "evaluated"
+        },
+        "gnn_probe_xai": {
+          "ranking": [
+            "checkoutservice",
+            "paymentservice",
+            "emailservice",
+            "productcatalogservice",
+            "currencyservice",
+            "recommendationservice",
+            "frontend",
+            "adservice",
+            "shippingservice",
+            "cartservice",
+            "redis",
+            "frontend-external"
+          ],
+          "mechanism": "cpu_pressure",
+          "underlying_driver": null,
+          "deepest_level": "mechanism",
+          "followup_queries": 2,
+          "effort_units": 2,
+          "diagnosis_ms": 1033.4673000033945,
+          "model_status": "evaluated"
+        }
+      },
+      "evaluation_only_truth": {
+        "root_cause_service": "checkoutservice",
+        "fault": "cpu",
+        "inject_time": 1705354566,
+        "system": "ob",
+        "label_source": "Official RE2 case index and inject_time.txt; controlled injection"
+      }
+    },
+    {
+      "case_id": "f41f071745c16594b5f5",
+      "as_of": 1705464639.0,
+      "predictions": {
+        "statistical_baseline": {
+          "ranking": [
+            "currencyservice",
+            "frontend",
+            "checkoutservice",
+            "recommendationservice",
+            "cartservice",
+            "productcatalogservice",
+            "paymentservice"
+          ],
+          "mechanism": null,
+          "underlying_driver": null,
+          "deepest_level": "mechanism",
+          "followup_queries": 0,
+          "effort_units": 0,
+          "diagnosis_ms": 82.46040000085486,
+          "model_status": "not_applied"
+        },
+        "gnn_only": {
+          "ranking": [
+            "frontend",
+            "checkoutservice",
+            "currencyservice",
+            "productcatalogservice",
+            "emailservice",
+            "paymentservice",
+            "recommendationservice",
+            "adservice",
+            "cartservice",
+            "shippingservice",
+            "redis",
+            "frontend-external"
+          ],
+          "mechanism": null,
+          "underlying_driver": null,
+          "deepest_level": "location",
+          "followup_queries": 0,
+          "effort_units": 0,
+          "diagnosis_ms": 112.40650000036112,
+          "model_status": "evaluated"
+        },
+        "gnn_conventional_diagnosis": {
+          "ranking": [
+            "frontend",
+            "checkoutservice",
+            "currencyservice",
+            "productcatalogservice",
+            "emailservice",
+            "paymentservice",
+            "recommendationservice",
+            "adservice",
+            "cartservice",
+            "shippingservice",
+            "redis",
+            "frontend-external"
+          ],
+          "mechanism": null,
+          "underlying_driver": null,
+          "deepest_level": "location",
+          "followup_queries": 4,
+          "effort_units": 4,
+          "diagnosis_ms": 114.7421999994549,
+          "model_status": "evaluated"
+        },
+        "gnn_probe_xai": {
+          "ranking": [
+            "frontend",
+            "checkoutservice",
+            "currencyservice",
+            "productcatalogservice",
+            "emailservice",
+            "paymentservice",
+            "recommendationservice",
+            "adservice",
+            "cartservice",
+            "shippingservice",
+            "redis",
+            "frontend-external"
+          ],
+          "mechanism": null,
+          "underlying_driver": null,
+          "deepest_level": "location",
+          "followup_queries": 2,
+          "effort_units": 2,
+          "diagnosis_ms": 114.27739999999176,
+          "model_status": "evaluated"
+        }
+      },
+      "evaluation_only_truth": {
+        "root_cause_service": "currencyservice",
+        "fault": "mem",
+        "inject_time": 1705464519,
+        "system": "ob",
+        "label_source": "Official RE2 case index and inject_time.txt; controlled injection"
+      }
+    },
+    {
+      "case_id": "2f4bfdc9ac0d37bd7dc5",
+      "as_of": 1705370215.0,
+      "predictions": {
+        "statistical_baseline": {
+          "ranking": [
+            "emailservice"
+          ],
+          "mechanism": null,
+          "underlying_driver": null,
+          "deepest_level": "mechanism",
+          "followup_queries": 0,
+          "effort_units": 0,
+          "diagnosis_ms": 95.61440000106813,
+          "model_status": "not_applied"
+        },
+        "gnn_only": {
+          "ranking": [
+            "emailservice",
+            "recommendationservice",
+            "checkoutservice",
+            "productcatalogservice",
+            "frontend",
+            "currencyservice",
+            "adservice",
+            "paymentservice",
+            "shippingservice",
+            "cartservice",
+            "frontend-external",
+            "redis"
+          ],
+          "mechanism": null,
+          "underlying_driver": null,
+          "deepest_level": "mechanism",
+          "followup_queries": 0,
+          "effort_units": 0,
+          "diagnosis_ms": 123.93900000097346,
+          "model_status": "evaluated"
+        },
+        "gnn_conventional_diagnosis": {
+          "ranking": [
+            "emailservice",
+            "recommendationservice",
+            "checkoutservice",
+            "productcatalogservice",
+            "frontend",
+            "currencyservice",
+            "adservice",
+            "paymentservice",
+            "shippingservice",
+            "cartservice",
+            "frontend-external",
+            "redis"
+          ],
+          "mechanism": "cpu_pressure",
+          "underlying_driver": null,
+          "deepest_level": "mechanism",
+          "followup_queries": 5,
+          "effort_units": 5,
+          "diagnosis_ms": 127.18380000296747,
+          "model_status": "evaluated"
+        },
+        "gnn_probe_xai": {
+          "ranking": [
+            "emailservice",
+            "recommendationservice",
+            "checkoutservice",
+            "productcatalogservice",
+            "frontend",
+            "currencyservice",
+            "adservice",
+            "paymentservice",
+            "shippingservice",
+            "cartservice",
+            "frontend-external",
+            "redis"
+          ],
+          "mechanism": "cpu_pressure",
+          "underlying_driver": null,
+          "deepest_level": "mechanism",
+          "followup_queries": 2,
+          "effort_units": 2,
+          "diagnosis_ms": 126.79339999885997,
+          "model_status": "evaluated"
+        }
+      },
+      "evaluation_only_truth": {
+        "root_cause_service": "emailservice",
+        "fault": "disk",
+        "inject_time": 1705370095,
+        "system": "ob",
+        "label_source": "Official RE2 case index and inject_time.txt; controlled injection"
+      }
+    },
+    {
+      "case_id": "4e587b5f0eac94cff8e2",
+      "as_of": 1705394698.0,
+      "predictions": {
+        "statistical_baseline": {
+          "ranking": [
+            "productcatalogservice",
+            "recommendationservice",
+            "frontend",
+            "checkoutservice"
+          ],
+          "mechanism": null,
+          "underlying_driver": null,
+          "deepest_level": "location",
+          "followup_queries": 0,
+          "effort_units": 0,
+          "diagnosis_ms": 75.91600000159815,
+          "model_status": "not_applied"
+        },
+        "gnn_only": {
+          "ranking": [
+            "frontend",
+            "checkoutservice",
+            "recommendationservice",
+            "productcatalogservice",
+            "currencyservice",
+            "emailservice",
+            "paymentservice",
+            "shippingservice",
+            "adservice",
+            "cartservice",
+            "frontend-external",
+            "redis"
+          ],
+          "mechanism": null,
+          "underlying_driver": null,
+          "deepest_level": "location",
+          "followup_queries": 0,
+          "effort_units": 0,
+          "diagnosis_ms": 106.90120000072056,
+          "model_status": "evaluated"
+        },
+        "gnn_conventional_diagnosis": {
+          "ranking": [
+            "frontend",
+            "checkoutservice",
+            "recommendationservice",
+            "productcatalogservice",
+            "currencyservice",
+            "emailservice",
+            "paymentservice",
+            "shippingservice",
+            "adservice",
+            "cartservice",
+            "frontend-external",
+            "redis"
+          ],
+          "mechanism": null,
+          "underlying_driver": null,
+          "deepest_level": "location",
+          "followup_queries": 4,
+          "effort_units": 4,
+          "diagnosis_ms": 106.87529999995604,
+          "model_status": "evaluated"
+        },
+        "gnn_probe_xai": {
+          "ranking": [
+            "frontend",
+            "checkoutservice",
+            "recommendationservice",
+            "productcatalogservice",
+            "currencyservice",
+            "emailservice",
+            "paymentservice",
+            "shippingservice",
+            "adservice",
+            "cartservice",
+            "frontend-external",
+            "redis"
+          ],
+          "mechanism": null,
+          "underlying_driver": null,
+          "deepest_level": "location",
+          "followup_queries": 2,
+          "effort_units": 2,
+          "diagnosis_ms": 106.68490000171005,
+          "model_status": "evaluated"
+        }
+      },
+      "evaluation_only_truth": {
+        "root_cause_service": "productcatalogservice",
+        "fault": "delay",
+        "inject_time": 1705394578,
+        "system": "ob",
+        "label_source": "Official RE2 case index and inject_time.txt; controlled injection"
+      }
+    },
+    {
+      "case_id": "76ec1be060854cf5f49f",
+      "as_of": 1705347351.0,
+      "predictions": {
+        "statistical_baseline": {
+          "ranking": [
+            "recommendationservice",
+            "frontend",
+            "productcatalogservice",
+            "adservice"
+          ],
+          "mechanism": null,
+          "underlying_driver": null,
+          "deepest_level": "location",
+          "followup_queries": 0,
+          "effort_units": 0,
+          "diagnosis_ms": 104.41400000127032,
+          "model_status": "not_applied"
+        },
+        "gnn_only": {
+          "ranking": [
+            "recommendationservice",
+            "frontend",
+            "productcatalogservice",
+            "checkoutservice",
+            "currencyservice",
+            "adservice",
+            "shippingservice",
+            "cartservice",
+            "frontend-external",
+            "paymentservice",
+            "emailservice",
+            "redis"
+          ],
+          "mechanism": null,
+          "underlying_driver": null,
+          "deepest_level": "location",
+          "followup_queries": 0,
+          "effort_units": 0,
+          "diagnosis_ms": 135.47450000260142,
+          "model_status": "evaluated"
+        },
+        "gnn_conventional_diagnosis": {
+          "ranking": [
+            "recommendationservice",
+            "frontend",
+            "productcatalogservice",
+            "checkoutservice",
+            "currencyservice",
+            "adservice",
+            "shippingservice",
+            "cartservice",
+            "frontend-external",
+            "paymentservice",
+            "emailservice",
+            "redis"
+          ],
+          "mechanism": null,
+          "underlying_driver": null,
+          "deepest_level": "location",
+          "followup_queries": 5,
+          "effort_units": 5,
+          "diagnosis_ms": 140.72200000373414,
+          "model_status": "evaluated"
+        },
+        "gnn_probe_xai": {
+          "ranking": [
+            "recommendationservice",
+            "frontend",
+            "productcatalogservice",
+            "checkoutservice",
+            "currencyservice",
+            "adservice",
+            "shippingservice",
+            "cartservice",
+            "frontend-external",
+            "paymentservice",
+            "emailservice",
+            "redis"
+          ],
+          "mechanism": null,
+          "underlying_driver": null,
+          "deepest_level": "location",
+          "followup_queries": 2,
+          "effort_units": 2,
+          "diagnosis_ms": 136.97800000591087,
+          "model_status": "evaluated"
+        }
+      },
+      "evaluation_only_truth": {
+        "root_cause_service": "recommendationservice",
+        "fault": "loss",
+        "inject_time": 1705347231,
+        "system": "ob",
+        "label_source": "Official RE2 case index and inject_time.txt; controlled injection"
+      }
+    }
+  ],
+  "conclusion": "This bounded study tests implementation compatibility and diagnostic abstention. It does not establish novelty, generalization or a PROBE-XAI accuracy advantage.",
+  "limitations": [
+    "Five preselected illustrative cases, not an independent representative test set.",
+    "RCAEval injected fault labels do not independently label deeper workload/application drivers; driver accuracy and unsupported-diagnosis rate are unavailable.",
+    "Follow-up costs count in-memory recorded-column inspections, not live diagnostic API reads, AWS savings or measured information gain.",
+    "GNN checkpoints were fitted independently on each recording prefix; no transfer to banking workload is assumed.",
+    "No Bank of Anthos banking transactions or banking safety outcomes were measured in this study.",
+    "Budgets are declared method configurations, not tuned test-set optima."
+  ],
+  "labels_used_for": "Scoring after all method predictions, never inference",
+  "probe_version": "probe-xai-v1"
+}

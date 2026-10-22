@@ -14,6 +14,7 @@ class Settings(BaseSettings):
     collect_application_metrics: bool = True
     aws_region: str = "ap-south-1"
     aws_profile: str = ""
+    banking_dataset_bucket: str = ""
     ec2_instance_ids: str = ""
     rds_instance_ids: str = ""
     cloudwatch_lookback_minutes: int = 15

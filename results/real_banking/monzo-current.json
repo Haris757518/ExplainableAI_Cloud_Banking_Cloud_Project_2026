@@ -1,0 +1,70 @@
+{
+  "bank": "monzo",
+  "source_url": "https://monzo.com/service-information",
+  "retrieved_at": "2026-10-22T07:32:43.145102+00:00",
+  "snapshot": "results\\real_banking\\raw\\monzo-a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51.html",
+  "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51",
+  "normalized_sha256": "f8df78353990719d412cf1fef363f0e4f5ad20075cab1e2e7c830faeeb24ba7e",
+  "normalized_csv": "results\\real_banking\\imports\\monzo-1ad504c3627549dfb3e4daa4c7a0a48a\\observations.csv",
+  "observations": "results\\real_banking\\imports\\monzo-1ad504c3627549dfb3e4daa4c7a0a48a\\observations.json",
+  "start_date": "2019-09-14",
+  "end_date": "2026-06-30",
+  "reporting_quarters": [
+    "2019-Q3",
+    "2019-Q4",
+    "2020-Q1",
+    "2020-Q2",
+    "2020-Q3",
+    "2020-Q4",
+    "2021-Q1",
+    "2021-Q2",
+    "2021-Q3",
+    "2021-Q4",
+    "2022-Q1",
+    "2022-Q2",
+    "2022-Q3",
+    "2022-Q4",
+    "2023-Q1",
+    "2023-Q2",
+    "2023-Q3",
+    "2023-Q4",
+    "2024-Q1",
+    "2024-Q2",
+    "2024-Q3",
+    "2024-Q4",
+    "2025-Q1",
+    "2025-Q2",
+    "2025-Q3",
+    "2025-Q4",
+    "2026-Q1",
+    "2026-Q2"
+  ],
+  "validation": {
+    "rows": 24820,
+    "null_values": 4967,
+    "unsupported_values": [
+      {
+        "date": "2022-11-03",
+        "service": "Monzo App",
+        "raw_value": "100 m"
+      },
+      {
+        "date": "2022-11-03",
+        "service": "Open Banking Account Information",
+        "raw_value": ",206"
+      },
+      {
+        "date": "2022-11-03",
+        "service": "Open Banking Payment Initiation",
+        "raw_value": "ms,190"
+      }
+    ],
+    "missing_dates": [],
+    "series": 10
+  },
+  "schema_version": "public-bank-v1",
+  "limitations": [
+    "Aggregated public statistics; internal infrastructure cause unavailable.",
+    "Monzo omitted trailing CBPII daily cells are null."
+  ]
+}

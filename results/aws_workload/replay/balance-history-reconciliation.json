@@ -1,0 +1,52 @@
+{
+  "source": "executed-aws-bank-of-anthos",
+  "checked_at": 1792692665.2365725,
+  "accounts": [
+    {
+      "account": "1011226111",
+      "ledger_expected_balance_cents": 65870933,
+      "api_balance_cents": 65870933,
+      "balance_matches": true,
+      "history_returned": 100,
+      "history_unique_ids": true
+    },
+    {
+      "account": "1033623433",
+      "ledger_expected_balance_cents": 35582225,
+      "api_balance_cents": 35582225,
+      "balance_matches": true,
+      "history_returned": 100,
+      "history_unique_ids": true
+    }
+  ],
+  "observations": [
+    {
+      "timestamp": 1792692668.4907703,
+      "balance_read_latency_ms": 7.667707999644335,
+      "http_status": 200
+    },
+    {
+      "timestamp": 1792692670.5056562,
+      "balance_read_latency_ms": 14.738327000031859,
+      "http_status": 200
+    },
+    {
+      "timestamp": 1792692672.513349,
+      "balance_read_latency_ms": 7.4796009998863155,
+      "http_status": 200
+    }
+  ],
+  "blocked_database_sessions": 0,
+  "ledgerwriter_resources": {
+    "limits": {
+      "cpu": "500m",
+      "ephemeral-storage": "512Mi",
+      "memory": "512Mi"
+    },
+    "requests": {
+      "cpu": "100m",
+      "ephemeral-storage": "512Mi",
+      "memory": "256Mi"
+    }
+  }
+}

@@ -65,12 +65,15 @@ def train_observed(sample, output, *, epochs=100, seed=42):
     if any(not m[a:b].sum() for a,b in [(0,train_end),(train_end,val_end),(val_end,len(times))]):
         raise ValueError('A chronological partition contains no observed targets.')
     best, best_loss = None, float('inf')
-    for _ in range(epochs):
+    history=[]
+    for epoch in range(epochs):
         model.train(); optimizer.zero_grad()
         loss(model(x[:train_end], m[:train_end], adjacency), x[:train_end], m[:train_end]).backward()
         optimizer.step(); model.eval()
         with torch.no_grad():
+            training = loss(model(x[:train_end],m[:train_end],adjacency),x[:train_end],m[:train_end]).item()
             validation = loss(model(x[train_end:val_end], m[train_end:val_end], adjacency), x[train_end:val_end], m[train_end:val_end]).item()
+        history.append({'epoch':epoch+1,'training_masked_mse':training,'validation_masked_mse':validation})
         if validation < best_loss:
             best_loss, best = validation, copy.deepcopy(model.state_dict())
     model.load_state_dict(best)
@@ -82,6 +85,7 @@ def train_observed(sample, output, *, epochs=100, seed=42):
     provenance = hashlib.sha256(json.dumps(series,sort_keys=True).encode()).hexdigest()
     report = {'source':sample.source, 'series_sha256':provenance, 'seed':seed, 'features':FEATURES,
               'windows':len(times), 'train_windows':train_end, 'validation_windows':val_end-train_end,'test_windows':len(times)-val_end,
+              'loss_history':history,'selected_epoch':min(history,key=lambda h:h['validation_masked_mse'])['epoch'],
               'time_boundaries_ms':{'train_end':times[train_end-1],'validation_start':times[train_end],'test_start':times[val_end]},
               'test_observed_targets':int(m[val_end:].sum()), 'validation_mse':best_loss,'test_masked_mse':test_mse,'train_mean_baseline_test_mse':baseline,
               'supervised_accuracy':None,'rca_top1_accuracy':None,'ground_truth_available':False,

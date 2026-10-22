@@ -28,3 +28,22 @@ frontend/test-results/
 results/observed_v2/live_validation*.json
 
 results/research_v3/aws_validation*.json
+
+# Private keys and local cloud/session credentials
+*.pem
+*.pfx
+*.p12
+*.key
+.aws/
+.env.*
+!.env.example
+
+# Local verification workspaces and generated deployment bundles
+.report-qa/
+.test-temp/
+results/*test-temp/
+results/local_completion_20261022/
+results/redesign_20261022/before_probe_xai.zip
+deploy/anthos-prepared/
+deploy/apply_anthos_aws.sh
+frontend/playwright-report/

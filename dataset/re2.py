@@ -5,14 +5,20 @@ from dataset.benchmarks import ROOT,digest,finite,period
 from common.research import DataSource,TelemetryCase,TelemetrySeries,TelemetryObservation,DependencyEdge
 V4=ROOT.parent/'research_v4'
 def entries():
-    return json.loads((V4/'manifest.json').read_text(encoding='utf-8')) if (V4/'manifest.json').exists() else {'cases':[]}
+    info=json.loads((V4/'manifest.json').read_text(encoding='utf-8')) if (V4/'manifest.json').exists() else {'cases':[]}
+    extra=ROOT.parent/'research_probe/manifest.json'
+    if extra.exists():
+        added=json.loads(extra.read_text(encoding='utf-8'))
+        if info.get('revision') and info['revision']!=added['revision']:raise ValueError('Incompatible pinned RE2 revisions')
+        info['cases']+= [{**e,'storage_collection':'research_probe'} for e in added['cases']]
+    return info
 
 @lru_cache(maxsize=2)
 def load_re2(case_id):
     import pyarrow.parquet as pq
     info=entries();entry=next((e for e in info['cases'] if e['id']==case_id),None)
     if entry is None:raise FileNotFoundError('Benchmark case is not imported')
-    folder=V4/entry['display_name']
+    folder=(ROOT.parent/entry['storage_collection'] if entry.get('storage_collection') else V4)/entry['display_name']
     for filename,sha in entry['checksums'].items():
         if digest(folder/filename)!=sha:raise ValueError('RE2 source checksum mismatch')
     table=pq.read_table(folder/'metrics.parquet').to_pydict();times=table.pop('time')
@@ -40,12 +46,13 @@ def load_re2(case_id):
         available=max((row['startTime']+row['duration'])/1e6,(parent['startTime']+parent['duration'])/1e6)
         key=(source,target);edges[key]=min(available,edges.get(key,float('inf')))
     topology=[DependencyEdge(source=a,target=b,relationship='recorded_parent_child_span',provenance='Official RE2 Jaeger traceID + parentSpanID match; availability after both spans finish',observed_at=t) for (a,b),t in sorted(edges.items())]
-    return TelemetryCase(id=case_id,source=DataSource(id='rcaeval',kind='recorded_controlled_benchmark',reference='https://huggingface.co/datasets/phamquiluan/RCAEval',revision=info['revision'],topology_status='recorded trace parent-child'),collection=entry['sha256'],series=series,edges=topology,provenance={'sha256':entry['sha256'],'split':'illustrative_re2_graph','recording_end':float(times[-1]),'topology':'Recorded RE2 parent-child spans, time-gated. frontendservice → frontend explicit alias.','unmatched_trace_services':sorted(unmatched),'trace_sha256':entry['checksums']['traces.parquet']})
+    return TelemetryCase(id=case_id,source=DataSource(id='rcaeval',kind='recorded_controlled_benchmark',reference='https://huggingface.co/datasets/phamquiluan/RCAEval',revision=info['revision'],topology_status='recorded trace parent-child'),collection=entry['sha256'],series=series,edges=topology,provenance={'sha256':entry['sha256'],'split':entry.get('split','illustrative_re2_graph'),'recording_end':float(times[-1]),'topology':'Recorded RE2 parent-child spans, time-gated. frontendservice → frontend explicit alias.','unmatched_trace_services':sorted(unmatched),'trace_sha256':entry['checksums']['traces.parquet']})
 
 def truth_re2(case_id):
     import pyarrow.parquet as pq
     entry=next(e for e in entries()['cases'] if e['id']==case_id)
     row=next(r for r in pq.read_table(ROOT/'rcaeval/cases.parquet').to_pylist() if r['case']==entry['display_name'])
     if row!=entry['truth']:raise ValueError('RE2 annotation differs from official index')
-    if int((V4/entry['display_name']/'inject_time.txt').read_text())!=row['inject_time']:raise ValueError('Injection time mismatch')
+    folder=(ROOT.parent/entry['storage_collection'] if entry.get('storage_collection') else V4)/entry['display_name']
+    if int((folder/'inject_time.txt').read_text())!=row['inject_time']:raise ValueError('Injection time mismatch')
     return {k:row[k] for k in ('root_cause_service','fault','inject_time','system')}|{'label_source':'Official RE2 case index and inject_time.txt; controlled injection'}

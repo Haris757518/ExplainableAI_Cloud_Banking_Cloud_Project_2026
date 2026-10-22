@@ -1,0 +1,3139 @@
+{
+  "model_version": "public-bank-mad-v1",
+  "input_sha256": "c86e3467726be4f7aae337aa286de35aed8241e5b63452382df84e17d35a0cb2",
+  "configuration": {
+    "training_fraction": 0.6,
+    "calibration_fraction": 0.2,
+    "test_fraction": 0.2,
+    "minimum_score": 3.5,
+    "calibration_quantile": 0.99
+  },
+  "series": [
+    {
+      "bank": "Monzo",
+      "service": "Open Banking Payment Initiation",
+      "metric": "latency",
+      "status": "evaluated",
+      "split": {
+        "training": [
+          "2019-09-14",
+          "2023-10-11"
+        ],
+        "calibration": [
+          "2023-10-12",
+          "2025-02-18"
+        ],
+        "test": [
+          "2025-02-19",
+          "2026-06-30"
+        ]
+      },
+      "counts": {
+        "training": 1488,
+        "calibration": 496,
+        "test": 497
+      },
+      "reference": 164.0,
+      "scale": 14.825999999999999,
+      "threshold": 3.5,
+      "findings": [
+        {
+          "date": "2025-04-26",
+          "observed": 295.0,
+          "reference": 164.0,
+          "deviation": 131.0,
+          "score": 8.835828949143398,
+          "consecutive_flagged_days": 1,
+          "evidence": {
+            "bank": "Monzo",
+            "source_name": "Monzo Service Information",
+            "date": "2025-04-26",
+            "service": "Open Banking Payment Initiation",
+            "metric": "latency",
+            "value": 295.0,
+            "unit": "milliseconds",
+            "frequency": "daily",
+            "data_origin": "published_real_bank",
+            "source_url": "https://monzo.com/service-information",
+            "retrieved_at": "2026-10-22T07:32:43.145102+00:00",
+            "record_status": "observed",
+            "raw_value": "295 ms",
+            "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51"
+          },
+          "status": "model_flagged_deviation",
+          "verified_incident": false,
+          "explanation": "Open Banking Payment Initiation latency deviated from its historical reference. Internal infrastructure cause is unknown: public data contains no CPU, database or distributed trace evidence."
+        },
+        {
+          "date": "2025-05-08",
+          "observed": 314.0,
+          "reference": 164.0,
+          "deviation": 150.0,
+          "score": 10.11736139214893,
+          "consecutive_flagged_days": 1,
+          "evidence": {
+            "bank": "Monzo",
+            "source_name": "Monzo Service Information",
+            "date": "2025-05-08",
+            "service": "Open Banking Payment Initiation",
+            "metric": "latency",
+            "value": 314.0,
+            "unit": "milliseconds",
+            "frequency": "daily",
+            "data_origin": "published_real_bank",
+            "source_url": "https://monzo.com/service-information",
+            "retrieved_at": "2026-10-22T07:32:43.145102+00:00",
+            "record_status": "observed",
+            "raw_value": "314 ms",
+            "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51"
+          },
+          "status": "model_flagged_deviation",
+          "verified_incident": false,
+          "explanation": "Open Banking Payment Initiation latency deviated from its historical reference. Internal infrastructure cause is unknown: public data contains no CPU, database or distributed trace evidence."
+        },
+        {
+          "date": "2026-01-13",
+          "observed": 358.0,
+          "reference": 164.0,
+          "deviation": 194.0,
+          "score": 13.085120733845947,
+          "consecutive_flagged_days": 1,
+          "evidence": {
+            "bank": "Monzo",
+            "source_name": "Monzo Service Information",
+            "date": "2026-01-13",
+            "service": "Open Banking Payment Initiation",
+            "metric": "latency",
+            "value": 358.0,
+            "unit": "milliseconds",
+            "frequency": "daily",
+            "data_origin": "published_real_bank",
+            "source_url": "https://monzo.com/service-information",
+            "retrieved_at": "2026-10-22T07:32:43.145102+00:00",
+            "record_status": "observed",
+            "raw_value": "358 ms",
+            "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51"
+          },
+          "status": "model_flagged_deviation",
+          "verified_incident": false,
+          "explanation": "Open Banking Payment Initiation latency deviated from its historical reference. Internal infrastructure cause is unknown: public data contains no CPU, database or distributed trace evidence."
+        }
+      ],
+      "precision": null,
+      "recall": null,
+      "limitations": "No incident labels; flags do not establish banking faults or root causes."
+    }
+  ],
+  "forecast": {
+    "status": "evaluated",
+    "target": "next recorded observation; calendar gaps are not filled",
+    "test_start": "2025-02-19",
+    "test_end": "2026-06-30",
+    "test_count": 497,
+    "methods": {
+      "training_median": {
+        "mae": 10.804828973843058,
+        "mse": 329.61368209255534
+      },
+      "persistence": {
+        "mae": 5.565392354124748,
+        "mse": 291.0824949698189
+      }
+    },
+    "predictions": [
+      {
+        "date": "2025-02-19",
+        "actual": 161.0,
+        "training_median": 164.0,
+        "persistence": 164.0
+      },
+      {
+        "date": "2025-02-20",
+        "actual": 160.0,
+        "training_median": 164.0,
+        "persistence": 161.0
+      },
+      {
+        "date": "2025-02-21",
+        "actual": 161.0,
+        "training_median": 164.0,
+        "persistence": 160.0
+      },
+      {
+        "date": "2025-02-22",
+        "actual": 161.0,
+        "training_median": 164.0,
+        "persistence": 161.0
+      },
+      {
+        "date": "2025-02-23",
+        "actual": 158.0,
+        "training_median": 164.0,
+        "persistence": 161.0
+      },
+      {
+        "date": "2025-02-24",
+        "actual": 167.0,
+        "training_median": 164.0,
+        "persistence": 158.0
+      },
+      {
+        "date": "2025-02-25",
+        "actual": 168.0,
+        "training_median": 164.0,
+        "persistence": 167.0
+      },
+      {
+        "date": "2025-02-26",
+        "actual": 167.0,
+        "training_median": 164.0,
+        "persistence": 168.0
+      },
+      {
+        "date": "2025-02-27",
+        "actual": 165.0,
+        "training_median": 164.0,
+        "persistence": 167.0
+      },
+      {
+        "date": "2025-02-28",
+        "actual": 172.0,
+        "training_median": 164.0,
+        "persistence": 165.0
+      },
+      {
+        "date": "2025-03-01",
+        "actual": 168.0,
+        "training_median": 164.0,
+        "persistence": 172.0
+      },
+      {
+        "date": "2025-03-02",
+        "actual": 168.0,
+        "training_median": 164.0,
+        "persistence": 168.0
+      },
+      {
+        "date": "2025-03-03",
+        "actual": 169.0,
+        "training_median": 164.0,
+        "persistence": 168.0
+      },
+      {
+        "date": "2025-03-04",
+        "actual": 170.0,
+        "training_median": 164.0,
+        "persistence": 169.0
+      },
+      {
+        "date": "2025-03-05",
+        "actual": 169.0,
+        "training_median": 164.0,
+        "persistence": 170.0
+      },
+      {
+        "date": "2025-03-06",
+        "actual": 164.0,
+        "training_median": 164.0,
+        "persistence": 169.0
+      },
+      {
+        "date": "2025-03-07",
+        "actual": 168.0,
+        "training_median": 164.0,
+        "persistence": 164.0
+      },
+      {
+        "date": "2025-03-08",
+        "actual": 168.0,
+        "training_median": 164.0,
+        "persistence": 168.0
+      },
+      {
+        "date": "2025-03-09",
+        "actual": 170.0,
+        "training_median": 164.0,
+        "persistence": 168.0
+      },
+      {
+        "date": "2025-03-10",
+        "actual": 171.0,
+        "training_median": 164.0,
+        "persistence": 170.0
+      },
+      {
+        "date": "2025-03-11",
+        "actual": 168.0,
+        "training_median": 164.0,
+        "persistence": 171.0
+      },
+      {
+        "date": "2025-03-12",
+        "actual": 168.0,
+        "training_median": 164.0,
+        "persistence": 168.0
+      },
+      {
+        "date": "2025-03-13",
+        "actual": 159.0,
+        "training_median": 164.0,
+        "persistence": 168.0
+      },
+      {
+        "date": "2025-03-14",
+        "actual": 162.0,
+        "training_median": 164.0,
+        "persistence": 159.0
+      },
+      {
+        "date": "2025-03-15",
+        "actual": 169.0,
+        "training_median": 164.0,
+        "persistence": 162.0
+      },
+      {
+        "date": "2025-03-16",
+        "actual": 169.0,
+        "training_median": 164.0,
+        "persistence": 169.0
+      },
+      {
+        "date": "2025-03-17",
+        "actual": 170.0,
+        "training_median": 164.0,
+        "persistence": 169.0
+      },
+      {
+        "date": "2025-03-18",
+        "actual": 162.0,
+        "training_median": 164.0,
+        "persistence": 170.0
+      },
+      {
+        "date": "2025-03-19",
+        "actual": 176.0,
+        "training_median": 164.0,
+        "persistence": 162.0
+      },
+      {
+        "date": "2025-03-20",
+        "actual": 192.0,
+        "training_median": 164.0,
+        "persistence": 176.0
+      },
+      {
+        "date": "2025-03-21",
+        "actual": 194.0,
+        "training_median": 164.0,
+        "persistence": 192.0
+      },
+      {
+        "date": "2025-03-22",
+        "actual": 196.0,
+        "training_median": 164.0,
+        "persistence": 194.0
+      },
+      {
+        "date": "2025-03-23",
+        "actual": 202.0,
+        "training_median": 164.0,
+        "persistence": 196.0
+      },
+      {
+        "date": "2025-03-24",
+        "actual": 190.0,
+        "training_median": 164.0,
+        "persistence": 202.0
+      },
+      {
+        "date": "2025-03-25",
+        "actual": 193.0,
+        "training_median": 164.0,
+        "persistence": 190.0
+      },
+      {
+        "date": "2025-03-26",
+        "actual": 197.0,
+        "training_median": 164.0,
+        "persistence": 193.0
+      },
+      {
+        "date": "2025-03-27",
+        "actual": 196.0,
+        "training_median": 164.0,
+        "persistence": 197.0
+      },
+      {
+        "date": "2025-03-28",
+        "actual": 197.0,
+        "training_median": 164.0,
+        "persistence": 196.0
+      },
+      {
+        "date": "2025-03-29",
+        "actual": 192.0,
+        "training_median": 164.0,
+        "persistence": 197.0
+      },
+      {
+        "date": "2025-03-30",
+        "actual": 185.0,
+        "training_median": 164.0,
+        "persistence": 192.0
+      },
+      {
+        "date": "2025-03-31",
+        "actual": 195.0,
+        "training_median": 164.0,
+        "persistence": 185.0
+      },
+      {
+        "date": "2025-04-01",
+        "actual": 199.0,
+        "training_median": 164.0,
+        "persistence": 195.0
+      },
+      {
+        "date": "2025-04-02",
+        "actual": 193.0,
+        "training_median": 164.0,
+        "persistence": 199.0
+      },
+      {
+        "date": "2025-04-03",
+        "actual": 195.0,
+        "training_median": 164.0,
+        "persistence": 193.0
+      },
+      {
+        "date": "2025-04-04",
+        "actual": 195.0,
+        "training_median": 164.0,
+        "persistence": 195.0
+      },
+      {
+        "date": "2025-04-05",
+        "actual": 212.0,
+        "training_median": 164.0,
+        "persistence": 195.0
+      },
+      {
+        "date": "2025-04-06",
+        "actual": 183.0,
+        "training_median": 164.0,
+        "persistence": 212.0
+      },
+      {
+        "date": "2025-04-07",
+        "actual": 191.0,
+        "training_median": 164.0,
+        "persistence": 183.0
+      },
+      {
+        "date": "2025-04-08",
+        "actual": 194.0,
+        "training_median": 164.0,
+        "persistence": 191.0
+      },
+      {
+        "date": "2025-04-09",
+        "actual": 194.0,
+        "training_median": 164.0,
+        "persistence": 194.0
+      },
+      {
+        "date": "2025-04-10",
+        "actual": 190.0,
+        "training_median": 164.0,
+        "persistence": 194.0
+      },
+      {
+        "date": "2025-04-11",
+        "actual": 191.0,
+        "training_median": 164.0,
+        "persistence": 190.0
+      },
+      {
+        "date": "2025-04-12",
+        "actual": 188.0,
+        "training_median": 164.0,
+        "persistence": 191.0
+      },
+      {
+        "date": "2025-04-13",
+        "actual": 184.0,
+        "training_median": 164.0,
+        "persistence": 188.0
+      },
+      {
+        "date": "2025-04-14",
+        "actual": 191.0,
+        "training_median": 164.0,
+        "persistence": 184.0
+      },
+      {
+        "date": "2025-04-15",
+        "actual": 194.0,
+        "training_median": 164.0,
+        "persistence": 191.0
+      },
+      {
+        "date": "2025-04-16",
+        "actual": 188.0,
+        "training_median": 164.0,
+        "persistence": 194.0
+      },
+      {
+        "date": "2025-04-17",
+        "actual": 199.0,
+        "training_median": 164.0,
+        "persistence": 188.0
+      },
+      {
+        "date": "2025-04-18",
+        "actual": 195.0,
+        "training_median": 164.0,
+        "persistence": 199.0
+      },
+      {
+        "date": "2025-04-19",
+        "actual": 190.0,
+        "training_median": 164.0,
+        "persistence": 195.0
+      },
+      {
+        "date": "2025-04-20",
+        "actual": 187.0,
+        "training_median": 164.0,
+        "persistence": 190.0
+      },
+      {
+        "date": "2025-04-21",
+        "actual": 195.0,
+        "training_median": 164.0,
+        "persistence": 187.0
+      },
+      {
+        "date": "2025-04-22",
+        "actual": 202.0,
+        "training_median": 164.0,
+        "persistence": 195.0
+      },
+      {
+        "date": "2025-04-23",
+        "actual": 197.0,
+        "training_median": 164.0,
+        "persistence": 202.0
+      },
+      {
+        "date": "2025-04-24",
+        "actual": 195.0,
+        "training_median": 164.0,
+        "persistence": 197.0
+      },
+      {
+        "date": "2025-04-25",
+        "actual": 199.0,
+        "training_median": 164.0,
+        "persistence": 195.0
+      },
+      {
+        "date": "2025-04-26",
+        "actual": 295.0,
+        "training_median": 164.0,
+        "persistence": 199.0
+      },
+      {
+        "date": "2025-04-27",
+        "actual": 193.0,
+        "training_median": 164.0,
+        "persistence": 295.0
+      },
+      {
+        "date": "2025-04-28",
+        "actual": 195.0,
+        "training_median": 164.0,
+        "persistence": 193.0
+      },
+      {
+        "date": "2025-04-29",
+        "actual": 195.0,
+        "training_median": 164.0,
+        "persistence": 195.0
+      },
+      {
+        "date": "2025-04-30",
+        "actual": 197.0,
+        "training_median": 164.0,
+        "persistence": 195.0
+      },
+      {
+        "date": "2025-05-01",
+        "actual": 203.0,
+        "training_median": 164.0,
+        "persistence": 197.0
+      },
+      {
+        "date": "2025-05-02",
+        "actual": 199.0,
+        "training_median": 164.0,
+        "persistence": 203.0
+      },
+      {
+        "date": "2025-05-03",
+        "actual": 192.0,
+        "training_median": 164.0,
+        "persistence": 199.0
+      },
+      {
+        "date": "2025-05-04",
+        "actual": 188.0,
+        "training_median": 164.0,
+        "persistence": 192.0
+      },
+      {
+        "date": "2025-05-05",
+        "actual": 192.0,
+        "training_median": 164.0,
+        "persistence": 188.0
+      },
+      {
+        "date": "2025-05-06",
+        "actual": 195.0,
+        "training_median": 164.0,
+        "persistence": 192.0
+      },
+      {
+        "date": "2025-05-07",
+        "actual": 197.0,
+        "training_median": 164.0,
+        "persistence": 195.0
+      },
+      {
+        "date": "2025-05-08",
+        "actual": 314.0,
+        "training_median": 164.0,
+        "persistence": 197.0
+      },
+      {
+        "date": "2025-05-09",
+        "actual": 191.0,
+        "training_median": 164.0,
+        "persistence": 314.0
+      },
+      {
+        "date": "2025-05-10",
+        "actual": 192.0,
+        "training_median": 164.0,
+        "persistence": 191.0
+      },
+      {
+        "date": "2025-05-11",
+        "actual": 188.0,
+        "training_median": 164.0,
+        "persistence": 192.0
+      },
+      {
+        "date": "2025-05-12",
+        "actual": 195.0,
+        "training_median": 164.0,
+        "persistence": 188.0
+      },
+      {
+        "date": "2025-05-13",
+        "actual": 195.0,
+        "training_median": 164.0,
+        "persistence": 195.0
+      },
+      {
+        "date": "2025-05-14",
+        "actual": 193.0,
+        "training_median": 164.0,
+        "persistence": 195.0
+      },
+      {
+        "date": "2025-05-15",
+        "actual": 178.0,
+        "training_median": 164.0,
+        "persistence": 193.0
+      },
+      {
+        "date": "2025-05-16",
+        "actual": 178.0,
+        "training_median": 164.0,
+        "persistence": 178.0
+      },
+      {
+        "date": "2025-05-17",
+        "actual": 175.0,
+        "training_median": 164.0,
+        "persistence": 178.0
+      },
+      {
+        "date": "2025-05-18",
+        "actual": 173.0,
+        "training_median": 164.0,
+        "persistence": 175.0
+      },
+      {
+        "date": "2025-05-19",
+        "actual": 179.0,
+        "training_median": 164.0,
+        "persistence": 173.0
+      },
+      {
+        "date": "2025-05-20",
+        "actual": 174.0,
+        "training_median": 164.0,
+        "persistence": 179.0
+      },
+      {
+        "date": "2025-05-21",
+        "actual": 174.0,
+        "training_median": 164.0,
+        "persistence": 174.0
+      },
+      {
+        "date": "2025-05-22",
+        "actual": 174.0,
+        "training_median": 164.0,
+        "persistence": 174.0
+      },
+      {
+        "date": "2025-05-23",
+        "actual": 173.0,
+        "training_median": 164.0,
+        "persistence": 174.0
+      },
+      {
+        "date": "2025-05-24",
+        "actual": 167.0,
+        "training_median": 164.0,
+        "persistence": 173.0
+      },
+      {
+        "date": "2025-05-25",
+        "actual": 174.0,
+        "training_median": 164.0,
+        "persistence": 167.0
+      },
+      {
+        "date": "2025-05-26",
+        "actual": 179.0,
+        "training_median": 164.0,
+        "persistence": 174.0
+      },
+      {
+        "date": "2025-05-27",
+        "actual": 178.0,
+        "training_median": 164.0,
+        "persistence": 179.0
+      },
+      {
+        "date": "2025-05-28",
+        "actual": 176.0,
+        "training_median": 164.0,
+        "persistence": 178.0
+      },
+      {
+        "date": "2025-05-29",
+        "actual": 174.0,
+        "training_median": 164.0,
+        "persistence": 176.0
+      },
+      {
+        "date": "2025-05-30",
+        "actual": 177.0,
+        "training_median": 164.0,
+        "persistence": 174.0
+      },
+      {
+        "date": "2025-05-31",
+        "actual": 167.0,
+        "training_median": 164.0,
+        "persistence": 177.0
+      },
+      {
+        "date": "2025-06-01",
+        "actual": 170.0,
+        "training_median": 164.0,
+        "persistence": 167.0
+      },
+      {
+        "date": "2025-06-02",
+        "actual": 171.0,
+        "training_median": 164.0,
+        "persistence": 170.0
+      },
+      {
+        "date": "2025-06-03",
+        "actual": 167.0,
+        "training_median": 164.0,
+        "persistence": 171.0
+      },
+      {
+        "date": "2025-06-04",
+        "actual": 163.0,
+        "training_median": 164.0,
+        "persistence": 167.0
+      },
+      {
+        "date": "2025-06-05",
+        "actual": 171.0,
+        "training_median": 164.0,
+        "persistence": 163.0
+      },
+      {
+        "date": "2025-06-06",
+        "actual": 171.0,
+        "training_median": 164.0,
+        "persistence": 171.0
+      },
+      {
+        "date": "2025-06-07",
+        "actual": 169.0,
+        "training_median": 164.0,
+        "persistence": 171.0
+      },
+      {
+        "date": "2025-06-08",
+        "actual": 170.0,
+        "training_median": 164.0,
+        "persistence": 169.0
+      },
+      {
+        "date": "2025-06-09",
+        "actual": 181.0,
+        "training_median": 164.0,
+        "persistence": 170.0
+      },
+      {
+        "date": "2025-06-10",
+        "actual": 181.0,
+        "training_median": 164.0,
+        "persistence": 181.0
+      },
+      {
+        "date": "2025-06-11",
+        "actual": 178.0,
+        "training_median": 164.0,
+        "persistence": 181.0
+      },
+      {
+        "date": "2025-06-12",
+        "actual": 176.0,
+        "training_median": 164.0,
+        "persistence": 178.0
+      },
+      {
+        "date": "2025-06-13",
+        "actual": 182.0,
+        "training_median": 164.0,
+        "persistence": 176.0
+      },
+      {
+        "date": "2025-06-14",
+        "actual": 178.0,
+        "training_median": 164.0,
+        "persistence": 182.0
+      },
+      {
+        "date": "2025-06-15",
+        "actual": 175.0,
+        "training_median": 164.0,
+        "persistence": 178.0
+      },
+      {
+        "date": "2025-06-16",
+        "actual": 183.0,
+        "training_median": 164.0,
+        "persistence": 175.0
+      },
+      {
+        "date": "2025-06-17",
+        "actual": 176.0,
+        "training_median": 164.0,
+        "persistence": 183.0
+      },
+      {
+        "date": "2025-06-18",
+        "actual": 178.0,
+        "training_median": 164.0,
+        "persistence": 176.0
+      },
+      {
+        "date": "2025-06-19",
+        "actual": 172.0,
+        "training_median": 164.0,
+        "persistence": 178.0
+      },
+      {
+        "date": "2025-06-20",
+        "actual": 176.0,
+        "training_median": 164.0,
+        "persistence": 172.0
+      },
+      {
+        "date": "2025-06-21",
+        "actual": 171.0,
+        "training_median": 164.0,
+        "persistence": 176.0
+      },
+      {
+        "date": "2025-06-22",
+        "actual": 167.0,
+        "training_median": 164.0,
+        "persistence": 171.0
+      },
+      {
+        "date": "2025-06-23",
+        "actual": 175.0,
+        "training_median": 164.0,
+        "persistence": 167.0
+      },
+      {
+        "date": "2025-06-24",
+        "actual": 180.0,
+        "training_median": 164.0,
+        "persistence": 175.0
+      },
+      {
+        "date": "2025-06-25",
+        "actual": 187.0,
+        "training_median": 164.0,
+        "persistence": 180.0
+      },
+      {
+        "date": "2025-06-26",
+        "actual": 174.0,
+        "training_median": 164.0,
+        "persistence": 187.0
+      },
+      {
+        "date": "2025-06-27",
+        "actual": 183.0,
+        "training_median": 164.0,
+        "persistence": 174.0
+      },
+      {
+        "date": "2025-06-28",
+        "actual": 179.0,
+        "training_median": 164.0,
+        "persistence": 183.0
+      },
+      {
+        "date": "2025-06-29",
+        "actual": 176.0,
+        "training_median": 164.0,
+        "persistence": 179.0
+      },
+      {
+        "date": "2025-06-30",
+        "actual": 184.0,
+        "training_median": 164.0,
+        "persistence": 176.0
+      },
+      {
+        "date": "2025-07-01",
+        "actual": 179.0,
+        "training_median": 164.0,
+        "persistence": 184.0
+      },
+      {
+        "date": "2025-07-02",
+        "actual": 173.0,
+        "training_median": 164.0,
+        "persistence": 179.0
+      },
+      {
+        "date": "2025-07-03",
+        "actual": 175.0,
+        "training_median": 164.0,
+        "persistence": 173.0
+      },
+      {
+        "date": "2025-07-04",
+        "actual": 179.0,
+        "training_median": 164.0,
+        "persistence": 175.0
+      },
+      {
+        "date": "2025-07-05",
+        "actual": 186.0,
+        "training_median": 164.0,
+        "persistence": 179.0
+      },
+      {
+        "date": "2025-07-06",
+        "actual": 175.0,
+        "training_median": 164.0,
+        "persistence": 186.0
+      },
+      {
+        "date": "2025-07-07",
+        "actual": 179.0,
+        "training_median": 164.0,
+        "persistence": 175.0
+      },
+      {
+        "date": "2025-07-08",
+        "actual": 173.0,
+        "training_median": 164.0,
+        "persistence": 179.0
+      },
+      {
+        "date": "2025-07-09",
+        "actual": 179.0,
+        "training_median": 164.0,
+        "persistence": 173.0
+      },
+      {
+        "date": "2025-07-10",
+        "actual": 186.0,
+        "training_median": 164.0,
+        "persistence": 179.0
+      },
+      {
+        "date": "2025-07-11",
+        "actual": 188.0,
+        "training_median": 164.0,
+        "persistence": 186.0
+      },
+      {
+        "date": "2025-07-12",
+        "actual": 182.0,
+        "training_median": 164.0,
+        "persistence": 188.0
+      },
+      {
+        "date": "2025-07-13",
+        "actual": 169.0,
+        "training_median": 164.0,
+        "persistence": 182.0
+      },
+      {
+        "date": "2025-07-14",
+        "actual": 182.0,
+        "training_median": 164.0,
+        "persistence": 169.0
+      },
+      {
+        "date": "2025-07-15",
+        "actual": 180.0,
+        "training_median": 164.0,
+        "persistence": 182.0
+      },
+      {
+        "date": "2025-07-16",
+        "actual": 180.0,
+        "training_median": 164.0,
+        "persistence": 180.0
+      },
+      {
+        "date": "2025-07-17",
+        "actual": 177.0,
+        "training_median": 164.0,
+        "persistence": 180.0
+      },
+      {
+        "date": "2025-07-18",
+        "actual": 179.0,
+        "training_median": 164.0,
+        "persistence": 177.0
+      },
+      {
+        "date": "2025-07-19",
+        "actual": 169.0,
+        "training_median": 164.0,
+        "persistence": 179.0
+      },
+      {
+        "date": "2025-07-20",
+        "actual": 167.0,
+        "training_median": 164.0,
+        "persistence": 169.0
+      },
+      {
+        "date": "2025-07-21",
+        "actual": 176.0,
+        "training_median": 164.0,
+        "persistence": 167.0
+      },
+      {
+        "date": "2025-07-22",
+        "actual": 173.0,
+        "training_median": 164.0,
+        "persistence": 176.0
+      },
+      {
+        "date": "2025-07-23",
+        "actual": 178.0,
+        "training_median": 164.0,
+        "persistence": 173.0
+      },
+      {
+        "date": "2025-07-24",
+        "actual": 175.0,
+        "training_median": 164.0,
+        "persistence": 178.0
+      },
+      {
+        "date": "2025-07-25",
+        "actual": 177.0,
+        "training_median": 164.0,
+        "persistence": 175.0
+      },
+      {
+        "date": "2025-07-26",
+        "actual": 175.0,
+        "training_median": 164.0,
+        "persistence": 177.0
+      },
+      {
+        "date": "2025-07-27",
+        "actual": 177.0,
+        "training_median": 164.0,
+        "persistence": 175.0
+      },
+      {
+        "date": "2025-07-28",
+        "actual": 180.0,
+        "training_median": 164.0,
+        "persistence": 177.0
+      },
+      {
+        "date": "2025-07-29",
+        "actual": 172.0,
+        "training_median": 164.0,
+        "persistence": 180.0
+      },
+      {
+        "date": "2025-07-30",
+        "actual": 170.0,
+        "training_median": 164.0,
+        "persistence": 172.0
+      },
+      {
+        "date": "2025-07-31",
+        "actual": 177.0,
+        "training_median": 164.0,
+        "persistence": 170.0
+      },
+      {
+        "date": "2025-08-01",
+        "actual": 178.0,
+        "training_median": 164.0,
+        "persistence": 177.0
+      },
+      {
+        "date": "2025-08-02",
+        "actual": 169.0,
+        "training_median": 164.0,
+        "persistence": 178.0
+      },
+      {
+        "date": "2025-08-03",
+        "actual": 168.0,
+        "training_median": 164.0,
+        "persistence": 169.0
+      },
+      {
+        "date": "2025-08-04",
+        "actual": 171.0,
+        "training_median": 164.0,
+        "persistence": 168.0
+      },
+      {
+        "date": "2025-08-05",
+        "actual": 173.0,
+        "training_median": 164.0,
+        "persistence": 171.0
+      },
+      {
+        "date": "2025-08-06",
+        "actual": 172.0,
+        "training_median": 164.0,
+        "persistence": 173.0
+      },
+      {
+        "date": "2025-08-07",
+        "actual": 178.0,
+        "training_median": 164.0,
+        "persistence": 172.0
+      },
+      {
+        "date": "2025-08-08",
+        "actual": 182.0,
+        "training_median": 164.0,
+        "persistence": 178.0
+      },
+      {
+        "date": "2025-08-09",
+        "actual": 180.0,
+        "training_median": 164.0,
+        "persistence": 182.0
+      },
+      {
+        "date": "2025-08-10",
+        "actual": 178.0,
+        "training_median": 164.0,
+        "persistence": 180.0
+      },
+      {
+        "date": "2025-08-11",
+        "actual": 182.0,
+        "training_median": 164.0,
+        "persistence": 178.0
+      },
+      {
+        "date": "2025-08-12",
+        "actual": 173.0,
+        "training_median": 164.0,
+        "persistence": 182.0
+      },
+      {
+        "date": "2025-08-13",
+        "actual": 169.0,
+        "training_median": 164.0,
+        "persistence": 173.0
+      },
+      {
+        "date": "2025-08-14",
+        "actual": 173.0,
+        "training_median": 164.0,
+        "persistence": 169.0
+      },
+      {
+        "date": "2025-08-15",
+        "actual": 176.0,
+        "training_median": 164.0,
+        "persistence": 173.0
+      },
+      {
+        "date": "2025-08-16",
+        "actual": 174.0,
+        "training_median": 164.0,
+        "persistence": 176.0
+      },
+      {
+        "date": "2025-08-17",
+        "actual": 170.0,
+        "training_median": 164.0,
+        "persistence": 174.0
+      },
+      {
+        "date": "2025-08-18",
+        "actual": 186.0,
+        "training_median": 164.0,
+        "persistence": 170.0
+      },
+      {
+        "date": "2025-08-19",
+        "actual": 178.0,
+        "training_median": 164.0,
+        "persistence": 186.0
+      },
+      {
+        "date": "2025-08-20",
+        "actual": 179.0,
+        "training_median": 164.0,
+        "persistence": 178.0
+      },
+      {
+        "date": "2025-08-21",
+        "actual": 174.0,
+        "training_median": 164.0,
+        "persistence": 179.0
+      },
+      {
+        "date": "2025-08-22",
+        "actual": 184.0,
+        "training_median": 164.0,
+        "persistence": 174.0
+      },
+      {
+        "date": "2025-08-23",
+        "actual": 175.0,
+        "training_median": 164.0,
+        "persistence": 184.0
+      },
+      {
+        "date": "2025-08-24",
+        "actual": 169.0,
+        "training_median": 164.0,
+        "persistence": 175.0
+      },
+      {
+        "date": "2025-08-25",
+        "actual": 177.0,
+        "training_median": 164.0,
+        "persistence": 169.0
+      },
+      {
+        "date": "2025-08-26",
+        "actual": 182.0,
+        "training_median": 164.0,
+        "persistence": 177.0
+      },
+      {
+        "date": "2025-08-27",
+        "actual": 182.0,
+        "training_median": 164.0,
+        "persistence": 182.0
+      },
+      {
+        "date": "2025-08-28",
+        "actual": 185.0,
+        "training_median": 164.0,
+        "persistence": 182.0
+      },
+      {
+        "date": "2025-08-29",
+        "actual": 182.0,
+        "training_median": 164.0,
+        "persistence": 185.0
+      },
+      {
+        "date": "2025-08-30",
+        "actual": 183.0,
+        "training_median": 164.0,
+        "persistence": 182.0
+      },
+      {
+        "date": "2025-08-31",
+        "actual": 182.0,
+        "training_median": 164.0,
+        "persistence": 183.0
+      },
+      {
+        "date": "2025-09-01",
+        "actual": 186.0,
+        "training_median": 164.0,
+        "persistence": 182.0
+      },
+      {
+        "date": "2025-09-02",
+        "actual": 179.0,
+        "training_median": 164.0,
+        "persistence": 186.0
+      },
+      {
+        "date": "2025-09-03",
+        "actual": 173.0,
+        "training_median": 164.0,
+        "persistence": 179.0
+      },
+      {
+        "date": "2025-09-04",
+        "actual": 166.0,
+        "training_median": 164.0,
+        "persistence": 173.0
+      },
+      {
+        "date": "2025-09-05",
+        "actual": 174.0,
+        "training_median": 164.0,
+        "persistence": 166.0
+      },
+      {
+        "date": "2025-09-06",
+        "actual": 172.0,
+        "training_median": 164.0,
+        "persistence": 174.0
+      },
+      {
+        "date": "2025-09-07",
+        "actual": 167.0,
+        "training_median": 164.0,
+        "persistence": 172.0
+      },
+      {
+        "date": "2025-09-08",
+        "actual": 178.0,
+        "training_median": 164.0,
+        "persistence": 167.0
+      },
+      {
+        "date": "2025-09-09",
+        "actual": 174.0,
+        "training_median": 164.0,
+        "persistence": 178.0
+      },
+      {
+        "date": "2025-09-10",
+        "actual": 167.0,
+        "training_median": 164.0,
+        "persistence": 174.0
+      },
+      {
+        "date": "2025-09-11",
+        "actual": 167.0,
+        "training_median": 164.0,
+        "persistence": 167.0
+      },
+      {
+        "date": "2025-09-12",
+        "actual": 171.0,
+        "training_median": 164.0,
+        "persistence": 167.0
+      },
+      {
+        "date": "2025-09-13",
+        "actual": 164.0,
+        "training_median": 164.0,
+        "persistence": 171.0
+      },
+      {
+        "date": "2025-09-14",
+        "actual": 164.0,
+        "training_median": 164.0,
+        "persistence": 164.0
+      },
+      {
+        "date": "2025-09-15",
+        "actual": 177.0,
+        "training_median": 164.0,
+        "persistence": 164.0
+      },
+      {
+        "date": "2025-09-16",
+        "actual": 178.0,
+        "training_median": 164.0,
+        "persistence": 177.0
+      },
+      {
+        "date": "2025-09-17",
+        "actual": 175.0,
+        "training_median": 164.0,
+        "persistence": 178.0
+      },
+      {
+        "date": "2025-09-18",
+        "actual": 174.0,
+        "training_median": 164.0,
+        "persistence": 175.0
+      },
+      {
+        "date": "2025-09-19",
+        "actual": 175.0,
+        "training_median": 164.0,
+        "persistence": 174.0
+      },
+      {
+        "date": "2025-09-20",
+        "actual": 170.0,
+        "training_median": 164.0,
+        "persistence": 175.0
+      },
+      {
+        "date": "2025-09-21",
+        "actual": 178.0,
+        "training_median": 164.0,
+        "persistence": 170.0
+      },
+      {
+        "date": "2025-09-22",
+        "actual": 180.0,
+        "training_median": 164.0,
+        "persistence": 178.0
+      },
+      {
+        "date": "2025-09-23",
+        "actual": 170.0,
+        "training_median": 164.0,
+        "persistence": 180.0
+      },
+      {
+        "date": "2025-09-24",
+        "actual": 176.0,
+        "training_median": 164.0,
+        "persistence": 170.0
+      },
+      {
+        "date": "2025-09-25",
+        "actual": 174.0,
+        "training_median": 164.0,
+        "persistence": 176.0
+      },
+      {
+        "date": "2025-09-26",
+        "actual": 174.0,
+        "training_median": 164.0,
+        "persistence": 174.0
+      },
+      {
+        "date": "2025-09-27",
+        "actual": 168.0,
+        "training_median": 164.0,
+        "persistence": 174.0
+      },
+      {
+        "date": "2025-09-28",
+        "actual": 166.0,
+        "training_median": 164.0,
+        "persistence": 168.0
+      },
+      {
+        "date": "2025-09-29",
+        "actual": 175.0,
+        "training_median": 164.0,
+        "persistence": 166.0
+      },
+      {
+        "date": "2025-09-30",
+        "actual": 180.0,
+        "training_median": 164.0,
+        "persistence": 175.0
+      },
+      {
+        "date": "2025-10-01",
+        "actual": 183.0,
+        "training_median": 164.0,
+        "persistence": 180.0
+      },
+      {
+        "date": "2025-10-02",
+        "actual": 175.0,
+        "training_median": 164.0,
+        "persistence": 183.0
+      },
+      {
+        "date": "2025-10-03",
+        "actual": 171.0,
+        "training_median": 164.0,
+        "persistence": 175.0
+      },
+      {
+        "date": "2025-10-04",
+        "actual": 168.0,
+        "training_median": 164.0,
+        "persistence": 171.0
+      },
+      {
+        "date": "2025-10-05",
+        "actual": 164.0,
+        "training_median": 164.0,
+        "persistence": 168.0
+      },
+      {
+        "date": "2025-10-06",
+        "actual": 170.0,
+        "training_median": 164.0,
+        "persistence": 164.0
+      },
+      {
+        "date": "2025-10-07",
+        "actual": 175.0,
+        "training_median": 164.0,
+        "persistence": 170.0
+      },
+      {
+        "date": "2025-10-08",
+        "actual": 173.0,
+        "training_median": 164.0,
+        "persistence": 175.0
+      },
+      {
+        "date": "2025-10-09",
+        "actual": 170.0,
+        "training_median": 164.0,
+        "persistence": 173.0
+      },
+      {
+        "date": "2025-10-10",
+        "actual": 170.0,
+        "training_median": 164.0,
+        "persistence": 170.0
+      },
+      {
+        "date": "2025-10-11",
+        "actual": 166.0,
+        "training_median": 164.0,
+        "persistence": 170.0
+      },
+      {
+        "date": "2025-10-12",
+        "actual": 163.0,
+        "training_median": 164.0,
+        "persistence": 166.0
+      },
+      {
+        "date": "2025-10-13",
+        "actual": 161.0,
+        "training_median": 164.0,
+        "persistence": 163.0
+      },
+      {
+        "date": "2025-10-14",
+        "actual": 161.0,
+        "training_median": 164.0,
+        "persistence": 161.0
+      },
+      {
+        "date": "2025-10-15",
+        "actual": 162.0,
+        "training_median": 164.0,
+        "persistence": 161.0
+      },
+      {
+        "date": "2025-10-16",
+        "actual": 164.0,
+        "training_median": 164.0,
+        "persistence": 162.0
+      },
+      {
+        "date": "2025-10-17",
+        "actual": 168.0,
+        "training_median": 164.0,
+        "persistence": 164.0
+      },
+      {
+        "date": "2025-10-18",
+        "actual": 172.0,
+        "training_median": 164.0,
+        "persistence": 168.0
+      },
+      {
+        "date": "2025-10-19",
+        "actual": 165.0,
+        "training_median": 164.0,
+        "persistence": 172.0
+      },
+      {
+        "date": "2025-10-20",
+        "actual": 171.0,
+        "training_median": 164.0,
+        "persistence": 165.0
+      },
+      {
+        "date": "2025-10-21",
+        "actual": 173.0,
+        "training_median": 164.0,
+        "persistence": 171.0
+      },
+      {
+        "date": "2025-10-22",
+        "actual": 174.0,
+        "training_median": 164.0,
+        "persistence": 173.0
+      },
+      {
+        "date": "2025-10-23",
+        "actual": 162.0,
+        "training_median": 164.0,
+        "persistence": 174.0
+      },
+      {
+        "date": "2025-10-24",
+        "actual": 167.0,
+        "training_median": 164.0,
+        "persistence": 162.0
+      },
+      {
+        "date": "2025-10-25",
+        "actual": 164.0,
+        "training_median": 164.0,
+        "persistence": 167.0
+      },
+      {
+        "date": "2025-10-26",
+        "actual": 163.0,
+        "training_median": 164.0,
+        "persistence": 164.0
+      },
+      {
+        "date": "2025-10-27",
+        "actual": 173.0,
+        "training_median": 164.0,
+        "persistence": 163.0
+      },
+      {
+        "date": "2025-10-28",
+        "actual": 167.0,
+        "training_median": 164.0,
+        "persistence": 173.0
+      },
+      {
+        "date": "2025-10-29",
+        "actual": 170.0,
+        "training_median": 164.0,
+        "persistence": 167.0
+      },
+      {
+        "date": "2025-10-30",
+        "actual": 167.0,
+        "training_median": 164.0,
+        "persistence": 170.0
+      },
+      {
+        "date": "2025-10-31",
+        "actual": 169.0,
+        "training_median": 164.0,
+        "persistence": 167.0
+      },
+      {
+        "date": "2025-11-01",
+        "actual": 162.0,
+        "training_median": 164.0,
+        "persistence": 169.0
+      },
+      {
+        "date": "2025-11-02",
+        "actual": 157.0,
+        "training_median": 164.0,
+        "persistence": 162.0
+      },
+      {
+        "date": "2025-11-03",
+        "actual": 168.0,
+        "training_median": 164.0,
+        "persistence": 157.0
+      },
+      {
+        "date": "2025-11-04",
+        "actual": 167.0,
+        "training_median": 164.0,
+        "persistence": 168.0
+      },
+      {
+        "date": "2025-11-05",
+        "actual": 165.0,
+        "training_median": 164.0,
+        "persistence": 167.0
+      },
+      {
+        "date": "2025-11-06",
+        "actual": 163.0,
+        "training_median": 164.0,
+        "persistence": 165.0
+      },
+      {
+        "date": "2025-11-07",
+        "actual": 165.0,
+        "training_median": 164.0,
+        "persistence": 163.0
+      },
+      {
+        "date": "2025-11-08",
+        "actual": 161.0,
+        "training_median": 164.0,
+        "persistence": 165.0
+      },
+      {
+        "date": "2025-11-09",
+        "actual": 160.0,
+        "training_median": 164.0,
+        "persistence": 161.0
+      },
+      {
+        "date": "2025-11-10",
+        "actual": 163.0,
+        "training_median": 164.0,
+        "persistence": 160.0
+      },
+      {
+        "date": "2025-11-11",
+        "actual": 162.0,
+        "training_median": 164.0,
+        "persistence": 163.0
+      },
+      {
+        "date": "2025-11-12",
+        "actual": 167.0,
+        "training_median": 164.0,
+        "persistence": 162.0
+      },
+      {
+        "date": "2025-11-13",
+        "actual": 164.0,
+        "training_median": 164.0,
+        "persistence": 167.0
+      },
+      {
+        "date": "2025-11-14",
+        "actual": 166.0,
+        "training_median": 164.0,
+        "persistence": 164.0
+      },
+      {
+        "date": "2025-11-15",
+        "actual": 159.0,
+        "training_median": 164.0,
+        "persistence": 166.0
+      },
+      {
+        "date": "2025-11-16",
+        "actual": 157.0,
+        "training_median": 164.0,
+        "persistence": 159.0
+      },
+      {
+        "date": "2025-11-17",
+        "actual": 163.0,
+        "training_median": 164.0,
+        "persistence": 157.0
+      },
+      {
+        "date": "2025-11-18",
+        "actual": 165.0,
+        "training_median": 164.0,
+        "persistence": 163.0
+      },
+      {
+        "date": "2025-11-19",
+        "actual": 172.0,
+        "training_median": 164.0,
+        "persistence": 165.0
+      },
+      {
+        "date": "2025-11-20",
+        "actual": 164.0,
+        "training_median": 164.0,
+        "persistence": 172.0
+      },
+      {
+        "date": "2025-11-21",
+        "actual": 169.0,
+        "training_median": 164.0,
+        "persistence": 164.0
+      },
+      {
+        "date": "2025-11-22",
+        "actual": 162.0,
+        "training_median": 164.0,
+        "persistence": 169.0
+      },
+      {
+        "date": "2025-11-23",
+        "actual": 162.0,
+        "training_median": 164.0,
+        "persistence": 162.0
+      },
+      {
+        "date": "2025-11-24",
+        "actual": 166.0,
+        "training_median": 164.0,
+        "persistence": 162.0
+      },
+      {
+        "date": "2025-11-25",
+        "actual": 167.0,
+        "training_median": 164.0,
+        "persistence": 166.0
+      },
+      {
+        "date": "2025-11-26",
+        "actual": 165.0,
+        "training_median": 164.0,
+        "persistence": 167.0
+      },
+      {
+        "date": "2025-11-27",
+        "actual": 164.0,
+        "training_median": 164.0,
+        "persistence": 165.0
+      },
+      {
+        "date": "2025-11-28",
+        "actual": 170.0,
+        "training_median": 164.0,
+        "persistence": 164.0
+      },
+      {
+        "date": "2025-11-29",
+        "actual": 163.0,
+        "training_median": 164.0,
+        "persistence": 170.0
+      },
+      {
+        "date": "2025-11-30",
+        "actual": 164.0,
+        "training_median": 164.0,
+        "persistence": 163.0
+      },
+      {
+        "date": "2025-12-01",
+        "actual": 173.0,
+        "training_median": 164.0,
+        "persistence": 164.0
+      },
+      {
+        "date": "2025-12-02",
+        "actual": 164.0,
+        "training_median": 164.0,
+        "persistence": 173.0
+      },
+      {
+        "date": "2025-12-03",
+        "actual": 164.0,
+        "training_median": 164.0,
+        "persistence": 164.0
+      },
+      {
+        "date": "2025-12-04",
+        "actual": 163.0,
+        "training_median": 164.0,
+        "persistence": 164.0
+      },
+      {
+        "date": "2025-12-05",
+        "actual": 165.0,
+        "training_median": 164.0,
+        "persistence": 163.0
+      },
+      {
+        "date": "2025-12-06",
+        "actual": 161.0,
+        "training_median": 164.0,
+        "persistence": 165.0
+      },
+      {
+        "date": "2025-12-07",
+        "actual": 158.0,
+        "training_median": 164.0,
+        "persistence": 161.0
+      },
+      {
+        "date": "2025-12-08",
+        "actual": 163.0,
+        "training_median": 164.0,
+        "persistence": 158.0
+      },
+      {
+        "date": "2025-12-09",
+        "actual": 159.0,
+        "training_median": 164.0,
+        "persistence": 163.0
+      },
+      {
+        "date": "2025-12-10",
+        "actual": 159.0,
+        "training_median": 164.0,
+        "persistence": 159.0
+      },
+      {
+        "date": "2025-12-11",
+        "actual": 162.0,
+        "training_median": 164.0,
+        "persistence": 159.0
+      },
+      {
+        "date": "2025-12-12",
+        "actual": 162.0,
+        "training_median": 164.0,
+        "persistence": 162.0
+      },
+      {
+        "date": "2025-12-13",
+        "actual": 156.0,
+        "training_median": 164.0,
+        "persistence": 162.0
+      },
+      {
+        "date": "2025-12-14",
+        "actual": 156.0,
+        "training_median": 164.0,
+        "persistence": 156.0
+      },
+      {
+        "date": "2025-12-15",
+        "actual": 164.0,
+        "training_median": 164.0,
+        "persistence": 156.0
+      },
+      {
+        "date": "2025-12-16",
+        "actual": 161.0,
+        "training_median": 164.0,
+        "persistence": 164.0
+      },
+      {
+        "date": "2025-12-17",
+        "actual": 157.0,
+        "training_median": 164.0,
+        "persistence": 161.0
+      },
+      {
+        "date": "2025-12-18",
+        "actual": 156.0,
+        "training_median": 164.0,
+        "persistence": 157.0
+      },
+      {
+        "date": "2025-12-19",
+        "actual": 159.0,
+        "training_median": 164.0,
+        "persistence": 156.0
+      },
+      {
+        "date": "2025-12-20",
+        "actual": 154.0,
+        "training_median": 164.0,
+        "persistence": 159.0
+      },
+      {
+        "date": "2025-12-21",
+        "actual": 156.0,
+        "training_median": 164.0,
+        "persistence": 154.0
+      },
+      {
+        "date": "2025-12-22",
+        "actual": 159.0,
+        "training_median": 164.0,
+        "persistence": 156.0
+      },
+      {
+        "date": "2025-12-23",
+        "actual": 155.0,
+        "training_median": 164.0,
+        "persistence": 159.0
+      },
+      {
+        "date": "2025-12-24",
+        "actual": 148.0,
+        "training_median": 164.0,
+        "persistence": 155.0
+      },
+      {
+        "date": "2025-12-25",
+        "actual": 139.0,
+        "training_median": 164.0,
+        "persistence": 148.0
+      },
+      {
+        "date": "2025-12-26",
+        "actual": 147.0,
+        "training_median": 164.0,
+        "persistence": 139.0
+      },
+      {
+        "date": "2025-12-27",
+        "actual": 149.0,
+        "training_median": 164.0,
+        "persistence": 147.0
+      },
+      {
+        "date": "2025-12-28",
+        "actual": 147.0,
+        "training_median": 164.0,
+        "persistence": 149.0
+      },
+      {
+        "date": "2025-12-29",
+        "actual": 153.0,
+        "training_median": 164.0,
+        "persistence": 147.0
+      },
+      {
+        "date": "2025-12-30",
+        "actual": 154.0,
+        "training_median": 164.0,
+        "persistence": 153.0
+      },
+      {
+        "date": "2025-12-31",
+        "actual": 157.0,
+        "training_median": 164.0,
+        "persistence": 154.0
+      },
+      {
+        "date": "2026-01-01",
+        "actual": 161.0,
+        "training_median": 164.0,
+        "persistence": 157.0
+      },
+      {
+        "date": "2026-01-02",
+        "actual": 164.0,
+        "training_median": 164.0,
+        "persistence": 161.0
+      },
+      {
+        "date": "2026-01-03",
+        "actual": 153.0,
+        "training_median": 164.0,
+        "persistence": 164.0
+      },
+      {
+        "date": "2026-01-04",
+        "actual": 153.0,
+        "training_median": 164.0,
+        "persistence": 153.0
+      },
+      {
+        "date": "2026-01-05",
+        "actual": 165.0,
+        "training_median": 164.0,
+        "persistence": 153.0
+      },
+      {
+        "date": "2026-01-06",
+        "actual": 155.0,
+        "training_median": 164.0,
+        "persistence": 165.0
+      },
+      {
+        "date": "2026-01-07",
+        "actual": 153.0,
+        "training_median": 164.0,
+        "persistence": 155.0
+      },
+      {
+        "date": "2026-01-08",
+        "actual": 151.0,
+        "training_median": 164.0,
+        "persistence": 153.0
+      },
+      {
+        "date": "2026-01-09",
+        "actual": 156.0,
+        "training_median": 164.0,
+        "persistence": 151.0
+      },
+      {
+        "date": "2026-01-10",
+        "actual": 154.0,
+        "training_median": 164.0,
+        "persistence": 156.0
+      },
+      {
+        "date": "2026-01-11",
+        "actual": 152.0,
+        "training_median": 164.0,
+        "persistence": 154.0
+      },
+      {
+        "date": "2026-01-12",
+        "actual": 153.0,
+        "training_median": 164.0,
+        "persistence": 152.0
+      },
+      {
+        "date": "2026-01-13",
+        "actual": 358.0,
+        "training_median": 164.0,
+        "persistence": 153.0
+      },
+      {
+        "date": "2026-01-14",
+        "actual": 155.0,
+        "training_median": 164.0,
+        "persistence": 358.0
+      },
+      {
+        "date": "2026-01-15",
+        "actual": 159.0,
+        "training_median": 164.0,
+        "persistence": 155.0
+      },
+      {
+        "date": "2026-01-16",
+        "actual": 157.0,
+        "training_median": 164.0,
+        "persistence": 159.0
+      },
+      {
+        "date": "2026-01-17",
+        "actual": 153.0,
+        "training_median": 164.0,
+        "persistence": 157.0
+      },
+      {
+        "date": "2026-01-18",
+        "actual": 156.0,
+        "training_median": 164.0,
+        "persistence": 153.0
+      },
+      {
+        "date": "2026-01-19",
+        "actual": 159.0,
+        "training_median": 164.0,
+        "persistence": 156.0
+      },
+      {
+        "date": "2026-01-20",
+        "actual": 155.0,
+        "training_median": 164.0,
+        "persistence": 159.0
+      },
+      {
+        "date": "2026-01-21",
+        "actual": 155.0,
+        "training_median": 164.0,
+        "persistence": 155.0
+      },
+      {
+        "date": "2026-01-22",
+        "actual": 157.0,
+        "training_median": 164.0,
+        "persistence": 155.0
+      },
+      {
+        "date": "2026-01-23",
+        "actual": 161.0,
+        "training_median": 164.0,
+        "persistence": 157.0
+      },
+      {
+        "date": "2026-01-24",
+        "actual": 158.0,
+        "training_median": 164.0,
+        "persistence": 161.0
+      },
+      {
+        "date": "2026-01-25",
+        "actual": 161.0,
+        "training_median": 164.0,
+        "persistence": 158.0
+      },
+      {
+        "date": "2026-01-26",
+        "actual": 163.0,
+        "training_median": 164.0,
+        "persistence": 161.0
+      },
+      {
+        "date": "2026-01-27",
+        "actual": 159.0,
+        "training_median": 164.0,
+        "persistence": 163.0
+      },
+      {
+        "date": "2026-01-28",
+        "actual": 160.0,
+        "training_median": 164.0,
+        "persistence": 159.0
+      },
+      {
+        "date": "2026-01-29",
+        "actual": 160.0,
+        "training_median": 164.0,
+        "persistence": 160.0
+      },
+      {
+        "date": "2026-01-30",
+        "actual": 170.0,
+        "training_median": 164.0,
+        "persistence": 160.0
+      },
+      {
+        "date": "2026-01-31",
+        "actual": 157.0,
+        "training_median": 164.0,
+        "persistence": 170.0
+      },
+      {
+        "date": "2026-02-01",
+        "actual": 155.0,
+        "training_median": 164.0,
+        "persistence": 157.0
+      },
+      {
+        "date": "2026-02-02",
+        "actual": 155.0,
+        "training_median": 164.0,
+        "persistence": 155.0
+      },
+      {
+        "date": "2026-02-03",
+        "actual": 158.0,
+        "training_median": 164.0,
+        "persistence": 155.0
+      },
+      {
+        "date": "2026-02-04",
+        "actual": 160.0,
+        "training_median": 164.0,
+        "persistence": 158.0
+      },
+      {
+        "date": "2026-02-05",
+        "actual": 161.0,
+        "training_median": 164.0,
+        "persistence": 160.0
+      },
+      {
+        "date": "2026-02-06",
+        "actual": 162.0,
+        "training_median": 164.0,
+        "persistence": 161.0
+      },
+      {
+        "date": "2026-02-07",
+        "actual": 158.0,
+        "training_median": 164.0,
+        "persistence": 162.0
+      },
+      {
+        "date": "2026-02-08",
+        "actual": 155.0,
+        "training_median": 164.0,
+        "persistence": 158.0
+      },
+      {
+        "date": "2026-02-09",
+        "actual": 160.0,
+        "training_median": 164.0,
+        "persistence": 155.0
+      },
+      {
+        "date": "2026-02-10",
+        "actual": 161.0,
+        "training_median": 164.0,
+        "persistence": 160.0
+      },
+      {
+        "date": "2026-02-11",
+        "actual": 155.0,
+        "training_median": 164.0,
+        "persistence": 161.0
+      },
+      {
+        "date": "2026-02-12",
+        "actual": 155.0,
+        "training_median": 164.0,
+        "persistence": 155.0
+      },
+      {
+        "date": "2026-02-13",
+        "actual": 160.0,
+        "training_median": 164.0,
+        "persistence": 155.0
+      },
+      {
+        "date": "2026-02-14",
+        "actual": 163.0,
+        "training_median": 164.0,
+        "persistence": 160.0
+      },
+      {
+        "date": "2026-02-15",
+        "actual": 159.0,
+        "training_median": 164.0,
+        "persistence": 163.0
+      },
+      {
+        "date": "2026-02-16",
+        "actual": 161.0,
+        "training_median": 164.0,
+        "persistence": 159.0
+      },
+      {
+        "date": "2026-02-17",
+        "actual": 168.0,
+        "training_median": 164.0,
+        "persistence": 161.0
+      },
+      {
+        "date": "2026-02-18",
+        "actual": 167.0,
+        "training_median": 164.0,
+        "persistence": 168.0
+      },
+      {
+        "date": "2026-02-19",
+        "actual": 171.0,
+        "training_median": 164.0,
+        "persistence": 167.0
+      },
+      {
+        "date": "2026-02-20",
+        "actual": 171.0,
+        "training_median": 164.0,
+        "persistence": 171.0
+      },
+      {
+        "date": "2026-02-21",
+        "actual": 167.0,
+        "training_median": 164.0,
+        "persistence": 171.0
+      },
+      {
+        "date": "2026-02-22",
+        "actual": 166.0,
+        "training_median": 164.0,
+        "persistence": 167.0
+      },
+      {
+        "date": "2026-02-23",
+        "actual": 170.0,
+        "training_median": 164.0,
+        "persistence": 166.0
+      },
+      {
+        "date": "2026-02-24",
+        "actual": 169.0,
+        "training_median": 164.0,
+        "persistence": 170.0
+      },
+      {
+        "date": "2026-02-25",
+        "actual": 171.0,
+        "training_median": 164.0,
+        "persistence": 169.0
+      },
+      {
+        "date": "2026-02-26",
+        "actual": 176.0,
+        "training_median": 164.0,
+        "persistence": 171.0
+      },
+      {
+        "date": "2026-02-27",
+        "actual": 180.0,
+        "training_median": 164.0,
+        "persistence": 176.0
+      },
+      {
+        "date": "2026-02-28",
+        "actual": 177.0,
+        "training_median": 164.0,
+        "persistence": 180.0
+      },
+      {
+        "date": "2026-03-01",
+        "actual": 174.0,
+        "training_median": 164.0,
+        "persistence": 177.0
+      },
+      {
+        "date": "2026-03-02",
+        "actual": 173.0,
+        "training_median": 164.0,
+        "persistence": 174.0
+      },
+      {
+        "date": "2026-03-03",
+        "actual": 172.0,
+        "training_median": 164.0,
+        "persistence": 173.0
+      },
+      {
+        "date": "2026-03-04",
+        "actual": 175.0,
+        "training_median": 164.0,
+        "persistence": 172.0
+      },
+      {
+        "date": "2026-03-05",
+        "actual": 174.0,
+        "training_median": 164.0,
+        "persistence": 175.0
+      },
+      {
+        "date": "2026-03-06",
+        "actual": 175.0,
+        "training_median": 164.0,
+        "persistence": 174.0
+      },
+      {
+        "date": "2026-03-07",
+        "actual": 169.0,
+        "training_median": 164.0,
+        "persistence": 175.0
+      },
+      {
+        "date": "2026-03-08",
+        "actual": 172.0,
+        "training_median": 164.0,
+        "persistence": 169.0
+      },
+      {
+        "date": "2026-03-09",
+        "actual": 182.0,
+        "training_median": 164.0,
+        "persistence": 172.0
+      },
+      {
+        "date": "2026-03-10",
+        "actual": 175.0,
+        "training_median": 164.0,
+        "persistence": 182.0
+      },
+      {
+        "date": "2026-03-11",
+        "actual": 174.0,
+        "training_median": 164.0,
+        "persistence": 175.0
+      },
+      {
+        "date": "2026-03-12",
+        "actual": 172.0,
+        "training_median": 164.0,
+        "persistence": 174.0
+      },
+      {
+        "date": "2026-03-13",
+        "actual": 175.0,
+        "training_median": 164.0,
+        "persistence": 172.0
+      },
+      {
+        "date": "2026-03-14",
+        "actual": 172.0,
+        "training_median": 164.0,
+        "persistence": 175.0
+      },
+      {
+        "date": "2026-03-15",
+        "actual": 172.0,
+        "training_median": 164.0,
+        "persistence": 172.0
+      },
+      {
+        "date": "2026-03-16",
+        "actual": 177.0,
+        "training_median": 164.0,
+        "persistence": 172.0
+      },
+      {
+        "date": "2026-03-17",
+        "actual": 173.0,
+        "training_median": 164.0,
+        "persistence": 177.0
+      },
+      {
+        "date": "2026-03-18",
+        "actual": 172.0,
+        "training_median": 164.0,
+        "persistence": 173.0
+      },
+      {
+        "date": "2026-03-19",
+        "actual": 174.0,
+        "training_median": 164.0,
+        "persistence": 172.0
+      },
+      {
+        "date": "2026-03-20",
+        "actual": 176.0,
+        "training_median": 164.0,
+        "persistence": 174.0
+      },
+      {
+        "date": "2026-03-21",
+        "actual": 171.0,
+        "training_median": 164.0,
+        "persistence": 176.0
+      },
+      {
+        "date": "2026-03-22",
+        "actual": 171.0,
+        "training_median": 164.0,
+        "persistence": 171.0
+      },
+      {
+        "date": "2026-03-23",
+        "actual": 177.0,
+        "training_median": 164.0,
+        "persistence": 171.0
+      },
+      {
+        "date": "2026-03-24",
+        "actual": 178.0,
+        "training_median": 164.0,
+        "persistence": 177.0
+      },
+      {
+        "date": "2026-03-25",
+        "actual": 180.0,
+        "training_median": 164.0,
+        "persistence": 178.0
+      },
+      {
+        "date": "2026-03-26",
+        "actual": 187.0,
+        "training_median": 164.0,
+        "persistence": 180.0
+      },
+      {
+        "date": "2026-03-27",
+        "actual": 175.0,
+        "training_median": 164.0,
+        "persistence": 187.0
+      },
+      {
+        "date": "2026-03-28",
+        "actual": 171.0,
+        "training_median": 164.0,
+        "persistence": 175.0
+      },
+      {
+        "date": "2026-03-29",
+        "actual": 171.0,
+        "training_median": 164.0,
+        "persistence": 171.0
+      },
+      {
+        "date": "2026-03-30",
+        "actual": 176.0,
+        "training_median": 164.0,
+        "persistence": 171.0
+      },
+      {
+        "date": "2026-03-31",
+        "actual": 172.0,
+        "training_median": 164.0,
+        "persistence": 176.0
+      },
+      {
+        "date": "2026-04-01",
+        "actual": 174.0,
+        "training_median": 164.0,
+        "persistence": 172.0
+      },
+      {
+        "date": "2026-04-02",
+        "actual": 166.0,
+        "training_median": 164.0,
+        "persistence": 174.0
+      },
+      {
+        "date": "2026-04-03",
+        "actual": 163.0,
+        "training_median": 164.0,
+        "persistence": 166.0
+      },
+      {
+        "date": "2026-04-04",
+        "actual": 164.0,
+        "training_median": 164.0,
+        "persistence": 163.0
+      },
+      {
+        "date": "2026-04-05",
+        "actual": 163.0,
+        "training_median": 164.0,
+        "persistence": 164.0
+      },
+      {
+        "date": "2026-04-06",
+        "actual": 167.0,
+        "training_median": 164.0,
+        "persistence": 163.0
+      },
+      {
+        "date": "2026-04-07",
+        "actual": 171.0,
+        "training_median": 164.0,
+        "persistence": 167.0
+      },
+      {
+        "date": "2026-04-08",
+        "actual": 169.0,
+        "training_median": 164.0,
+        "persistence": 171.0
+      },
+      {
+        "date": "2026-04-09",
+        "actual": 167.0,
+        "training_median": 164.0,
+        "persistence": 169.0
+      },
+      {
+        "date": "2026-04-10",
+        "actual": 168.0,
+        "training_median": 164.0,
+        "persistence": 167.0
+      },
+      {
+        "date": "2026-04-11",
+        "actual": 164.0,
+        "training_median": 164.0,
+        "persistence": 168.0
+      },
+      {
+        "date": "2026-04-12",
+        "actual": 162.0,
+        "training_median": 164.0,
+        "persistence": 164.0
+      },
+      {
+        "date": "2026-04-13",
+        "actual": 167.0,
+        "training_median": 164.0,
+        "persistence": 162.0
+      },
+      {
+        "date": "2026-04-14",
+        "actual": 171.0,
+        "training_median": 164.0,
+        "persistence": 167.0
+      },
+      {
+        "date": "2026-04-15",
+        "actual": 169.0,
+        "training_median": 164.0,
+        "persistence": 171.0
+      },
+      {
+        "date": "2026-04-16",
+        "actual": 167.0,
+        "training_median": 164.0,
+        "persistence": 169.0
+      },
+      {
+        "date": "2026-04-17",
+        "actual": 174.0,
+        "training_median": 164.0,
+        "persistence": 167.0
+      },
+      {
+        "date": "2026-04-18",
+        "actual": 168.0,
+        "training_median": 164.0,
+        "persistence": 174.0
+      },
+      {
+        "date": "2026-04-19",
+        "actual": 169.0,
+        "training_median": 164.0,
+        "persistence": 168.0
+      },
+      {
+        "date": "2026-04-20",
+        "actual": 173.0,
+        "training_median": 164.0,
+        "persistence": 169.0
+      },
+      {
+        "date": "2026-04-21",
+        "actual": 172.0,
+        "training_median": 164.0,
+        "persistence": 173.0
+      },
+      {
+        "date": "2026-04-22",
+        "actual": 173.0,
+        "training_median": 164.0,
+        "persistence": 172.0
+      },
+      {
+        "date": "2026-04-23",
+        "actual": 175.0,
+        "training_median": 164.0,
+        "persistence": 173.0
+      },
+      {
+        "date": "2026-04-24",
+        "actual": 179.0,
+        "training_median": 164.0,
+        "persistence": 175.0
+      },
+      {
+        "date": "2026-04-25",
+        "actual": 177.0,
+        "training_median": 164.0,
+        "persistence": 179.0
+      },
+      {
+        "date": "2026-04-26",
+        "actual": 171.0,
+        "training_median": 164.0,
+        "persistence": 177.0
+      },
+      {
+        "date": "2026-04-27",
+        "actual": 178.0,
+        "training_median": 164.0,
+        "persistence": 171.0
+      },
+      {
+        "date": "2026-04-28",
+        "actual": 161.0,
+        "training_median": 164.0,
+        "persistence": 178.0
+      },
+      {
+        "date": "2026-04-29",
+        "actual": 163.0,
+        "training_median": 164.0,
+        "persistence": 161.0
+      },
+      {
+        "date": "2026-04-30",
+        "actual": 170.0,
+        "training_median": 164.0,
+        "persistence": 163.0
+      },
+      {
+        "date": "2026-05-01",
+        "actual": 172.0,
+        "training_median": 164.0,
+        "persistence": 170.0
+      },
+      {
+        "date": "2026-05-02",
+        "actual": 166.0,
+        "training_median": 164.0,
+        "persistence": 172.0
+      },
+      {
+        "date": "2026-05-03",
+        "actual": 161.0,
+        "training_median": 164.0,
+        "persistence": 166.0
+      },
+      {
+        "date": "2026-05-04",
+        "actual": 165.0,
+        "training_median": 164.0,
+        "persistence": 161.0
+      },
+      {
+        "date": "2026-05-05",
+        "actual": 166.0,
+        "training_median": 164.0,
+        "persistence": 165.0
+      },
+      {
+        "date": "2026-05-06",
+        "actual": 165.0,
+        "training_median": 164.0,
+        "persistence": 166.0
+      },
+      {
+        "date": "2026-05-07",
+        "actual": 167.0,
+        "training_median": 164.0,
+        "persistence": 165.0
+      },
+      {
+        "date": "2026-05-08",
+        "actual": 169.0,
+        "training_median": 164.0,
+        "persistence": 167.0
+      },
+      {
+        "date": "2026-05-09",
+        "actual": 169.0,
+        "training_median": 164.0,
+        "persistence": 169.0
+      },
+      {
+        "date": "2026-05-10",
+        "actual": 168.0,
+        "training_median": 164.0,
+        "persistence": 169.0
+      },
+      {
+        "date": "2026-05-11",
+        "actual": 171.0,
+        "training_median": 164.0,
+        "persistence": 168.0
+      },
+      {
+        "date": "2026-05-12",
+        "actual": 169.0,
+        "training_median": 164.0,
+        "persistence": 171.0
+      },
+      {
+        "date": "2026-05-13",
+        "actual": 169.0,
+        "training_median": 164.0,
+        "persistence": 169.0
+      },
+      {
+        "date": "2026-05-14",
+        "actual": 167.0,
+        "training_median": 164.0,
+        "persistence": 169.0
+      },
+      {
+        "date": "2026-05-15",
+        "actual": 166.0,
+        "training_median": 164.0,
+        "persistence": 167.0
+      },
+      {
+        "date": "2026-05-16",
+        "actual": 161.0,
+        "training_median": 164.0,
+        "persistence": 166.0
+      },
+      {
+        "date": "2026-05-17",
+        "actual": 160.0,
+        "training_median": 164.0,
+        "persistence": 161.0
+      },
+      {
+        "date": "2026-05-18",
+        "actual": 159.0,
+        "training_median": 164.0,
+        "persistence": 160.0
+      },
+      {
+        "date": "2026-05-19",
+        "actual": 158.0,
+        "training_median": 164.0,
+        "persistence": 159.0
+      },
+      {
+        "date": "2026-05-20",
+        "actual": 157.0,
+        "training_median": 164.0,
+        "persistence": 158.0
+      },
+      {
+        "date": "2026-05-21",
+        "actual": 159.0,
+        "training_median": 164.0,
+        "persistence": 157.0
+      },
+      {
+        "date": "2026-05-22",
+        "actual": 161.0,
+        "training_median": 164.0,
+        "persistence": 159.0
+      },
+      {
+        "date": "2026-05-23",
+        "actual": 165.0,
+        "training_median": 164.0,
+        "persistence": 161.0
+      },
+      {
+        "date": "2026-05-24",
+        "actual": 167.0,
+        "training_median": 164.0,
+        "persistence": 165.0
+      },
+      {
+        "date": "2026-05-25",
+        "actual": 165.0,
+        "training_median": 164.0,
+        "persistence": 167.0
+      },
+      {
+        "date": "2026-05-26",
+        "actual": 170.0,
+        "training_median": 164.0,
+        "persistence": 165.0
+      },
+      {
+        "date": "2026-05-27",
+        "actual": 168.0,
+        "training_median": 164.0,
+        "persistence": 170.0
+      },
+      {
+        "date": "2026-05-28",
+        "actual": 163.0,
+        "training_median": 164.0,
+        "persistence": 168.0
+      },
+      {
+        "date": "2026-05-29",
+        "actual": 169.0,
+        "training_median": 164.0,
+        "persistence": 163.0
+      },
+      {
+        "date": "2026-05-30",
+        "actual": 165.0,
+        "training_median": 164.0,
+        "persistence": 169.0
+      },
+      {
+        "date": "2026-05-31",
+        "actual": 166.0,
+        "training_median": 164.0,
+        "persistence": 165.0
+      },
+      {
+        "date": "2026-06-01",
+        "actual": 171.0,
+        "training_median": 164.0,
+        "persistence": 166.0
+      },
+      {
+        "date": "2026-06-02",
+        "actual": 166.0,
+        "training_median": 164.0,
+        "persistence": 171.0
+      },
+      {
+        "date": "2026-06-03",
+        "actual": 167.0,
+        "training_median": 164.0,
+        "persistence": 166.0
+      },
+      {
+        "date": "2026-06-04",
+        "actual": 166.0,
+        "training_median": 164.0,
+        "persistence": 167.0
+      },
+      {
+        "date": "2026-06-05",
+        "actual": 170.0,
+        "training_median": 164.0,
+        "persistence": 166.0
+      },
+      {
+        "date": "2026-06-06",
+        "actual": 165.0,
+        "training_median": 164.0,
+        "persistence": 170.0
+      },
+      {
+        "date": "2026-06-07",
+        "actual": 166.0,
+        "training_median": 164.0,
+        "persistence": 165.0
+      },
+      {
+        "date": "2026-06-08",
+        "actual": 167.0,
+        "training_median": 164.0,
+        "persistence": 166.0
+      },
+      {
+        "date": "2026-06-09",
+        "actual": 163.0,
+        "training_median": 164.0,
+        "persistence": 167.0
+      },
+      {
+        "date": "2026-06-10",
+        "actual": 165.0,
+        "training_median": 164.0,
+        "persistence": 163.0
+      },
+      {
+        "date": "2026-06-11",
+        "actual": 164.0,
+        "training_median": 164.0,
+        "persistence": 165.0
+      },
+      {
+        "date": "2026-06-12",
+        "actual": 167.0,
+        "training_median": 164.0,
+        "persistence": 164.0
+      },
+      {
+        "date": "2026-06-13",
+        "actual": 163.0,
+        "training_median": 164.0,
+        "persistence": 167.0
+      },
+      {
+        "date": "2026-06-14",
+        "actual": 164.0,
+        "training_median": 164.0,
+        "persistence": 163.0
+      },
+      {
+        "date": "2026-06-15",
+        "actual": 168.0,
+        "training_median": 164.0,
+        "persistence": 164.0
+      },
+      {
+        "date": "2026-06-16",
+        "actual": 165.0,
+        "training_median": 164.0,
+        "persistence": 168.0
+      },
+      {
+        "date": "2026-06-17",
+        "actual": 165.0,
+        "training_median": 164.0,
+        "persistence": 165.0
+      },
+      {
+        "date": "2026-06-18",
+        "actual": 168.0,
+        "training_median": 164.0,
+        "persistence": 165.0
+      },
+      {
+        "date": "2026-06-19",
+        "actual": 170.0,
+        "training_median": 164.0,
+        "persistence": 168.0
+      },
+      {
+        "date": "2026-06-20",
+        "actual": 168.0,
+        "training_median": 164.0,
+        "persistence": 170.0
+      },
+      {
+        "date": "2026-06-21",
+        "actual": 167.0,
+        "training_median": 164.0,
+        "persistence": 168.0
+      },
+      {
+        "date": "2026-06-22",
+        "actual": 167.0,
+        "training_median": 164.0,
+        "persistence": 167.0
+      },
+      {
+        "date": "2026-06-23",
+        "actual": 168.0,
+        "training_median": 164.0,
+        "persistence": 167.0
+      },
+      {
+        "date": "2026-06-24",
+        "actual": 168.0,
+        "training_median": 164.0,
+        "persistence": 168.0
+      },
+      {
+        "date": "2026-06-25",
+        "actual": 169.0,
+        "training_median": 164.0,
+        "persistence": 168.0
+      },
+      {
+        "date": "2026-06-26",
+        "actual": 173.0,
+        "training_median": 164.0,
+        "persistence": 169.0
+      },
+      {
+        "date": "2026-06-27",
+        "actual": 166.0,
+        "training_median": 164.0,
+        "persistence": 173.0
+      },
+      {
+        "date": "2026-06-28",
+        "actual": 167.0,
+        "training_median": 164.0,
+        "persistence": 166.0
+      },
+      {
+        "date": "2026-06-29",
+        "actual": 171.0,
+        "training_median": 164.0,
+        "persistence": 167.0
+      },
+      {
+        "date": "2026-06-30",
+        "actual": 172.0,
+        "training_median": 164.0,
+        "persistence": 171.0
+      }
+    ],
+    "next_observation_forecast": 172.0,
+    "method": "persistence reference; no claimed GNN advantage"
+  },
+  "run_id": "97529e889b5d4c7a9a1d025554fb49dc",
+  "created_at": "2026-10-22T08:38:08.990593+00:00",
+  "selection": {
+    "bank": "monzo",
+    "service": "Open Banking Payment Initiation",
+    "metric": "latency",
+    "start": null,
+    "end": null
+  }
+}

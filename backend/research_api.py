@@ -132,6 +132,8 @@ def results():
     graph=root/'graph_ablation_train_topology/report.json'
     if not graph.exists():graph=root/'graph_ablation/report.json'
     if graph.exists():values['graph_ablation']=json.loads(graph.read_text(encoding='utf-8'))
+    updated=Path(__file__).resolve().parents[1]/'results/redesign_20261022/graph/report.json'
+    if updated.exists():values['graph_ablation']=json.loads(updated.read_text(encoding='utf-8'))
     followups=sorted(root.glob('investigation_*.json'))
     if followups:values['investigation']=json.loads(followups[-1].read_text(encoding='utf-8'))
     mechanism_report=Path(__file__).resolve().parents[1]/'results/research_v4/mechanisms_20261016/report.json'

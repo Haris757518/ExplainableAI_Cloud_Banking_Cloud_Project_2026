@@ -1,0 +1,25 @@
+{
+  "source": "executed-aws-controlled-database-commit-order-probe",
+  "scope": "Two isolated diagnostic SQL transfers, not application traffic",
+  "before_probe": {
+    "timestamp": 1792692460.6458728,
+    "api_cents": 65870972,
+    "ledger_cents": 65870972,
+    "difference_cents": 0
+  },
+  "later_id_committed_first_output": "3095\nINSERT 0 1",
+  "while_earlier_id_uncommitted": {
+    "timestamp": 1792692463.8489766,
+    "api_cents": 65870953,
+    "ledger_cents": 65870953,
+    "difference_cents": 0
+  },
+  "held_process_exit": 0,
+  "after_earlier_id_commit": {
+    "timestamp": 1792692475.547283,
+    "api_cents": 65870953,
+    "ledger_cents": 65870936,
+    "difference_cents": 17
+  },
+  "observed_skipped_earlier_amount_cents": 17
+}

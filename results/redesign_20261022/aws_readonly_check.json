@@ -1,0 +1,10 @@
+{
+  "mutations_performed": false,
+  "region": "us-east-1",
+  "profile": "default",
+  "bucket_configured": false,
+  "credentials": "authenticated",
+  "s3_listing": "allowed",
+  "visible_bucket_count": 0,
+  "new_dataset_upload_verified": false
+}

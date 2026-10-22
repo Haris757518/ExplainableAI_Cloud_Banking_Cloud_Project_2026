@@ -85,9 +85,9 @@ def analyze_case(case,as_of=None,*,graph_enabled=True,evidence_gate=True,forecas
     # label. It stays fixed as replay advances and cannot adapt away an incident.
     recorded_end=case.provenance.get('recording_end',first+3000)
     reference_end=first+min(600,.2*(recorded_end-first)) if case.source.id=='rcaeval' else None
-    if case.source.id=='banking-local':reference_end=case.provenance.get('baseline_end')
+    if case.source.id in {'banking-local','banking-cloud','banking-local-recording'}:reference_end=case.provenance.get('baseline_end')
     threshold,persistence=3.5,2
-    if case.source.id=='banking-local':threshold=float(case.provenance.get('detector_threshold',3.5))
+    if case.source.id in {'banking-local','banking-cloud','banking-local-recording'}:threshold=float(case.provenance.get('detector_threshold',3.5))
     calibration='predeclared heuristic, not validated fault confidence'
     if case.source.id=='microsoft':
         from pathlib import Path
@@ -167,4 +167,7 @@ def analyze_case(case,as_of=None,*,graph_enabled=True,evidence_gate=True,forecas
     incident.explanation['observed_propagation']=propagation
     incident.explanation['onset_interpretation']='Start of a qualifying run within the last six valid observations, not independently annotated fault onset.'
     incident.explanation['localization_scope']='metric_series_only' if case.source.id=='microsoft' else 'suspected_resource'
+    if case.source.id in {'banking-cloud','banking-local-recording'}:
+        from analysis.probe_xai import investigate
+        incident.explanation['probe_xai']=investigate(case,incident,as_of=latest,budget=12)
     return incident

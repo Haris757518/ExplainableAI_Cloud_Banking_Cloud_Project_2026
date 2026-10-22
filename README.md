@@ -1,3 +1,5 @@
+> **22 October redesign:** Start with [REDESIGN_README.md](REDESIGN_README.md). The application now has two primary modes and imported Monzo/Starling history. The documentation below describes the preserved earlier implementation.
+
 # Explainable AI-Based Cloud Performance Analytics for Digital Banking using Graph Neural Networks
 
 An instrumented academic banking application for measured performance investigation. Balance enquiries, atomic/idempotent test transfers and transaction history execute through separate local FastAPI processes. The dashboard connects detection, resource localization, mechanism evidence, recommendations and independent verification.

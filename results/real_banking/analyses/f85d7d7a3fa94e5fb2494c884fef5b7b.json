@@ -1,0 +1,627 @@
+{
+  "model_version": "public-bank-mad-v1",
+  "input_sha256": "d42870fc35b818f0048873820a40657d8afcea5b72d91c8cb710732e48dd46a6",
+  "configuration": {
+    "training_fraction": 0.6,
+    "calibration_fraction": 0.2,
+    "test_fraction": 0.2,
+    "minimum_score": 3.5,
+    "calibration_quantile": 0.99
+  },
+  "series": [
+    {
+      "bank": "Starling",
+      "service": "Payment Initiation (Open Banking)",
+      "metric": "latency",
+      "status": "evaluated",
+      "split": {
+        "training": [
+          "2025-04-01",
+          "2025-12-29"
+        ],
+        "calibration": [
+          "2025-12-30",
+          "2026-03-30"
+        ],
+        "test": [
+          "2026-03-31",
+          "2026-06-30"
+        ]
+      },
+      "counts": {
+        "training": 273,
+        "calibration": 91,
+        "test": 92
+      },
+      "reference": 51.0,
+      "scale": 8.8956,
+      "threshold": 3.5,
+      "findings": [],
+      "precision": null,
+      "recall": null,
+      "limitations": "No incident labels; flags do not establish banking faults or root causes."
+    }
+  ],
+  "forecast": {
+    "status": "evaluated",
+    "target": "next recorded observation; calendar gaps are not filled",
+    "test_start": "2026-03-31",
+    "test_end": "2026-06-30",
+    "test_count": 92,
+    "methods": {
+      "training_median": {
+        "mae": 2.358695652173913,
+        "mse": 7.967391304347826
+      },
+      "persistence": {
+        "mae": 0.9347826086956522,
+        "mse": 1.4565217391304348
+      }
+    },
+    "predictions": [
+      {
+        "date": "2026-03-31",
+        "actual": 48.0,
+        "training_median": 51.0,
+        "persistence": 49.0
+      },
+      {
+        "date": "2026-04-01",
+        "actual": 49.0,
+        "training_median": 51.0,
+        "persistence": 48.0
+      },
+      {
+        "date": "2026-04-02",
+        "actual": 47.0,
+        "training_median": 51.0,
+        "persistence": 49.0
+      },
+      {
+        "date": "2026-04-03",
+        "actual": 47.0,
+        "training_median": 51.0,
+        "persistence": 47.0
+      },
+      {
+        "date": "2026-04-04",
+        "actual": 47.0,
+        "training_median": 51.0,
+        "persistence": 47.0
+      },
+      {
+        "date": "2026-04-05",
+        "actual": 45.0,
+        "training_median": 51.0,
+        "persistence": 47.0
+      },
+      {
+        "date": "2026-04-06",
+        "actual": 46.0,
+        "training_median": 51.0,
+        "persistence": 45.0
+      },
+      {
+        "date": "2026-04-07",
+        "actual": 45.0,
+        "training_median": 51.0,
+        "persistence": 46.0
+      },
+      {
+        "date": "2026-04-08",
+        "actual": 46.0,
+        "training_median": 51.0,
+        "persistence": 45.0
+      },
+      {
+        "date": "2026-04-09",
+        "actual": 47.0,
+        "training_median": 51.0,
+        "persistence": 46.0
+      },
+      {
+        "date": "2026-04-10",
+        "actual": 48.0,
+        "training_median": 51.0,
+        "persistence": 47.0
+      },
+      {
+        "date": "2026-04-11",
+        "actual": 47.0,
+        "training_median": 51.0,
+        "persistence": 48.0
+      },
+      {
+        "date": "2026-04-12",
+        "actual": 48.0,
+        "training_median": 51.0,
+        "persistence": 47.0
+      },
+      {
+        "date": "2026-04-13",
+        "actual": 47.0,
+        "training_median": 51.0,
+        "persistence": 48.0
+      },
+      {
+        "date": "2026-04-14",
+        "actual": 48.0,
+        "training_median": 51.0,
+        "persistence": 47.0
+      },
+      {
+        "date": "2026-04-15",
+        "actual": 46.0,
+        "training_median": 51.0,
+        "persistence": 48.0
+      },
+      {
+        "date": "2026-04-16",
+        "actual": 47.0,
+        "training_median": 51.0,
+        "persistence": 46.0
+      },
+      {
+        "date": "2026-04-17",
+        "actual": 48.0,
+        "training_median": 51.0,
+        "persistence": 47.0
+      },
+      {
+        "date": "2026-04-18",
+        "actual": 47.0,
+        "training_median": 51.0,
+        "persistence": 48.0
+      },
+      {
+        "date": "2026-04-19",
+        "actual": 47.0,
+        "training_median": 51.0,
+        "persistence": 47.0
+      },
+      {
+        "date": "2026-04-20",
+        "actual": 47.0,
+        "training_median": 51.0,
+        "persistence": 47.0
+      },
+      {
+        "date": "2026-04-21",
+        "actual": 47.0,
+        "training_median": 51.0,
+        "persistence": 47.0
+      },
+      {
+        "date": "2026-04-22",
+        "actual": 48.0,
+        "training_median": 51.0,
+        "persistence": 47.0
+      },
+      {
+        "date": "2026-04-23",
+        "actual": 48.0,
+        "training_median": 51.0,
+        "persistence": 48.0
+      },
+      {
+        "date": "2026-04-24",
+        "actual": 48.0,
+        "training_median": 51.0,
+        "persistence": 48.0
+      },
+      {
+        "date": "2026-04-25",
+        "actual": 48.0,
+        "training_median": 51.0,
+        "persistence": 48.0
+      },
+      {
+        "date": "2026-04-26",
+        "actual": 47.0,
+        "training_median": 51.0,
+        "persistence": 48.0
+      },
+      {
+        "date": "2026-04-27",
+        "actual": 46.0,
+        "training_median": 51.0,
+        "persistence": 47.0
+      },
+      {
+        "date": "2026-04-28",
+        "actual": 47.0,
+        "training_median": 51.0,
+        "persistence": 46.0
+      },
+      {
+        "date": "2026-04-29",
+        "actual": 47.0,
+        "training_median": 51.0,
+        "persistence": 47.0
+      },
+      {
+        "date": "2026-04-30",
+        "actual": 46.0,
+        "training_median": 51.0,
+        "persistence": 47.0
+      },
+      {
+        "date": "2026-05-01",
+        "actual": 48.0,
+        "training_median": 51.0,
+        "persistence": 46.0
+      },
+      {
+        "date": "2026-05-02",
+        "actual": 48.0,
+        "training_median": 51.0,
+        "persistence": 48.0
+      },
+      {
+        "date": "2026-05-03",
+        "actual": 47.0,
+        "training_median": 51.0,
+        "persistence": 48.0
+      },
+      {
+        "date": "2026-05-04",
+        "actual": 48.0,
+        "training_median": 51.0,
+        "persistence": 47.0
+      },
+      {
+        "date": "2026-05-05",
+        "actual": 47.0,
+        "training_median": 51.0,
+        "persistence": 48.0
+      },
+      {
+        "date": "2026-05-06",
+        "actual": 49.0,
+        "training_median": 51.0,
+        "persistence": 47.0
+      },
+      {
+        "date": "2026-05-07",
+        "actual": 52.0,
+        "training_median": 51.0,
+        "persistence": 49.0
+      },
+      {
+        "date": "2026-05-08",
+        "actual": 53.0,
+        "training_median": 51.0,
+        "persistence": 52.0
+      },
+      {
+        "date": "2026-05-09",
+        "actual": 54.0,
+        "training_median": 51.0,
+        "persistence": 53.0
+      },
+      {
+        "date": "2026-05-10",
+        "actual": 53.0,
+        "training_median": 51.0,
+        "persistence": 54.0
+      },
+      {
+        "date": "2026-05-11",
+        "actual": 54.0,
+        "training_median": 51.0,
+        "persistence": 53.0
+      },
+      {
+        "date": "2026-05-12",
+        "actual": 53.0,
+        "training_median": 51.0,
+        "persistence": 54.0
+      },
+      {
+        "date": "2026-05-13",
+        "actual": 54.0,
+        "training_median": 51.0,
+        "persistence": 53.0
+      },
+      {
+        "date": "2026-05-14",
+        "actual": 51.0,
+        "training_median": 51.0,
+        "persistence": 54.0
+      },
+      {
+        "date": "2026-05-15",
+        "actual": 54.0,
+        "training_median": 51.0,
+        "persistence": 51.0
+      },
+      {
+        "date": "2026-05-16",
+        "actual": 53.0,
+        "training_median": 51.0,
+        "persistence": 54.0
+      },
+      {
+        "date": "2026-05-17",
+        "actual": 53.0,
+        "training_median": 51.0,
+        "persistence": 53.0
+      },
+      {
+        "date": "2026-05-18",
+        "actual": 52.0,
+        "training_median": 51.0,
+        "persistence": 53.0
+      },
+      {
+        "date": "2026-05-19",
+        "actual": 51.0,
+        "training_median": 51.0,
+        "persistence": 52.0
+      },
+      {
+        "date": "2026-05-20",
+        "actual": 50.0,
+        "training_median": 51.0,
+        "persistence": 51.0
+      },
+      {
+        "date": "2026-05-21",
+        "actual": 51.0,
+        "training_median": 51.0,
+        "persistence": 50.0
+      },
+      {
+        "date": "2026-05-22",
+        "actual": 51.0,
+        "training_median": 51.0,
+        "persistence": 51.0
+      },
+      {
+        "date": "2026-05-23",
+        "actual": 52.0,
+        "training_median": 51.0,
+        "persistence": 51.0
+      },
+      {
+        "date": "2026-05-24",
+        "actual": 53.0,
+        "training_median": 51.0,
+        "persistence": 52.0
+      },
+      {
+        "date": "2026-05-25",
+        "actual": 52.0,
+        "training_median": 51.0,
+        "persistence": 53.0
+      },
+      {
+        "date": "2026-05-26",
+        "actual": 53.0,
+        "training_median": 51.0,
+        "persistence": 52.0
+      },
+      {
+        "date": "2026-05-27",
+        "actual": 52.0,
+        "training_median": 51.0,
+        "persistence": 53.0
+      },
+      {
+        "date": "2026-05-28",
+        "actual": 52.0,
+        "training_median": 51.0,
+        "persistence": 52.0
+      },
+      {
+        "date": "2026-05-29",
+        "actual": 52.0,
+        "training_median": 51.0,
+        "persistence": 52.0
+      },
+      {
+        "date": "2026-05-30",
+        "actual": 51.0,
+        "training_median": 51.0,
+        "persistence": 52.0
+      },
+      {
+        "date": "2026-05-31",
+        "actual": 52.0,
+        "training_median": 51.0,
+        "persistence": 51.0
+      },
+      {
+        "date": "2026-06-01",
+        "actual": 53.0,
+        "training_median": 51.0,
+        "persistence": 52.0
+      },
+      {
+        "date": "2026-06-02",
+        "actual": 52.0,
+        "training_median": 51.0,
+        "persistence": 53.0
+      },
+      {
+        "date": "2026-06-03",
+        "actual": 52.0,
+        "training_median": 51.0,
+        "persistence": 52.0
+      },
+      {
+        "date": "2026-06-04",
+        "actual": 51.0,
+        "training_median": 51.0,
+        "persistence": 52.0
+      },
+      {
+        "date": "2026-06-05",
+        "actual": 50.0,
+        "training_median": 51.0,
+        "persistence": 51.0
+      },
+      {
+        "date": "2026-06-06",
+        "actual": 50.0,
+        "training_median": 51.0,
+        "persistence": 50.0
+      },
+      {
+        "date": "2026-06-07",
+        "actual": 49.0,
+        "training_median": 51.0,
+        "persistence": 50.0
+      },
+      {
+        "date": "2026-06-08",
+        "actual": 51.0,
+        "training_median": 51.0,
+        "persistence": 49.0
+      },
+      {
+        "date": "2026-06-09",
+        "actual": 52.0,
+        "training_median": 51.0,
+        "persistence": 51.0
+      },
+      {
+        "date": "2026-06-10",
+        "actual": 53.0,
+        "training_median": 51.0,
+        "persistence": 52.0
+      },
+      {
+        "date": "2026-06-11",
+        "actual": 52.0,
+        "training_median": 51.0,
+        "persistence": 53.0
+      },
+      {
+        "date": "2026-06-12",
+        "actual": 52.0,
+        "training_median": 51.0,
+        "persistence": 52.0
+      },
+      {
+        "date": "2026-06-13",
+        "actual": 53.0,
+        "training_median": 51.0,
+        "persistence": 52.0
+      },
+      {
+        "date": "2026-06-14",
+        "actual": 53.0,
+        "training_median": 51.0,
+        "persistence": 53.0
+      },
+      {
+        "date": "2026-06-15",
+        "actual": 53.0,
+        "training_median": 51.0,
+        "persistence": 53.0
+      },
+      {
+        "date": "2026-06-16",
+        "actual": 54.0,
+        "training_median": 51.0,
+        "persistence": 53.0
+      },
+      {
+        "date": "2026-06-17",
+        "actual": 54.0,
+        "training_median": 51.0,
+        "persistence": 54.0
+      },
+      {
+        "date": "2026-06-18",
+        "actual": 54.0,
+        "training_median": 51.0,
+        "persistence": 54.0
+      },
+      {
+        "date": "2026-06-19",
+        "actual": 55.0,
+        "training_median": 51.0,
+        "persistence": 54.0
+      },
+      {
+        "date": "2026-06-20",
+        "actual": 51.0,
+        "training_median": 51.0,
+        "persistence": 55.0
+      },
+      {
+        "date": "2026-06-21",
+        "actual": 51.0,
+        "training_median": 51.0,
+        "persistence": 51.0
+      },
+      {
+        "date": "2026-06-22",
+        "actual": 50.0,
+        "training_median": 51.0,
+        "persistence": 51.0
+      },
+      {
+        "date": "2026-06-23",
+        "actual": 50.0,
+        "training_median": 51.0,
+        "persistence": 50.0
+      },
+      {
+        "date": "2026-06-24",
+        "actual": 51.0,
+        "training_median": 51.0,
+        "persistence": 50.0
+      },
+      {
+        "date": "2026-06-25",
+        "actual": 52.0,
+        "training_median": 51.0,
+        "persistence": 51.0
+      },
+      {
+        "date": "2026-06-26",
+        "actual": 51.0,
+        "training_median": 51.0,
+        "persistence": 52.0
+      },
+      {
+        "date": "2026-06-27",
+        "actual": 54.0,
+        "training_median": 51.0,
+        "persistence": 51.0
+      },
+      {
+        "date": "2026-06-28",
+        "actual": 53.0,
+        "training_median": 51.0,
+        "persistence": 54.0
+      },
+      {
+        "date": "2026-06-29",
+        "actual": 52.0,
+        "training_median": 51.0,
+        "persistence": 53.0
+      },
+      {
+        "date": "2026-06-30",
+        "actual": 51.0,
+        "training_median": 51.0,
+        "persistence": 52.0
+      }
+    ],
+    "next_observation_forecast": 51.0,
+    "method": "persistence reference; no claimed GNN advantage"
+  },
+  "run_id": "f85d7d7a3fa94e5fb2494c884fef5b7b",
+  "created_at": "2026-10-22T08:38:19.963077+00:00",
+  "selection": {
+    "bank": "starling",
+    "service": "Payment Initiation (Open Banking)",
+    "metric": "latency",
+    "start": null,
+    "end": null
+  }
+}

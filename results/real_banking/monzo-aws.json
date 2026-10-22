@@ -1,0 +1,23 @@
+{
+  "status": "verified",
+  "verified_at": "2026-10-22T11:57:21.590148+00:00",
+  "bank": "monzo",
+  "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51",
+  "verification": "S3 HEAD metadata/length and downloaded content SHA-256",
+  "objects": [
+    {
+      "bucket": "xai-public-bank-history-f47eaab8ae4c",
+      "key": "public-bank-history/monzo/a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51/raw/monzo-a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51.html",
+      "sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51",
+      "verified": true,
+      "download_sha256_verified": true
+    },
+    {
+      "bucket": "xai-public-bank-history-f47eaab8ae4c",
+      "key": "public-bank-history/monzo/a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51/normalized/observations.csv",
+      "sha256": "f8df78353990719d412cf1fef363f0e4f5ad20075cab1e2e7c830faeeb24ba7e",
+      "verified": true,
+      "download_sha256_verified": true
+    }
+  ]
+}

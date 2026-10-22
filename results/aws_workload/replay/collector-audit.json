@@ -1,0 +1,17 @@
+{
+  "collector_issue": "Payment acknowledgement classifier used unquote instead of form-query parsing; plus-encoded Payment+successful was not recognized.",
+  "affected_fields": [
+    "payment_request.outcome",
+    "summary.acknowledged_success",
+    "summary.acknowledged_but_missing_ledger"
+  ],
+  "treatment": "Do not use those fields as payment acknowledgement or failure truth. Preserve originals. Ledger counts, unique amounts, timings, HTTP status, traces and instrumentation snapshots are retained independently.",
+  "request_to_ledger_link": "Each request uses a unique transfer amount and UUID in this isolated run. Ledger matching uses exact sender, receiver and amount.",
+  "executed_collector_sha256": "98ae2385c8c88b3b5917467be759b12eb64930a1e77fc41e299cb913e3f542a4",
+  "future_correction": "Parse query parameters with urllib.parse.parse_qs and retain the decoded result_message; no retrospective invention of missing query strings.",
+  "trace_coverage": "Frontend server/client only. Backend and SQL spans not claimed.",
+  "missing_instruments": [
+    "Direct per-request backend CPU attribution",
+    "HTTP admission queue depth"
+  ]
+}

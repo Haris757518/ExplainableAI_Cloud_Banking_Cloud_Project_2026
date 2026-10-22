@@ -1,0 +1,18 @@
+{
+  "python_full_suite_passed": 178,
+  "targeted_investigation_suite_passed": 21,
+  "browser_tests_passed": 3,
+  "frontend_build": "passed",
+  "RE2_recordings": 15,
+  "source_backup": "results/redesign_20261022/before_probe_xai.zip",
+  "protected_prior_files": 62,
+  "all_prior_artifacts_preserved": true,
+  "new_cloud_resources_created": 0,
+  "additional_compute_budget_inr": 0,
+  "bank_of_anthos_runtime_verified": false,
+  "aws_compute_discovery": {
+    "eks": "AccessDeniedException",
+    "ec2": "UnauthorizedOperation"
+  },
+  "deployment_plan": "docs/ZERO_BUDGET_DEPLOYMENT_PLAN.md"
+}

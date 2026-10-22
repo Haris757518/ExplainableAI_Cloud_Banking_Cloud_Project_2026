@@ -26,6 +26,8 @@ async def lifespan(app: FastAPI):
     init_db(); yield
 
 app=FastAPI(title="Explainable AI-Based Cloud Performance Analytics for Digital Banking using Graph Neural Networks",version="1.0.0",lifespan=lifespan)
+from backend.real_banking_api import router as real_banking_router
+app.include_router(real_banking_router)
 app.add_middleware(CORSMiddleware,allow_origins=[settings.frontend_origin,"http://127.0.0.1:5173","http://localhost:5173"],allow_credentials=True,allow_methods=["*"],allow_headers=["*"])
 pipeline=AnalysisPipeline()
 init_db()
@@ -317,6 +319,9 @@ app.include_router(banking_router)
 
 from backend.aws_banking_api import router as aws_banking_router
 app.include_router(aws_banking_router)
+
+from backend.cloud_investigation_api import router as cloud_investigation_router
+app.include_router(cloud_investigation_router)
 
 frontend_dist = Path(__file__).resolve().parents[1] / 'frontend' / 'dist'
 if frontend_dist.is_dir():

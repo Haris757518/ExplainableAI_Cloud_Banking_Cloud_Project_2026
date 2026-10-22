@@ -1,0 +1,5 @@
+import React from 'react';
+export default function BankingDatasetDetails({source,aws}){
+ const m=source?.manifest;
+ return <section className="panel"><h2>Dataset evidence</h2>{m?<><p>{m.validation.rows.toLocaleString()} records · {m.start_date} to {m.end_date} · {m.reporting_quarters.length} reporting quarters</p><p>Retrieved {m.retrieved_at}. Latest published observation: {m.end_date}. Historical data, refreshed only by explicit import.</p><p>{m.validation.null_values} missing or unsupported values · {m.validation.missing_dates.length} missing series dates · {m.validation.unsupported_values.length} unsupported source values.</p><a href={m.source_url} target="_blank" rel="noreferrer">Official source</a><details><summary>Provenance, validation and checksums</summary><pre>{JSON.stringify(m,null,2)}</pre></details></>:<p>No validated import available.</p>}<h3>AWS storage and monitoring</h3><p>S3: {aws?.storage?.[source?.bank]?.status||'not_executed'} · Import health: {aws?.cloudwatch?.status||'not_executed'}</p><p>{aws?.message}</p><details><summary>Saved AWS verification receipts</summary><pre>{JSON.stringify(aws,null,2)}</pre></details></section>
+}

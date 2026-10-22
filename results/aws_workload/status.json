@@ -1,0 +1,30 @@
+{
+  "source": "executed-aws-bank-of-anthos",
+  "evidence_status": "verified_transfer",
+  "recorded_at": "2026-10-22T17:38:38Z",
+  "instance_type": "t3.large",
+  "region": "us-east-1",
+  "pods_ready": 8,
+  "verified_transfers": 1,
+  "payment_roundtrip_ms": 1768.661413000018,
+  "transaction_id": 66,
+  "trace_coverage": "frontend server/client only; no backend server or database spans",
+  "proof_file": "first-transfer-verification.json",
+  "proof_sha256": "87b8e78984460cec0da938addeb1001f185c83c3868e2eb5f1d5f27ac2d84e02",
+  "experiment_status": "Controlled workload completed: 3,025 unique ledger transfers. Recovery checks passed after reader resynchronization. Final archive and database backup verified on D:. Research instance terminated.",
+  "compute_state": "terminated",
+  "approved_budget_usd": 5,
+  "maximum_runtime_hours": 2,
+  "guest_termination_utc": "2026-10-22T19:02:40Z",
+  "evidence_location": "D:\\BankingResearch\\Telemetry\\aws-export-20261022T173924Z",
+  "known_integrity_finding": {
+    "initial_sender_balance_gap_cents": 125678,
+    "controlled_commit_order_gap_cents": 17,
+    "reader_resynchronization": "Executed on the isolated demo instance; subsequent sender and recipient balances matched ledger totals",
+    "permanent_fix_status": "Not implemented in upstream application",
+    "origin": "Investigator-assisted controlled verification, not an automated GNN diagnosis"
+  },
+  "final_export": "D:\\BankingResearch\\Telemetry\\aws-export-20261022T182441Z",
+  "final_export_sha256": "0c1ce8d26f9a67656e2c6a76163ffd0961ea768b62daf64362b183b61ff787fc",
+  "root_volume_deleted": true
+}

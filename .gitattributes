@@ -2,3 +2,9 @@
 # Preserve the frozen banking report checksums across Windows/Git archives.
 results/banking/**/report.json text eol=lf
 results/banking/FINAL.json text eol=lf
+
+# Retained evidence must keep its exact bytes for checksum verification.
+results/aws_workload/replay/** -text
+results/aws_workload/first-transfer-verification.json -text
+results/real_banking/** -text
+dataset/real_banking/*.html -text

@@ -1,0 +1,50 @@
+{
+  "status": "uploaded_and_verified",
+  "bucket": "xai-public-bank-history-f47eaab8ae4c",
+  "region": "us-east-1",
+  "objects": 4,
+  "public_access_block": {
+    "BlockPublicAcls": true,
+    "IgnorePublicAcls": true,
+    "BlockPublicPolicy": true,
+    "RestrictPublicBuckets": true
+  },
+  "encryption": {
+    "Rules": [
+      {
+        "ApplyServerSideEncryptionByDefault": {
+          "SSEAlgorithm": "AES256"
+        },
+        "BucketKeyEnabled": false,
+        "BlockedEncryptionTypes": {
+          "EncryptionType": [
+            "SSE-C"
+          ]
+        }
+      }
+    ]
+  },
+  "cloudwatch": {
+    "status": "verified",
+    "timestamp": "2026-10-22T11:58:42.087847+00:00",
+    "import_success": true,
+    "namespace": "PublicBankDataset/ImportHealth",
+    "readback_verified": true,
+    "readback_checked_at": "2026-10-22T11:59:05.632737+00:00",
+    "readback": {
+      "ImportSuccess": [
+        {
+          "timestamp": "2026-10-22T17:28:00+05:30",
+          "sum": 1.0
+        }
+      ],
+      "ImportFailure": [
+        {
+          "timestamp": "2026-10-22T17:28:00+05:30",
+          "sum": 0.0
+        }
+      ]
+    }
+  },
+  "verified_at": "2026-10-22T11:58:43.832713+00:00"
+}

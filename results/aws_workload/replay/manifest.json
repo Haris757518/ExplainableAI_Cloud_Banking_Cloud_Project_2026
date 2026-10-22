@@ -1,0 +1,20 @@
+{
+  "archive_sha256": "0c1ce8d26f9a67656e2c6a76163ffd0961ea768b62daf64362b183b61ff787fc",
+  "files": {
+    "measurements.jsonl": "ded84839268321983f3070e1e74aaee799ec57b445cecb1099117d963da58782",
+    "summary.json": "f08d48be018ee5eab1a371d7d6178fbd23037e0a216f65dab496637e03148631",
+    "collector-audit.json": "37af2f9871e26c718408489a972e4c55eb5446d36e34374d2cbf51cd1fba1575",
+    "commit-order-probe.json": "b8eb2a1c89b4bf933d33fc2593ff5c91a9bcee9fe580af1d443298630211a5ed",
+    "balance-history-reconciliation.json": "65a7e4c715a9e0bf348ca6a931f0baae85a29ebcc563cd373cc0ab7d2ded9052",
+    "recovery-transfer-0.json": "8f1deb511128c435e98124cc984fc3f75d42aab481e3ffce748dd57ab5b5ba43",
+    "recovery-transfer-1.json": "9d983f7240a0ac2a4a055d78c6787b330e526cf5ed7e2fc476890f937af68402",
+    "recovery-transfer-2.json": "3181948650c233da99a8e8d51fc39587944e45d8be890ddc651d2c3556eaf333",
+    "ledger-after.json": "c133e9add22e0a22f2aec8a38e033c4a87d72749bd0843b733c71230002c9e77"
+  },
+  "execution_context": {
+    "sender_account": "1011226111",
+    "recipient_account": "1033623433",
+    "local_routing_number": "883745000",
+    "scope": "Fixed isolated demo account pair in the executed collector"
+  }
+}

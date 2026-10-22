@@ -1,0 +1,23 @@
+{
+  "status": "verified",
+  "verified_at": "2026-10-22T11:58:03.398834+00:00",
+  "bank": "starling",
+  "snapshot_sha256": "7e5a37b9830cb9b11a8206bcf87c5e4b6357f834ed67b1882995c63c2b242086",
+  "verification": "S3 HEAD metadata/length and downloaded content SHA-256",
+  "objects": [
+    {
+      "bucket": "xai-public-bank-history-f47eaab8ae4c",
+      "key": "public-bank-history/starling/7e5a37b9830cb9b11a8206bcf87c5e4b6357f834ed67b1882995c63c2b242086/raw/starling-7e5a37b9830cb9b11a8206bcf87c5e4b6357f834ed67b1882995c63c2b242086.html",
+      "sha256": "7e5a37b9830cb9b11a8206bcf87c5e4b6357f834ed67b1882995c63c2b242086",
+      "verified": true,
+      "download_sha256_verified": true
+    },
+    {
+      "bucket": "xai-public-bank-history-f47eaab8ae4c",
+      "key": "public-bank-history/starling/7e5a37b9830cb9b11a8206bcf87c5e4b6357f834ed67b1882995c63c2b242086/normalized/observations.csv",
+      "sha256": "30452478dbe372b72aa6830497c464ccacf42040ac07e9b6b3492d25e945e72b",
+      "verified": true,
+      "download_sha256_verified": true
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "source": "executed-aws-bank-of-anthos",
+  "source_instance": "i-0aefecc39f02f2727",
+  "status": "verified",
+  "trace_id": "57bcc709dc2a4a5183bc6637322055fd",
+  "requests": [
+    {
+      "path": "/login",
+      "method": "POST",
+      "start_time_unix_ns": 1792692654355603814,
+      "elapsed_ms": 1401.0638240001754,
+      "final_status": 200,
+      "final_path": "/home"
+    },
+    {
+      "path": "/payment",
+      "method": "POST",
+      "start_time_unix_ns": 1792692655984230675,
+      "elapsed_ms": 423.62265500014473,
+      "final_status": 200,
+      "final_path": "/home"
+    },
+    {
+      "path": "/home",
+      "method": "GET",
+      "start_time_unix_ns": 1792692662585089716,
+      "elapsed_ms": 174.81179900005372,
+      "final_status": 200,
+      "final_path": "/home"
+    }
+  ],
+  "aws_calls": 0,
+  "transaction_id": 3098,
+  "operation_uuid": "a8118931abff4ab3a09845d0254b3352",
+  "ledger_new_records": 1,
+  "history_record_found": true,
+  "measured_client_spans": 1,
+  "trace_coverage": "frontend server/client only; no backend server or database spans",
+  "recovery_verified": false,
+  "files_sha256": {
+    "transaction-history.json": "f480eba9cccb59878181f53106b97c7c67e767c9589c26dc58a3a5e4aea7bd23",
+    "frontend-spans.json": "17345f1e7a64a95465e7b634eb923e0c8bde330b0e7401c879e63ced6892e9c4",
+    "frontend-raw.log": "a0ef3bd292cfb5e43b78b8adac4270e43a2bb73f619710a97b3e3bf524e31895",
+    "ledger-new-transfer.json": "ac33170ee8e5a3e2b4f314012ca78fac4a7ace3c1171ec2d8d6fb575ec31d364",
+    "payment-response.html": "2504354f6726e3aa53f53bab6559d446d3ce97b1701b5ee0cdc214c109ae3183"
+  }
+}

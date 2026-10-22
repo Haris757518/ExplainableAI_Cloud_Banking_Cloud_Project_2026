@@ -1,0 +1,39 @@
+{
+  "date": "2026-10-22",
+  "python_tests": {
+    "passed": 157,
+    "warnings": 3
+  },
+  "browser_tests": {
+    "passed": 3,
+    "page_errors": 0
+  },
+  "frontend_build": "passed",
+  "protected_artifacts": {
+    "checked": 62,
+    "unchanged": true
+  },
+  "banking_rows": {
+    "monzo": 24820,
+    "starling": 28306
+  },
+  "live_aws_verified": true,
+  "limitations": [
+    "Optional banking GNN and broader RE2 evaluation remain future work."
+  ],
+  "deliverables": {
+    "Revised_Project_Presentation.pptx": {
+      "sha256": "14e745e383ad8c727d3774162bb8a8378f12ca76749f86c0f67542df1bee2a43",
+      "bytes": 45709
+    },
+    "Revised_Project_Report.docx": {
+      "sha256": "11f9ef4b010d3e4e33229a393300783da29f1fa827810a0f595b319e81470d62",
+      "bytes": 42755
+    },
+    "verified_results.json": {
+      "sha256": "6a44aaa0b5619a9290eaf927525d7cdc6f552f3a3c304b841c4995eb9cf1d978",
+      "bytes": 5655
+    }
+  },
+  "aws_deployment_receipt": "results/real_banking/deployment.json"
+}

@@ -1,0 +1,4462 @@
+{
+  "model_version": "public-bank-mad-v1",
+  "input_sha256": "b5d91b9363df2e84daf5970a42d79842689e907e9576017a7611ecf157958a92",
+  "configuration": {
+    "training_fraction": 0.6,
+    "calibration_fraction": 0.2,
+    "test_fraction": 0.2,
+    "minimum_score": 3.5,
+    "calibration_quantile": 0.99
+  },
+  "series": [
+    {
+      "bank": "Monzo",
+      "service": "Monzo App",
+      "metric": "latency",
+      "status": "evaluated",
+      "split": {
+        "training": [
+          "2019-09-14",
+          "2023-10-11"
+        ],
+        "calibration": [
+          "2023-10-12",
+          "2025-02-18"
+        ],
+        "test": [
+          "2025-02-19",
+          "2026-06-30"
+        ]
+      },
+      "counts": {
+        "training": 1488,
+        "calibration": 496,
+        "test": 497
+      },
+      "reference": 72.0,
+      "scale": 23.7216,
+      "threshold": 3.7096991771212737,
+      "findings": [
+        {
+          "date": "2025-03-22",
+          "observed": 165.0,
+          "reference": 72.0,
+          "deviation": 93.0,
+          "score": 3.9204775394577096,
+          "consecutive_flagged_days": 1,
+          "evidence": {
+            "bank": "Monzo",
+            "source_name": "Monzo Service Information",
+            "date": "2025-03-22",
+            "service": "Monzo App",
+            "metric": "latency",
+            "value": 165.0,
+            "unit": "milliseconds",
+            "frequency": "daily",
+            "data_origin": "published_real_bank",
+            "source_url": "https://monzo.com/service-information",
+            "retrieved_at": "2026-10-22T07:32:43.145102+00:00",
+            "record_status": "observed",
+            "raw_value": "165 ms",
+            "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51"
+          },
+          "status": "model_flagged_deviation",
+          "verified_incident": false,
+          "explanation": "Monzo App latency deviated from its historical reference. Internal infrastructure cause is unknown: public data contains no CPU, database or distributed trace evidence."
+        },
+        {
+          "date": "2025-04-23",
+          "observed": 165.0,
+          "reference": 72.0,
+          "deviation": 93.0,
+          "score": 3.9204775394577096,
+          "consecutive_flagged_days": 1,
+          "evidence": {
+            "bank": "Monzo",
+            "source_name": "Monzo Service Information",
+            "date": "2025-04-23",
+            "service": "Monzo App",
+            "metric": "latency",
+            "value": 165.0,
+            "unit": "milliseconds",
+            "frequency": "daily",
+            "data_origin": "published_real_bank",
+            "source_url": "https://monzo.com/service-information",
+            "retrieved_at": "2026-10-22T07:32:43.145102+00:00",
+            "record_status": "observed",
+            "raw_value": "165 ms",
+            "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51"
+          },
+          "status": "model_flagged_deviation",
+          "verified_incident": false,
+          "explanation": "Monzo App latency deviated from its historical reference. Internal infrastructure cause is unknown: public data contains no CPU, database or distributed trace evidence."
+        },
+        {
+          "date": "2025-09-01",
+          "observed": 161.0,
+          "reference": 72.0,
+          "deviation": 89.0,
+          "score": 3.7518548495885606,
+          "consecutive_flagged_days": 1,
+          "evidence": {
+            "bank": "Monzo",
+            "source_name": "Monzo Service Information",
+            "date": "2025-09-01",
+            "service": "Monzo App",
+            "metric": "latency",
+            "value": 161.0,
+            "unit": "milliseconds",
+            "frequency": "daily",
+            "data_origin": "published_real_bank",
+            "source_url": "https://monzo.com/service-information",
+            "retrieved_at": "2026-10-22T07:32:43.145102+00:00",
+            "record_status": "observed",
+            "raw_value": "161 ms",
+            "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51"
+          },
+          "status": "model_flagged_deviation",
+          "verified_incident": false,
+          "explanation": "Monzo App latency deviated from its historical reference. Internal infrastructure cause is unknown: public data contains no CPU, database or distributed trace evidence."
+        },
+        {
+          "date": "2025-11-19",
+          "observed": 167.0,
+          "reference": 72.0,
+          "deviation": 95.0,
+          "score": 4.004788884392284,
+          "consecutive_flagged_days": 1,
+          "evidence": {
+            "bank": "Monzo",
+            "source_name": "Monzo Service Information",
+            "date": "2025-11-19",
+            "service": "Monzo App",
+            "metric": "latency",
+            "value": 167.0,
+            "unit": "milliseconds",
+            "frequency": "daily",
+            "data_origin": "published_real_bank",
+            "source_url": "https://monzo.com/service-information",
+            "retrieved_at": "2026-10-22T07:32:43.145102+00:00",
+            "record_status": "observed",
+            "raw_value": "167 ms",
+            "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51"
+          },
+          "status": "model_flagged_deviation",
+          "verified_incident": false,
+          "explanation": "Monzo App latency deviated from its historical reference. Internal infrastructure cause is unknown: public data contains no CPU, database or distributed trace evidence."
+        },
+        {
+          "date": "2025-11-28",
+          "observed": 170.0,
+          "reference": 72.0,
+          "deviation": 98.0,
+          "score": 4.1312559017941455,
+          "consecutive_flagged_days": 1,
+          "evidence": {
+            "bank": "Monzo",
+            "source_name": "Monzo Service Information",
+            "date": "2025-11-28",
+            "service": "Monzo App",
+            "metric": "latency",
+            "value": 170.0,
+            "unit": "milliseconds",
+            "frequency": "daily",
+            "data_origin": "published_real_bank",
+            "source_url": "https://monzo.com/service-information",
+            "retrieved_at": "2026-10-22T07:32:43.145102+00:00",
+            "record_status": "observed",
+            "raw_value": "170 ms",
+            "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51"
+          },
+          "status": "model_flagged_deviation",
+          "verified_incident": false,
+          "explanation": "Monzo App latency deviated from its historical reference. Internal infrastructure cause is unknown: public data contains no CPU, database or distributed trace evidence."
+        },
+        {
+          "date": "2025-12-01",
+          "observed": 161.0,
+          "reference": 72.0,
+          "deviation": 89.0,
+          "score": 3.7518548495885606,
+          "consecutive_flagged_days": 1,
+          "evidence": {
+            "bank": "Monzo",
+            "source_name": "Monzo Service Information",
+            "date": "2025-12-01",
+            "service": "Monzo App",
+            "metric": "latency",
+            "value": 161.0,
+            "unit": "milliseconds",
+            "frequency": "daily",
+            "data_origin": "published_real_bank",
+            "source_url": "https://monzo.com/service-information",
+            "retrieved_at": "2026-10-22T07:32:43.145102+00:00",
+            "record_status": "observed",
+            "raw_value": "161 ms",
+            "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51"
+          },
+          "status": "model_flagged_deviation",
+          "verified_incident": false,
+          "explanation": "Monzo App latency deviated from its historical reference. Internal infrastructure cause is unknown: public data contains no CPU, database or distributed trace evidence."
+        },
+        {
+          "date": "2026-01-30",
+          "observed": 168.0,
+          "reference": 72.0,
+          "deviation": 96.0,
+          "score": 4.046944556859572,
+          "consecutive_flagged_days": 1,
+          "evidence": {
+            "bank": "Monzo",
+            "source_name": "Monzo Service Information",
+            "date": "2026-01-30",
+            "service": "Monzo App",
+            "metric": "latency",
+            "value": 168.0,
+            "unit": "milliseconds",
+            "frequency": "daily",
+            "data_origin": "published_real_bank",
+            "source_url": "https://monzo.com/service-information",
+            "retrieved_at": "2026-10-22T07:32:43.145102+00:00",
+            "record_status": "observed",
+            "raw_value": "168 ms",
+            "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51"
+          },
+          "status": "model_flagged_deviation",
+          "verified_incident": false,
+          "explanation": "Monzo App latency deviated from its historical reference. Internal infrastructure cause is unknown: public data contains no CPU, database or distributed trace evidence."
+        },
+        {
+          "date": "2026-02-13",
+          "observed": 163.0,
+          "reference": 72.0,
+          "deviation": 91.0,
+          "score": 3.8361661945231353,
+          "consecutive_flagged_days": 1,
+          "evidence": {
+            "bank": "Monzo",
+            "source_name": "Monzo Service Information",
+            "date": "2026-02-13",
+            "service": "Monzo App",
+            "metric": "latency",
+            "value": 163.0,
+            "unit": "milliseconds",
+            "frequency": "daily",
+            "data_origin": "published_real_bank",
+            "source_url": "https://monzo.com/service-information",
+            "retrieved_at": "2026-10-22T07:32:43.145102+00:00",
+            "record_status": "observed",
+            "raw_value": "163 ms",
+            "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51"
+          },
+          "status": "model_flagged_deviation",
+          "verified_incident": false,
+          "explanation": "Monzo App latency deviated from its historical reference. Internal infrastructure cause is unknown: public data contains no CPU, database or distributed trace evidence."
+        },
+        {
+          "date": "2026-02-17",
+          "observed": 170.0,
+          "reference": 72.0,
+          "deviation": 98.0,
+          "score": 4.1312559017941455,
+          "consecutive_flagged_days": 1,
+          "evidence": {
+            "bank": "Monzo",
+            "source_name": "Monzo Service Information",
+            "date": "2026-02-17",
+            "service": "Monzo App",
+            "metric": "latency",
+            "value": 170.0,
+            "unit": "milliseconds",
+            "frequency": "daily",
+            "data_origin": "published_real_bank",
+            "source_url": "https://monzo.com/service-information",
+            "retrieved_at": "2026-10-22T07:32:43.145102+00:00",
+            "record_status": "observed",
+            "raw_value": "170 ms",
+            "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51"
+          },
+          "status": "model_flagged_deviation",
+          "verified_incident": false,
+          "explanation": "Monzo App latency deviated from its historical reference. Internal infrastructure cause is unknown: public data contains no CPU, database or distributed trace evidence."
+        },
+        {
+          "date": "2026-02-18",
+          "observed": 164.0,
+          "reference": 72.0,
+          "deviation": 92.0,
+          "score": 3.8783218669904223,
+          "consecutive_flagged_days": 2,
+          "evidence": {
+            "bank": "Monzo",
+            "source_name": "Monzo Service Information",
+            "date": "2026-02-18",
+            "service": "Monzo App",
+            "metric": "latency",
+            "value": 164.0,
+            "unit": "milliseconds",
+            "frequency": "daily",
+            "data_origin": "published_real_bank",
+            "source_url": "https://monzo.com/service-information",
+            "retrieved_at": "2026-10-22T07:32:43.145102+00:00",
+            "record_status": "observed",
+            "raw_value": "164 ms",
+            "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51"
+          },
+          "status": "model_flagged_deviation",
+          "verified_incident": false,
+          "explanation": "Monzo App latency deviated from its historical reference. Internal infrastructure cause is unknown: public data contains no CPU, database or distributed trace evidence."
+        },
+        {
+          "date": "2026-02-19",
+          "observed": 164.0,
+          "reference": 72.0,
+          "deviation": 92.0,
+          "score": 3.8783218669904223,
+          "consecutive_flagged_days": 3,
+          "evidence": {
+            "bank": "Monzo",
+            "source_name": "Monzo Service Information",
+            "date": "2026-02-19",
+            "service": "Monzo App",
+            "metric": "latency",
+            "value": 164.0,
+            "unit": "milliseconds",
+            "frequency": "daily",
+            "data_origin": "published_real_bank",
+            "source_url": "https://monzo.com/service-information",
+            "retrieved_at": "2026-10-22T07:32:43.145102+00:00",
+            "record_status": "observed",
+            "raw_value": "164 ms",
+            "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51"
+          },
+          "status": "model_flagged_deviation",
+          "verified_incident": false,
+          "explanation": "Monzo App latency deviated from its historical reference. Internal infrastructure cause is unknown: public data contains no CPU, database or distributed trace evidence."
+        },
+        {
+          "date": "2026-02-20",
+          "observed": 165.0,
+          "reference": 72.0,
+          "deviation": 93.0,
+          "score": 3.9204775394577096,
+          "consecutive_flagged_days": 4,
+          "evidence": {
+            "bank": "Monzo",
+            "source_name": "Monzo Service Information",
+            "date": "2026-02-20",
+            "service": "Monzo App",
+            "metric": "latency",
+            "value": 165.0,
+            "unit": "milliseconds",
+            "frequency": "daily",
+            "data_origin": "published_real_bank",
+            "source_url": "https://monzo.com/service-information",
+            "retrieved_at": "2026-10-22T07:32:43.145102+00:00",
+            "record_status": "observed",
+            "raw_value": "165 ms",
+            "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51"
+          },
+          "status": "model_flagged_deviation",
+          "verified_incident": false,
+          "explanation": "Monzo App latency deviated from its historical reference. Internal infrastructure cause is unknown: public data contains no CPU, database or distributed trace evidence."
+        },
+        {
+          "date": "2026-02-25",
+          "observed": 166.0,
+          "reference": 72.0,
+          "deviation": 94.0,
+          "score": 3.962633211924997,
+          "consecutive_flagged_days": 1,
+          "evidence": {
+            "bank": "Monzo",
+            "source_name": "Monzo Service Information",
+            "date": "2026-02-25",
+            "service": "Monzo App",
+            "metric": "latency",
+            "value": 166.0,
+            "unit": "milliseconds",
+            "frequency": "daily",
+            "data_origin": "published_real_bank",
+            "source_url": "https://monzo.com/service-information",
+            "retrieved_at": "2026-10-22T07:32:43.145102+00:00",
+            "record_status": "observed",
+            "raw_value": "166 ms",
+            "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51"
+          },
+          "status": "model_flagged_deviation",
+          "verified_incident": false,
+          "explanation": "Monzo App latency deviated from its historical reference. Internal infrastructure cause is unknown: public data contains no CPU, database or distributed trace evidence."
+        },
+        {
+          "date": "2026-02-26",
+          "observed": 186.0,
+          "reference": 72.0,
+          "deviation": 114.0,
+          "score": 4.8057466612707405,
+          "consecutive_flagged_days": 2,
+          "evidence": {
+            "bank": "Monzo",
+            "source_name": "Monzo Service Information",
+            "date": "2026-02-26",
+            "service": "Monzo App",
+            "metric": "latency",
+            "value": 186.0,
+            "unit": "milliseconds",
+            "frequency": "daily",
+            "data_origin": "published_real_bank",
+            "source_url": "https://monzo.com/service-information",
+            "retrieved_at": "2026-10-22T07:32:43.145102+00:00",
+            "record_status": "observed",
+            "raw_value": "186 ms",
+            "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51"
+          },
+          "status": "model_flagged_deviation",
+          "verified_incident": false,
+          "explanation": "Monzo App latency deviated from its historical reference. Internal infrastructure cause is unknown: public data contains no CPU, database or distributed trace evidence."
+        },
+        {
+          "date": "2026-02-27",
+          "observed": 175.0,
+          "reference": 72.0,
+          "deviation": 103.0,
+          "score": 4.342034264130581,
+          "consecutive_flagged_days": 3,
+          "evidence": {
+            "bank": "Monzo",
+            "source_name": "Monzo Service Information",
+            "date": "2026-02-27",
+            "service": "Monzo App",
+            "metric": "latency",
+            "value": 175.0,
+            "unit": "milliseconds",
+            "frequency": "daily",
+            "data_origin": "published_real_bank",
+            "source_url": "https://monzo.com/service-information",
+            "retrieved_at": "2026-10-22T07:32:43.145102+00:00",
+            "record_status": "observed",
+            "raw_value": "175 ms",
+            "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51"
+          },
+          "status": "model_flagged_deviation",
+          "verified_incident": false,
+          "explanation": "Monzo App latency deviated from its historical reference. Internal infrastructure cause is unknown: public data contains no CPU, database or distributed trace evidence."
+        },
+        {
+          "date": "2026-02-28",
+          "observed": 174.0,
+          "reference": 72.0,
+          "deviation": 102.0,
+          "score": 4.299878591663295,
+          "consecutive_flagged_days": 4,
+          "evidence": {
+            "bank": "Monzo",
+            "source_name": "Monzo Service Information",
+            "date": "2026-02-28",
+            "service": "Monzo App",
+            "metric": "latency",
+            "value": 174.0,
+            "unit": "milliseconds",
+            "frequency": "daily",
+            "data_origin": "published_real_bank",
+            "source_url": "https://monzo.com/service-information",
+            "retrieved_at": "2026-10-22T07:32:43.145102+00:00",
+            "record_status": "observed",
+            "raw_value": "174 ms",
+            "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51"
+          },
+          "status": "model_flagged_deviation",
+          "verified_incident": false,
+          "explanation": "Monzo App latency deviated from its historical reference. Internal infrastructure cause is unknown: public data contains no CPU, database or distributed trace evidence."
+        },
+        {
+          "date": "2026-03-01",
+          "observed": 170.0,
+          "reference": 72.0,
+          "deviation": 98.0,
+          "score": 4.1312559017941455,
+          "consecutive_flagged_days": 5,
+          "evidence": {
+            "bank": "Monzo",
+            "source_name": "Monzo Service Information",
+            "date": "2026-03-01",
+            "service": "Monzo App",
+            "metric": "latency",
+            "value": 170.0,
+            "unit": "milliseconds",
+            "frequency": "daily",
+            "data_origin": "published_real_bank",
+            "source_url": "https://monzo.com/service-information",
+            "retrieved_at": "2026-10-22T07:32:43.145102+00:00",
+            "record_status": "observed",
+            "raw_value": "170 ms",
+            "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51"
+          },
+          "status": "model_flagged_deviation",
+          "verified_incident": false,
+          "explanation": "Monzo App latency deviated from its historical reference. Internal infrastructure cause is unknown: public data contains no CPU, database or distributed trace evidence."
+        },
+        {
+          "date": "2026-03-02",
+          "observed": 176.0,
+          "reference": 72.0,
+          "deviation": 104.0,
+          "score": 4.384189936597869,
+          "consecutive_flagged_days": 6,
+          "evidence": {
+            "bank": "Monzo",
+            "source_name": "Monzo Service Information",
+            "date": "2026-03-02",
+            "service": "Monzo App",
+            "metric": "latency",
+            "value": 176.0,
+            "unit": "milliseconds",
+            "frequency": "daily",
+            "data_origin": "published_real_bank",
+            "source_url": "https://monzo.com/service-information",
+            "retrieved_at": "2026-10-22T07:32:43.145102+00:00",
+            "record_status": "observed",
+            "raw_value": "176 ms",
+            "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51"
+          },
+          "status": "model_flagged_deviation",
+          "verified_incident": false,
+          "explanation": "Monzo App latency deviated from its historical reference. Internal infrastructure cause is unknown: public data contains no CPU, database or distributed trace evidence."
+        },
+        {
+          "date": "2026-03-03",
+          "observed": 174.0,
+          "reference": 72.0,
+          "deviation": 102.0,
+          "score": 4.299878591663295,
+          "consecutive_flagged_days": 7,
+          "evidence": {
+            "bank": "Monzo",
+            "source_name": "Monzo Service Information",
+            "date": "2026-03-03",
+            "service": "Monzo App",
+            "metric": "latency",
+            "value": 174.0,
+            "unit": "milliseconds",
+            "frequency": "daily",
+            "data_origin": "published_real_bank",
+            "source_url": "https://monzo.com/service-information",
+            "retrieved_at": "2026-10-22T07:32:43.145102+00:00",
+            "record_status": "observed",
+            "raw_value": "174 ms",
+            "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51"
+          },
+          "status": "model_flagged_deviation",
+          "verified_incident": false,
+          "explanation": "Monzo App latency deviated from its historical reference. Internal infrastructure cause is unknown: public data contains no CPU, database or distributed trace evidence."
+        },
+        {
+          "date": "2026-03-04",
+          "observed": 172.0,
+          "reference": 72.0,
+          "deviation": 100.0,
+          "score": 4.21556724672872,
+          "consecutive_flagged_days": 8,
+          "evidence": {
+            "bank": "Monzo",
+            "source_name": "Monzo Service Information",
+            "date": "2026-03-04",
+            "service": "Monzo App",
+            "metric": "latency",
+            "value": 172.0,
+            "unit": "milliseconds",
+            "frequency": "daily",
+            "data_origin": "published_real_bank",
+            "source_url": "https://monzo.com/service-information",
+            "retrieved_at": "2026-10-22T07:32:43.145102+00:00",
+            "record_status": "observed",
+            "raw_value": "172 ms",
+            "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51"
+          },
+          "status": "model_flagged_deviation",
+          "verified_incident": false,
+          "explanation": "Monzo App latency deviated from its historical reference. Internal infrastructure cause is unknown: public data contains no CPU, database or distributed trace evidence."
+        },
+        {
+          "date": "2026-03-05",
+          "observed": 171.0,
+          "reference": 72.0,
+          "deviation": 99.0,
+          "score": 4.173411574261433,
+          "consecutive_flagged_days": 9,
+          "evidence": {
+            "bank": "Monzo",
+            "source_name": "Monzo Service Information",
+            "date": "2026-03-05",
+            "service": "Monzo App",
+            "metric": "latency",
+            "value": 171.0,
+            "unit": "milliseconds",
+            "frequency": "daily",
+            "data_origin": "published_real_bank",
+            "source_url": "https://monzo.com/service-information",
+            "retrieved_at": "2026-10-22T07:32:43.145102+00:00",
+            "record_status": "observed",
+            "raw_value": "171 ms",
+            "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51"
+          },
+          "status": "model_flagged_deviation",
+          "verified_incident": false,
+          "explanation": "Monzo App latency deviated from its historical reference. Internal infrastructure cause is unknown: public data contains no CPU, database or distributed trace evidence."
+        },
+        {
+          "date": "2026-03-06",
+          "observed": 182.0,
+          "reference": 72.0,
+          "deviation": 110.0,
+          "score": 4.637123971401592,
+          "consecutive_flagged_days": 10,
+          "evidence": {
+            "bank": "Monzo",
+            "source_name": "Monzo Service Information",
+            "date": "2026-03-06",
+            "service": "Monzo App",
+            "metric": "latency",
+            "value": 182.0,
+            "unit": "milliseconds",
+            "frequency": "daily",
+            "data_origin": "published_real_bank",
+            "source_url": "https://monzo.com/service-information",
+            "retrieved_at": "2026-10-22T07:32:43.145102+00:00",
+            "record_status": "observed",
+            "raw_value": "182 ms",
+            "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51"
+          },
+          "status": "model_flagged_deviation",
+          "verified_incident": false,
+          "explanation": "Monzo App latency deviated from its historical reference. Internal infrastructure cause is unknown: public data contains no CPU, database or distributed trace evidence."
+        },
+        {
+          "date": "2026-03-07",
+          "observed": 170.0,
+          "reference": 72.0,
+          "deviation": 98.0,
+          "score": 4.1312559017941455,
+          "consecutive_flagged_days": 11,
+          "evidence": {
+            "bank": "Monzo",
+            "source_name": "Monzo Service Information",
+            "date": "2026-03-07",
+            "service": "Monzo App",
+            "metric": "latency",
+            "value": 170.0,
+            "unit": "milliseconds",
+            "frequency": "daily",
+            "data_origin": "published_real_bank",
+            "source_url": "https://monzo.com/service-information",
+            "retrieved_at": "2026-10-22T07:32:43.145102+00:00",
+            "record_status": "observed",
+            "raw_value": "170 ms",
+            "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51"
+          },
+          "status": "model_flagged_deviation",
+          "verified_incident": false,
+          "explanation": "Monzo App latency deviated from its historical reference. Internal infrastructure cause is unknown: public data contains no CPU, database or distributed trace evidence."
+        },
+        {
+          "date": "2026-03-08",
+          "observed": 161.0,
+          "reference": 72.0,
+          "deviation": 89.0,
+          "score": 3.7518548495885606,
+          "consecutive_flagged_days": 12,
+          "evidence": {
+            "bank": "Monzo",
+            "source_name": "Monzo Service Information",
+            "date": "2026-03-08",
+            "service": "Monzo App",
+            "metric": "latency",
+            "value": 161.0,
+            "unit": "milliseconds",
+            "frequency": "daily",
+            "data_origin": "published_real_bank",
+            "source_url": "https://monzo.com/service-information",
+            "retrieved_at": "2026-10-22T07:32:43.145102+00:00",
+            "record_status": "observed",
+            "raw_value": "161 ms",
+            "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51"
+          },
+          "status": "model_flagged_deviation",
+          "verified_incident": false,
+          "explanation": "Monzo App latency deviated from its historical reference. Internal infrastructure cause is unknown: public data contains no CPU, database or distributed trace evidence."
+        },
+        {
+          "date": "2026-03-09",
+          "observed": 167.0,
+          "reference": 72.0,
+          "deviation": 95.0,
+          "score": 4.004788884392284,
+          "consecutive_flagged_days": 13,
+          "evidence": {
+            "bank": "Monzo",
+            "source_name": "Monzo Service Information",
+            "date": "2026-03-09",
+            "service": "Monzo App",
+            "metric": "latency",
+            "value": 167.0,
+            "unit": "milliseconds",
+            "frequency": "daily",
+            "data_origin": "published_real_bank",
+            "source_url": "https://monzo.com/service-information",
+            "retrieved_at": "2026-10-22T07:32:43.145102+00:00",
+            "record_status": "observed",
+            "raw_value": "167 ms",
+            "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51"
+          },
+          "status": "model_flagged_deviation",
+          "verified_incident": false,
+          "explanation": "Monzo App latency deviated from its historical reference. Internal infrastructure cause is unknown: public data contains no CPU, database or distributed trace evidence."
+        },
+        {
+          "date": "2026-03-10",
+          "observed": 165.0,
+          "reference": 72.0,
+          "deviation": 93.0,
+          "score": 3.9204775394577096,
+          "consecutive_flagged_days": 14,
+          "evidence": {
+            "bank": "Monzo",
+            "source_name": "Monzo Service Information",
+            "date": "2026-03-10",
+            "service": "Monzo App",
+            "metric": "latency",
+            "value": 165.0,
+            "unit": "milliseconds",
+            "frequency": "daily",
+            "data_origin": "published_real_bank",
+            "source_url": "https://monzo.com/service-information",
+            "retrieved_at": "2026-10-22T07:32:43.145102+00:00",
+            "record_status": "observed",
+            "raw_value": "165 ms",
+            "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51"
+          },
+          "status": "model_flagged_deviation",
+          "verified_incident": false,
+          "explanation": "Monzo App latency deviated from its historical reference. Internal infrastructure cause is unknown: public data contains no CPU, database or distributed trace evidence."
+        },
+        {
+          "date": "2026-03-11",
+          "observed": 167.0,
+          "reference": 72.0,
+          "deviation": 95.0,
+          "score": 4.004788884392284,
+          "consecutive_flagged_days": 15,
+          "evidence": {
+            "bank": "Monzo",
+            "source_name": "Monzo Service Information",
+            "date": "2026-03-11",
+            "service": "Monzo App",
+            "metric": "latency",
+            "value": 167.0,
+            "unit": "milliseconds",
+            "frequency": "daily",
+            "data_origin": "published_real_bank",
+            "source_url": "https://monzo.com/service-information",
+            "retrieved_at": "2026-10-22T07:32:43.145102+00:00",
+            "record_status": "observed",
+            "raw_value": "167 ms",
+            "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51"
+          },
+          "status": "model_flagged_deviation",
+          "verified_incident": false,
+          "explanation": "Monzo App latency deviated from its historical reference. Internal infrastructure cause is unknown: public data contains no CPU, database or distributed trace evidence."
+        },
+        {
+          "date": "2026-03-12",
+          "observed": 173.0,
+          "reference": 72.0,
+          "deviation": 101.0,
+          "score": 4.2577229191960075,
+          "consecutive_flagged_days": 16,
+          "evidence": {
+            "bank": "Monzo",
+            "source_name": "Monzo Service Information",
+            "date": "2026-03-12",
+            "service": "Monzo App",
+            "metric": "latency",
+            "value": 173.0,
+            "unit": "milliseconds",
+            "frequency": "daily",
+            "data_origin": "published_real_bank",
+            "source_url": "https://monzo.com/service-information",
+            "retrieved_at": "2026-10-22T07:32:43.145102+00:00",
+            "record_status": "observed",
+            "raw_value": "173 ms",
+            "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51"
+          },
+          "status": "model_flagged_deviation",
+          "verified_incident": false,
+          "explanation": "Monzo App latency deviated from its historical reference. Internal infrastructure cause is unknown: public data contains no CPU, database or distributed trace evidence."
+        },
+        {
+          "date": "2026-03-13",
+          "observed": 172.0,
+          "reference": 72.0,
+          "deviation": 100.0,
+          "score": 4.21556724672872,
+          "consecutive_flagged_days": 17,
+          "evidence": {
+            "bank": "Monzo",
+            "source_name": "Monzo Service Information",
+            "date": "2026-03-13",
+            "service": "Monzo App",
+            "metric": "latency",
+            "value": 172.0,
+            "unit": "milliseconds",
+            "frequency": "daily",
+            "data_origin": "published_real_bank",
+            "source_url": "https://monzo.com/service-information",
+            "retrieved_at": "2026-10-22T07:32:43.145102+00:00",
+            "record_status": "observed",
+            "raw_value": "172 ms",
+            "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51"
+          },
+          "status": "model_flagged_deviation",
+          "verified_incident": false,
+          "explanation": "Monzo App latency deviated from its historical reference. Internal infrastructure cause is unknown: public data contains no CPU, database or distributed trace evidence."
+        },
+        {
+          "date": "2026-03-14",
+          "observed": 165.0,
+          "reference": 72.0,
+          "deviation": 93.0,
+          "score": 3.9204775394577096,
+          "consecutive_flagged_days": 18,
+          "evidence": {
+            "bank": "Monzo",
+            "source_name": "Monzo Service Information",
+            "date": "2026-03-14",
+            "service": "Monzo App",
+            "metric": "latency",
+            "value": 165.0,
+            "unit": "milliseconds",
+            "frequency": "daily",
+            "data_origin": "published_real_bank",
+            "source_url": "https://monzo.com/service-information",
+            "retrieved_at": "2026-10-22T07:32:43.145102+00:00",
+            "record_status": "observed",
+            "raw_value": "165 ms",
+            "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51"
+          },
+          "status": "model_flagged_deviation",
+          "verified_incident": false,
+          "explanation": "Monzo App latency deviated from its historical reference. Internal infrastructure cause is unknown: public data contains no CPU, database or distributed trace evidence."
+        },
+        {
+          "date": "2026-03-15",
+          "observed": 163.0,
+          "reference": 72.0,
+          "deviation": 91.0,
+          "score": 3.8361661945231353,
+          "consecutive_flagged_days": 19,
+          "evidence": {
+            "bank": "Monzo",
+            "source_name": "Monzo Service Information",
+            "date": "2026-03-15",
+            "service": "Monzo App",
+            "metric": "latency",
+            "value": 163.0,
+            "unit": "milliseconds",
+            "frequency": "daily",
+            "data_origin": "published_real_bank",
+            "source_url": "https://monzo.com/service-information",
+            "retrieved_at": "2026-10-22T07:32:43.145102+00:00",
+            "record_status": "observed",
+            "raw_value": "163 ms",
+            "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51"
+          },
+          "status": "model_flagged_deviation",
+          "verified_incident": false,
+          "explanation": "Monzo App latency deviated from its historical reference. Internal infrastructure cause is unknown: public data contains no CPU, database or distributed trace evidence."
+        },
+        {
+          "date": "2026-03-16",
+          "observed": 170.0,
+          "reference": 72.0,
+          "deviation": 98.0,
+          "score": 4.1312559017941455,
+          "consecutive_flagged_days": 20,
+          "evidence": {
+            "bank": "Monzo",
+            "source_name": "Monzo Service Information",
+            "date": "2026-03-16",
+            "service": "Monzo App",
+            "metric": "latency",
+            "value": 170.0,
+            "unit": "milliseconds",
+            "frequency": "daily",
+            "data_origin": "published_real_bank",
+            "source_url": "https://monzo.com/service-information",
+            "retrieved_at": "2026-10-22T07:32:43.145102+00:00",
+            "record_status": "observed",
+            "raw_value": "170 ms",
+            "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51"
+          },
+          "status": "model_flagged_deviation",
+          "verified_incident": false,
+          "explanation": "Monzo App latency deviated from its historical reference. Internal infrastructure cause is unknown: public data contains no CPU, database or distributed trace evidence."
+        },
+        {
+          "date": "2026-03-17",
+          "observed": 171.0,
+          "reference": 72.0,
+          "deviation": 99.0,
+          "score": 4.173411574261433,
+          "consecutive_flagged_days": 21,
+          "evidence": {
+            "bank": "Monzo",
+            "source_name": "Monzo Service Information",
+            "date": "2026-03-17",
+            "service": "Monzo App",
+            "metric": "latency",
+            "value": 171.0,
+            "unit": "milliseconds",
+            "frequency": "daily",
+            "data_origin": "published_real_bank",
+            "source_url": "https://monzo.com/service-information",
+            "retrieved_at": "2026-10-22T07:32:43.145102+00:00",
+            "record_status": "observed",
+            "raw_value": "171 ms",
+            "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51"
+          },
+          "status": "model_flagged_deviation",
+          "verified_incident": false,
+          "explanation": "Monzo App latency deviated from its historical reference. Internal infrastructure cause is unknown: public data contains no CPU, database or distributed trace evidence."
+        },
+        {
+          "date": "2026-03-18",
+          "observed": 170.0,
+          "reference": 72.0,
+          "deviation": 98.0,
+          "score": 4.1312559017941455,
+          "consecutive_flagged_days": 22,
+          "evidence": {
+            "bank": "Monzo",
+            "source_name": "Monzo Service Information",
+            "date": "2026-03-18",
+            "service": "Monzo App",
+            "metric": "latency",
+            "value": 170.0,
+            "unit": "milliseconds",
+            "frequency": "daily",
+            "data_origin": "published_real_bank",
+            "source_url": "https://monzo.com/service-information",
+            "retrieved_at": "2026-10-22T07:32:43.145102+00:00",
+            "record_status": "observed",
+            "raw_value": "170 ms",
+            "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51"
+          },
+          "status": "model_flagged_deviation",
+          "verified_incident": false,
+          "explanation": "Monzo App latency deviated from its historical reference. Internal infrastructure cause is unknown: public data contains no CPU, database or distributed trace evidence."
+        },
+        {
+          "date": "2026-03-19",
+          "observed": 163.0,
+          "reference": 72.0,
+          "deviation": 91.0,
+          "score": 3.8361661945231353,
+          "consecutive_flagged_days": 23,
+          "evidence": {
+            "bank": "Monzo",
+            "source_name": "Monzo Service Information",
+            "date": "2026-03-19",
+            "service": "Monzo App",
+            "metric": "latency",
+            "value": 163.0,
+            "unit": "milliseconds",
+            "frequency": "daily",
+            "data_origin": "published_real_bank",
+            "source_url": "https://monzo.com/service-information",
+            "retrieved_at": "2026-10-22T07:32:43.145102+00:00",
+            "record_status": "observed",
+            "raw_value": "163 ms",
+            "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51"
+          },
+          "status": "model_flagged_deviation",
+          "verified_incident": false,
+          "explanation": "Monzo App latency deviated from its historical reference. Internal infrastructure cause is unknown: public data contains no CPU, database or distributed trace evidence."
+        },
+        {
+          "date": "2026-03-23",
+          "observed": 165.0,
+          "reference": 72.0,
+          "deviation": 93.0,
+          "score": 3.9204775394577096,
+          "consecutive_flagged_days": 1,
+          "evidence": {
+            "bank": "Monzo",
+            "source_name": "Monzo Service Information",
+            "date": "2026-03-23",
+            "service": "Monzo App",
+            "metric": "latency",
+            "value": 165.0,
+            "unit": "milliseconds",
+            "frequency": "daily",
+            "data_origin": "published_real_bank",
+            "source_url": "https://monzo.com/service-information",
+            "retrieved_at": "2026-10-22T07:32:43.145102+00:00",
+            "record_status": "observed",
+            "raw_value": "165 ms",
+            "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51"
+          },
+          "status": "model_flagged_deviation",
+          "verified_incident": false,
+          "explanation": "Monzo App latency deviated from its historical reference. Internal infrastructure cause is unknown: public data contains no CPU, database or distributed trace evidence."
+        },
+        {
+          "date": "2026-03-26",
+          "observed": 163.0,
+          "reference": 72.0,
+          "deviation": 91.0,
+          "score": 3.8361661945231353,
+          "consecutive_flagged_days": 1,
+          "evidence": {
+            "bank": "Monzo",
+            "source_name": "Monzo Service Information",
+            "date": "2026-03-26",
+            "service": "Monzo App",
+            "metric": "latency",
+            "value": 163.0,
+            "unit": "milliseconds",
+            "frequency": "daily",
+            "data_origin": "published_real_bank",
+            "source_url": "https://monzo.com/service-information",
+            "retrieved_at": "2026-10-22T07:32:43.145102+00:00",
+            "record_status": "observed",
+            "raw_value": "163 ms",
+            "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51"
+          },
+          "status": "model_flagged_deviation",
+          "verified_incident": false,
+          "explanation": "Monzo App latency deviated from its historical reference. Internal infrastructure cause is unknown: public data contains no CPU, database or distributed trace evidence."
+        },
+        {
+          "date": "2026-04-18",
+          "observed": 161.0,
+          "reference": 72.0,
+          "deviation": 89.0,
+          "score": 3.7518548495885606,
+          "consecutive_flagged_days": 1,
+          "evidence": {
+            "bank": "Monzo",
+            "source_name": "Monzo Service Information",
+            "date": "2026-04-18",
+            "service": "Monzo App",
+            "metric": "latency",
+            "value": 161.0,
+            "unit": "milliseconds",
+            "frequency": "daily",
+            "data_origin": "published_real_bank",
+            "source_url": "https://monzo.com/service-information",
+            "retrieved_at": "2026-10-22T07:32:43.145102+00:00",
+            "record_status": "observed",
+            "raw_value": "161 ms",
+            "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51"
+          },
+          "status": "model_flagged_deviation",
+          "verified_incident": false,
+          "explanation": "Monzo App latency deviated from its historical reference. Internal infrastructure cause is unknown: public data contains no CPU, database or distributed trace evidence."
+        },
+        {
+          "date": "2026-04-22",
+          "observed": 165.0,
+          "reference": 72.0,
+          "deviation": 93.0,
+          "score": 3.9204775394577096,
+          "consecutive_flagged_days": 1,
+          "evidence": {
+            "bank": "Monzo",
+            "source_name": "Monzo Service Information",
+            "date": "2026-04-22",
+            "service": "Monzo App",
+            "metric": "latency",
+            "value": 165.0,
+            "unit": "milliseconds",
+            "frequency": "daily",
+            "data_origin": "published_real_bank",
+            "source_url": "https://monzo.com/service-information",
+            "retrieved_at": "2026-10-22T07:32:43.145102+00:00",
+            "record_status": "observed",
+            "raw_value": "165 ms",
+            "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51"
+          },
+          "status": "model_flagged_deviation",
+          "verified_incident": false,
+          "explanation": "Monzo App latency deviated from its historical reference. Internal infrastructure cause is unknown: public data contains no CPU, database or distributed trace evidence."
+        },
+        {
+          "date": "2026-04-24",
+          "observed": 168.0,
+          "reference": 72.0,
+          "deviation": 96.0,
+          "score": 4.046944556859572,
+          "consecutive_flagged_days": 1,
+          "evidence": {
+            "bank": "Monzo",
+            "source_name": "Monzo Service Information",
+            "date": "2026-04-24",
+            "service": "Monzo App",
+            "metric": "latency",
+            "value": 168.0,
+            "unit": "milliseconds",
+            "frequency": "daily",
+            "data_origin": "published_real_bank",
+            "source_url": "https://monzo.com/service-information",
+            "retrieved_at": "2026-10-22T07:32:43.145102+00:00",
+            "record_status": "observed",
+            "raw_value": "168 ms",
+            "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51"
+          },
+          "status": "model_flagged_deviation",
+          "verified_incident": false,
+          "explanation": "Monzo App latency deviated from its historical reference. Internal infrastructure cause is unknown: public data contains no CPU, database or distributed trace evidence."
+        },
+        {
+          "date": "2026-04-25",
+          "observed": 169.0,
+          "reference": 72.0,
+          "deviation": 97.0,
+          "score": 4.089100229326858,
+          "consecutive_flagged_days": 2,
+          "evidence": {
+            "bank": "Monzo",
+            "source_name": "Monzo Service Information",
+            "date": "2026-04-25",
+            "service": "Monzo App",
+            "metric": "latency",
+            "value": 169.0,
+            "unit": "milliseconds",
+            "frequency": "daily",
+            "data_origin": "published_real_bank",
+            "source_url": "https://monzo.com/service-information",
+            "retrieved_at": "2026-10-22T07:32:43.145102+00:00",
+            "record_status": "observed",
+            "raw_value": "169 ms",
+            "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51"
+          },
+          "status": "model_flagged_deviation",
+          "verified_incident": false,
+          "explanation": "Monzo App latency deviated from its historical reference. Internal infrastructure cause is unknown: public data contains no CPU, database or distributed trace evidence."
+        },
+        {
+          "date": "2026-04-27",
+          "observed": 163.0,
+          "reference": 72.0,
+          "deviation": 91.0,
+          "score": 3.8361661945231353,
+          "consecutive_flagged_days": 1,
+          "evidence": {
+            "bank": "Monzo",
+            "source_name": "Monzo Service Information",
+            "date": "2026-04-27",
+            "service": "Monzo App",
+            "metric": "latency",
+            "value": 163.0,
+            "unit": "milliseconds",
+            "frequency": "daily",
+            "data_origin": "published_real_bank",
+            "source_url": "https://monzo.com/service-information",
+            "retrieved_at": "2026-10-22T07:32:43.145102+00:00",
+            "record_status": "observed",
+            "raw_value": "163 ms",
+            "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51"
+          },
+          "status": "model_flagged_deviation",
+          "verified_incident": false,
+          "explanation": "Monzo App latency deviated from its historical reference. Internal infrastructure cause is unknown: public data contains no CPU, database or distributed trace evidence."
+        },
+        {
+          "date": "2026-04-30",
+          "observed": 162.0,
+          "reference": 72.0,
+          "deviation": 90.0,
+          "score": 3.794010522055848,
+          "consecutive_flagged_days": 1,
+          "evidence": {
+            "bank": "Monzo",
+            "source_name": "Monzo Service Information",
+            "date": "2026-04-30",
+            "service": "Monzo App",
+            "metric": "latency",
+            "value": 162.0,
+            "unit": "milliseconds",
+            "frequency": "daily",
+            "data_origin": "published_real_bank",
+            "source_url": "https://monzo.com/service-information",
+            "retrieved_at": "2026-10-22T07:32:43.145102+00:00",
+            "record_status": "observed",
+            "raw_value": "162 ms",
+            "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51"
+          },
+          "status": "model_flagged_deviation",
+          "verified_incident": false,
+          "explanation": "Monzo App latency deviated from its historical reference. Internal infrastructure cause is unknown: public data contains no CPU, database or distributed trace evidence."
+        },
+        {
+          "date": "2026-05-01",
+          "observed": 162.0,
+          "reference": 72.0,
+          "deviation": 90.0,
+          "score": 3.794010522055848,
+          "consecutive_flagged_days": 2,
+          "evidence": {
+            "bank": "Monzo",
+            "source_name": "Monzo Service Information",
+            "date": "2026-05-01",
+            "service": "Monzo App",
+            "metric": "latency",
+            "value": 162.0,
+            "unit": "milliseconds",
+            "frequency": "daily",
+            "data_origin": "published_real_bank",
+            "source_url": "https://monzo.com/service-information",
+            "retrieved_at": "2026-10-22T07:32:43.145102+00:00",
+            "record_status": "observed",
+            "raw_value": "162 ms",
+            "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51"
+          },
+          "status": "model_flagged_deviation",
+          "verified_incident": false,
+          "explanation": "Monzo App latency deviated from its historical reference. Internal infrastructure cause is unknown: public data contains no CPU, database or distributed trace evidence."
+        },
+        {
+          "date": "2026-05-29",
+          "observed": 170.0,
+          "reference": 72.0,
+          "deviation": 98.0,
+          "score": 4.1312559017941455,
+          "consecutive_flagged_days": 1,
+          "evidence": {
+            "bank": "Monzo",
+            "source_name": "Monzo Service Information",
+            "date": "2026-05-29",
+            "service": "Monzo App",
+            "metric": "latency",
+            "value": 170.0,
+            "unit": "milliseconds",
+            "frequency": "daily",
+            "data_origin": "published_real_bank",
+            "source_url": "https://monzo.com/service-information",
+            "retrieved_at": "2026-10-22T07:32:43.145102+00:00",
+            "record_status": "observed",
+            "raw_value": "170 ms",
+            "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51"
+          },
+          "status": "model_flagged_deviation",
+          "verified_incident": false,
+          "explanation": "Monzo App latency deviated from its historical reference. Internal infrastructure cause is unknown: public data contains no CPU, database or distributed trace evidence."
+        },
+        {
+          "date": "2026-05-30",
+          "observed": 164.0,
+          "reference": 72.0,
+          "deviation": 92.0,
+          "score": 3.8783218669904223,
+          "consecutive_flagged_days": 2,
+          "evidence": {
+            "bank": "Monzo",
+            "source_name": "Monzo Service Information",
+            "date": "2026-05-30",
+            "service": "Monzo App",
+            "metric": "latency",
+            "value": 164.0,
+            "unit": "milliseconds",
+            "frequency": "daily",
+            "data_origin": "published_real_bank",
+            "source_url": "https://monzo.com/service-information",
+            "retrieved_at": "2026-10-22T07:32:43.145102+00:00",
+            "record_status": "observed",
+            "raw_value": "164 ms",
+            "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51"
+          },
+          "status": "model_flagged_deviation",
+          "verified_incident": false,
+          "explanation": "Monzo App latency deviated from its historical reference. Internal infrastructure cause is unknown: public data contains no CPU, database or distributed trace evidence."
+        },
+        {
+          "date": "2026-06-01",
+          "observed": 163.0,
+          "reference": 72.0,
+          "deviation": 91.0,
+          "score": 3.8361661945231353,
+          "consecutive_flagged_days": 1,
+          "evidence": {
+            "bank": "Monzo",
+            "source_name": "Monzo Service Information",
+            "date": "2026-06-01",
+            "service": "Monzo App",
+            "metric": "latency",
+            "value": 163.0,
+            "unit": "milliseconds",
+            "frequency": "daily",
+            "data_origin": "published_real_bank",
+            "source_url": "https://monzo.com/service-information",
+            "retrieved_at": "2026-10-22T07:32:43.145102+00:00",
+            "record_status": "observed",
+            "raw_value": "163 ms",
+            "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51"
+          },
+          "status": "model_flagged_deviation",
+          "verified_incident": false,
+          "explanation": "Monzo App latency deviated from its historical reference. Internal infrastructure cause is unknown: public data contains no CPU, database or distributed trace evidence."
+        },
+        {
+          "date": "2026-06-06",
+          "observed": 161.0,
+          "reference": 72.0,
+          "deviation": 89.0,
+          "score": 3.7518548495885606,
+          "consecutive_flagged_days": 1,
+          "evidence": {
+            "bank": "Monzo",
+            "source_name": "Monzo Service Information",
+            "date": "2026-06-06",
+            "service": "Monzo App",
+            "metric": "latency",
+            "value": 161.0,
+            "unit": "milliseconds",
+            "frequency": "daily",
+            "data_origin": "published_real_bank",
+            "source_url": "https://monzo.com/service-information",
+            "retrieved_at": "2026-10-22T07:32:43.145102+00:00",
+            "record_status": "observed",
+            "raw_value": "161 ms",
+            "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51"
+          },
+          "status": "model_flagged_deviation",
+          "verified_incident": false,
+          "explanation": "Monzo App latency deviated from its historical reference. Internal infrastructure cause is unknown: public data contains no CPU, database or distributed trace evidence."
+        },
+        {
+          "date": "2026-06-13",
+          "observed": 163.0,
+          "reference": 72.0,
+          "deviation": 91.0,
+          "score": 3.8361661945231353,
+          "consecutive_flagged_days": 1,
+          "evidence": {
+            "bank": "Monzo",
+            "source_name": "Monzo Service Information",
+            "date": "2026-06-13",
+            "service": "Monzo App",
+            "metric": "latency",
+            "value": 163.0,
+            "unit": "milliseconds",
+            "frequency": "daily",
+            "data_origin": "published_real_bank",
+            "source_url": "https://monzo.com/service-information",
+            "retrieved_at": "2026-10-22T07:32:43.145102+00:00",
+            "record_status": "observed",
+            "raw_value": "163 ms",
+            "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51"
+          },
+          "status": "model_flagged_deviation",
+          "verified_incident": false,
+          "explanation": "Monzo App latency deviated from its historical reference. Internal infrastructure cause is unknown: public data contains no CPU, database or distributed trace evidence."
+        },
+        {
+          "date": "2026-06-25",
+          "observed": 161.0,
+          "reference": 72.0,
+          "deviation": 89.0,
+          "score": 3.7518548495885606,
+          "consecutive_flagged_days": 1,
+          "evidence": {
+            "bank": "Monzo",
+            "source_name": "Monzo Service Information",
+            "date": "2026-06-25",
+            "service": "Monzo App",
+            "metric": "latency",
+            "value": 161.0,
+            "unit": "milliseconds",
+            "frequency": "daily",
+            "data_origin": "published_real_bank",
+            "source_url": "https://monzo.com/service-information",
+            "retrieved_at": "2026-10-22T07:32:43.145102+00:00",
+            "record_status": "observed",
+            "raw_value": "161 ms",
+            "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51"
+          },
+          "status": "model_flagged_deviation",
+          "verified_incident": false,
+          "explanation": "Monzo App latency deviated from its historical reference. Internal infrastructure cause is unknown: public data contains no CPU, database or distributed trace evidence."
+        },
+        {
+          "date": "2026-06-26",
+          "observed": 167.0,
+          "reference": 72.0,
+          "deviation": 95.0,
+          "score": 4.004788884392284,
+          "consecutive_flagged_days": 2,
+          "evidence": {
+            "bank": "Monzo",
+            "source_name": "Monzo Service Information",
+            "date": "2026-06-26",
+            "service": "Monzo App",
+            "metric": "latency",
+            "value": 167.0,
+            "unit": "milliseconds",
+            "frequency": "daily",
+            "data_origin": "published_real_bank",
+            "source_url": "https://monzo.com/service-information",
+            "retrieved_at": "2026-10-22T07:32:43.145102+00:00",
+            "record_status": "observed",
+            "raw_value": "167 ms",
+            "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51"
+          },
+          "status": "model_flagged_deviation",
+          "verified_incident": false,
+          "explanation": "Monzo App latency deviated from its historical reference. Internal infrastructure cause is unknown: public data contains no CPU, database or distributed trace evidence."
+        },
+        {
+          "date": "2026-06-27",
+          "observed": 165.0,
+          "reference": 72.0,
+          "deviation": 93.0,
+          "score": 3.9204775394577096,
+          "consecutive_flagged_days": 3,
+          "evidence": {
+            "bank": "Monzo",
+            "source_name": "Monzo Service Information",
+            "date": "2026-06-27",
+            "service": "Monzo App",
+            "metric": "latency",
+            "value": 165.0,
+            "unit": "milliseconds",
+            "frequency": "daily",
+            "data_origin": "published_real_bank",
+            "source_url": "https://monzo.com/service-information",
+            "retrieved_at": "2026-10-22T07:32:43.145102+00:00",
+            "record_status": "observed",
+            "raw_value": "165 ms",
+            "snapshot_sha256": "a37ffb28c528053f827bd6308ac93f00d7749fb58830fe87da1f5ff763182f51"
+          },
+          "status": "model_flagged_deviation",
+          "verified_incident": false,
+          "explanation": "Monzo App latency deviated from its historical reference. Internal infrastructure cause is unknown: public data contains no CPU, database or distributed trace evidence."
+        }
+      ],
+      "precision": null,
+      "recall": null,
+      "limitations": "No incident labels; flags do not establish banking faults or root causes."
+    }
+  ],
+  "forecast": {
+    "status": "evaluated",
+    "target": "next recorded observation; calendar gaps are not filled",
+    "test_start": "2025-02-19",
+    "test_end": "2026-06-30",
+    "test_count": 497,
+    "methods": {
+      "training_median": {
+        "mae": 77.79476861167002,
+        "mse": 6134.104627766599
+      },
+      "persistence": {
+        "mae": 4.955734406438632,
+        "mse": 41.17706237424547
+      }
+    },
+    "predictions": [
+      {
+        "date": "2025-02-19",
+        "actual": 127.0,
+        "training_median": 72.0,
+        "persistence": 129.0
+      },
+      {
+        "date": "2025-02-20",
+        "actual": 127.0,
+        "training_median": 72.0,
+        "persistence": 127.0
+      },
+      {
+        "date": "2025-02-21",
+        "actual": 133.0,
+        "training_median": 72.0,
+        "persistence": 127.0
+      },
+      {
+        "date": "2025-02-22",
+        "actual": 140.0,
+        "training_median": 72.0,
+        "persistence": 133.0
+      },
+      {
+        "date": "2025-02-23",
+        "actual": 129.0,
+        "training_median": 72.0,
+        "persistence": 140.0
+      },
+      {
+        "date": "2025-02-24",
+        "actual": 140.0,
+        "training_median": 72.0,
+        "persistence": 129.0
+      },
+      {
+        "date": "2025-02-25",
+        "actual": 141.0,
+        "training_median": 72.0,
+        "persistence": 140.0
+      },
+      {
+        "date": "2025-02-26",
+        "actual": 140.0,
+        "training_median": 72.0,
+        "persistence": 141.0
+      },
+      {
+        "date": "2025-02-27",
+        "actual": 143.0,
+        "training_median": 72.0,
+        "persistence": 140.0
+      },
+      {
+        "date": "2025-02-28",
+        "actual": 154.0,
+        "training_median": 72.0,
+        "persistence": 143.0
+      },
+      {
+        "date": "2025-03-01",
+        "actual": 151.0,
+        "training_median": 72.0,
+        "persistence": 154.0
+      },
+      {
+        "date": "2025-03-02",
+        "actual": 155.0,
+        "training_median": 72.0,
+        "persistence": 151.0
+      },
+      {
+        "date": "2025-03-03",
+        "actual": 145.0,
+        "training_median": 72.0,
+        "persistence": 155.0
+      },
+      {
+        "date": "2025-03-04",
+        "actual": 147.0,
+        "training_median": 72.0,
+        "persistence": 145.0
+      },
+      {
+        "date": "2025-03-05",
+        "actual": 140.0,
+        "training_median": 72.0,
+        "persistence": 147.0
+      },
+      {
+        "date": "2025-03-06",
+        "actual": 139.0,
+        "training_median": 72.0,
+        "persistence": 140.0
+      },
+      {
+        "date": "2025-03-07",
+        "actual": 142.0,
+        "training_median": 72.0,
+        "persistence": 139.0
+      },
+      {
+        "date": "2025-03-08",
+        "actual": 154.0,
+        "training_median": 72.0,
+        "persistence": 142.0
+      },
+      {
+        "date": "2025-03-09",
+        "actual": 151.0,
+        "training_median": 72.0,
+        "persistence": 154.0
+      },
+      {
+        "date": "2025-03-10",
+        "actual": 145.0,
+        "training_median": 72.0,
+        "persistence": 151.0
+      },
+      {
+        "date": "2025-03-11",
+        "actual": 140.0,
+        "training_median": 72.0,
+        "persistence": 145.0
+      },
+      {
+        "date": "2025-03-12",
+        "actual": 145.0,
+        "training_median": 72.0,
+        "persistence": 140.0
+      },
+      {
+        "date": "2025-03-13",
+        "actual": 135.0,
+        "training_median": 72.0,
+        "persistence": 145.0
+      },
+      {
+        "date": "2025-03-14",
+        "actual": 140.0,
+        "training_median": 72.0,
+        "persistence": 135.0
+      },
+      {
+        "date": "2025-03-15",
+        "actual": 157.0,
+        "training_median": 72.0,
+        "persistence": 140.0
+      },
+      {
+        "date": "2025-03-16",
+        "actual": 155.0,
+        "training_median": 72.0,
+        "persistence": 157.0
+      },
+      {
+        "date": "2025-03-17",
+        "actual": 146.0,
+        "training_median": 72.0,
+        "persistence": 155.0
+      },
+      {
+        "date": "2025-03-18",
+        "actual": 148.0,
+        "training_median": 72.0,
+        "persistence": 146.0
+      },
+      {
+        "date": "2025-03-19",
+        "actual": 146.0,
+        "training_median": 72.0,
+        "persistence": 148.0
+      },
+      {
+        "date": "2025-03-20",
+        "actual": 150.0,
+        "training_median": 72.0,
+        "persistence": 146.0
+      },
+      {
+        "date": "2025-03-21",
+        "actual": 155.0,
+        "training_median": 72.0,
+        "persistence": 150.0
+      },
+      {
+        "date": "2025-03-22",
+        "actual": 165.0,
+        "training_median": 72.0,
+        "persistence": 155.0
+      },
+      {
+        "date": "2025-03-23",
+        "actual": 158.0,
+        "training_median": 72.0,
+        "persistence": 165.0
+      },
+      {
+        "date": "2025-03-24",
+        "actual": 148.0,
+        "training_median": 72.0,
+        "persistence": 158.0
+      },
+      {
+        "date": "2025-03-25",
+        "actual": 153.0,
+        "training_median": 72.0,
+        "persistence": 148.0
+      },
+      {
+        "date": "2025-03-26",
+        "actual": 151.0,
+        "training_median": 72.0,
+        "persistence": 153.0
+      },
+      {
+        "date": "2025-03-27",
+        "actual": 154.0,
+        "training_median": 72.0,
+        "persistence": 151.0
+      },
+      {
+        "date": "2025-03-28",
+        "actual": 154.0,
+        "training_median": 72.0,
+        "persistence": 154.0
+      },
+      {
+        "date": "2025-03-29",
+        "actual": 154.0,
+        "training_median": 72.0,
+        "persistence": 154.0
+      },
+      {
+        "date": "2025-03-30",
+        "actual": 152.0,
+        "training_median": 72.0,
+        "persistence": 154.0
+      },
+      {
+        "date": "2025-03-31",
+        "actual": 157.0,
+        "training_median": 72.0,
+        "persistence": 152.0
+      },
+      {
+        "date": "2025-04-01",
+        "actual": 159.0,
+        "training_median": 72.0,
+        "persistence": 157.0
+      },
+      {
+        "date": "2025-04-02",
+        "actual": 154.0,
+        "training_median": 72.0,
+        "persistence": 159.0
+      },
+      {
+        "date": "2025-04-03",
+        "actual": 159.0,
+        "training_median": 72.0,
+        "persistence": 154.0
+      },
+      {
+        "date": "2025-04-04",
+        "actual": 157.0,
+        "training_median": 72.0,
+        "persistence": 159.0
+      },
+      {
+        "date": "2025-04-05",
+        "actual": 156.0,
+        "training_median": 72.0,
+        "persistence": 157.0
+      },
+      {
+        "date": "2025-04-06",
+        "actual": 145.0,
+        "training_median": 72.0,
+        "persistence": 156.0
+      },
+      {
+        "date": "2025-04-07",
+        "actual": 149.0,
+        "training_median": 72.0,
+        "persistence": 145.0
+      },
+      {
+        "date": "2025-04-08",
+        "actual": 151.0,
+        "training_median": 72.0,
+        "persistence": 149.0
+      },
+      {
+        "date": "2025-04-09",
+        "actual": 149.0,
+        "training_median": 72.0,
+        "persistence": 151.0
+      },
+      {
+        "date": "2025-04-10",
+        "actual": 150.0,
+        "training_median": 72.0,
+        "persistence": 149.0
+      },
+      {
+        "date": "2025-04-11",
+        "actual": 150.0,
+        "training_median": 72.0,
+        "persistence": 150.0
+      },
+      {
+        "date": "2025-04-12",
+        "actual": 153.0,
+        "training_median": 72.0,
+        "persistence": 150.0
+      },
+      {
+        "date": "2025-04-13",
+        "actual": 144.0,
+        "training_median": 72.0,
+        "persistence": 153.0
+      },
+      {
+        "date": "2025-04-14",
+        "actual": 150.0,
+        "training_median": 72.0,
+        "persistence": 144.0
+      },
+      {
+        "date": "2025-04-15",
+        "actual": 151.0,
+        "training_median": 72.0,
+        "persistence": 150.0
+      },
+      {
+        "date": "2025-04-16",
+        "actual": 141.0,
+        "training_median": 72.0,
+        "persistence": 151.0
+      },
+      {
+        "date": "2025-04-17",
+        "actual": 155.0,
+        "training_median": 72.0,
+        "persistence": 141.0
+      },
+      {
+        "date": "2025-04-18",
+        "actual": 155.0,
+        "training_median": 72.0,
+        "persistence": 155.0
+      },
+      {
+        "date": "2025-04-19",
+        "actual": 152.0,
+        "training_median": 72.0,
+        "persistence": 155.0
+      },
+      {
+        "date": "2025-04-20",
+        "actual": 143.0,
+        "training_median": 72.0,
+        "persistence": 152.0
+      },
+      {
+        "date": "2025-04-21",
+        "actual": 156.0,
+        "training_median": 72.0,
+        "persistence": 143.0
+      },
+      {
+        "date": "2025-04-22",
+        "actual": 156.0,
+        "training_median": 72.0,
+        "persistence": 156.0
+      },
+      {
+        "date": "2025-04-23",
+        "actual": 165.0,
+        "training_median": 72.0,
+        "persistence": 156.0
+      },
+      {
+        "date": "2025-04-24",
+        "actual": 151.0,
+        "training_median": 72.0,
+        "persistence": 165.0
+      },
+      {
+        "date": "2025-04-25",
+        "actual": 153.0,
+        "training_median": 72.0,
+        "persistence": 151.0
+      },
+      {
+        "date": "2025-04-26",
+        "actual": 155.0,
+        "training_median": 72.0,
+        "persistence": 153.0
+      },
+      {
+        "date": "2025-04-27",
+        "actual": 152.0,
+        "training_median": 72.0,
+        "persistence": 155.0
+      },
+      {
+        "date": "2025-04-28",
+        "actual": 153.0,
+        "training_median": 72.0,
+        "persistence": 152.0
+      },
+      {
+        "date": "2025-04-29",
+        "actual": 148.0,
+        "training_median": 72.0,
+        "persistence": 153.0
+      },
+      {
+        "date": "2025-04-30",
+        "actual": 152.0,
+        "training_median": 72.0,
+        "persistence": 148.0
+      },
+      {
+        "date": "2025-05-01",
+        "actual": 150.0,
+        "training_median": 72.0,
+        "persistence": 152.0
+      },
+      {
+        "date": "2025-05-02",
+        "actual": 147.0,
+        "training_median": 72.0,
+        "persistence": 150.0
+      },
+      {
+        "date": "2025-05-03",
+        "actual": 145.0,
+        "training_median": 72.0,
+        "persistence": 147.0
+      },
+      {
+        "date": "2025-05-04",
+        "actual": 141.0,
+        "training_median": 72.0,
+        "persistence": 145.0
+      },
+      {
+        "date": "2025-05-05",
+        "actual": 148.0,
+        "training_median": 72.0,
+        "persistence": 141.0
+      },
+      {
+        "date": "2025-05-06",
+        "actual": 149.0,
+        "training_median": 72.0,
+        "persistence": 148.0
+      },
+      {
+        "date": "2025-05-07",
+        "actual": 147.0,
+        "training_median": 72.0,
+        "persistence": 149.0
+      },
+      {
+        "date": "2025-05-08",
+        "actual": 140.0,
+        "training_median": 72.0,
+        "persistence": 147.0
+      },
+      {
+        "date": "2025-05-09",
+        "actual": 142.0,
+        "training_median": 72.0,
+        "persistence": 140.0
+      },
+      {
+        "date": "2025-05-10",
+        "actual": 144.0,
+        "training_median": 72.0,
+        "persistence": 142.0
+      },
+      {
+        "date": "2025-05-11",
+        "actual": 141.0,
+        "training_median": 72.0,
+        "persistence": 144.0
+      },
+      {
+        "date": "2025-05-12",
+        "actual": 146.0,
+        "training_median": 72.0,
+        "persistence": 141.0
+      },
+      {
+        "date": "2025-05-13",
+        "actual": 143.0,
+        "training_median": 72.0,
+        "persistence": 146.0
+      },
+      {
+        "date": "2025-05-14",
+        "actual": 140.0,
+        "training_median": 72.0,
+        "persistence": 143.0
+      },
+      {
+        "date": "2025-05-15",
+        "actual": 140.0,
+        "training_median": 72.0,
+        "persistence": 140.0
+      },
+      {
+        "date": "2025-05-16",
+        "actual": 145.0,
+        "training_median": 72.0,
+        "persistence": 140.0
+      },
+      {
+        "date": "2025-05-17",
+        "actual": 146.0,
+        "training_median": 72.0,
+        "persistence": 145.0
+      },
+      {
+        "date": "2025-05-18",
+        "actual": 142.0,
+        "training_median": 72.0,
+        "persistence": 146.0
+      },
+      {
+        "date": "2025-05-19",
+        "actual": 147.0,
+        "training_median": 72.0,
+        "persistence": 142.0
+      },
+      {
+        "date": "2025-05-20",
+        "actual": 144.0,
+        "training_median": 72.0,
+        "persistence": 147.0
+      },
+      {
+        "date": "2025-05-21",
+        "actual": 145.0,
+        "training_median": 72.0,
+        "persistence": 144.0
+      },
+      {
+        "date": "2025-05-22",
+        "actual": 145.0,
+        "training_median": 72.0,
+        "persistence": 145.0
+      },
+      {
+        "date": "2025-05-23",
+        "actual": 145.0,
+        "training_median": 72.0,
+        "persistence": 145.0
+      },
+      {
+        "date": "2025-05-24",
+        "actual": 143.0,
+        "training_median": 72.0,
+        "persistence": 145.0
+      },
+      {
+        "date": "2025-05-25",
+        "actual": 148.0,
+        "training_median": 72.0,
+        "persistence": 143.0
+      },
+      {
+        "date": "2025-05-26",
+        "actual": 149.0,
+        "training_median": 72.0,
+        "persistence": 148.0
+      },
+      {
+        "date": "2025-05-27",
+        "actual": 148.0,
+        "training_median": 72.0,
+        "persistence": 149.0
+      },
+      {
+        "date": "2025-05-28",
+        "actual": 147.0,
+        "training_median": 72.0,
+        "persistence": 148.0
+      },
+      {
+        "date": "2025-05-29",
+        "actual": 143.0,
+        "training_median": 72.0,
+        "persistence": 147.0
+      },
+      {
+        "date": "2025-05-30",
+        "actual": 149.0,
+        "training_median": 72.0,
+        "persistence": 143.0
+      },
+      {
+        "date": "2025-05-31",
+        "actual": 143.0,
+        "training_median": 72.0,
+        "persistence": 149.0
+      },
+      {
+        "date": "2025-06-01",
+        "actual": 146.0,
+        "training_median": 72.0,
+        "persistence": 143.0
+      },
+      {
+        "date": "2025-06-02",
+        "actual": 144.0,
+        "training_median": 72.0,
+        "persistence": 146.0
+      },
+      {
+        "date": "2025-06-03",
+        "actual": 140.0,
+        "training_median": 72.0,
+        "persistence": 144.0
+      },
+      {
+        "date": "2025-06-04",
+        "actual": 140.0,
+        "training_median": 72.0,
+        "persistence": 140.0
+      },
+      {
+        "date": "2025-06-05",
+        "actual": 141.0,
+        "training_median": 72.0,
+        "persistence": 140.0
+      },
+      {
+        "date": "2025-06-06",
+        "actual": 143.0,
+        "training_median": 72.0,
+        "persistence": 141.0
+      },
+      {
+        "date": "2025-06-07",
+        "actual": 143.0,
+        "training_median": 72.0,
+        "persistence": 143.0
+      },
+      {
+        "date": "2025-06-08",
+        "actual": 145.0,
+        "training_median": 72.0,
+        "persistence": 143.0
+      },
+      {
+        "date": "2025-06-09",
+        "actual": 148.0,
+        "training_median": 72.0,
+        "persistence": 145.0
+      },
+      {
+        "date": "2025-06-10",
+        "actual": 150.0,
+        "training_median": 72.0,
+        "persistence": 148.0
+      },
+      {
+        "date": "2025-06-11",
+        "actual": 148.0,
+        "training_median": 72.0,
+        "persistence": 150.0
+      },
+      {
+        "date": "2025-06-12",
+        "actual": 148.0,
+        "training_median": 72.0,
+        "persistence": 148.0
+      },
+      {
+        "date": "2025-06-13",
+        "actual": 155.0,
+        "training_median": 72.0,
+        "persistence": 148.0
+      },
+      {
+        "date": "2025-06-14",
+        "actual": 155.0,
+        "training_median": 72.0,
+        "persistence": 155.0
+      },
+      {
+        "date": "2025-06-15",
+        "actual": 147.0,
+        "training_median": 72.0,
+        "persistence": 155.0
+      },
+      {
+        "date": "2025-06-16",
+        "actual": 159.0,
+        "training_median": 72.0,
+        "persistence": 147.0
+      },
+      {
+        "date": "2025-06-17",
+        "actual": 149.0,
+        "training_median": 72.0,
+        "persistence": 159.0
+      },
+      {
+        "date": "2025-06-18",
+        "actual": 147.0,
+        "training_median": 72.0,
+        "persistence": 149.0
+      },
+      {
+        "date": "2025-06-19",
+        "actual": 140.0,
+        "training_median": 72.0,
+        "persistence": 147.0
+      },
+      {
+        "date": "2025-06-20",
+        "actual": 145.0,
+        "training_median": 72.0,
+        "persistence": 140.0
+      },
+      {
+        "date": "2025-06-21",
+        "actual": 143.0,
+        "training_median": 72.0,
+        "persistence": 145.0
+      },
+      {
+        "date": "2025-06-22",
+        "actual": 135.0,
+        "training_median": 72.0,
+        "persistence": 143.0
+      },
+      {
+        "date": "2025-06-23",
+        "actual": 145.0,
+        "training_median": 72.0,
+        "persistence": 135.0
+      },
+      {
+        "date": "2025-06-24",
+        "actual": 152.0,
+        "training_median": 72.0,
+        "persistence": 145.0
+      },
+      {
+        "date": "2025-06-25",
+        "actual": 157.0,
+        "training_median": 72.0,
+        "persistence": 152.0
+      },
+      {
+        "date": "2025-06-26",
+        "actual": 144.0,
+        "training_median": 72.0,
+        "persistence": 157.0
+      },
+      {
+        "date": "2025-06-27",
+        "actual": 157.0,
+        "training_median": 72.0,
+        "persistence": 144.0
+      },
+      {
+        "date": "2025-06-28",
+        "actual": 154.0,
+        "training_median": 72.0,
+        "persistence": 157.0
+      },
+      {
+        "date": "2025-06-29",
+        "actual": 150.0,
+        "training_median": 72.0,
+        "persistence": 154.0
+      },
+      {
+        "date": "2025-06-30",
+        "actual": 156.0,
+        "training_median": 72.0,
+        "persistence": 150.0
+      },
+      {
+        "date": "2025-07-01",
+        "actual": 150.0,
+        "training_median": 72.0,
+        "persistence": 156.0
+      },
+      {
+        "date": "2025-07-02",
+        "actual": 146.0,
+        "training_median": 72.0,
+        "persistence": 150.0
+      },
+      {
+        "date": "2025-07-03",
+        "actual": 149.0,
+        "training_median": 72.0,
+        "persistence": 146.0
+      },
+      {
+        "date": "2025-07-04",
+        "actual": 150.0,
+        "training_median": 72.0,
+        "persistence": 149.0
+      },
+      {
+        "date": "2025-07-05",
+        "actual": 155.0,
+        "training_median": 72.0,
+        "persistence": 150.0
+      },
+      {
+        "date": "2025-07-06",
+        "actual": 146.0,
+        "training_median": 72.0,
+        "persistence": 155.0
+      },
+      {
+        "date": "2025-07-07",
+        "actual": 147.0,
+        "training_median": 72.0,
+        "persistence": 146.0
+      },
+      {
+        "date": "2025-07-08",
+        "actual": 142.0,
+        "training_median": 72.0,
+        "persistence": 147.0
+      },
+      {
+        "date": "2025-07-09",
+        "actual": 149.0,
+        "training_median": 72.0,
+        "persistence": 142.0
+      },
+      {
+        "date": "2025-07-10",
+        "actual": 155.0,
+        "training_median": 72.0,
+        "persistence": 149.0
+      },
+      {
+        "date": "2025-07-11",
+        "actual": 155.0,
+        "training_median": 72.0,
+        "persistence": 155.0
+      },
+      {
+        "date": "2025-07-12",
+        "actual": 149.0,
+        "training_median": 72.0,
+        "persistence": 155.0
+      },
+      {
+        "date": "2025-07-13",
+        "actual": 137.0,
+        "training_median": 72.0,
+        "persistence": 149.0
+      },
+      {
+        "date": "2025-07-14",
+        "actual": 151.0,
+        "training_median": 72.0,
+        "persistence": 137.0
+      },
+      {
+        "date": "2025-07-15",
+        "actual": 148.0,
+        "training_median": 72.0,
+        "persistence": 151.0
+      },
+      {
+        "date": "2025-07-16",
+        "actual": 149.0,
+        "training_median": 72.0,
+        "persistence": 148.0
+      },
+      {
+        "date": "2025-07-17",
+        "actual": 145.0,
+        "training_median": 72.0,
+        "persistence": 149.0
+      },
+      {
+        "date": "2025-07-18",
+        "actual": 147.0,
+        "training_median": 72.0,
+        "persistence": 145.0
+      },
+      {
+        "date": "2025-07-19",
+        "actual": 142.0,
+        "training_median": 72.0,
+        "persistence": 147.0
+      },
+      {
+        "date": "2025-07-20",
+        "actual": 138.0,
+        "training_median": 72.0,
+        "persistence": 142.0
+      },
+      {
+        "date": "2025-07-21",
+        "actual": 141.0,
+        "training_median": 72.0,
+        "persistence": 138.0
+      },
+      {
+        "date": "2025-07-22",
+        "actual": 135.0,
+        "training_median": 72.0,
+        "persistence": 141.0
+      },
+      {
+        "date": "2025-07-23",
+        "actual": 142.0,
+        "training_median": 72.0,
+        "persistence": 135.0
+      },
+      {
+        "date": "2025-07-24",
+        "actual": 139.0,
+        "training_median": 72.0,
+        "persistence": 142.0
+      },
+      {
+        "date": "2025-07-25",
+        "actual": 149.0,
+        "training_median": 72.0,
+        "persistence": 139.0
+      },
+      {
+        "date": "2025-07-26",
+        "actual": 153.0,
+        "training_median": 72.0,
+        "persistence": 149.0
+      },
+      {
+        "date": "2025-07-27",
+        "actual": 153.0,
+        "training_median": 72.0,
+        "persistence": 153.0
+      },
+      {
+        "date": "2025-07-28",
+        "actual": 146.0,
+        "training_median": 72.0,
+        "persistence": 153.0
+      },
+      {
+        "date": "2025-07-29",
+        "actual": 139.0,
+        "training_median": 72.0,
+        "persistence": 146.0
+      },
+      {
+        "date": "2025-07-30",
+        "actual": 142.0,
+        "training_median": 72.0,
+        "persistence": 139.0
+      },
+      {
+        "date": "2025-07-31",
+        "actual": 155.0,
+        "training_median": 72.0,
+        "persistence": 142.0
+      },
+      {
+        "date": "2025-08-01",
+        "actual": 150.0,
+        "training_median": 72.0,
+        "persistence": 155.0
+      },
+      {
+        "date": "2025-08-02",
+        "actual": 144.0,
+        "training_median": 72.0,
+        "persistence": 150.0
+      },
+      {
+        "date": "2025-08-03",
+        "actual": 143.0,
+        "training_median": 72.0,
+        "persistence": 144.0
+      },
+      {
+        "date": "2025-08-04",
+        "actual": 143.0,
+        "training_median": 72.0,
+        "persistence": 143.0
+      },
+      {
+        "date": "2025-08-05",
+        "actual": 141.0,
+        "training_median": 72.0,
+        "persistence": 143.0
+      },
+      {
+        "date": "2025-08-06",
+        "actual": 142.0,
+        "training_median": 72.0,
+        "persistence": 141.0
+      },
+      {
+        "date": "2025-08-07",
+        "actual": 149.0,
+        "training_median": 72.0,
+        "persistence": 142.0
+      },
+      {
+        "date": "2025-08-08",
+        "actual": 156.0,
+        "training_median": 72.0,
+        "persistence": 149.0
+      },
+      {
+        "date": "2025-08-09",
+        "actual": 158.0,
+        "training_median": 72.0,
+        "persistence": 156.0
+      },
+      {
+        "date": "2025-08-10",
+        "actual": 155.0,
+        "training_median": 72.0,
+        "persistence": 158.0
+      },
+      {
+        "date": "2025-08-11",
+        "actual": 155.0,
+        "training_median": 72.0,
+        "persistence": 155.0
+      },
+      {
+        "date": "2025-08-12",
+        "actual": 144.0,
+        "training_median": 72.0,
+        "persistence": 155.0
+      },
+      {
+        "date": "2025-08-13",
+        "actual": 142.0,
+        "training_median": 72.0,
+        "persistence": 144.0
+      },
+      {
+        "date": "2025-08-14",
+        "actual": 139.0,
+        "training_median": 72.0,
+        "persistence": 142.0
+      },
+      {
+        "date": "2025-08-15",
+        "actual": 143.0,
+        "training_median": 72.0,
+        "persistence": 139.0
+      },
+      {
+        "date": "2025-08-16",
+        "actual": 145.0,
+        "training_median": 72.0,
+        "persistence": 143.0
+      },
+      {
+        "date": "2025-08-17",
+        "actual": 140.0,
+        "training_median": 72.0,
+        "persistence": 145.0
+      },
+      {
+        "date": "2025-08-18",
+        "actual": 149.0,
+        "training_median": 72.0,
+        "persistence": 140.0
+      },
+      {
+        "date": "2025-08-19",
+        "actual": 146.0,
+        "training_median": 72.0,
+        "persistence": 149.0
+      },
+      {
+        "date": "2025-08-20",
+        "actual": 155.0,
+        "training_median": 72.0,
+        "persistence": 146.0
+      },
+      {
+        "date": "2025-08-21",
+        "actual": 142.0,
+        "training_median": 72.0,
+        "persistence": 155.0
+      },
+      {
+        "date": "2025-08-22",
+        "actual": 149.0,
+        "training_median": 72.0,
+        "persistence": 142.0
+      },
+      {
+        "date": "2025-08-23",
+        "actual": 146.0,
+        "training_median": 72.0,
+        "persistence": 149.0
+      },
+      {
+        "date": "2025-08-24",
+        "actual": 138.0,
+        "training_median": 72.0,
+        "persistence": 146.0
+      },
+      {
+        "date": "2025-08-25",
+        "actual": 151.0,
+        "training_median": 72.0,
+        "persistence": 138.0
+      },
+      {
+        "date": "2025-08-26",
+        "actual": 151.0,
+        "training_median": 72.0,
+        "persistence": 151.0
+      },
+      {
+        "date": "2025-08-27",
+        "actual": 153.0,
+        "training_median": 72.0,
+        "persistence": 151.0
+      },
+      {
+        "date": "2025-08-28",
+        "actual": 153.0,
+        "training_median": 72.0,
+        "persistence": 153.0
+      },
+      {
+        "date": "2025-08-29",
+        "actual": 157.0,
+        "training_median": 72.0,
+        "persistence": 153.0
+      },
+      {
+        "date": "2025-08-30",
+        "actual": 156.0,
+        "training_median": 72.0,
+        "persistence": 157.0
+      },
+      {
+        "date": "2025-08-31",
+        "actual": 153.0,
+        "training_median": 72.0,
+        "persistence": 156.0
+      },
+      {
+        "date": "2025-09-01",
+        "actual": 161.0,
+        "training_median": 72.0,
+        "persistence": 153.0
+      },
+      {
+        "date": "2025-09-02",
+        "actual": 144.0,
+        "training_median": 72.0,
+        "persistence": 161.0
+      },
+      {
+        "date": "2025-09-03",
+        "actual": 146.0,
+        "training_median": 72.0,
+        "persistence": 144.0
+      },
+      {
+        "date": "2025-09-04",
+        "actual": 138.0,
+        "training_median": 72.0,
+        "persistence": 146.0
+      },
+      {
+        "date": "2025-09-05",
+        "actual": 151.0,
+        "training_median": 72.0,
+        "persistence": 138.0
+      },
+      {
+        "date": "2025-09-06",
+        "actual": 148.0,
+        "training_median": 72.0,
+        "persistence": 151.0
+      },
+      {
+        "date": "2025-09-07",
+        "actual": 144.0,
+        "training_median": 72.0,
+        "persistence": 148.0
+      },
+      {
+        "date": "2025-09-08",
+        "actual": 151.0,
+        "training_median": 72.0,
+        "persistence": 144.0
+      },
+      {
+        "date": "2025-09-09",
+        "actual": 139.0,
+        "training_median": 72.0,
+        "persistence": 151.0
+      },
+      {
+        "date": "2025-09-10",
+        "actual": 140.0,
+        "training_median": 72.0,
+        "persistence": 139.0
+      },
+      {
+        "date": "2025-09-11",
+        "actual": 133.0,
+        "training_median": 72.0,
+        "persistence": 140.0
+      },
+      {
+        "date": "2025-09-12",
+        "actual": 146.0,
+        "training_median": 72.0,
+        "persistence": 133.0
+      },
+      {
+        "date": "2025-09-13",
+        "actual": 137.0,
+        "training_median": 72.0,
+        "persistence": 146.0
+      },
+      {
+        "date": "2025-09-14",
+        "actual": 137.0,
+        "training_median": 72.0,
+        "persistence": 137.0
+      },
+      {
+        "date": "2025-09-15",
+        "actual": 152.0,
+        "training_median": 72.0,
+        "persistence": 137.0
+      },
+      {
+        "date": "2025-09-16",
+        "actual": 154.0,
+        "training_median": 72.0,
+        "persistence": 152.0
+      },
+      {
+        "date": "2025-09-17",
+        "actual": 149.0,
+        "training_median": 72.0,
+        "persistence": 154.0
+      },
+      {
+        "date": "2025-09-18",
+        "actual": 148.0,
+        "training_median": 72.0,
+        "persistence": 149.0
+      },
+      {
+        "date": "2025-09-19",
+        "actual": 149.0,
+        "training_median": 72.0,
+        "persistence": 148.0
+      },
+      {
+        "date": "2025-09-20",
+        "actual": 149.0,
+        "training_median": 72.0,
+        "persistence": 149.0
+      },
+      {
+        "date": "2025-09-21",
+        "actual": 136.0,
+        "training_median": 72.0,
+        "persistence": 149.0
+      },
+      {
+        "date": "2025-09-22",
+        "actual": 144.0,
+        "training_median": 72.0,
+        "persistence": 136.0
+      },
+      {
+        "date": "2025-09-23",
+        "actual": 143.0,
+        "training_median": 72.0,
+        "persistence": 144.0
+      },
+      {
+        "date": "2025-09-24",
+        "actual": 149.0,
+        "training_median": 72.0,
+        "persistence": 143.0
+      },
+      {
+        "date": "2025-09-25",
+        "actual": 143.0,
+        "training_median": 72.0,
+        "persistence": 149.0
+      },
+      {
+        "date": "2025-09-26",
+        "actual": 142.0,
+        "training_median": 72.0,
+        "persistence": 143.0
+      },
+      {
+        "date": "2025-09-27",
+        "actual": 140.0,
+        "training_median": 72.0,
+        "persistence": 142.0
+      },
+      {
+        "date": "2025-09-28",
+        "actual": 137.0,
+        "training_median": 72.0,
+        "persistence": 140.0
+      },
+      {
+        "date": "2025-09-29",
+        "actual": 148.0,
+        "training_median": 72.0,
+        "persistence": 137.0
+      },
+      {
+        "date": "2025-09-30",
+        "actual": 155.0,
+        "training_median": 72.0,
+        "persistence": 148.0
+      },
+      {
+        "date": "2025-10-01",
+        "actual": 153.0,
+        "training_median": 72.0,
+        "persistence": 155.0
+      },
+      {
+        "date": "2025-10-02",
+        "actual": 152.0,
+        "training_median": 72.0,
+        "persistence": 153.0
+      },
+      {
+        "date": "2025-10-03",
+        "actual": 144.0,
+        "training_median": 72.0,
+        "persistence": 152.0
+      },
+      {
+        "date": "2025-10-04",
+        "actual": 143.0,
+        "training_median": 72.0,
+        "persistence": 144.0
+      },
+      {
+        "date": "2025-10-05",
+        "actual": 138.0,
+        "training_median": 72.0,
+        "persistence": 143.0
+      },
+      {
+        "date": "2025-10-06",
+        "actual": 140.0,
+        "training_median": 72.0,
+        "persistence": 138.0
+      },
+      {
+        "date": "2025-10-07",
+        "actual": 146.0,
+        "training_median": 72.0,
+        "persistence": 140.0
+      },
+      {
+        "date": "2025-10-08",
+        "actual": 146.0,
+        "training_median": 72.0,
+        "persistence": 146.0
+      },
+      {
+        "date": "2025-10-09",
+        "actual": 145.0,
+        "training_median": 72.0,
+        "persistence": 146.0
+      },
+      {
+        "date": "2025-10-10",
+        "actual": 139.0,
+        "training_median": 72.0,
+        "persistence": 145.0
+      },
+      {
+        "date": "2025-10-11",
+        "actual": 142.0,
+        "training_median": 72.0,
+        "persistence": 139.0
+      },
+      {
+        "date": "2025-10-12",
+        "actual": 136.0,
+        "training_median": 72.0,
+        "persistence": 142.0
+      },
+      {
+        "date": "2025-10-13",
+        "actual": 131.0,
+        "training_median": 72.0,
+        "persistence": 136.0
+      },
+      {
+        "date": "2025-10-14",
+        "actual": 130.0,
+        "training_median": 72.0,
+        "persistence": 131.0
+      },
+      {
+        "date": "2025-10-15",
+        "actual": 133.0,
+        "training_median": 72.0,
+        "persistence": 130.0
+      },
+      {
+        "date": "2025-10-16",
+        "actual": 140.0,
+        "training_median": 72.0,
+        "persistence": 133.0
+      },
+      {
+        "date": "2025-10-17",
+        "actual": 143.0,
+        "training_median": 72.0,
+        "persistence": 140.0
+      },
+      {
+        "date": "2025-10-18",
+        "actual": 151.0,
+        "training_median": 72.0,
+        "persistence": 143.0
+      },
+      {
+        "date": "2025-10-19",
+        "actual": 142.0,
+        "training_median": 72.0,
+        "persistence": 151.0
+      },
+      {
+        "date": "2025-10-20",
+        "actual": 146.0,
+        "training_median": 72.0,
+        "persistence": 142.0
+      },
+      {
+        "date": "2025-10-21",
+        "actual": 147.0,
+        "training_median": 72.0,
+        "persistence": 146.0
+      },
+      {
+        "date": "2025-10-22",
+        "actual": 148.0,
+        "training_median": 72.0,
+        "persistence": 147.0
+      },
+      {
+        "date": "2025-10-23",
+        "actual": 139.0,
+        "training_median": 72.0,
+        "persistence": 148.0
+      },
+      {
+        "date": "2025-10-24",
+        "actual": 142.0,
+        "training_median": 72.0,
+        "persistence": 139.0
+      },
+      {
+        "date": "2025-10-25",
+        "actual": 140.0,
+        "training_median": 72.0,
+        "persistence": 142.0
+      },
+      {
+        "date": "2025-10-26",
+        "actual": 141.0,
+        "training_median": 72.0,
+        "persistence": 140.0
+      },
+      {
+        "date": "2025-10-27",
+        "actual": 144.0,
+        "training_median": 72.0,
+        "persistence": 141.0
+      },
+      {
+        "date": "2025-10-28",
+        "actual": 139.0,
+        "training_median": 72.0,
+        "persistence": 144.0
+      },
+      {
+        "date": "2025-10-29",
+        "actual": 151.0,
+        "training_median": 72.0,
+        "persistence": 139.0
+      },
+      {
+        "date": "2025-10-30",
+        "actual": 149.0,
+        "training_median": 72.0,
+        "persistence": 151.0
+      },
+      {
+        "date": "2025-10-31",
+        "actual": 155.0,
+        "training_median": 72.0,
+        "persistence": 149.0
+      },
+      {
+        "date": "2025-11-01",
+        "actual": 147.0,
+        "training_median": 72.0,
+        "persistence": 155.0
+      },
+      {
+        "date": "2025-11-02",
+        "actual": 139.0,
+        "training_median": 72.0,
+        "persistence": 147.0
+      },
+      {
+        "date": "2025-11-03",
+        "actual": 146.0,
+        "training_median": 72.0,
+        "persistence": 139.0
+      },
+      {
+        "date": "2025-11-04",
+        "actual": 151.0,
+        "training_median": 72.0,
+        "persistence": 146.0
+      },
+      {
+        "date": "2025-11-05",
+        "actual": 150.0,
+        "training_median": 72.0,
+        "persistence": 151.0
+      },
+      {
+        "date": "2025-11-06",
+        "actual": 150.0,
+        "training_median": 72.0,
+        "persistence": 150.0
+      },
+      {
+        "date": "2025-11-07",
+        "actual": 157.0,
+        "training_median": 72.0,
+        "persistence": 150.0
+      },
+      {
+        "date": "2025-11-08",
+        "actual": 150.0,
+        "training_median": 72.0,
+        "persistence": 157.0
+      },
+      {
+        "date": "2025-11-09",
+        "actual": 141.0,
+        "training_median": 72.0,
+        "persistence": 150.0
+      },
+      {
+        "date": "2025-11-10",
+        "actual": 156.0,
+        "training_median": 72.0,
+        "persistence": 141.0
+      },
+      {
+        "date": "2025-11-11",
+        "actual": 154.0,
+        "training_median": 72.0,
+        "persistence": 156.0
+      },
+      {
+        "date": "2025-11-12",
+        "actual": 156.0,
+        "training_median": 72.0,
+        "persistence": 154.0
+      },
+      {
+        "date": "2025-11-13",
+        "actual": 150.0,
+        "training_median": 72.0,
+        "persistence": 156.0
+      },
+      {
+        "date": "2025-11-14",
+        "actual": 160.0,
+        "training_median": 72.0,
+        "persistence": 150.0
+      },
+      {
+        "date": "2025-11-15",
+        "actual": 153.0,
+        "training_median": 72.0,
+        "persistence": 160.0
+      },
+      {
+        "date": "2025-11-16",
+        "actual": 147.0,
+        "training_median": 72.0,
+        "persistence": 153.0
+      },
+      {
+        "date": "2025-11-17",
+        "actual": 155.0,
+        "training_median": 72.0,
+        "persistence": 147.0
+      },
+      {
+        "date": "2025-11-18",
+        "actual": 159.0,
+        "training_median": 72.0,
+        "persistence": 155.0
+      },
+      {
+        "date": "2025-11-19",
+        "actual": 167.0,
+        "training_median": 72.0,
+        "persistence": 159.0
+      },
+      {
+        "date": "2025-11-20",
+        "actual": 154.0,
+        "training_median": 72.0,
+        "persistence": 167.0
+      },
+      {
+        "date": "2025-11-21",
+        "actual": 152.0,
+        "training_median": 72.0,
+        "persistence": 154.0
+      },
+      {
+        "date": "2025-11-22",
+        "actual": 150.0,
+        "training_median": 72.0,
+        "persistence": 152.0
+      },
+      {
+        "date": "2025-11-23",
+        "actual": 145.0,
+        "training_median": 72.0,
+        "persistence": 150.0
+      },
+      {
+        "date": "2025-11-24",
+        "actual": 152.0,
+        "training_median": 72.0,
+        "persistence": 145.0
+      },
+      {
+        "date": "2025-11-25",
+        "actual": 154.0,
+        "training_median": 72.0,
+        "persistence": 152.0
+      },
+      {
+        "date": "2025-11-26",
+        "actual": 154.0,
+        "training_median": 72.0,
+        "persistence": 154.0
+      },
+      {
+        "date": "2025-11-27",
+        "actual": 149.0,
+        "training_median": 72.0,
+        "persistence": 154.0
+      },
+      {
+        "date": "2025-11-28",
+        "actual": 170.0,
+        "training_median": 72.0,
+        "persistence": 149.0
+      },
+      {
+        "date": "2025-11-29",
+        "actual": 158.0,
+        "training_median": 72.0,
+        "persistence": 170.0
+      },
+      {
+        "date": "2025-11-30",
+        "actual": 152.0,
+        "training_median": 72.0,
+        "persistence": 158.0
+      },
+      {
+        "date": "2025-12-01",
+        "actual": 161.0,
+        "training_median": 72.0,
+        "persistence": 152.0
+      },
+      {
+        "date": "2025-12-02",
+        "actual": 152.0,
+        "training_median": 72.0,
+        "persistence": 161.0
+      },
+      {
+        "date": "2025-12-03",
+        "actual": 156.0,
+        "training_median": 72.0,
+        "persistence": 152.0
+      },
+      {
+        "date": "2025-12-04",
+        "actual": 151.0,
+        "training_median": 72.0,
+        "persistence": 156.0
+      },
+      {
+        "date": "2025-12-05",
+        "actual": 156.0,
+        "training_median": 72.0,
+        "persistence": 151.0
+      },
+      {
+        "date": "2025-12-06",
+        "actual": 154.0,
+        "training_median": 72.0,
+        "persistence": 156.0
+      },
+      {
+        "date": "2025-12-07",
+        "actual": 144.0,
+        "training_median": 72.0,
+        "persistence": 154.0
+      },
+      {
+        "date": "2025-12-08",
+        "actual": 149.0,
+        "training_median": 72.0,
+        "persistence": 144.0
+      },
+      {
+        "date": "2025-12-09",
+        "actual": 138.0,
+        "training_median": 72.0,
+        "persistence": 149.0
+      },
+      {
+        "date": "2025-12-10",
+        "actual": 143.0,
+        "training_median": 72.0,
+        "persistence": 138.0
+      },
+      {
+        "date": "2025-12-11",
+        "actual": 143.0,
+        "training_median": 72.0,
+        "persistence": 143.0
+      },
+      {
+        "date": "2025-12-12",
+        "actual": 140.0,
+        "training_median": 72.0,
+        "persistence": 143.0
+      },
+      {
+        "date": "2025-12-13",
+        "actual": 138.0,
+        "training_median": 72.0,
+        "persistence": 140.0
+      },
+      {
+        "date": "2025-12-14",
+        "actual": 131.0,
+        "training_median": 72.0,
+        "persistence": 138.0
+      },
+      {
+        "date": "2025-12-15",
+        "actual": 146.0,
+        "training_median": 72.0,
+        "persistence": 131.0
+      },
+      {
+        "date": "2025-12-16",
+        "actual": 141.0,
+        "training_median": 72.0,
+        "persistence": 146.0
+      },
+      {
+        "date": "2025-12-17",
+        "actual": 135.0,
+        "training_median": 72.0,
+        "persistence": 141.0
+      },
+      {
+        "date": "2025-12-18",
+        "actual": 133.0,
+        "training_median": 72.0,
+        "persistence": 135.0
+      },
+      {
+        "date": "2025-12-19",
+        "actual": 142.0,
+        "training_median": 72.0,
+        "persistence": 133.0
+      },
+      {
+        "date": "2025-12-20",
+        "actual": 148.0,
+        "training_median": 72.0,
+        "persistence": 142.0
+      },
+      {
+        "date": "2025-12-21",
+        "actual": 146.0,
+        "training_median": 72.0,
+        "persistence": 148.0
+      },
+      {
+        "date": "2025-12-22",
+        "actual": 145.0,
+        "training_median": 72.0,
+        "persistence": 146.0
+      },
+      {
+        "date": "2025-12-23",
+        "actual": 148.0,
+        "training_median": 72.0,
+        "persistence": 145.0
+      },
+      {
+        "date": "2025-12-24",
+        "actual": 136.0,
+        "training_median": 72.0,
+        "persistence": 148.0
+      },
+      {
+        "date": "2025-12-25",
+        "actual": 118.0,
+        "training_median": 72.0,
+        "persistence": 136.0
+      },
+      {
+        "date": "2025-12-26",
+        "actual": 128.0,
+        "training_median": 72.0,
+        "persistence": 118.0
+      },
+      {
+        "date": "2025-12-27",
+        "actual": 134.0,
+        "training_median": 72.0,
+        "persistence": 128.0
+      },
+      {
+        "date": "2025-12-28",
+        "actual": 133.0,
+        "training_median": 72.0,
+        "persistence": 134.0
+      },
+      {
+        "date": "2025-12-29",
+        "actual": 138.0,
+        "training_median": 72.0,
+        "persistence": 133.0
+      },
+      {
+        "date": "2025-12-30",
+        "actual": 141.0,
+        "training_median": 72.0,
+        "persistence": 138.0
+      },
+      {
+        "date": "2025-12-31",
+        "actual": 146.0,
+        "training_median": 72.0,
+        "persistence": 141.0
+      },
+      {
+        "date": "2026-01-01",
+        "actual": 154.0,
+        "training_median": 72.0,
+        "persistence": 146.0
+      },
+      {
+        "date": "2026-01-02",
+        "actual": 155.0,
+        "training_median": 72.0,
+        "persistence": 154.0
+      },
+      {
+        "date": "2026-01-03",
+        "actual": 140.0,
+        "training_median": 72.0,
+        "persistence": 155.0
+      },
+      {
+        "date": "2026-01-04",
+        "actual": 148.0,
+        "training_median": 72.0,
+        "persistence": 140.0
+      },
+      {
+        "date": "2026-01-05",
+        "actual": 151.0,
+        "training_median": 72.0,
+        "persistence": 148.0
+      },
+      {
+        "date": "2026-01-06",
+        "actual": 142.0,
+        "training_median": 72.0,
+        "persistence": 151.0
+      },
+      {
+        "date": "2026-01-07",
+        "actual": 143.0,
+        "training_median": 72.0,
+        "persistence": 142.0
+      },
+      {
+        "date": "2026-01-08",
+        "actual": 145.0,
+        "training_median": 72.0,
+        "persistence": 143.0
+      },
+      {
+        "date": "2026-01-09",
+        "actual": 155.0,
+        "training_median": 72.0,
+        "persistence": 145.0
+      },
+      {
+        "date": "2026-01-10",
+        "actual": 155.0,
+        "training_median": 72.0,
+        "persistence": 155.0
+      },
+      {
+        "date": "2026-01-11",
+        "actual": 145.0,
+        "training_median": 72.0,
+        "persistence": 155.0
+      },
+      {
+        "date": "2026-01-12",
+        "actual": 146.0,
+        "training_median": 72.0,
+        "persistence": 145.0
+      },
+      {
+        "date": "2026-01-13",
+        "actual": 154.0,
+        "training_median": 72.0,
+        "persistence": 146.0
+      },
+      {
+        "date": "2026-01-14",
+        "actual": 138.0,
+        "training_median": 72.0,
+        "persistence": 154.0
+      },
+      {
+        "date": "2026-01-15",
+        "actual": 141.0,
+        "training_median": 72.0,
+        "persistence": 138.0
+      },
+      {
+        "date": "2026-01-16",
+        "actual": 136.0,
+        "training_median": 72.0,
+        "persistence": 141.0
+      },
+      {
+        "date": "2026-01-17",
+        "actual": 137.0,
+        "training_median": 72.0,
+        "persistence": 136.0
+      },
+      {
+        "date": "2026-01-18",
+        "actual": 137.0,
+        "training_median": 72.0,
+        "persistence": 137.0
+      },
+      {
+        "date": "2026-01-19",
+        "actual": 148.0,
+        "training_median": 72.0,
+        "persistence": 137.0
+      },
+      {
+        "date": "2026-01-20",
+        "actual": 140.0,
+        "training_median": 72.0,
+        "persistence": 148.0
+      },
+      {
+        "date": "2026-01-21",
+        "actual": 138.0,
+        "training_median": 72.0,
+        "persistence": 140.0
+      },
+      {
+        "date": "2026-01-22",
+        "actual": 141.0,
+        "training_median": 72.0,
+        "persistence": 138.0
+      },
+      {
+        "date": "2026-01-23",
+        "actual": 152.0,
+        "training_median": 72.0,
+        "persistence": 141.0
+      },
+      {
+        "date": "2026-01-24",
+        "actual": 157.0,
+        "training_median": 72.0,
+        "persistence": 152.0
+      },
+      {
+        "date": "2026-01-25",
+        "actual": 151.0,
+        "training_median": 72.0,
+        "persistence": 157.0
+      },
+      {
+        "date": "2026-01-26",
+        "actual": 153.0,
+        "training_median": 72.0,
+        "persistence": 151.0
+      },
+      {
+        "date": "2026-01-27",
+        "actual": 146.0,
+        "training_median": 72.0,
+        "persistence": 153.0
+      },
+      {
+        "date": "2026-01-28",
+        "actual": 146.0,
+        "training_median": 72.0,
+        "persistence": 146.0
+      },
+      {
+        "date": "2026-01-29",
+        "actual": 151.0,
+        "training_median": 72.0,
+        "persistence": 146.0
+      },
+      {
+        "date": "2026-01-30",
+        "actual": 168.0,
+        "training_median": 72.0,
+        "persistence": 151.0
+      },
+      {
+        "date": "2026-01-31",
+        "actual": 157.0,
+        "training_median": 72.0,
+        "persistence": 168.0
+      },
+      {
+        "date": "2026-02-01",
+        "actual": 145.0,
+        "training_median": 72.0,
+        "persistence": 157.0
+      },
+      {
+        "date": "2026-02-02",
+        "actual": 148.0,
+        "training_median": 72.0,
+        "persistence": 145.0
+      },
+      {
+        "date": "2026-02-03",
+        "actual": 149.0,
+        "training_median": 72.0,
+        "persistence": 148.0
+      },
+      {
+        "date": "2026-02-04",
+        "actual": 149.0,
+        "training_median": 72.0,
+        "persistence": 149.0
+      },
+      {
+        "date": "2026-02-05",
+        "actual": 145.0,
+        "training_median": 72.0,
+        "persistence": 149.0
+      },
+      {
+        "date": "2026-02-06",
+        "actual": 149.0,
+        "training_median": 72.0,
+        "persistence": 145.0
+      },
+      {
+        "date": "2026-02-07",
+        "actual": 144.0,
+        "training_median": 72.0,
+        "persistence": 149.0
+      },
+      {
+        "date": "2026-02-08",
+        "actual": 133.0,
+        "training_median": 72.0,
+        "persistence": 144.0
+      },
+      {
+        "date": "2026-02-09",
+        "actual": 144.0,
+        "training_median": 72.0,
+        "persistence": 133.0
+      },
+      {
+        "date": "2026-02-10",
+        "actual": 152.0,
+        "training_median": 72.0,
+        "persistence": 144.0
+      },
+      {
+        "date": "2026-02-11",
+        "actual": 157.0,
+        "training_median": 72.0,
+        "persistence": 152.0
+      },
+      {
+        "date": "2026-02-12",
+        "actual": 158.0,
+        "training_median": 72.0,
+        "persistence": 157.0
+      },
+      {
+        "date": "2026-02-13",
+        "actual": 163.0,
+        "training_median": 72.0,
+        "persistence": 158.0
+      },
+      {
+        "date": "2026-02-14",
+        "actual": 158.0,
+        "training_median": 72.0,
+        "persistence": 163.0
+      },
+      {
+        "date": "2026-02-15",
+        "actual": 144.0,
+        "training_median": 72.0,
+        "persistence": 158.0
+      },
+      {
+        "date": "2026-02-16",
+        "actual": 145.0,
+        "training_median": 72.0,
+        "persistence": 144.0
+      },
+      {
+        "date": "2026-02-17",
+        "actual": 170.0,
+        "training_median": 72.0,
+        "persistence": 145.0
+      },
+      {
+        "date": "2026-02-18",
+        "actual": 164.0,
+        "training_median": 72.0,
+        "persistence": 170.0
+      },
+      {
+        "date": "2026-02-19",
+        "actual": 164.0,
+        "training_median": 72.0,
+        "persistence": 164.0
+      },
+      {
+        "date": "2026-02-20",
+        "actual": 165.0,
+        "training_median": 72.0,
+        "persistence": 164.0
+      },
+      {
+        "date": "2026-02-21",
+        "actual": 152.0,
+        "training_median": 72.0,
+        "persistence": 165.0
+      },
+      {
+        "date": "2026-02-22",
+        "actual": 147.0,
+        "training_median": 72.0,
+        "persistence": 152.0
+      },
+      {
+        "date": "2026-02-23",
+        "actual": 157.0,
+        "training_median": 72.0,
+        "persistence": 147.0
+      },
+      {
+        "date": "2026-02-24",
+        "actual": 158.0,
+        "training_median": 72.0,
+        "persistence": 157.0
+      },
+      {
+        "date": "2026-02-25",
+        "actual": 166.0,
+        "training_median": 72.0,
+        "persistence": 158.0
+      },
+      {
+        "date": "2026-02-26",
+        "actual": 186.0,
+        "training_median": 72.0,
+        "persistence": 166.0
+      },
+      {
+        "date": "2026-02-27",
+        "actual": 175.0,
+        "training_median": 72.0,
+        "persistence": 186.0
+      },
+      {
+        "date": "2026-02-28",
+        "actual": 174.0,
+        "training_median": 72.0,
+        "persistence": 175.0
+      },
+      {
+        "date": "2026-03-01",
+        "actual": 170.0,
+        "training_median": 72.0,
+        "persistence": 174.0
+      },
+      {
+        "date": "2026-03-02",
+        "actual": 176.0,
+        "training_median": 72.0,
+        "persistence": 170.0
+      },
+      {
+        "date": "2026-03-03",
+        "actual": 174.0,
+        "training_median": 72.0,
+        "persistence": 176.0
+      },
+      {
+        "date": "2026-03-04",
+        "actual": 172.0,
+        "training_median": 72.0,
+        "persistence": 174.0
+      },
+      {
+        "date": "2026-03-05",
+        "actual": 171.0,
+        "training_median": 72.0,
+        "persistence": 172.0
+      },
+      {
+        "date": "2026-03-06",
+        "actual": 182.0,
+        "training_median": 72.0,
+        "persistence": 171.0
+      },
+      {
+        "date": "2026-03-07",
+        "actual": 170.0,
+        "training_median": 72.0,
+        "persistence": 182.0
+      },
+      {
+        "date": "2026-03-08",
+        "actual": 161.0,
+        "training_median": 72.0,
+        "persistence": 170.0
+      },
+      {
+        "date": "2026-03-09",
+        "actual": 167.0,
+        "training_median": 72.0,
+        "persistence": 161.0
+      },
+      {
+        "date": "2026-03-10",
+        "actual": 165.0,
+        "training_median": 72.0,
+        "persistence": 167.0
+      },
+      {
+        "date": "2026-03-11",
+        "actual": 167.0,
+        "training_median": 72.0,
+        "persistence": 165.0
+      },
+      {
+        "date": "2026-03-12",
+        "actual": 173.0,
+        "training_median": 72.0,
+        "persistence": 167.0
+      },
+      {
+        "date": "2026-03-13",
+        "actual": 172.0,
+        "training_median": 72.0,
+        "persistence": 173.0
+      },
+      {
+        "date": "2026-03-14",
+        "actual": 165.0,
+        "training_median": 72.0,
+        "persistence": 172.0
+      },
+      {
+        "date": "2026-03-15",
+        "actual": 163.0,
+        "training_median": 72.0,
+        "persistence": 165.0
+      },
+      {
+        "date": "2026-03-16",
+        "actual": 170.0,
+        "training_median": 72.0,
+        "persistence": 163.0
+      },
+      {
+        "date": "2026-03-17",
+        "actual": 171.0,
+        "training_median": 72.0,
+        "persistence": 170.0
+      },
+      {
+        "date": "2026-03-18",
+        "actual": 170.0,
+        "training_median": 72.0,
+        "persistence": 171.0
+      },
+      {
+        "date": "2026-03-19",
+        "actual": 163.0,
+        "training_median": 72.0,
+        "persistence": 170.0
+      },
+      {
+        "date": "2026-03-20",
+        "actual": 160.0,
+        "training_median": 72.0,
+        "persistence": 163.0
+      },
+      {
+        "date": "2026-03-21",
+        "actual": 159.0,
+        "training_median": 72.0,
+        "persistence": 160.0
+      },
+      {
+        "date": "2026-03-22",
+        "actual": 155.0,
+        "training_median": 72.0,
+        "persistence": 159.0
+      },
+      {
+        "date": "2026-03-23",
+        "actual": 165.0,
+        "training_median": 72.0,
+        "persistence": 155.0
+      },
+      {
+        "date": "2026-03-24",
+        "actual": 159.0,
+        "training_median": 72.0,
+        "persistence": 165.0
+      },
+      {
+        "date": "2026-03-25",
+        "actual": 158.0,
+        "training_median": 72.0,
+        "persistence": 159.0
+      },
+      {
+        "date": "2026-03-26",
+        "actual": 163.0,
+        "training_median": 72.0,
+        "persistence": 158.0
+      },
+      {
+        "date": "2026-03-27",
+        "actual": 160.0,
+        "training_median": 72.0,
+        "persistence": 163.0
+      },
+      {
+        "date": "2026-03-28",
+        "actual": 156.0,
+        "training_median": 72.0,
+        "persistence": 160.0
+      },
+      {
+        "date": "2026-03-29",
+        "actual": 153.0,
+        "training_median": 72.0,
+        "persistence": 156.0
+      },
+      {
+        "date": "2026-03-30",
+        "actual": 157.0,
+        "training_median": 72.0,
+        "persistence": 153.0
+      },
+      {
+        "date": "2026-03-31",
+        "actual": 160.0,
+        "training_median": 72.0,
+        "persistence": 157.0
+      },
+      {
+        "date": "2026-04-01",
+        "actual": 158.0,
+        "training_median": 72.0,
+        "persistence": 160.0
+      },
+      {
+        "date": "2026-04-02",
+        "actual": 149.0,
+        "training_median": 72.0,
+        "persistence": 158.0
+      },
+      {
+        "date": "2026-04-03",
+        "actual": 146.0,
+        "training_median": 72.0,
+        "persistence": 149.0
+      },
+      {
+        "date": "2026-04-04",
+        "actual": 146.0,
+        "training_median": 72.0,
+        "persistence": 146.0
+      },
+      {
+        "date": "2026-04-05",
+        "actual": 142.0,
+        "training_median": 72.0,
+        "persistence": 146.0
+      },
+      {
+        "date": "2026-04-06",
+        "actual": 145.0,
+        "training_median": 72.0,
+        "persistence": 142.0
+      },
+      {
+        "date": "2026-04-07",
+        "actual": 147.0,
+        "training_median": 72.0,
+        "persistence": 145.0
+      },
+      {
+        "date": "2026-04-08",
+        "actual": 146.0,
+        "training_median": 72.0,
+        "persistence": 147.0
+      },
+      {
+        "date": "2026-04-09",
+        "actual": 144.0,
+        "training_median": 72.0,
+        "persistence": 146.0
+      },
+      {
+        "date": "2026-04-10",
+        "actual": 145.0,
+        "training_median": 72.0,
+        "persistence": 144.0
+      },
+      {
+        "date": "2026-04-11",
+        "actual": 144.0,
+        "training_median": 72.0,
+        "persistence": 145.0
+      },
+      {
+        "date": "2026-04-12",
+        "actual": 140.0,
+        "training_median": 72.0,
+        "persistence": 144.0
+      },
+      {
+        "date": "2026-04-13",
+        "actual": 147.0,
+        "training_median": 72.0,
+        "persistence": 140.0
+      },
+      {
+        "date": "2026-04-14",
+        "actual": 147.0,
+        "training_median": 72.0,
+        "persistence": 147.0
+      },
+      {
+        "date": "2026-04-15",
+        "actual": 148.0,
+        "training_median": 72.0,
+        "persistence": 147.0
+      },
+      {
+        "date": "2026-04-16",
+        "actual": 145.0,
+        "training_median": 72.0,
+        "persistence": 148.0
+      },
+      {
+        "date": "2026-04-17",
+        "actual": 158.0,
+        "training_median": 72.0,
+        "persistence": 145.0
+      },
+      {
+        "date": "2026-04-18",
+        "actual": 161.0,
+        "training_median": 72.0,
+        "persistence": 158.0
+      },
+      {
+        "date": "2026-04-19",
+        "actual": 153.0,
+        "training_median": 72.0,
+        "persistence": 161.0
+      },
+      {
+        "date": "2026-04-20",
+        "actual": 159.0,
+        "training_median": 72.0,
+        "persistence": 153.0
+      },
+      {
+        "date": "2026-04-21",
+        "actual": 157.0,
+        "training_median": 72.0,
+        "persistence": 159.0
+      },
+      {
+        "date": "2026-04-22",
+        "actual": 165.0,
+        "training_median": 72.0,
+        "persistence": 157.0
+      },
+      {
+        "date": "2026-04-23",
+        "actual": 160.0,
+        "training_median": 72.0,
+        "persistence": 165.0
+      },
+      {
+        "date": "2026-04-24",
+        "actual": 168.0,
+        "training_median": 72.0,
+        "persistence": 160.0
+      },
+      {
+        "date": "2026-04-25",
+        "actual": 169.0,
+        "training_median": 72.0,
+        "persistence": 168.0
+      },
+      {
+        "date": "2026-04-26",
+        "actual": 159.0,
+        "training_median": 72.0,
+        "persistence": 169.0
+      },
+      {
+        "date": "2026-04-27",
+        "actual": 163.0,
+        "training_median": 72.0,
+        "persistence": 159.0
+      },
+      {
+        "date": "2026-04-28",
+        "actual": 153.0,
+        "training_median": 72.0,
+        "persistence": 163.0
+      },
+      {
+        "date": "2026-04-29",
+        "actual": 156.0,
+        "training_median": 72.0,
+        "persistence": 153.0
+      },
+      {
+        "date": "2026-04-30",
+        "actual": 162.0,
+        "training_median": 72.0,
+        "persistence": 156.0
+      },
+      {
+        "date": "2026-05-01",
+        "actual": 162.0,
+        "training_median": 72.0,
+        "persistence": 162.0
+      },
+      {
+        "date": "2026-05-02",
+        "actual": 160.0,
+        "training_median": 72.0,
+        "persistence": 162.0
+      },
+      {
+        "date": "2026-05-03",
+        "actual": 157.0,
+        "training_median": 72.0,
+        "persistence": 160.0
+      },
+      {
+        "date": "2026-05-04",
+        "actual": 156.0,
+        "training_median": 72.0,
+        "persistence": 157.0
+      },
+      {
+        "date": "2026-05-05",
+        "actual": 153.0,
+        "training_median": 72.0,
+        "persistence": 156.0
+      },
+      {
+        "date": "2026-05-06",
+        "actual": 151.0,
+        "training_median": 72.0,
+        "persistence": 153.0
+      },
+      {
+        "date": "2026-05-07",
+        "actual": 153.0,
+        "training_median": 72.0,
+        "persistence": 151.0
+      },
+      {
+        "date": "2026-05-08",
+        "actual": 156.0,
+        "training_median": 72.0,
+        "persistence": 153.0
+      },
+      {
+        "date": "2026-05-09",
+        "actual": 160.0,
+        "training_median": 72.0,
+        "persistence": 156.0
+      },
+      {
+        "date": "2026-05-10",
+        "actual": 159.0,
+        "training_median": 72.0,
+        "persistence": 160.0
+      },
+      {
+        "date": "2026-05-11",
+        "actual": 157.0,
+        "training_median": 72.0,
+        "persistence": 159.0
+      },
+      {
+        "date": "2026-05-12",
+        "actual": 150.0,
+        "training_median": 72.0,
+        "persistence": 157.0
+      },
+      {
+        "date": "2026-05-13",
+        "actual": 148.0,
+        "training_median": 72.0,
+        "persistence": 150.0
+      },
+      {
+        "date": "2026-05-14",
+        "actual": 148.0,
+        "training_median": 72.0,
+        "persistence": 148.0
+      },
+      {
+        "date": "2026-05-15",
+        "actual": 150.0,
+        "training_median": 72.0,
+        "persistence": 148.0
+      },
+      {
+        "date": "2026-05-16",
+        "actual": 154.0,
+        "training_median": 72.0,
+        "persistence": 150.0
+      },
+      {
+        "date": "2026-05-17",
+        "actual": 147.0,
+        "training_median": 72.0,
+        "persistence": 154.0
+      },
+      {
+        "date": "2026-05-18",
+        "actual": 144.0,
+        "training_median": 72.0,
+        "persistence": 147.0
+      },
+      {
+        "date": "2026-05-19",
+        "actual": 143.0,
+        "training_median": 72.0,
+        "persistence": 144.0
+      },
+      {
+        "date": "2026-05-20",
+        "actual": 141.0,
+        "training_median": 72.0,
+        "persistence": 143.0
+      },
+      {
+        "date": "2026-05-21",
+        "actual": 139.0,
+        "training_median": 72.0,
+        "persistence": 141.0
+      },
+      {
+        "date": "2026-05-22",
+        "actual": 143.0,
+        "training_median": 72.0,
+        "persistence": 139.0
+      },
+      {
+        "date": "2026-05-23",
+        "actual": 156.0,
+        "training_median": 72.0,
+        "persistence": 143.0
+      },
+      {
+        "date": "2026-05-24",
+        "actual": 151.0,
+        "training_median": 72.0,
+        "persistence": 156.0
+      },
+      {
+        "date": "2026-05-25",
+        "actual": 151.0,
+        "training_median": 72.0,
+        "persistence": 151.0
+      },
+      {
+        "date": "2026-05-26",
+        "actual": 154.0,
+        "training_median": 72.0,
+        "persistence": 151.0
+      },
+      {
+        "date": "2026-05-27",
+        "actual": 148.0,
+        "training_median": 72.0,
+        "persistence": 154.0
+      },
+      {
+        "date": "2026-05-28",
+        "actual": 151.0,
+        "training_median": 72.0,
+        "persistence": 148.0
+      },
+      {
+        "date": "2026-05-29",
+        "actual": 170.0,
+        "training_median": 72.0,
+        "persistence": 151.0
+      },
+      {
+        "date": "2026-05-30",
+        "actual": 164.0,
+        "training_median": 72.0,
+        "persistence": 170.0
+      },
+      {
+        "date": "2026-05-31",
+        "actual": 159.0,
+        "training_median": 72.0,
+        "persistence": 164.0
+      },
+      {
+        "date": "2026-06-01",
+        "actual": 163.0,
+        "training_median": 72.0,
+        "persistence": 159.0
+      },
+      {
+        "date": "2026-06-02",
+        "actual": 155.0,
+        "training_median": 72.0,
+        "persistence": 163.0
+      },
+      {
+        "date": "2026-06-03",
+        "actual": 154.0,
+        "training_median": 72.0,
+        "persistence": 155.0
+      },
+      {
+        "date": "2026-06-04",
+        "actual": 154.0,
+        "training_median": 72.0,
+        "persistence": 154.0
+      },
+      {
+        "date": "2026-06-05",
+        "actual": 159.0,
+        "training_median": 72.0,
+        "persistence": 154.0
+      },
+      {
+        "date": "2026-06-06",
+        "actual": 161.0,
+        "training_median": 72.0,
+        "persistence": 159.0
+      },
+      {
+        "date": "2026-06-07",
+        "actual": 153.0,
+        "training_median": 72.0,
+        "persistence": 161.0
+      },
+      {
+        "date": "2026-06-08",
+        "actual": 153.0,
+        "training_median": 72.0,
+        "persistence": 153.0
+      },
+      {
+        "date": "2026-06-09",
+        "actual": 147.0,
+        "training_median": 72.0,
+        "persistence": 153.0
+      },
+      {
+        "date": "2026-06-10",
+        "actual": 150.0,
+        "training_median": 72.0,
+        "persistence": 147.0
+      },
+      {
+        "date": "2026-06-11",
+        "actual": 149.0,
+        "training_median": 72.0,
+        "persistence": 150.0
+      },
+      {
+        "date": "2026-06-12",
+        "actual": 159.0,
+        "training_median": 72.0,
+        "persistence": 149.0
+      },
+      {
+        "date": "2026-06-13",
+        "actual": 163.0,
+        "training_median": 72.0,
+        "persistence": 159.0
+      },
+      {
+        "date": "2026-06-14",
+        "actual": 156.0,
+        "training_median": 72.0,
+        "persistence": 163.0
+      },
+      {
+        "date": "2026-06-15",
+        "actual": 152.0,
+        "training_median": 72.0,
+        "persistence": 156.0
+      },
+      {
+        "date": "2026-06-16",
+        "actual": 148.0,
+        "training_median": 72.0,
+        "persistence": 152.0
+      },
+      {
+        "date": "2026-06-17",
+        "actual": 149.0,
+        "training_median": 72.0,
+        "persistence": 148.0
+      },
+      {
+        "date": "2026-06-18",
+        "actual": 152.0,
+        "training_median": 72.0,
+        "persistence": 149.0
+      },
+      {
+        "date": "2026-06-19",
+        "actual": 157.0,
+        "training_median": 72.0,
+        "persistence": 152.0
+      },
+      {
+        "date": "2026-06-20",
+        "actual": 159.0,
+        "training_median": 72.0,
+        "persistence": 157.0
+      },
+      {
+        "date": "2026-06-21",
+        "actual": 153.0,
+        "training_median": 72.0,
+        "persistence": 159.0
+      },
+      {
+        "date": "2026-06-22",
+        "actual": 152.0,
+        "training_median": 72.0,
+        "persistence": 153.0
+      },
+      {
+        "date": "2026-06-23",
+        "actual": 153.0,
+        "training_median": 72.0,
+        "persistence": 152.0
+      },
+      {
+        "date": "2026-06-24",
+        "actual": 155.0,
+        "training_median": 72.0,
+        "persistence": 153.0
+      },
+      {
+        "date": "2026-06-25",
+        "actual": 161.0,
+        "training_median": 72.0,
+        "persistence": 155.0
+      },
+      {
+        "date": "2026-06-26",
+        "actual": 167.0,
+        "training_median": 72.0,
+        "persistence": 161.0
+      },
+      {
+        "date": "2026-06-27",
+        "actual": 165.0,
+        "training_median": 72.0,
+        "persistence": 167.0
+      },
+      {
+        "date": "2026-06-28",
+        "actual": 160.0,
+        "training_median": 72.0,
+        "persistence": 165.0
+      },
+      {
+        "date": "2026-06-29",
+        "actual": 154.0,
+        "training_median": 72.0,
+        "persistence": 160.0
+      },
+      {
+        "date": "2026-06-30",
+        "actual": 160.0,
+        "training_median": 72.0,
+        "persistence": 154.0
+      }
+    ],
+    "next_observation_forecast": 160.0,
+    "method": "persistence reference; no claimed GNN advantage"
+  },
+  "run_id": "c7e6047549144d05bf3ba17841bd84f9",
+  "created_at": "2026-10-22T08:32:54.368873+00:00",
+  "selection": {
+    "bank": "monzo",
+    "service": "Monzo App",
+    "metric": "latency",
+    "start": null,
+    "end": null
+  }
+}
