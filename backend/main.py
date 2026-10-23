@@ -322,6 +322,8 @@ app.include_router(aws_banking_router)
 
 from backend.cloud_investigation_api import router as cloud_investigation_router
 app.include_router(cloud_investigation_router)
+from backend.live_banking_api import router as live_banking_router
+app.include_router(live_banking_router)
 
 frontend_dist = Path(__file__).resolve().parents[1] / 'frontend' / 'dist'
 if frontend_dist.is_dir():

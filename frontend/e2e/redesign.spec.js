@@ -3,6 +3,7 @@ import {test,expect} from '@playwright/test';
 test('banking replay explains deeper causes and separates recovery from permanent correction',async({page})=>{
  const errors=[];page.on('pageerror',e=>errors.push(e.message));
  await page.goto('/');
+ await page.getByText('Recorded tests',{exact:true}).click();
  await page.getByRole('button',{name:'Run banking investigation',exact:true}).click();
  await expect(page.getByRole('heading',{name:'The displayed balance missed a committed transfer',exact:true})).toBeVisible();
  for(const title of ['What went wrong?','Where did it start?','Why did it happen?','What is the deeper cause?','What should be done?','Did recovery work?'])await expect(page.getByRole('heading',{name:title,exact:true})).toBeVisible();
@@ -20,22 +21,20 @@ test('banking replay explains deeper causes and separates recovery from permanen
  expect(errors).toEqual([]);
 });
 
-test('Banking Investigation shows verified recorded AWS evidence without live-health claims or writes',async({page})=>{
+test('minimal live screen keeps recorded evidence collapsed and makes no writes',async({page})=>{
  const writes=[];page.on('request',r=>{if(r.method()==='POST')writes.push(r.url());});
  await page.goto('/');
+ await expect(page.getByRole('heading',{name:'Live AWS monitoring',exact:true})).toBeVisible();
+ await expect(page.getByRole('status')).toBeVisible();
+ await expect(page.getByRole('button',{name:'Run banking investigation',exact:true})).not.toBeVisible();
  await expect(page.locator('.primary-nav button')).toHaveCount(2);
- await expect(page.getByRole('button',{name:'Banking Investigation',exact:true})).toHaveAttribute('aria-current','page');
- await expect(page.getByRole('heading',{name:'Banking Investigation Monitor'})).toBeVisible();
- await expect(page.locator('.health-metrics strong')).toHaveText(['8','Unknown','1769','1']);
- await expect(page.getByText('Retained measurements · not a live health feed',{exact:true})).toBeVisible();
- await expect(page.getByRole('heading',{name:'Verified first AWS banking transfer',exact:true})).toBeVisible();
  await expect(page.locator('pre:visible')).toHaveCount(0);
  expect(writes).toEqual([]);
 });
 
 test('recorded investigation explains evidence and abstains from invented recovery',async({page})=>{
  test.setTimeout(90000);const errors=[];page.on('pageerror',e=>errors.push(e.message));
- await page.goto('/');await page.getByRole('button',{name:'Explore recorded root-cause investigations'}).click();
+ await page.goto('/');await page.getByRole('button',{name:'Research & Validation',exact:true}).click();
  await page.getByRole('button',{name:'Run guided investigation'}).click();
  await expect(page.getByRole('heading',{name:'Incident investigation',exact:true})).toBeVisible({timeout:60000});
  await expect(page.getByRole('heading',{name:'Application log evidence',exact:true})).toBeVisible();
