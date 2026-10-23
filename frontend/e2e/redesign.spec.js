@@ -38,6 +38,8 @@ test('recorded investigation explains evidence and abstains from invented recove
  await page.goto('/');await page.getByRole('button',{name:'Explore recorded root-cause investigations'}).click();
  await page.getByRole('button',{name:'Run guided investigation'}).click();
  await expect(page.getByRole('heading',{name:'Incident investigation',exact:true})).toBeVisible({timeout:60000});
+ await expect(page.getByRole('heading',{name:'Application log evidence',exact:true})).toBeVisible();
+ await expect(page.getByText('These are timestamp-nearby observations, not proof of the cause or who changed a setting.',{exact:false})).toBeVisible();
  for(const name of ['What happened?','Why did it happen?','What should we do?','Did it work?'])await expect(page.getByRole('heading',{name,exact:true})).toBeVisible();
  await expect(page.getByText('Not verified',{exact:true})).toBeVisible();
  await expect(page.locator('pre:visible')).toHaveCount(0);

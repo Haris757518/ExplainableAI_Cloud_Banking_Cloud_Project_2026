@@ -7,6 +7,7 @@ from fastapi import APIRouter,HTTPException
 from pydantic import BaseModel,Field
 from dataset.real_banking.store import ROOT,read_json,write_json
 from dataset.re2 import entries,load_re2
+from analysis.re2_log_evidence import get_re2_log_evidence
 from analysis.incident_engine import analyze_case
 from analysis.probe_xai import investigate
 from ai_models.re2_inference import infer,checkpoint_path
@@ -123,10 +124,13 @@ def build(request):
     result['resource_label']=result['resource_labels'].get(result['resource'],result['resource'])
     if result['resource'] and result['resource_label']:
         result['summary']=result['summary'].replace(result['resource'],result['resource_label'])
+    result['log_evidence']=get_re2_log_evidence(case.id,as_of=when,resource=result['resource'])
     result['recording_id']=case.id
     detector_version='calibrated-re2-prefix-v1' if calibration else 'legacy'
     result['detection']['version']=detector_version
     result['id']=hashlib.sha256(f'{case.collection}:{when}:{request.policy}:{request.ranker}:{request.query_budget}:{detector_version}'.encode()).hexdigest()[:24]
+    if result['log_evidence']['status']=='available':
+        result['id']=hashlib.sha256((result['id']+':'+result['log_evidence']['sha256']).encode()).hexdigest()[:24]
     return result
 
 @router.post('/investigate')
