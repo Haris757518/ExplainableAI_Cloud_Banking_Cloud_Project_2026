@@ -1,0 +1,26 @@
+{
+  "aws_deployed": false,
+  "services": [
+    {
+      "skipped": 0,
+      "tests": 10,
+      "errors": 0,
+      "service": "balancereader",
+      "log": "D:\\BankingResearch\\Reports\\anthos-balancereader-final-validation.log",
+      "failures": 0
+    },
+    {
+      "skipped": 0,
+      "tests": 9,
+      "errors": 0,
+      "service": "transactionhistory",
+      "log": "D:\\BankingResearch\\Reports\\anthos-transactionhistory-final-validation.log",
+      "failures": 0
+    }
+  ],
+  "source": "Executed Java unit tests and H2 SQL transactions",
+  "limitation": "H2 PostgreSQL compatibility mode is not a PostgreSQL or AWS deployment test.",
+  "patch_sha256": "20e59333c8c8565ff33c7d6b671f8887ab261741162657a764a243c96b91b3b7",
+  "checked_at": "2026-10-22T19:12:04.4316186Z",
+  "status": "validated_locally"
+}

@@ -1,0 +1,18 @@
+{"timestamp":1792691334.9233172,"event":"phase_start","name":"normal","planned_seconds":75,"offered_rps":5}
+{"timestamp":1792691410.1096532,"event":"phase_end","name":"normal"}
+{"timestamp":1792691410.3524492,"event":"executed_pod_resize","requested_resources":{"limits":{"cpu":"20m","ephemeral-storage":"512Mi","memory":"512Mi"},"requests":{"cpu":"20m","ephemeral-storage":"512Mi","memory":"256Mi"}},"output":"pod/ledgerwriter-74df946d74-gpzgf patched\n"}
+{"timestamp":1792691410.3528275,"event":"phase_start","name":"reduced_cpu","planned_seconds":70,"offered_rps":5}
+{"timestamp":1792691488.1940837,"event":"phase_end","name":"reduced_cpu"}
+{"timestamp":1792691488.3688703,"event":"executed_pod_resize","requested_resources":{"limits":{"cpu":"500m","ephemeral-storage":"512Mi","memory":"512Mi"},"requests":{"cpu":"100m","ephemeral-storage":"512Mi","memory":"256Mi"}},"output":"pod/ledgerwriter-74df946d74-gpzgf patched\n"}
+{"timestamp":1792691488.3705757,"event":"phase_start","name":"cpu_recovery","planned_seconds":60,"offered_rps":5}
+{"timestamp":1792691548.4815657,"event":"phase_end","name":"cpu_recovery"}
+{"timestamp":1792691548.4823945,"event":"bounded_database_lock_started","duration_seconds":30}
+{"timestamp":1792691548.482533,"event":"phase_start","name":"db_contention","planned_seconds":70,"offered_rps":5}
+{"timestamp":1792691618.5907762,"event":"phase_end","name":"db_contention"}
+{"timestamp":1792691618.5909626,"event":"bounded_database_lock_process_exit","return_code":0}
+{"timestamp":1792691618.5910122,"event":"phase_start","name":"db_recovery","planned_seconds":60,"offered_rps":5}
+{"timestamp":1792691678.6917837,"event":"phase_end","name":"db_recovery"}
+{"timestamp":1792691678.6919212,"event":"phase_start","name":"heavy_transactions","planned_seconds":70,"offered_rps":15}
+{"timestamp":1792691768.3553364,"event":"phase_end","name":"heavy_transactions"}
+{"timestamp":1792691768.355568,"event":"phase_start","name":"traffic_recovery","planned_seconds":60,"offered_rps":5}
+{"timestamp":1792691828.4578116,"event":"phase_end","name":"traffic_recovery"}

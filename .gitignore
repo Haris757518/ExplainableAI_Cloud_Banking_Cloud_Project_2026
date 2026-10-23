@@ -47,3 +47,6 @@ results/redesign_20261022/before_probe_xai.zip
 deploy/anthos-prepared/
 deploy/apply_anthos_aws.sh
 frontend/playwright-report/
+deploy/apply_correctness_fix.sh
+deploy/deploy_and_verify_correctness.sh
+.artifact-build/

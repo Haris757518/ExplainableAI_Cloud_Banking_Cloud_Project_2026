@@ -1,0 +1,46 @@
+{"timestamp":1792721617.4633005,"event":"phase_start","name":"normal","planned_seconds":360,"offered_rps":5}
+{"timestamp":1792721977.57179,"event":"phase_end","name":"normal"}
+{"timestamp":1792721977.810543,"event":"executed_pod_resize","requested_resources":{"limits":{"cpu":"20m","ephemeral-storage":"512Mi","memory":"512Mi"},"requests":{"cpu":"20m","ephemeral-storage":"512Mi","memory":"256Mi"}},"output":"pod/ledgerwriter-74df946d74-brb76 patched\n"}
+{"timestamp":1792721977.811762,"event":"phase_start","name":"reduced_cpu_1","planned_seconds":75,"offered_rps":5}
+{"timestamp":1792722060.6572607,"event":"phase_end","name":"reduced_cpu_1"}
+{"timestamp":1792722060.8639352,"event":"executed_pod_resize","requested_resources":{"limits":{"cpu":"500m","ephemeral-storage":"512Mi","memory":"512Mi"},"requests":{"cpu":"100m","ephemeral-storage":"512Mi","memory":"256Mi"}},"output":"pod/ledgerwriter-74df946d74-brb76 patched\n"}
+{"timestamp":1792722060.8641188,"event":"phase_start","name":"cpu_recovery_1","planned_seconds":90,"offered_rps":5}
+{"timestamp":1792722150.9852052,"event":"phase_end","name":"cpu_recovery_1"}
+{"timestamp":1792722150.9878502,"event":"bounded_database_lock_started","duration_seconds":30,"trial":1}
+{"timestamp":1792722150.988026,"event":"phase_start","name":"db_contention_1","planned_seconds":60,"offered_rps":5}
+{"timestamp":1792722211.1130018,"event":"phase_end","name":"db_contention_1"}
+{"timestamp":1792722211.1133275,"event":"bounded_database_lock_process_exit","return_code":0,"trial":1}
+{"timestamp":1792722211.1133876,"event":"phase_start","name":"db_recovery_1","planned_seconds":60,"offered_rps":5}
+{"timestamp":1792722271.2239127,"event":"phase_end","name":"db_recovery_1"}
+{"timestamp":1792722271.2240925,"event":"phase_start","name":"heavy_transactions_1","planned_seconds":60,"offered_rps":15}
+{"timestamp":1792722345.7619548,"event":"phase_end","name":"heavy_transactions_1"}
+{"timestamp":1792722345.763087,"event":"phase_start","name":"traffic_recovery_1","planned_seconds":60,"offered_rps":5}
+{"timestamp":1792722405.8713322,"event":"phase_end","name":"traffic_recovery_1"}
+{"timestamp":1792722406.184861,"event":"executed_pod_resize","requested_resources":{"limits":{"cpu":"20m","ephemeral-storage":"512Mi","memory":"512Mi"},"requests":{"cpu":"20m","ephemeral-storage":"512Mi","memory":"256Mi"}},"output":"pod/ledgerwriter-74df946d74-brb76 patched\n"}
+{"timestamp":1792722406.185059,"event":"phase_start","name":"reduced_cpu_2","planned_seconds":75,"offered_rps":5}
+{"timestamp":1792722489.0334113,"event":"phase_end","name":"reduced_cpu_2"}
+{"timestamp":1792722489.2300444,"event":"executed_pod_resize","requested_resources":{"limits":{"cpu":"500m","ephemeral-storage":"512Mi","memory":"512Mi"},"requests":{"cpu":"100m","ephemeral-storage":"512Mi","memory":"256Mi"}},"output":"pod/ledgerwriter-74df946d74-brb76 patched\n"}
+{"timestamp":1792722489.2302132,"event":"phase_start","name":"cpu_recovery_2","planned_seconds":90,"offered_rps":5}
+{"timestamp":1792722579.3540194,"event":"phase_end","name":"cpu_recovery_2"}
+{"timestamp":1792722579.3550484,"event":"bounded_database_lock_started","duration_seconds":30,"trial":2}
+{"timestamp":1792722579.3551838,"event":"phase_start","name":"db_contention_2","planned_seconds":60,"offered_rps":5}
+{"timestamp":1792722639.4743621,"event":"phase_end","name":"db_contention_2"}
+{"timestamp":1792722639.4745986,"event":"bounded_database_lock_process_exit","return_code":0,"trial":2}
+{"timestamp":1792722639.4746888,"event":"phase_start","name":"db_recovery_2","planned_seconds":60,"offered_rps":5}
+{"timestamp":1792722699.5839171,"event":"phase_end","name":"db_recovery_2"}
+{"timestamp":1792722699.584091,"event":"phase_start","name":"heavy_transactions_2","planned_seconds":60,"offered_rps":15}
+{"timestamp":1792722778.0776672,"event":"phase_end","name":"heavy_transactions_2"}
+{"timestamp":1792722778.0781345,"event":"phase_start","name":"traffic_recovery_2","planned_seconds":60,"offered_rps":5}
+{"timestamp":1792722838.2298226,"event":"phase_end","name":"traffic_recovery_2"}
+{"timestamp":1792722838.472893,"event":"executed_pod_resize","requested_resources":{"limits":{"cpu":"20m","ephemeral-storage":"512Mi","memory":"512Mi"},"requests":{"cpu":"20m","ephemeral-storage":"512Mi","memory":"256Mi"}},"output":"pod/ledgerwriter-74df946d74-brb76 patched\n"}
+{"timestamp":1792722838.4731643,"event":"phase_start","name":"reduced_cpu_3","planned_seconds":75,"offered_rps":5}
+{"timestamp":1792722921.3856232,"event":"phase_end","name":"reduced_cpu_3"}
+{"timestamp":1792722921.6480947,"event":"executed_pod_resize","requested_resources":{"limits":{"cpu":"500m","ephemeral-storage":"512Mi","memory":"512Mi"},"requests":{"cpu":"100m","ephemeral-storage":"512Mi","memory":"256Mi"}},"output":"pod/ledgerwriter-74df946d74-brb76 patched\n"}
+{"timestamp":1792722921.6503894,"event":"phase_start","name":"cpu_recovery_3","planned_seconds":90,"offered_rps":5}
+{"timestamp":1792723011.7910454,"event":"phase_end","name":"cpu_recovery_3"}
+{"timestamp":1792723011.7925544,"event":"bounded_database_lock_started","duration_seconds":30,"trial":3}
+{"timestamp":1792723011.7927337,"event":"phase_start","name":"db_contention_3","planned_seconds":60,"offered_rps":5}
+{"timestamp":1792723071.9150336,"event":"phase_end","name":"db_contention_3"}
+{"timestamp":1792723071.9152684,"event":"bounded_database_lock_process_exit","return_code":0,"trial":3}
+{"timestamp":1792723071.9153204,"event":"phase_start","name":"db_recovery_3","planned_seconds":60,"offered_rps":5}
+{"timestamp":1792723132.040899,"event":"phase_end","name":"db_recovery_3"}

@@ -8,3 +8,14 @@ results/aws_workload/replay/** -text
 results/aws_workload/first-transfer-verification.json -text
 results/real_banking/** -text
 dataset/real_banking/*.html -text
+
+# Frozen study inputs and verification manifests bind exact Windows bytes.
+results/correctness_fix/** -text
+results/banking_study/** -text
+results/final_validation/** -text
+deploy/correctness-fix/** -text
+deploy/collect_final_validation.py -text
+analysis/banking_replay.py -text
+analysis/banking_localization.py -text
+ai_models/banking_study.py -text
+scripts/evaluate_final_banking_validation.py -text

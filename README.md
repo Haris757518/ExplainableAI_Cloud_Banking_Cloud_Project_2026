@@ -1,78 +1,58 @@
-> **22 October redesign:** Start with [REDESIGN_README.md](REDESIGN_README.md). The application now has two primary modes and imported Monzo/Starling history. The documentation below describes the preserved earlier implementation.
+# Explainable cloud banking investigation
 
-# Explainable AI-Based Cloud Performance Analytics for Digital Banking using Graph Neural Networks
+This research prototype explains an executed banking incident from the visible problem through the deepest supported mechanism, a corrective action and checked recovery. It combines GNN symptom ranking, progressive direct-evidence investigation and a transaction-integrity recovery gate. The default dashboard uses readable explanations and keeps detailed measurements optional.
 
-An instrumented academic banking application for measured performance investigation. Balance enquiries, atomic/idempotent test transfers and transaction history execute through separate local FastAPI processes. The dashboard connects detection, resource localization, mechanism evidence, recommendations and independent verification.
+Start with the [banking demo guide](docs/BANKING_DEMO_GUIDE.md), [current validation](docs/CURRENT_VALIDATION_STATUS.md), and [research contribution and related work](docs/RESEARCH_CONTRIBUTION.md). Earlier milestone reports remain preserved; these current documents supersede their statements about pending banking execution or reader implementation.
 
-**Test funds only.** The banking database is a dedicated SQLite fallback, separate from existing analytics and AWS databases. PostgreSQL lock-contention validation is blocked. The application-delay scenario is implemented, bounded and measured; no cloud fault is triggered.
+## Run the local demonstration
 
-## Start on Windows
-
-From this project directory, with Python 3.12 and Node.js installed:
+From this directory, using Python 3.12 and Node.js:
 
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements-benchmarks.txt
 npm --prefix frontend ci
 npm --prefix frontend run build
-.\.venv\Scripts\python.exe scripts/start_banking.py
+.\START_REDESIGN.ps1 -Port 8012
 ```
 
-For the existing prepared checkout, simply run:
+Open http://127.0.0.1:8012/ and choose **Run banking investigation**. The prepared checkout can reuse the existing V1 Python environment through the launcher. The dashboard reads retained measurements and starts no AWS resources. **Research & Validation → Model results** contains the separate model studies and limitations.
+
+## Implemented components
+
+- `analysis/banking_replay.py`: checksum-verified replay of the original 3,025-request AWS recording, with explicit missing-evidence and recovery checks.
+- `ai_models/banking_study.py`: chronological banking next-step graph and identity models, masked missing data, normal-prefix calibration and three random seeds.
+- `analysis/banking_localization.py`: measured processor, demand and PostgreSQL blocking evidence to refine symptom rankings, with abstention when evidence is insufficient.
+- `analysis/probe_xai.py`: progressive inspection of recorded benchmark columns within an explicit effort budget.
+- `analysis/banking_followup.py`: verifies the corrective-code proof and final result manifests before making dashboard claims.
+- `deploy/correctness-fix/`: authoritative committed-ledger reader correction and regression-test patch for the pinned Bank of Anthos source.
+- `scripts/run_final_validation_pipeline.py`: authorized, bounded cloud execution with automatic export, verified backup and exact-instance cleanup. It is an operational tool, not run by the dashboard.
+
+## Reader correction
+
+The original transaction-number cursor could skip a lower-numbered transfer that committed later. Corrected balance and history endpoints read committed ledger records directly, with deterministic history ordering and explicit database errors. The retained AWS before-and-after tests show three original-code failures, three corrected-code passes and successful restart checks. Deployed class hashes match the validated build; 19 Java tests passed. These tests address the reproduced defect. Authoritative reads increase database work and do not certify production capacity.
+
+## Evidence and reproduction
 
 ```powershell
-Set-Location 'D:\ExplainableAI_Cloud_Banking_Cloud_Project_2026_RESEARCH_V1\ExplainableAI_Cloud_Banking_Cloud_Project_2026'
-.\scripts\start_banking.ps1
+python scripts/replay_banking_investigation.py
+python scripts/recompute_final_checks.py
+python scripts/retrain_banking_models.py --out results/reproduction/banking-fresh
+python scripts/restore_re2_inputs.py --verify-only
 ```
 
-Open [the local dashboard](http://127.0.0.1:8000/). Keep the launcher open; Ctrl+C stops its owned processes. It starts/reuses API port 8000, Account port 8101 and Ledger port 8102. **Startup never runs a workload or fault.** The final source package also contains the built frontend; rebuilding it is optional when using that exact package.
+The first command needs no AWS and writes the readable banking report. The second recomputes final accounting and direct-evidence localization after the final portable inputs are present. The third trains fresh graph and identity models in a new directory. The last verifies the exact 15 public RE2 recordings; omit `--verify-only` to restore missing public files from their pinned revision.
 
-## Collect normal measurements and run the supported experiment
+Banking evidence, RE2 controlled experiments, and published Monzo/Starling aggregates retain separate provenance. No public-bank statistic is used as an internal fault label. The original request-acknowledgement parser defect is documented and excluded from success claims. A matching ledger record is distinct from a caller receiving success. The prior repeat whose raw export was missed remains documented and excluded from localization scoring.
 
-In a second terminal from the project directory:
+The final SQL backup stays on D:. Portable research inputs are allowlisted. AWS credentials, private keys, local environments and generated deployment bundles remain excluded from Git.
 
-```powershell
-.\.venv\Scripts\python.exe scripts/banking_workload.py --normal --per-operation 90
-.\.venv\Scripts\python.exe scripts/banking_workload.py --application-delay --confirm-local-test --duration 12 --delay-ms 150
-```
+## Results and claim boundaries
 
-The same actions are available on Digital Banking. Choose Balance Enquiry, Fund Transfer or Transaction History to execute individual operations. Fictitious accounts are seeded once; startup preserves their ledger. Repeating a transfer ID does not debit twice.
+The initial banking GNN ranked both evaluated fault services incorrectly. Direct evidence corrected those two development cases. In the later frozen-rule workload, direct-evidence localization identified all six fault services; graph GNN ranking identified three. All three seeds had those counts. The graph detector detected all six checkpoints and raised zero alerts in 36 normal holdout bins per seed. These are controlled within-workload results, not production accuracy. The RE2 calibration audit found 13 of 15 fault checkpoints, missed two and produced zero alerts at the 15 normal checkpoints. This is a retrospective audit, not a production false-alarm guarantee.
 
-The normal workload collects 270 actual requests and freezes chronological 60/20/20 calibration before fault evaluation. The explicit experiment waits inside the real local Ledger Service, automatically expires and collects actual follow-up. Use the UI Stop button or:
+The proposed contribution is the integrated investigation and integrity-checking workflow. In the original workload, fast balance reads passed a speed-only recovery policy while the balance remained wrong; the integrity gate rejected that state. This demonstrates value on one workload. Worldwide novelty, GNN superiority and broad production root-cause accuracy are not established.
 
-```powershell
-Invoke-RestMethod -Method Post -Uri 'http://127.0.0.1:8000/api/banking/stop'
-```
+## Verification and submission
 
-`BANKING_DATA_DIR` optionally selects a dedicated local runtime directory. Its default, `results/runtime/banking/`, is ignored by Git. No AWS credentials are needed for banking. This build does not provision PostgreSQL or use an AWS database for contention experiments.
-
-## Verified findings
-
-| Independent local measurement | Result |
-|---|---:|
-| Normal held-out false-positive requests | 0 / 54 |
-| Controlled application-delay repetitions | 3 |
-| Degradation / service / mechanism matches | 3 / 3 for each |
-| Measured return toward frozen reference | 3 / 3 |
-| Identity versus graph next-request MSE | 0.574412 versus 0.575263 |
-| Follow-up fields examined | 3 of 8 across 2 of 3 available resources |
-
-These are small same-machine results for one deliberately bounded mechanism, not production accuracy or causal proof. The graph model did not establish an advantage and does not control the primary root-service ranking. Compatible graph/identity inference is displayed separately; no Alibaba weights are transferred. PostgreSQL locks, real AWS failure/recovery and production generalization are unvalidated.
-
-The frozen local study is [results/banking/measured_20261016/report.json](results/banking/measured_20261016/report.json). Earlier Alibaba, Microsoft and RCAEval results remain unchanged under Research Validation; their false alarms and negative model findings remain accessible. Cloud Monitoring preserves the independent AWS integration. Current authentication/resource discovery passed; CloudWatch collection was not freshly evaluated in this completion pass.
-
-## Verify
-
-```powershell
-.\.venv\Scripts\python.exe -m pytest -q
-npm --prefix frontend run build
-npm --prefix frontend run test:e2e
-```
-
-Recorded final checks: **113 backend tests and 16 browser tests passed**, with screenshots inspected at both required desktop resolutions. Browser banking tests require running services and a frozen normal baseline and explicitly execute the bounded local test condition.
-
-## Authoritative handover
-
-See [docs/FINAL_HANDOVER.md](docs/FINAL_HANDOVER.md) for architecture, telemetry semantics, actual model results, scope/blocked items, exact reproduction commands and a four-to-five-minute faculty walkthrough. [COMPLETION_REPORT.md](COMPLETION_REPORT.md) provides the acceptance summary.
-
-Historical documentation remains in [Research V3](docs/RESEARCH_PLATFORM_V3.md), [root-cause redesign](docs/ROOT_CAUSE_V4.md) and [research foundation](docs/RESEARCH_FOUNDATION.md); pre-banking README/completion snapshots are archived under `docs/archive/`. Do not treat those historical status notes as the current setup guide.
+Current software checks: **195 Python tests**, **19 Java tests**, frontend production build and four browser acceptance checks. Generated final submission files are placed under `submission/`. The current evidence status and any remaining evaluation boundary are explicit in `docs/CURRENT_VALIDATION_STATUS.md`.

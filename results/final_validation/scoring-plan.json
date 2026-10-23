@@ -1,0 +1,7 @@
+{
+  "frozen_at": "2026-10-23T02:08:45.796985+00:00",
+  "before_repeat_workload_execution": true,
+  "evaluation_script_sha256": "05525e7ab9fe0e304cd13946be465ef5c97c368ea1b7dc12ea2dfcebcdb4a5ae",
+  "metrics": "All CPU and database repetitions at the predeclared +30s checkpoint, graph and identity variants, all three seeds. No best-seed selection. Missing prediction is an incorrect localization and not-detected. Heavy traffic excluded from fault labels. Report normal holdout alerts and caller outcomes separately.",
+  "correction_verification": "Recompute both account arithmetic, history uniqueness, both diagnostic transaction IDs, restart visibility and deployed class hashes rather than trusting saved success flags."
+}

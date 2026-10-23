@@ -1,0 +1,17 @@
+{
+  "bin_seconds": 2,
+  "train_seconds": 216,
+  "validation_end_seconds": 288,
+  "normal_test_end_seconds": 360,
+  "epochs": 100,
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "learning_rate": 0.01,
+  "width": 16,
+  "threshold": "Maximum validation-window next-step error, frozen before evaluation",
+  "graph": "Only completed frontend CLIENT spans observed by training cutoff; peer addresses establish client-observed edges, not backend server spans",
+  "development_status": "Retrospective within-recording study after exploratory inspection; not independent banking generalization"
+}

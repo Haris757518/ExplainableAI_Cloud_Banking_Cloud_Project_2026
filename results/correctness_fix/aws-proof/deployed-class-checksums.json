@@ -1,0 +1,23 @@
+{
+  "expected": {
+    "balancereader": {
+      "BalanceReaderController.class": "f465d0da3028589cf1f28bbd9014477023110987b5a0bfd01b4be0a63866a30f",
+      "TransactionRepository.class": "b3bafff3ecf9f2193d1c3d14e10d33fe3bdb88401844968e3a4820e924b8f630"
+    },
+    "transactionhistory": {
+      "TransactionHistoryController.class": "daa93994c41c2f67bfbf1cc03439a31083997b831ead2dd0b4ff22372e75e5a0",
+      "TransactionRepository.class": "108c57791a7440ead68b2f5eea6c4acd9a3580563b863efd06df88d670b145e5"
+    }
+  },
+  "observed": {
+    "balancereader": {
+      "BalanceReaderController.class": "f465d0da3028589cf1f28bbd9014477023110987b5a0bfd01b4be0a63866a30f",
+      "TransactionRepository.class": "b3bafff3ecf9f2193d1c3d14e10d33fe3bdb88401844968e3a4820e924b8f630"
+    },
+    "transactionhistory": {
+      "TransactionHistoryController.class": "daa93994c41c2f67bfbf1cc03439a31083997b831ead2dd0b4ff22372e75e5a0",
+      "TransactionRepository.class": "108c57791a7440ead68b2f5eea6c4acd9a3580563b863efd06df88d670b145e5"
+    }
+  },
+  "hashes_match": true
+}

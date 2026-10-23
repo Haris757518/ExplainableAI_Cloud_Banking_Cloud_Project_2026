@@ -1,0 +1,8 @@
+{
+  "status": "reproduced",
+  "models": 6,
+  "method_statistics_exact_match": true,
+  "all_window_predictions_exact_match": true,
+  "source_hash": "0697bda8759312324eddc952d8e105d5dbd3d7fc828673b4b06be50cb82126f3",
+  "scope": "Same bundled recording, fixed seeds and local runtime; not independent experimental evidence."
+}

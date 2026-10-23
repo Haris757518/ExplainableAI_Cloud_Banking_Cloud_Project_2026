@@ -1,3 +1,5 @@
+> **Current validation (23 October):** See [verified results and remaining evaluation](docs/CURRENT_VALIDATION_STATUS.md). The reader correction is implemented and passed repeated AWS tests. Independent repeat-workload localization accuracy remains unreported because its raw export was missed. Earlier milestone statements below are preserved for context.
+
 # Revised project
 
 **Current banking demo:** See [Banking demo guide](docs/BANKING_DEMO_GUIDE.md). The main Banking Investigation screen now replays the executed AWS workload and presents problems, deeper explanations, actions and recovery in plain language. The source evidence and final database backup are retained on D:. Research compute has been terminated. The sections below describe earlier milestones and are superseded by the current guide for banking workload status and test counts.

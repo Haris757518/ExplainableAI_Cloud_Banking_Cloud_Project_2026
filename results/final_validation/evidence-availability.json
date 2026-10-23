@@ -1,0 +1,15 @@
+{
+  "status": "not_evaluated_missing_raw_measurements",
+  "instance_id": "i-05d147001c0289108",
+  "checked_at": "2026-10-23T01:50:33.763187+00:00",
+  "account_verified": true,
+  "ec2_lookup": "No matching instance returned; terminated instances eventually disappear from EC2 listings.",
+  "tagged_volumes_remaining": 0,
+  "unrelated_payment_server": "running; unchanged",
+  "retained_command_status": "Success",
+  "retained_command_output_sha256": "9975887e976b9b51c9713ca75a1b691264fad8127f0c68f5f609ed3c0253b2cd",
+  "submitted_requests": 8475,
+  "summary_ledger_matches": 8475,
+  "acknowledged_success": 6896,
+  "limitation": "The summary is retained, but the full raw repeat-workload measurements were not exported before the automatic deadline. Localization accuracy was not evaluated. The earlier correction-proof archive is separately retained and verified."
+}

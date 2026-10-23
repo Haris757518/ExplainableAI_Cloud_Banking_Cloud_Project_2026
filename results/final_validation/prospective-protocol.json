@@ -1,0 +1,23 @@
+{
+  "frozen_at": "2026-10-22T19:26:58.123734+00:00",
+  "development_recording": "controlled-20261022T174849Z",
+  "normal_reference_seconds": 360,
+  "model_train_seconds": 216,
+  "model_validation_end_seconds": 288,
+  "normal_holdout_end_seconds": 360,
+  "test_repetitions": {
+    "reduced_cpu": 3,
+    "db_contention": 3,
+    "heavy_transactions": 2
+  },
+  "fixed_checkpoint_seconds_after_phase_start": 30,
+  "localization_budget": 8,
+  "source": "Prospective new AWS execution; same demo application and host class. Not cross-application generalization.",
+  "labels_policy": "Intervention log separate. All window predictions are written before evaluation-only labels are read.",
+  "measurement_policy": "Cgroup and PostgreSQL snapshots every 2 seconds; expensive serial Java probes omitted. Missing queue and backend spans remain missing.",
+  "source_sha256": {
+    "deploy/collect_final_validation.py": "e821cddb3759a626bc808121cd6dfdd1efc83c48b797a9df2ba9db5cb550d237",
+    "analysis/banking_localization.py": "fae1be3a734cbaade88b6a51abe48a82d2b1195a90b25ff5f6b07b1ca5cb3395",
+    "ai_models/banking_study.py": "2ff709530f597211ef2b88f705955c662bd3030abede613490357a9e3ccc9c96"
+  }
+}

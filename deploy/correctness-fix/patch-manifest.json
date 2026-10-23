@@ -1,0 +1,6 @@
+{
+  "upstream_revision": "db35fea9fd090150e2398106aadb475576f80d94",
+  "patch_sha256": "20e59333c8c8565ff33c7d6b671f8887ab261741162657a764a243c96b91b3b7",
+  "validation_tree": "D:\\BankingResearch\\Experiments\\AnthosCorrectness-v4",
+  "policy": "Correctness-first committed ledger reads; additional database work requires performance validation. No AWS deployment performed."
+}

@@ -1,0 +1,569 @@
+{
+  "status": "evaluated",
+  "protocol": {
+    "rolling_points": 3,
+    "validation_max_multiplier": 1.5,
+    "minimum_validation_targets": 5,
+    "threshold_data": "Existing normal validation prefix only; not fault checkpoints",
+    "scope": "Retrospective calibration audit on the already inspected RE2 collection; no production false-alarm guarantee"
+  },
+  "cases": 15,
+  "checkpoint_predictions": [
+    {
+      "case_id": "364d289fa7b7106f7a71",
+      "source_checksum": "f46b3d354b234e37c424f54a005329b61aac83d15dcdd46b5642e55f390ab25a",
+      "calibration": {
+        "status": "calibrated",
+        "threshold": 0.5611831247806549,
+        "validation_end": 1705354278.0,
+        "validation_targets": 144,
+        "source_checksum": "f46b3d354b234e37c424f54a005329b61aac83d15dcdd46b5642e55f390ab25a",
+        "trace_checksum": "56ca8f6dbeb76fab2d33faeca54bce8f40e9c5491ebd76404ebb2dfd83409367",
+        "protocol": {
+          "rolling_points": 3,
+          "validation_max_multiplier": 1.5,
+          "minimum_validation_targets": 5,
+          "threshold_data": "Existing normal validation prefix only; not fault checkpoints",
+          "scope": "Retrospective calibration audit on the already inspected RE2 collection; no production false-alarm guarantee"
+        }
+      },
+      "normal_time": 1705354422.0,
+      "fault_time": 1705354686.0,
+      "normal": {
+        "status": "no_deviation_in_observed_metrics",
+        "score": 0.22778049111366272,
+        "threshold": 0.5611831247806549,
+        "timestamp": 1705354422.0,
+        "method": "Trailing three-point GNN residual with validation-prefix calibration"
+      },
+      "fault": {
+        "status": "no_deviation_in_observed_metrics",
+        "score": 0.3071766793727875,
+        "threshold": 0.5611831247806549,
+        "timestamp": 1705354686.0,
+        "method": "Trailing three-point GNN residual with validation-prefix calibration"
+      },
+      "evaluation_only_injection_time": 1705354566
+    },
+    {
+      "case_id": "f41f071745c16594b5f5",
+      "source_checksum": "689b626fe46e2ee6bb430853dedcc410c839ae2a93833349be9ad96803fee6e0",
+      "calibration": {
+        "status": "calibrated",
+        "threshold": 0.2808822691440582,
+        "validation_end": 1705464231.0,
+        "validation_targets": 144,
+        "source_checksum": "689b626fe46e2ee6bb430853dedcc410c839ae2a93833349be9ad96803fee6e0",
+        "trace_checksum": "fbe435f1ac87ad1822a90e1635a0bfad6f7e5a3ea30715cf61f6cd53ad397b7d",
+        "protocol": {
+          "rolling_points": 3,
+          "validation_max_multiplier": 1.5,
+          "minimum_validation_targets": 5,
+          "threshold_data": "Existing normal validation prefix only; not fault checkpoints",
+          "scope": "Retrospective calibration audit on the already inspected RE2 collection; no production false-alarm guarantee"
+        }
+      },
+      "normal_time": 1705464375.0,
+      "fault_time": 1705464639.0,
+      "normal": {
+        "status": "no_deviation_in_observed_metrics",
+        "score": 0.1704450398683548,
+        "threshold": 0.2808822691440582,
+        "timestamp": 1705464375.0,
+        "method": "Trailing three-point GNN residual with validation-prefix calibration"
+      },
+      "fault": {
+        "status": "deviation_detected",
+        "score": 12.006896018981934,
+        "threshold": 0.2808822691440582,
+        "timestamp": 1705464639.0,
+        "method": "Trailing three-point GNN residual with validation-prefix calibration"
+      },
+      "evaluation_only_injection_time": 1705464519
+    },
+    {
+      "case_id": "2f4bfdc9ac0d37bd7dc5",
+      "source_checksum": "3510933da38ebb9940fa59bd53cbfad4f9f966b3b1402a9879f2d5a8a39d7f94",
+      "calibration": {
+        "status": "calibrated",
+        "threshold": 0.3707900047302246,
+        "validation_end": 1705369807.0,
+        "validation_targets": 144,
+        "source_checksum": "3510933da38ebb9940fa59bd53cbfad4f9f966b3b1402a9879f2d5a8a39d7f94",
+        "trace_checksum": "b25ca9bf883885a83d36c548fb5d528d6e608b56ce0080e84ad083cd66fddff8",
+        "protocol": {
+          "rolling_points": 3,
+          "validation_max_multiplier": 1.5,
+          "minimum_validation_targets": 5,
+          "threshold_data": "Existing normal validation prefix only; not fault checkpoints",
+          "scope": "Retrospective calibration audit on the already inspected RE2 collection; no production false-alarm guarantee"
+        }
+      },
+      "normal_time": 1705369951.0,
+      "fault_time": 1705370215.0,
+      "normal": {
+        "status": "no_deviation_in_observed_metrics",
+        "score": 0.21556918323040009,
+        "threshold": 0.3707900047302246,
+        "timestamp": 1705369951.0,
+        "method": "Trailing three-point GNN residual with validation-prefix calibration"
+      },
+      "fault": {
+        "status": "deviation_detected",
+        "score": 0.463880717754364,
+        "threshold": 0.3707900047302246,
+        "timestamp": 1705370215.0,
+        "method": "Trailing three-point GNN residual with validation-prefix calibration"
+      },
+      "evaluation_only_injection_time": 1705370095
+    },
+    {
+      "case_id": "4e587b5f0eac94cff8e2",
+      "source_checksum": "58640c77551e8eddb189f555457d597fefebd65ac28043d1f633891cd9f0178d",
+      "calibration": {
+        "status": "calibrated",
+        "threshold": 0.40718185901641846,
+        "validation_end": 1705394290.0,
+        "validation_targets": 144,
+        "source_checksum": "58640c77551e8eddb189f555457d597fefebd65ac28043d1f633891cd9f0178d",
+        "trace_checksum": "5669ed603a30e6727cc2279b774844c545fd6410a9dc9ac5f869f9ae67f15036",
+        "protocol": {
+          "rolling_points": 3,
+          "validation_max_multiplier": 1.5,
+          "minimum_validation_targets": 5,
+          "threshold_data": "Existing normal validation prefix only; not fault checkpoints",
+          "scope": "Retrospective calibration audit on the already inspected RE2 collection; no production false-alarm guarantee"
+        }
+      },
+      "normal_time": 1705394434.0,
+      "fault_time": 1705394698.0,
+      "normal": {
+        "status": "no_deviation_in_observed_metrics",
+        "score": 0.17754420638084412,
+        "threshold": 0.40718185901641846,
+        "timestamp": 1705394434.0,
+        "method": "Trailing three-point GNN residual with validation-prefix calibration"
+      },
+      "fault": {
+        "status": "deviation_detected",
+        "score": 7.92484712600708,
+        "threshold": 0.40718185901641846,
+        "timestamp": 1705394698.0,
+        "method": "Trailing three-point GNN residual with validation-prefix calibration"
+      },
+      "evaluation_only_injection_time": 1705394578
+    },
+    {
+      "case_id": "76ec1be060854cf5f49f",
+      "source_checksum": "92c9622bb656a4ab9879d9ae3bcad6ef0c4764ce3eb8ae2ada9da740236fa0f0",
+      "calibration": {
+        "status": "calibrated",
+        "threshold": 0.29797252267599106,
+        "validation_end": 1705346943.0,
+        "validation_targets": 144,
+        "source_checksum": "92c9622bb656a4ab9879d9ae3bcad6ef0c4764ce3eb8ae2ada9da740236fa0f0",
+        "trace_checksum": "28363eb92bc7407f763bcd7d25c61f6d0208497358a9ee93da7bd88393a23188",
+        "protocol": {
+          "rolling_points": 3,
+          "validation_max_multiplier": 1.5,
+          "minimum_validation_targets": 5,
+          "threshold_data": "Existing normal validation prefix only; not fault checkpoints",
+          "scope": "Retrospective calibration audit on the already inspected RE2 collection; no production false-alarm guarantee"
+        }
+      },
+      "normal_time": 1705347087.0,
+      "fault_time": 1705347351.0,
+      "normal": {
+        "status": "no_deviation_in_observed_metrics",
+        "score": 0.16039210557937622,
+        "threshold": 0.29797252267599106,
+        "timestamp": 1705347087.0,
+        "method": "Trailing three-point GNN residual with validation-prefix calibration"
+      },
+      "fault": {
+        "status": "deviation_detected",
+        "score": 8.154994010925293,
+        "threshold": 0.29797252267599106,
+        "timestamp": 1705347351.0,
+        "method": "Trailing three-point GNN residual with validation-prefix calibration"
+      },
+      "evaluation_only_injection_time": 1705347231
+    },
+    {
+      "case_id": "93f5f44dc99030e58b44",
+      "source_checksum": "ed8471d2f53c0c3f4095b25eff69d5c45762425afaa973d4dbdc04d7bc32c0f3",
+      "calibration": {
+        "status": "calibrated",
+        "threshold": 0.3009241819381714,
+        "validation_end": 1705682529.0,
+        "validation_targets": 144,
+        "source_checksum": "ed8471d2f53c0c3f4095b25eff69d5c45762425afaa973d4dbdc04d7bc32c0f3",
+        "trace_checksum": "04d1512a44ece85f370caeaa09d24e441adc7f67bbebc0de689faea0d5563a63",
+        "protocol": {
+          "rolling_points": 3,
+          "validation_max_multiplier": 1.5,
+          "minimum_validation_targets": 5,
+          "threshold_data": "Existing normal validation prefix only; not fault checkpoints",
+          "scope": "Retrospective calibration audit on the already inspected RE2 collection; no production false-alarm guarantee"
+        }
+      },
+      "normal_time": 1705682673.0,
+      "fault_time": 1705682937.0,
+      "normal": {
+        "status": "no_deviation_in_observed_metrics",
+        "score": 0.1630045622587204,
+        "threshold": 0.3009241819381714,
+        "timestamp": 1705682673.0,
+        "method": "Trailing three-point GNN residual with validation-prefix calibration"
+      },
+      "fault": {
+        "status": "deviation_detected",
+        "score": 0.608643651008606,
+        "threshold": 0.3009241819381714,
+        "timestamp": 1705682937.0,
+        "method": "Trailing three-point GNN residual with validation-prefix calibration"
+      },
+      "evaluation_only_injection_time": 1705682817
+    },
+    {
+      "case_id": "bc3e40a568f8ecff4fb9",
+      "source_checksum": "52752452d9f2fdb69cec2b7575b617f84419131338fcb1c2e1829ef5c242e586",
+      "calibration": {
+        "status": "calibrated",
+        "threshold": 0.49371859431266785,
+        "validation_end": 1705349877.0,
+        "validation_targets": 144,
+        "source_checksum": "52752452d9f2fdb69cec2b7575b617f84419131338fcb1c2e1829ef5c242e586",
+        "trace_checksum": "c98764ff45836b7514480c515a4e0bfe685fb0ce15de8484eae012451b5aea6e",
+        "protocol": {
+          "rolling_points": 3,
+          "validation_max_multiplier": 1.5,
+          "minimum_validation_targets": 5,
+          "threshold_data": "Existing normal validation prefix only; not fault checkpoints",
+          "scope": "Retrospective calibration audit on the already inspected RE2 collection; no production false-alarm guarantee"
+        }
+      },
+      "normal_time": 1705350021.0,
+      "fault_time": 1705350285.0,
+      "normal": {
+        "status": "no_deviation_in_observed_metrics",
+        "score": 0.20630890130996704,
+        "threshold": 0.49371859431266785,
+        "timestamp": 1705350021.0,
+        "method": "Trailing three-point GNN residual with validation-prefix calibration"
+      },
+      "fault": {
+        "status": "no_deviation_in_observed_metrics",
+        "score": 0.41007816791534424,
+        "threshold": 0.49371859431266785,
+        "timestamp": 1705350285.0,
+        "method": "Trailing three-point GNN residual with validation-prefix calibration"
+      },
+      "evaluation_only_injection_time": 1705350165
+    },
+    {
+      "case_id": "0b52019f986ccbb0071a",
+      "source_checksum": "761de264537cd3134834cca7cf90d230683a60d58ca0a0a35e538096e701383e",
+      "calibration": {
+        "status": "calibrated",
+        "threshold": 0.3049035742878914,
+        "validation_end": 1705461782.0,
+        "validation_targets": 144,
+        "source_checksum": "761de264537cd3134834cca7cf90d230683a60d58ca0a0a35e538096e701383e",
+        "trace_checksum": "05b3971a30ddd08f70fc08f39380a551ec2d03672c9df9657ca728d3f9e745aa",
+        "protocol": {
+          "rolling_points": 3,
+          "validation_max_multiplier": 1.5,
+          "minimum_validation_targets": 5,
+          "threshold_data": "Existing normal validation prefix only; not fault checkpoints",
+          "scope": "Retrospective calibration audit on the already inspected RE2 collection; no production false-alarm guarantee"
+        }
+      },
+      "normal_time": 1705461926.0,
+      "fault_time": 1705462190.0,
+      "normal": {
+        "status": "no_deviation_in_observed_metrics",
+        "score": 0.16577047109603882,
+        "threshold": 0.3049035742878914,
+        "timestamp": 1705461926.0,
+        "method": "Trailing three-point GNN residual with validation-prefix calibration"
+      },
+      "fault": {
+        "status": "deviation_detected",
+        "score": 3.578763484954834,
+        "threshold": 0.3049035742878914,
+        "timestamp": 1705462190.0,
+        "method": "Trailing three-point GNN residual with validation-prefix calibration"
+      },
+      "evaluation_only_injection_time": 1705462070
+    },
+    {
+      "case_id": "042af503b6b6d3df115c",
+      "source_checksum": "8a97bd135d13810f3c798514e65540fa029942b315377f1f1ae08941d672d9f1",
+      "calibration": {
+        "status": "calibrated",
+        "threshold": 0.2799423560500145,
+        "validation_end": 1705475217.0,
+        "validation_targets": 144,
+        "source_checksum": "8a97bd135d13810f3c798514e65540fa029942b315377f1f1ae08941d672d9f1",
+        "trace_checksum": "353671ca7f53ed0fb63901a6ebbf3cbb49497dbcb2c789a7b4e9ddac6d1e3a1d",
+        "protocol": {
+          "rolling_points": 3,
+          "validation_max_multiplier": 1.5,
+          "minimum_validation_targets": 5,
+          "threshold_data": "Existing normal validation prefix only; not fault checkpoints",
+          "scope": "Retrospective calibration audit on the already inspected RE2 collection; no production false-alarm guarantee"
+        }
+      },
+      "normal_time": 1705475361.0,
+      "fault_time": 1705475625.0,
+      "normal": {
+        "status": "no_deviation_in_observed_metrics",
+        "score": 0.16542276740074158,
+        "threshold": 0.2799423560500145,
+        "timestamp": 1705475361.0,
+        "method": "Trailing three-point GNN residual with validation-prefix calibration"
+      },
+      "fault": {
+        "status": "deviation_detected",
+        "score": 11.119372367858887,
+        "threshold": 0.2799423560500145,
+        "timestamp": 1705475625.0,
+        "method": "Trailing three-point GNN residual with validation-prefix calibration"
+      },
+      "evaluation_only_injection_time": 1705475505
+    },
+    {
+      "case_id": "f7998284acfb0ae62192",
+      "source_checksum": "df715e01d9bdf3e6d89b1381737fc87766c806134672632adbd9ee4c27262a48",
+      "calibration": {
+        "status": "calibrated",
+        "threshold": 0.4349134862422943,
+        "validation_end": 1705373622.0,
+        "validation_targets": 144,
+        "source_checksum": "df715e01d9bdf3e6d89b1381737fc87766c806134672632adbd9ee4c27262a48",
+        "trace_checksum": "473bc25fb7eb659bb6492336a942aeca9416f234c87a1b09585ac7eccd2ca05c",
+        "protocol": {
+          "rolling_points": 3,
+          "validation_max_multiplier": 1.5,
+          "minimum_validation_targets": 5,
+          "threshold_data": "Existing normal validation prefix only; not fault checkpoints",
+          "scope": "Retrospective calibration audit on the already inspected RE2 collection; no production false-alarm guarantee"
+        }
+      },
+      "normal_time": 1705373766.0,
+      "fault_time": 1705374030.0,
+      "normal": {
+        "status": "no_deviation_in_observed_metrics",
+        "score": 0.2008560299873352,
+        "threshold": 0.4349134862422943,
+        "timestamp": 1705373766.0,
+        "method": "Trailing three-point GNN residual with validation-prefix calibration"
+      },
+      "fault": {
+        "status": "deviation_detected",
+        "score": 0.5698775053024292,
+        "threshold": 0.4349134862422943,
+        "timestamp": 1705374030.0,
+        "method": "Trailing three-point GNN residual with validation-prefix calibration"
+      },
+      "evaluation_only_injection_time": 1705373910
+    },
+    {
+      "case_id": "11cf51d7e885d9e8cbb9",
+      "source_checksum": "5e6a6def74364ab09d682777c6c09b29fbc2e2c1b6b8ee279958764d0b6a27bd",
+      "calibration": {
+        "status": "calibrated",
+        "threshold": 0.4256304055452347,
+        "validation_end": 1705386381.0,
+        "validation_targets": 144,
+        "source_checksum": "5e6a6def74364ab09d682777c6c09b29fbc2e2c1b6b8ee279958764d0b6a27bd",
+        "trace_checksum": "c919dbc323bbd2dec5873c76856e9d5942b7339751308c8e679a9144ec3c7b5b",
+        "protocol": {
+          "rolling_points": 3,
+          "validation_max_multiplier": 1.5,
+          "minimum_validation_targets": 5,
+          "threshold_data": "Existing normal validation prefix only; not fault checkpoints",
+          "scope": "Retrospective calibration audit on the already inspected RE2 collection; no production false-alarm guarantee"
+        }
+      },
+      "normal_time": 1705386525.0,
+      "fault_time": 1705386789.0,
+      "normal": {
+        "status": "no_deviation_in_observed_metrics",
+        "score": 0.2546534538269043,
+        "threshold": 0.4256304055452347,
+        "timestamp": 1705386525.0,
+        "method": "Trailing three-point GNN residual with validation-prefix calibration"
+      },
+      "fault": {
+        "status": "deviation_detected",
+        "score": 6.353170871734619,
+        "threshold": 0.4256304055452347,
+        "timestamp": 1705386789.0,
+        "method": "Trailing three-point GNN residual with validation-prefix calibration"
+      },
+      "evaluation_only_injection_time": 1705386669
+    },
+    {
+      "case_id": "e334151dc3a2432231fb",
+      "source_checksum": "3a428e2e4792c6ceecd1e47c770477887b7c14c175347ac52b28011595d23088",
+      "calibration": {
+        "status": "calibrated",
+        "threshold": 0.2761763781309128,
+        "validation_end": 1705666223.0,
+        "validation_targets": 144,
+        "source_checksum": "3a428e2e4792c6ceecd1e47c770477887b7c14c175347ac52b28011595d23088",
+        "trace_checksum": "a86818c7ab72aa360c3d81aafd9c4dc6a4da0ef75204cbf3a0c70d07a1fd44da",
+        "protocol": {
+          "rolling_points": 3,
+          "validation_max_multiplier": 1.5,
+          "minimum_validation_targets": 5,
+          "threshold_data": "Existing normal validation prefix only; not fault checkpoints",
+          "scope": "Retrospective calibration audit on the already inspected RE2 collection; no production false-alarm guarantee"
+        }
+      },
+      "normal_time": 1705666367.0,
+      "fault_time": 1705666631.0,
+      "normal": {
+        "status": "no_deviation_in_observed_metrics",
+        "score": 0.1592007726430893,
+        "threshold": 0.2761763781309128,
+        "timestamp": 1705666367.0,
+        "method": "Trailing three-point GNN residual with validation-prefix calibration"
+      },
+      "fault": {
+        "status": "deviation_detected",
+        "score": 15.583169937133789,
+        "threshold": 0.2761763781309128,
+        "timestamp": 1705666631.0,
+        "method": "Trailing three-point GNN residual with validation-prefix calibration"
+      },
+      "evaluation_only_injection_time": 1705666511
+    },
+    {
+      "case_id": "e5b38b8a29949c144b8f",
+      "source_checksum": "5a7291e34ce019824e0dafb6c3f2d29153b54563c65795444d9a329e745c4b25",
+      "calibration": {
+        "status": "calibrated",
+        "threshold": 0.2620711997151375,
+        "validation_end": 1705701724.0,
+        "validation_targets": 144,
+        "source_checksum": "5a7291e34ce019824e0dafb6c3f2d29153b54563c65795444d9a329e745c4b25",
+        "trace_checksum": "9e6b77c4512536fa9d83cb6ff2c037e31af6db28e752891ba35f822d888f23af",
+        "protocol": {
+          "rolling_points": 3,
+          "validation_max_multiplier": 1.5,
+          "minimum_validation_targets": 5,
+          "threshold_data": "Existing normal validation prefix only; not fault checkpoints",
+          "scope": "Retrospective calibration audit on the already inspected RE2 collection; no production false-alarm guarantee"
+        }
+      },
+      "normal_time": 1705701868.0,
+      "fault_time": 1705702132.0,
+      "normal": {
+        "status": "no_deviation_in_observed_metrics",
+        "score": 0.15296949446201324,
+        "threshold": 0.2620711997151375,
+        "timestamp": 1705701868.0,
+        "method": "Trailing three-point GNN residual with validation-prefix calibration"
+      },
+      "fault": {
+        "status": "deviation_detected",
+        "score": 8.101191520690918,
+        "threshold": 0.2620711997151375,
+        "timestamp": 1705702132.0,
+        "method": "Trailing three-point GNN residual with validation-prefix calibration"
+      },
+      "evaluation_only_injection_time": 1705702012
+    },
+    {
+      "case_id": "a15c48cec7c4173399e4",
+      "source_checksum": "e9b26768fc98a5dfa694527a71e131450848e6c736f73c162ee17f9bf14a337b",
+      "calibration": {
+        "status": "calibrated",
+        "threshold": 0.3749779164791107,
+        "validation_end": 1705375978.0,
+        "validation_targets": 144,
+        "source_checksum": "e9b26768fc98a5dfa694527a71e131450848e6c736f73c162ee17f9bf14a337b",
+        "trace_checksum": "4ac9a4ca2bc346ca9713131b2a6f38967437014bfe6070807d3b31364fdb80be",
+        "protocol": {
+          "rolling_points": 3,
+          "validation_max_multiplier": 1.5,
+          "minimum_validation_targets": 5,
+          "threshold_data": "Existing normal validation prefix only; not fault checkpoints",
+          "scope": "Retrospective calibration audit on the already inspected RE2 collection; no production false-alarm guarantee"
+        }
+      },
+      "normal_time": 1705376122.0,
+      "fault_time": 1705376386.0,
+      "normal": {
+        "status": "no_deviation_in_observed_metrics",
+        "score": 0.17723271250724792,
+        "threshold": 0.3749779164791107,
+        "timestamp": 1705376122.0,
+        "method": "Trailing three-point GNN residual with validation-prefix calibration"
+      },
+      "fault": {
+        "status": "deviation_detected",
+        "score": 10.10714054107666,
+        "threshold": 0.3749779164791107,
+        "timestamp": 1705376386.0,
+        "method": "Trailing three-point GNN residual with validation-prefix calibration"
+      },
+      "evaluation_only_injection_time": 1705376266
+    },
+    {
+      "case_id": "725573c51adb44c574db",
+      "source_checksum": "a31419d13452d1c969f8dd22ab82089fe77c8fa3ae2ca4aadeb17180849f17fc",
+      "calibration": {
+        "status": "calibrated",
+        "threshold": 0.4308961182832718,
+        "validation_end": 1705388653.0,
+        "validation_targets": 144,
+        "source_checksum": "a31419d13452d1c969f8dd22ab82089fe77c8fa3ae2ca4aadeb17180849f17fc",
+        "trace_checksum": "ebba409588650edab31d79d02819af64edbf3e17e5359f320893fc30f9b8fea7",
+        "protocol": {
+          "rolling_points": 3,
+          "validation_max_multiplier": 1.5,
+          "minimum_validation_targets": 5,
+          "threshold_data": "Existing normal validation prefix only; not fault checkpoints",
+          "scope": "Retrospective calibration audit on the already inspected RE2 collection; no production false-alarm guarantee"
+        }
+      },
+      "normal_time": 1705388797.0,
+      "fault_time": 1705389061.0,
+      "normal": {
+        "status": "no_deviation_in_observed_metrics",
+        "score": 0.16671867668628693,
+        "threshold": 0.4308961182832718,
+        "timestamp": 1705388797.0,
+        "method": "Trailing three-point GNN residual with validation-prefix calibration"
+      },
+      "fault": {
+        "status": "deviation_detected",
+        "score": 8.746577262878418,
+        "threshold": 0.4308961182832718,
+        "timestamp": 1705389061.0,
+        "method": "Trailing three-point GNN residual with validation-prefix calibration"
+      },
+      "evaluation_only_injection_time": 1705388941
+    }
+  ],
+  "confusion": {
+    "true_positive": 13,
+    "false_positive": 0,
+    "true_negative": 15,
+    "false_negative": 2
+  },
+  "precision": 1.0,
+  "recall": 0.8666666666666667,
+  "f1": 0.9285714285714286,
+  "metric_unit": "One fixed pre-injection and one fixed post-injection checkpoint per recording, not every time point.",
+  "previous_pre_injection_alerts": 11,
+  "labels_used_for": "Scoring after prediction only",
+  "limitations": [
+    "The collection was already inspected during development; this is a calibration audit, not an independent test set.",
+    "Model selection and threshold calibration share the validation prefix; no formal false-alarm bound is claimed."
+  ]
+}

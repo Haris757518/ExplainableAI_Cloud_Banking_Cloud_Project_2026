@@ -1,0 +1,8 @@
+{
+  "created_at": "2026-10-23T02:13:29.464839+00:00",
+  "before_new_workload_execution": true,
+  "reason": "Repeat the unevaluated run after loss of its raw export. Only the source-instance identity changes; rules and workload stay frozen.",
+  "source_instance": "i-04d8be0ce9bcbef28",
+  "executed_collector_lf_sha256": "e718f94d57924494a3ec94a40892fdcc790519a709ddc72d8de1ae4d9af23da3",
+  "original_collector_lf_sha256": "3336e89ba6b91046cfd912b5eb4802a58b2991a516865d700cad219b41bb5827"
+}

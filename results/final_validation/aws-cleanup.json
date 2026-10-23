@@ -1,0 +1,12 @@
+{
+  "instance_id": "i-04d8be0ce9bcbef28",
+  "run": "bank-final-20261023T015518Z",
+  "status": "terminated",
+  "root_volume_deleted": true,
+  "final_export_sha256": "4032bb593ef3573a044759d83c0a9633191453fcc031237acaf826adb9052aab",
+  "cleanup_verified_at": "2026-10-23T02:43:00.461290+00:00",
+  "preserved_payment_server_state": "running",
+  "sql_backup": "D:\\BankingResearch\\Backups\\ledger-final-validation-20261023.sql.gz",
+  "launch_time": "2026-10-23T01:55:23+00:00",
+  "deadline_utc": "2026-10-23T03:25:18.213391+00:00"
+}

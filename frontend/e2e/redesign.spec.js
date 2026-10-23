@@ -6,7 +6,7 @@ test('banking replay explains deeper causes and separates recovery from permanen
  await page.getByRole('button',{name:'Run banking investigation',exact:true}).click();
  await expect(page.getByRole('heading',{name:'The displayed balance missed a committed transfer',exact:true})).toBeVisible();
  for(const title of ['What went wrong?','Where did it start?','Why did it happen?','What is the deeper cause?','What should be done?','Did recovery work?'])await expect(page.getByRole('heading',{name:title,exact:true})).toBeVisible();
- await expect(page.getByText('A permanent application fix has not been implemented.',{exact:false}).first()).toBeVisible();
+ await expect(page.getByText('The corrected readers passed all three:',{exact:false}).first()).toBeVisible();
  const selector=page.getByLabel('Choose a finding');
  await selector.selectOption('capacity');
  await expect(page.getByRole('heading',{name:'Payments slowed while processing capacity fell',exact:true})).toBeVisible();

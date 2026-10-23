@@ -1,0 +1,31 @@
+{
+  "source": "executed-aws-bank-of-anthos",
+  "instance": "i-04d8be0ce9bcbef28",
+  "execution_id": "final-controlled-20261023T021334Z",
+  "started_at": 1792721617.4586148,
+  "ended_at": 1792723138.5394866,
+  "submitted_requests": 8475,
+  "acknowledged_success": 6946,
+  "unique_amount_ledger_records": 8475,
+  "duplicate_amounts": [],
+  "acknowledged_but_missing_ledger": [],
+  "unresolved_uncertain_requests": [],
+  "missing_measurements": [
+    "Direct per-request backend CPU attribution",
+    "HTTP server admission queue depth",
+    "Full backend and SQL distributed spans"
+  ],
+  "integrity_scope": "Unique transfer amount per request in this isolated run; label file separate. Uncertain uncommitted requests do not imply success.",
+  "files_sha256": {
+    "bounded-lock-1.stdout": "ef8900f7cd35f36e81535222fb03c7cbeb0359dc20f15f16c68cd7b9f4f236f7",
+    "bounded-lock-3.stdout": "ef8900f7cd35f36e81535222fb03c7cbeb0359dc20f15f16c68cd7b9f4f236f7",
+    "interventions.jsonl": "be1567f92896bc2b26413440f82fc342ad09cbbb966c967c26d858116cf877d4",
+    "ledgerwriter-raw.log": "fcf1cf90102be0c7b49169bdb8e2e5ada90f0ada39247d36b4c6e2cf2ed53271",
+    "deployment-before.json": "7ab3bb83ef8787c50bad2cb077626fe98da44784fd8f43b9672cc7fe37ca2b64",
+    "frontend-raw.log": "cc5d78fae31ae4f759a8d4cbe8957e73f2203747a53b28bf9d6b3b93608ebc11",
+    "executed-collector.py": "e718f94d57924494a3ec94a40892fdcc790519a709ddc72d8de1ae4d9af23da3",
+    "bounded-lock-2.stdout": "ef8900f7cd35f36e81535222fb03c7cbeb0359dc20f15f16c68cd7b9f4f236f7",
+    "measurements.jsonl": "a19488866906fbfdd8a2e7e48eeea79ad8b3ade8e72edde8c0ee4193fbae6614",
+    "ledger-after.json": "573ebb07c66e15106f18b069757fca3e7897dc873a11a2028bd6477e3de59e7f"
+  }
+}

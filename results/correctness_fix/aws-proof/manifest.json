@@ -1,0 +1,11 @@
+{
+  "source": "Executed AWS PostgreSQL and banking APIs",
+  "export_sha256": "82d8f11f63354078bffb5c6b564a02af141b885d3d5a4702990d52300bc4d841",
+  "source_instance": "i-05d147001c0289108",
+  "files": {
+    "baseline-trials.json": "baeb654651666bd5d4c1a955d127eaba6b1e6a54461d567c818c7b61305e1188",
+    "patched-trials.json": "2f822ec380312d3d7b01b4b1def8e33ede9d508f6a92007d74cff137048082a3",
+    "after-restart.json": "263b771e3517592d5015a41968a57fed98dae9fa1e92dfd9de7b8031a475a507",
+    "deployed-class-checksums.json": "f8c6ffef93893913ebc22202457694959169606ce5f5ab6d713b7eec87cb7d73"
+  }
+}

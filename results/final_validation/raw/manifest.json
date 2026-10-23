@@ -1,0 +1,26 @@
+{
+  "source_archive_sha256": "4032bb593ef3573a044759d83c0a9633191453fcc031237acaf826adb9052aab",
+  "execution_id": "final-controlled-20261023T021334Z",
+  "source_instance": "i-04d8be0ce9bcbef28",
+  "files": {
+    "measurements.jsonl": "a19488866906fbfdd8a2e7e48eeea79ad8b3ade8e72edde8c0ee4193fbae6614",
+    "frontend-raw.log": "cc5d78fae31ae4f759a8d4cbe8957e73f2203747a53b28bf9d6b3b93608ebc11",
+    "ledger-after.json": "573ebb07c66e15106f18b069757fca3e7897dc873a11a2028bd6477e3de59e7f",
+    "executed-collector.py": "e718f94d57924494a3ec94a40892fdcc790519a709ddc72d8de1ae4d9af23da3",
+    "interventions.jsonl": "be1567f92896bc2b26413440f82fc342ad09cbbb966c967c26d858116cf877d4",
+    "summary.json": "de5070a2c576178ef0ce0a15588cbec1349f5474bf8c19b2098329c49a3f12d9",
+    "recovery-balance-history.json": "4f7173d2dae79ddf1734cf350a7ffd71c0c59c7227809b8a3bfc48dbc5871e00",
+    "recovery-transfer-0.json": "7d9ce4999730a27af5561090a57f4733e4ea7237e98ca93f5cfdf2406116914f",
+    "recovery-transfer-1.json": "e6652d45ae94bdee8763c297680d8d16c838d5b6febe03c769c0abd2b0bd996e",
+    "recovery-transfer-2.json": "90a0d7b5e4a19fbf64fc9aadae093b39f0aea4ad3e1f760d4ec8056c62dbed78"
+  },
+  "model_files": {
+    "graph-42.pt": "1583e086c298647b42acf3b6013658c5057c8b46ee95542304b0b1dfb4f6df8a",
+    "graph-43.pt": "9457ae6fcaade276b5db2e35176d75a088945b743d16f207a442b8d8bedbe2ad",
+    "graph-44.pt": "8948ba43b554641de343d54931a309a14241eb9b064b89222ab76eb6e3c093f6",
+    "identity-42.pt": "b59cf64dcdb09648234833a3b3282fbc646e7a3185f85f8c81f2140ee69ddcdc",
+    "identity-43.pt": "eb77274c2fcb56813d6630909e15de166fb07ed46575f9365243a7c25e512274",
+    "identity-44.pt": "391b3b7909b0a6d76230341d77dfee2c1a564b55ef6c7b690361dcd7fe152fcf"
+  },
+  "scope": "Allowlisted research inputs only; final SQL backup remains local."
+}

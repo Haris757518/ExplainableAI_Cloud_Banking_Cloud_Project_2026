@@ -1,0 +1,7 @@
+{
+  "created_at": "2026-10-22T19:40:14.428716+00:00",
+  "before_new_workload_execution": true,
+  "reason": "Specify rule-reference cutoff before normal holdout and bind exact Linux collector bytes before execution.",
+  "localization_baseline_seconds": 288,
+  "executed_collector_lf_sha256": "3336e89ba6b91046cfd912b5eb4802a58b2991a516865d700cad219b41bb5827"
+}

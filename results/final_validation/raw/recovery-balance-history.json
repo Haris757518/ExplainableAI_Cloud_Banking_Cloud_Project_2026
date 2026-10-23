@@ -1,0 +1,64 @@
+{
+  "source": "executed-aws-bank-of-anthos",
+  "checked_at": 1792723176.5788608,
+  "accounts": [
+    {
+      "account": "1011226111",
+      "ledger_expected_balance_cents": 880105083,
+      "api_balance_cents": 880105083,
+      "balance_matches": true,
+      "history_returned": 100,
+      "history_unique_ids": true
+    },
+    {
+      "account": "1033623433",
+      "ledger_expected_balance_cents": 121370043,
+      "api_balance_cents": 121370043,
+      "balance_matches": true,
+      "history_returned": 100,
+      "history_unique_ids": true
+    }
+  ],
+  "observations": [
+    {
+      "timestamp": 1792723179.9443543,
+      "balance_read_latency_ms": 52.7079359999334,
+      "http_status": 200
+    },
+    {
+      "timestamp": 1792723181.9514713,
+      "balance_read_latency_ms": 7.0018260003053,
+      "http_status": 200
+    },
+    {
+      "timestamp": 1792723183.957401,
+      "balance_read_latency_ms": 5.816694000259304,
+      "http_status": 200
+    }
+  ],
+  "blocked_database_sessions": 0,
+  "ledgerwriter_resources": {
+    "limits": {
+      "cpu": "500m",
+      "ephemeral-storage": "512Mi",
+      "memory": "512Mi"
+    },
+    "requests": {
+      "cpu": "100m",
+      "ephemeral-storage": "512Mi",
+      "memory": "256Mi"
+    }
+  },
+  "ledgerwriter_pod_resources": {
+    "limits": {
+      "cpu": "500m",
+      "ephemeral-storage": "512Mi",
+      "memory": "512Mi"
+    },
+    "requests": {
+      "cpu": "100m",
+      "ephemeral-storage": "512Mi",
+      "memory": "256Mi"
+    }
+  }
+}

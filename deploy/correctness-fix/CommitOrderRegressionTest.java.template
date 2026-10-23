@@ -1,0 +1,51 @@
+package anthos.samples.bankofanthos.SERVICE;
+
+import java.sql.Connection;
+import java.sql.Statement;
+import java.util.Map;
+import jakarta.persistence.EntityManagerFactory;
+import org.h2.jdbcx.JdbcDataSource;
+import org.junit.jupiter.api.Test;
+import org.springframework.data.jpa.repository.support.JpaRepositoryFactory;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.orm.jpa.SharedEntityManagerCreator;
+import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
+import static org.junit.jupiter.api.Assertions.*;
+
+/** Real local H2 transactions; explicitly not an AWS/PostgreSQL deployment test. */
+class CommitOrderRegressionTest {
+    @Test
+    void lateLowerIdRemainsVisibleAfterHigherIdCommitsAndReaderRestarts() throws Exception {
+        JdbcDataSource ds = new JdbcDataSource();
+        ds.setURL("jdbc:h2:mem:commitorder;MODE=PostgreSQL;DB_CLOSE_DELAY=-1");
+        LocalContainerEntityManagerFactoryBean builder = new LocalContainerEntityManagerFactoryBean();
+        builder.setDataSource(ds);
+        builder.setPackagesToScan("anthos.samples.bankofanthos.SERVICE");
+        builder.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
+        builder.setJpaPropertyMap(Map.of("hibernate.hbm2ddl.auto", "create-drop", "hibernate.dialect", "org.hibernate.dialect.H2Dialect"));
+        builder.afterPropertiesSet();
+        EntityManagerFactory factory = builder.getObject();
+        try (Connection normal = ds.getConnection(); Connection held = ds.getConnection()) {
+            // Explicit columns avoid relying on ORM column order.
+            String insert = "INSERT INTO TRANSACTIONS (TRANSACTION_ID,FROM_ACCT,FROM_ROUTE,TO_ACCT,TO_ROUTE,AMOUNT,TIMESTAMP) VALUES ";
+            normal.createStatement().executeUpdate(insert + "(1,'external','000','sender','123',10000,CURRENT_TIMESTAMP)");
+            held.setAutoCommit(false);
+            held.createStatement().executeUpdate(insert + "(2,'sender','123','recipient','123',17,CURRENT_TIMESTAMP)");
+            normal.createStatement().executeUpdate(insert + "(3,'sender','123','recipient','123',19,CURRENT_TIMESTAMP)");
+            TransactionRepository repo = new JpaRepositoryFactory(SharedEntityManagerCreator.createSharedEntityManager(factory)).getRepository(TransactionRepository.class);
+            assertEquals(3L, repo.latestTransactionId());
+            assertEquals(1, repo.findLatest(1).size());
+            held.commit();
+            // The old MAX-ID cursor would now ask for IDs > 3 and miss transfer 2.
+            assertTrue(repo.findLatest(3).isEmpty());
+            assertEquals(3L, repo.latestTransactionId());
+            verifyAuthoritativeView(repo);
+            TransactionRepository restarted = new JpaRepositoryFactory(SharedEntityManagerCreator.createSharedEntityManager(factory)).getRepository(TransactionRepository.class);
+            verifyAuthoritativeView(restarted);
+        } finally { factory.close(); }
+    }
+
+    private void verifyAuthoritativeView(TransactionRepository repo) {
+        VERIFY_BODY
+    }
+}

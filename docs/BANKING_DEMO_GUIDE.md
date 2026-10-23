@@ -1,36 +1,28 @@
 # Banking investigation demo
 
-Open the dashboard and select **Run banking investigation**. The current server is at http://127.0.0.1:8012/.
+Run `START_REDESIGN.ps1 -Port 8012` and open http://127.0.0.1:8012/. The launcher uses the project environment, the prepared V1 environment on this computer, or the installed Python. For a new checkout, install `requirements-benchmarks.txt`, then run `npm --prefix frontend ci` and `npm --prefix frontend run build` first.
 
-The application checks the saved evidence, compares later request durations with the first 60 seconds, and displays findings from the measured processor allowance, database lock waits and incoming request rate. Choose a finding to read what happened, where, why, the deeper explanation, the action and the recovery result. Download the readable report from the same screen.
+## Show the problem and its correction
 
-## Findings from the executed AWS workload
+Choose **Run banking investigation**. The application verifies the original recorded evidence and the separate later correction proof. It presents six readable questions: what failed, where it started, why it happened, the deeper cause, the action and whether recovery worked. The default balance finding shows the controlled missed-transfer defect and implemented correction. Choose the other findings for processor restriction, database blocking or increased traffic. Download the readable investigation report from the same screen.
 
-- Processing allowance fell from 0.5 to 0.02 CPU cores while payments slowed. The recording supports a capacity restriction; the reason for the configuration change is not inferred from measurements.
-- Database sessions waited behind a lock. The measurements establish blocking, but do not identify its business justification.
-- Incoming requests increased and response times rose. Missing queue and per-request work measurements prevent an exclusive internal bottleneck claim.
-- A separate investigator-assisted commit-order test reproduced a 17-cent displayed-balance discrepancy. A later-numbered transfer committed first; the transaction-number cursor could move past an earlier transfer that committed later.
+The original workload contains 3,025 submissions and matching ledger records. Its acknowledgement parser was faulty, so those response-success flags are excluded. Later repeat results have their own source label and counts. A ledger record does not establish that its caller received a success response.
 
-The last finding has a stronger controlled mechanism test. It was not discovered autonomously by a GNN. It does not prove that every earlier discrepancy had the same cause.
+## What the explanations establish
 
-## Recovery
+Processor allowance fell while payments slowed. Database measurements showed lock waits. Incoming requests rose during the load condition. These observations support the stated contributors but do not identify who changed a configuration, why a transaction was held, or an exclusive internal bottleneck without the missing instruments.
 
-The affected readers were resynchronized in the isolated demo. Later evidence records two matching account balances, three distinct newly verified transfers, three successful balance reads and no blocked database sessions. This establishes the recorded temporary recovery, not a permanent software fix. The proposed permanent change needs its own implementation and concurrency validation before deployment.
+The investigator-assisted commit-order test has stronger mechanism evidence. An earlier-numbered transfer committed after a later-numbered one, and the readers skipped it. The implemented correction reads committed ledger records directly, with deterministic history ordering. Three original-code trials failed; three corrected-code trials passed, including both balances and histories. The checks passed after restarting the readers. The deployed build hashes match the validated Java build. This is verified behavior in these tests, with additional database-read work and no universal production certification.
 
-The 3,025 requests match 3,025 ledger records in this isolated run. The original acknowledgement parser had a defect; its success/failure flags are excluded. Timeouts are included in recorded request durations and are not treated as successful response times.
+## Research results
 
-## Reproduce without AWS
+Open **Research & Validation → Model results** for the original banking GNN failure, the development revision, any checksum-verified later repeat results and the retrospective RE2 calibration audit. Original and revised results remain separate. See [current validation](CURRENT_VALIDATION_STATUS.md) and [research contribution](RESEARCH_CONTRIBUTION.md) for scope. No new root-cause accuracy is inferred from a command summary whose raw measurements are unavailable.
 
-From the project directory, run `python scripts/replay_banking_investigation.py`. It verifies every bundled evidence file against its retained checksum, writes the readable Markdown report and a machine-readable companion, and makes no network calls. `results/aws_workload/replay/manifest.json` records the source archive checksum. The original archive and final database backup remain on D:.
+## Reproduce locally
 
-To start the application after closing it, run `START_REDESIGN.ps1`; its default port is 8000. Use `START_REDESIGN.ps1 -Port 8012` to match the current demo address. Only one server should own the chosen port.
+- `python scripts/replay_banking_investigation.py` verifies the original banking recording and later correction proof, then writes readable and structured reports without AWS.
+- `python scripts/recompute_final_checks.py` recomputes final workload accounting and direct-evidence localization from the portable final inputs after that evaluation is complete. It verifies retained GNN prediction and checkpoint hashes without retraining.
+- `python scripts/retrain_banking_models.py --out results/reproduction/banking-fresh` trains new graph and identity models from the bundled final recording. The output directory must be new.
+- `python scripts/restore_re2_inputs.py` restores the exact 15 public recordings from the pinned official dataset revision and verifies every checksum. Use `--verify-only` to check existing inputs without downloading.
 
-## Research status
-
-Banking replay uses transparent measured-signature rules. It does not apply RE2 models to banking data or claim validated banking GNN accuracy. The existing GNN and PROBE-XAI comparison remains in **Research & Validation**, with its independent benchmark provenance and limitations. Existing results do not establish a GNN advantage or a novel-method advantage. These research claims remain unfinished and must not be presented as proven by the demo.
-
-The AWS research instance was terminated and its root volume deleted. The dashboard uses retained measurements and does not provide live cloud health or start new AWS resources.
-
-## Verification
-
-The project regression suite passed 188 tests, and four browser acceptance tests passed for the new banking replay and existing research screens. Checks cover altered evidence, unavailable measurements, overlapping explanations, completed-observation timing, inconsistent balances, earlier recovery evidence and duplicate recovery receipts.
+The normal dashboard starts no cloud resources. The SQL backup remains local on D:. Never upload AWS credentials or private keys. Full cloud reproduction requires separately authorized compute and the bounded export-and-cleanup pipeline; the offline demonstration needs no AWS access.

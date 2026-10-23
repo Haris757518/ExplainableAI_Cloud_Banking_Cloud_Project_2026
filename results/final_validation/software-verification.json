@@ -1,0 +1,8 @@
+{
+  "python_tests": 195,
+  "java_reader_tests": 19,
+  "browser_acceptance_tests": 4,
+  "frontend_build": "passed",
+  "evidence_guards": "checksum mismatch, missing measurements, future observations, inconsistent recovery, duplicate receipts and mismatched final cleanup rejected",
+  "scope": "Software checks; experimental results are separately recorded in the verified final study."
+}

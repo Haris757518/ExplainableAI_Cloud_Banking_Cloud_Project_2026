@@ -48,7 +48,9 @@ def summarize(rows, start, end):
     waits = [float(w.get('lock_wait_ms') or 0) for r in snapshots for w in r.get('postgres_lock_waits', [])]
     blocked = [sum(bool(a.get('blocking_pids')) for a in r.get('postgres_activity', [])) for r in snapshots]
     # Arrival rate counts actual recorded starts, independently of completion time.
-    arrivals = sum(r.get('instrument') == 'payment_request' and start <= r['timestamp'] < end for r in rows)
+    start_events = any(r.get('instrument') == 'payment_start' and r['timestamp'] < end for r in rows)
+    arrival_instrument = 'payment_start' if start_events else 'payment_request'
+    arrivals = sum(r.get('instrument') == arrival_instrument and start <= r['timestamp'] < end for r in rows)
     return dict(start=start, end=end, requests=len(requests), snapshots=len(snapshots),
                 p95_ms=percentile(latencies), median_ms=statistics.median(latencies) if latencies else None,
                 arrival_rps=arrivals/(end-start), cpu_limit_cores=min(limits) if limits else None,

@@ -1,0 +1,10 @@
+{
+  "created_at": "2026-10-22T19:32:43.205045+00:00",
+  "before_new_workload_execution": true,
+  "reason": "Persist client request starts immediately, before completion, so arrival-rate availability is explicit. Summary prefers those start events; legacy recording semantics are preserved.",
+  "source_sha256": {
+    "deploy/collect_final_validation.py": "c2e752d0d967e062dbcf5853659dea103fdd7ad06ec5693d7a5f97f51e2bae97",
+    "analysis/banking_replay.py": "d5b9a7743aa964535861537dd13ecbdb63fc617222276d2e1c59f4fe1c31864b",
+    "analysis/banking_localization.py": "fae1be3a734cbaade88b6a51abe48a82d2b1195a90b25ff5f6b07b1ca5cb3395"
+  }
+}

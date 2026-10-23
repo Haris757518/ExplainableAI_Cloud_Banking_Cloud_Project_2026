@@ -7,7 +7,7 @@ export default function CloudOverview({onResearch}){
  const measured=data?.monitoring_status==='recorded_aws_execution',workload=data?.workload;
  const metrics=measured?[
   ['Banking services','banking_services','Ready pods in the retained deployment snapshot'],
-  ['Active issues','active_issues','Awaiting completed detector evaluation'],
+  ['Active issues','active_issues','No live incident count is measured'],
   ['Demo payment round trip','payment_latency_ms','Milliseconds; one transfer, including its redirect to history'],
   ['Verified demo transfers','verified_transfers','Matched ledger, history and measured service-call trace']
  ]:[['Banking services','banking_services'],['Active issues','active_issues'],['Payment latency','payment_latency_ms'],['Transaction success','transaction_success_percent']];
@@ -22,7 +22,7 @@ export default function CloudOverview({onResearch}){
   <section className="health-metrics" aria-label="Measured banking health">{metrics.map(([title,key,caption])=><article key={key}><span>{title}</span><strong>{data?.summary[key]??'Unknown'}</strong><small>{caption||'Requires executed banking workload telemetry'}</small></article>)}</section>
   <section className="probe-section"><h2>{measured?'Verified first AWS banking transfer':'Current banking investigation'}</h2>
    <p>{data?.explanation||'Reading monitoring status…'}</p>
-   {workload&&<><ol className="why-chain"><li><b>Payment executed</b><p>A demo payment ran inside Bank of Anthos on the AWS research instance.</p></li><li><b>Ledger and history agree</b><p>Transaction {workload.transaction_id} has one matching new ledger record and is present in transaction history.</p></li><li><b>Service call measured</b><p>The payment request has an actual linked HTTP client span to the ledger-writing service.</p></li></ol><p className="evidence-limit">This confirms execution. It does not yet establish a root cause, validated detection accuracy or successful recovery.</p><details><summary>Technical details and evidence location</summary><p>{workload.trace_coverage}</p><p>Retained, checksum-verified evidence: <code>{workload.evidence_location}</code></p></details></>}
+   {workload&&<><ol className="why-chain"><li><b>Payment executed</b><p>A demo payment ran inside Bank of Anthos on the AWS research instance.</p></li><li><b>Ledger and history agree</b><p>Transaction {workload.transaction_id} has one matching new ledger record and is present in transaction history.</p></li><li><b>Service call measured</b><p>The payment request has an actual linked HTTP client span to the ledger-writing service.</p></li></ol><p className="evidence-limit">This first-transfer check establishes execution. The investigation above and the research results provide the separate incident, correction and recovery evidence.</p><details><summary>Technical details and evidence location</summary><p>{workload.trace_coverage}</p><p>Retained, checksum-verified evidence: <code>{workload.evidence_location}</code></p></details></>}
    <button onClick={onResearch}>Explore recorded root-cause investigations</button>
   </section>
   <section className="probe-section"><h2>Workload setup and spending</h2>

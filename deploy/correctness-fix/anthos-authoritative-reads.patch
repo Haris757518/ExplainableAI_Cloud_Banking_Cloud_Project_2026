@@ -1,0 +1,368 @@
+--- a/src/ledger/balancereader/src/main/java/anthos/samples/bankofanthos/balancereader/BalanceReaderController.java
++++ b/src/ledger/balancereader/src/main/java/anthos/samples/bankofanthos/balancereader/BalanceReaderController.java
+@@ -20,10 +20,9 @@
+ import com.auth0.jwt.exceptions.JWTVerificationException;
+ import com.auth0.jwt.interfaces.DecodedJWT;
+ import com.google.common.cache.LoadingCache;
+-import com.google.common.util.concurrent.UncheckedExecutionException;
+ import io.micrometer.core.instrument.binder.cache.GuavaCacheMetrics;
+ import io.micrometer.stackdriver.StackdriverMeterRegistry;
+-import java.util.concurrent.ExecutionException;
++import org.springframework.dao.DataAccessException;
+ import org.apache.logging.log4j.LogManager;
+ import org.apache.logging.log4j.Logger;
+ import org.springframework.beans.factory.annotation.Autowired;
+@@ -75,6 +74,7 @@
+         GuavaCacheMetrics.monitor(meterRegistry, this.cache, "Guava");
+         LOGGER.debug("Initialized cache");
+         this.version = version;
++        this.localRoutingNum = localRoutingNum;
+         // Initialize transaction processor.
+         this.ledgerReader = reader;
+         LOGGER.debug("Initialized transaction processor");
+@@ -161,16 +161,16 @@
+                 return new ResponseEntity<>("not authorized",
+                     HttpStatus.UNAUTHORIZED);
+             }
+-            // Load from cache
+-            Long balance = cache.get(accountId);
++            // Read one committed ledger snapshot; do not depend on cursor order.
++            Long balance = dbRepo.findBalance(accountId, localRoutingNum);
+             return new ResponseEntity<Long>(balance, HttpStatus.OK);
+         } catch (JWTVerificationException e) {
+             LOGGER.error("Failed to retrieve account balance: not authorized");
+             return new ResponseEntity<>("not authorized",
+                 HttpStatus.UNAUTHORIZED);
+-        } catch (ExecutionException | UncheckedExecutionException e) {
+-            LOGGER.error("Cache error");
+-            return new ResponseEntity<>("cache error",
++        } catch (DataAccessException e) {
++            LOGGER.error("Ledger read error");
++            return new ResponseEntity<>("ledger read error",
+                 HttpStatus.INTERNAL_SERVER_ERROR);
+         }
+     }
+--- a/src/ledger/balancereader/src/main/java/anthos/samples/bankofanthos/balancereader/TransactionRepository.java
++++ b/src/ledger/balancereader/src/main/java/anthos/samples/bankofanthos/balancereader/TransactionRepository.java
+@@ -28,10 +28,10 @@
+     extends CrudRepository<Transaction, Long> {
+ 
+     @Query(value = "SELECT "
+-    + "(SELECT SUM(AMOUNT) FROM TRANSACTIONS t "
+-    + "     WHERE (TO_ACCT = ?1 AND TO_ROUTE = ?2)) - "
+-    + " (SELECT COALESCE((SELECT SUM(AMOUNT) FROM TRANSACTIONS t "
+-    + "     WHERE (FROM_ACCT = ?1 AND FROM_ROUTE = ?2)),0))",
++    + "COALESCE(SUM(CASE WHEN TO_ACCT=?1 AND TO_ROUTE=?2 "
++    + "THEN CAST(AMOUNT AS BIGINT) ELSE 0 END),0) - "
++    + "COALESCE(SUM(CASE WHEN FROM_ACCT=?1 AND FROM_ROUTE=?2 "
++    + "THEN CAST(AMOUNT AS BIGINT) ELSE 0 END),0) FROM TRANSACTIONS",
+         nativeQuery = true)
+     Long findBalance(String accountNum, String routeNum);
+ 
+--- a/src/ledger/balancereader/pom.xml
++++ b/src/ledger/balancereader/pom.xml
+@@ -76,6 +76,8 @@
+     </dependencyManagement>
+ 
+     <dependencies>
++        <dependency><groupId>com.h2database</groupId><artifactId>h2</artifactId><scope>test</scope></dependency>
++        <dependency><groupId>org.springframework</groupId><artifactId>spring-test</artifactId><scope>test</scope></dependency>
+         <dependency>
+             <groupId>org.springframework.boot</groupId>
+             <artifactId>spring-boot-starter-web</artifactId>
+--- a/src/ledger/balancereader/src/test/java/anthos/samples/bankofanthos/balancereader/BalanceReaderControllerTest.java
++++ b/src/ledger/balancereader/src/test/java/anthos/samples/bankofanthos/balancereader/BalanceReaderControllerTest.java
+@@ -51,6 +51,8 @@
+     @Mock
+     private JWTVerifier verifier;
+     @Mock
++    private TransactionRepository dbRepo;
++    @Mock
+     private LedgerReader ledgerReader;
+     @Mock
+     private DecodedJWT jwt;
+@@ -98,6 +100,7 @@
+         balanceReaderController = new BalanceReaderController(ledgerReader, verifier,
+             meterRegistry, cache, LOCAL_ROUTING_NUM, VERSION);
+ 
++        org.springframework.test.util.ReflectionTestUtils.setField(balanceReaderController, "dbRepo", dbRepo);
+         when(verifier.verify(TOKEN)).thenReturn(jwt);
+         when(jwt.getClaim(JWT_ACCOUNT_KEY)).thenReturn(claim);
+     }
+@@ -162,7 +165,7 @@
+         when(verifier.verify(TOKEN)).thenReturn(jwt);
+         when(jwt.getClaim(JWT_ACCOUNT_KEY)).thenReturn(claim);
+         when(claim.asString()).thenReturn(AUTHED_ACCOUNT_NUM);
+-        when(cache.get(AUTHED_ACCOUNT_NUM)).thenReturn(BALANCE);
++        when(dbRepo.findBalance(AUTHED_ACCOUNT_NUM, LOCAL_ROUTING_NUM)).thenReturn(BALANCE);
+ 
+         // When
+         final ResponseEntity actualResult = balanceReaderController.getBalance(BEARER_TOKEN, AUTHED_ACCOUNT_NUM);
+@@ -179,7 +182,7 @@
+         when(verifier.verify(TOKEN)).thenReturn(jwt);
+         when(jwt.getClaim(JWT_ACCOUNT_KEY)).thenReturn(claim);
+         when(claim.asString()).thenReturn(AUTHED_ACCOUNT_NUM);
+-        when(cache.get(AUTHED_ACCOUNT_NUM)).thenReturn(BALANCE);
++        when(dbRepo.findBalance(AUTHED_ACCOUNT_NUM, LOCAL_ROUTING_NUM)).thenReturn(BALANCE);
+ 
+         // When
+         final ResponseEntity actualResult = balanceReaderController.getBalance(BEARER_TOKEN, AUTHED_ACCOUNT_NUM);
+@@ -219,13 +222,13 @@
+     }
+ 
+     @Test
+-    @DisplayName("Given the cache throws an error for an authenticated user, return 500")
++    @DisplayName("Given the ledger query throws an error for an authenticated user, return 500")
+     void getBalanceFailsWhenCacheThrowsError() throws Exception {
+         // Given
+         when(verifier.verify(TOKEN)).thenReturn(jwt);
+         when(jwt.getClaim(JWT_ACCOUNT_KEY)).thenReturn(claim);
+         when(claim.asString()).thenReturn(AUTHED_ACCOUNT_NUM);
+-        when(cache.get(AUTHED_ACCOUNT_NUM)).thenThrow(ExecutionException.class);
++        when(dbRepo.findBalance(AUTHED_ACCOUNT_NUM, LOCAL_ROUTING_NUM)).thenThrow(org.springframework.dao.DataAccessResourceFailureException.class);
+ 
+         // When
+         final ResponseEntity actualResult = balanceReaderController.getBalance(BEARER_TOKEN, AUTHED_ACCOUNT_NUM);
+--- /dev/null
++++ b/src/ledger/balancereader/src/test/java/anthos/samples/bankofanthos/balancereader/CommitOrderRegressionTest.java
+@@ -0,0 +1,54 @@
++package anthos.samples.bankofanthos.balancereader;
++
++import java.sql.Connection;
++import java.sql.Statement;
++import java.util.Map;
++import jakarta.persistence.EntityManagerFactory;
++import org.h2.jdbcx.JdbcDataSource;
++import org.junit.jupiter.api.Test;
++import org.springframework.data.jpa.repository.support.JpaRepositoryFactory;
++import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
++import org.springframework.orm.jpa.SharedEntityManagerCreator;
++import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
++import static org.junit.jupiter.api.Assertions.*;
++
++/** Real local H2 transactions; explicitly not an AWS/PostgreSQL deployment test. */
++class CommitOrderRegressionTest {
++    @Test
++    void lateLowerIdRemainsVisibleAfterHigherIdCommitsAndReaderRestarts() throws Exception {
++        JdbcDataSource ds = new JdbcDataSource();
++        ds.setURL("jdbc:h2:mem:commitorder;MODE=PostgreSQL;DB_CLOSE_DELAY=-1");
++        LocalContainerEntityManagerFactoryBean builder = new LocalContainerEntityManagerFactoryBean();
++        builder.setDataSource(ds);
++        builder.setPackagesToScan("anthos.samples.bankofanthos.balancereader");
++        builder.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
++        builder.setJpaPropertyMap(Map.of("hibernate.hbm2ddl.auto", "create-drop", "hibernate.dialect", "org.hibernate.dialect.H2Dialect"));
++        builder.afterPropertiesSet();
++        EntityManagerFactory factory = builder.getObject();
++        try (Connection normal = ds.getConnection(); Connection held = ds.getConnection()) {
++            // Explicit columns avoid relying on ORM column order.
++            String insert = "INSERT INTO TRANSACTIONS (TRANSACTION_ID,FROM_ACCT,FROM_ROUTE,TO_ACCT,TO_ROUTE,AMOUNT,TIMESTAMP) VALUES ";
++            normal.createStatement().executeUpdate(insert + "(1,'external','000','sender','123',10000,CURRENT_TIMESTAMP)");
++            held.setAutoCommit(false);
++            held.createStatement().executeUpdate(insert + "(2,'sender','123','recipient','123',17,CURRENT_TIMESTAMP)");
++            normal.createStatement().executeUpdate(insert + "(3,'sender','123','recipient','123',19,CURRENT_TIMESTAMP)");
++            TransactionRepository repo = new JpaRepositoryFactory(SharedEntityManagerCreator.createSharedEntityManager(factory)).getRepository(TransactionRepository.class);
++            assertEquals(3L, repo.latestTransactionId());
++            assertEquals(1, repo.findLatest(1).size());
++            held.commit();
++            // The old MAX-ID cursor would now ask for IDs > 3 and miss transfer 2.
++            assertTrue(repo.findLatest(3).isEmpty());
++            assertEquals(3L, repo.latestTransactionId());
++            verifyAuthoritativeView(repo);
++            TransactionRepository restarted = new JpaRepositoryFactory(SharedEntityManagerCreator.createSharedEntityManager(factory)).getRepository(TransactionRepository.class);
++            verifyAuthoritativeView(restarted);
++        } finally { factory.close(); }
++    }
++
++    private void verifyAuthoritativeView(TransactionRepository repo) {
++        assertEquals(9964L, repo.findBalance("sender", "123"));
++        assertEquals(36L, repo.findBalance("recipient", "123"));
++        assertEquals(0L, repo.findBalance("empty", "123"));
++        assertEquals(0L, repo.findBalance("sender", "wrong-route"));
++    }
++}
+--- a/src/ledger/transactionhistory/src/main/java/anthos/samples/bankofanthos/transactionhistory/TransactionHistoryController.java
++++ b/src/ledger/transactionhistory/src/main/java/anthos/samples/bankofanthos/transactionhistory/TransactionHistoryController.java
+@@ -20,12 +20,11 @@
+ import com.auth0.jwt.exceptions.JWTVerificationException;
+ import com.auth0.jwt.interfaces.DecodedJWT;
+ import com.google.common.cache.LoadingCache;
+-import com.google.common.util.concurrent.UncheckedExecutionException;
+ import io.micrometer.core.instrument.binder.cache.GuavaCacheMetrics;
+ import io.micrometer.stackdriver.StackdriverMeterRegistry;
+ import java.util.Collection;
+ import java.util.Deque;
+-import java.util.concurrent.ExecutionException;
++import org.springframework.dao.DataAccessException;
+ import org.apache.logging.log4j.LogManager;
+ import org.apache.logging.log4j.Logger;
+ import org.springframework.beans.factory.annotation.Autowired;
+@@ -57,6 +56,7 @@
+     @Value("${HISTORY_LIMIT:100}")
+     private Integer historyLimit;
+     private String version;
++    private String localRoutingNum;
+ 
+     private JWTVerifier verifier;
+     private LedgerReader ledgerReader;
+@@ -76,6 +76,7 @@
+             @Value("${LOCAL_ROUTING_NUM}") final String localRoutingNum,
+             @Value("${VERSION}") final String version) {
+         this.version = version;
++        this.localRoutingNum = localRoutingNum;
+         // Initialize JWT verifier.
+         this.verifier = verifier;
+         // Initialize cache
+@@ -181,8 +182,10 @@
+                                                   HttpStatus.UNAUTHORIZED);
+             }
+ 
+-            // Load from cache
+-            Deque<Transaction> historyList = cache.get(accountId);
++            // Read committed records on every request, including late lower IDs.
++            Collection<Transaction> historyList = dbRepo.findForAccount(
++                accountId, localRoutingNum,
++                org.springframework.data.domain.PageRequest.of(0, historyLimit));
+ 
+             // Set artificial extra latency.
+             LOGGER.debug("Setting artificial latency");
+@@ -201,9 +204,9 @@
+                 + "not authorized");
+             return new ResponseEntity<>("not authorized",
+                                               HttpStatus.UNAUTHORIZED);
+-        } catch (ExecutionException | UncheckedExecutionException e) {
+-            LOGGER.error("Cache error");
+-            return new ResponseEntity<>("cache error",
++        } catch (DataAccessException e) {
++            LOGGER.error("Ledger read error");
++            return new ResponseEntity<>("ledger read error",
+                                               HttpStatus.INTERNAL_SERVER_ERROR);
+         }
+     }
+--- a/src/ledger/transactionhistory/src/main/java/anthos/samples/bankofanthos/transactionhistory/TransactionRepository.java
++++ b/src/ledger/transactionhistory/src/main/java/anthos/samples/bankofanthos/transactionhistory/TransactionRepository.java
+@@ -38,7 +38,7 @@
+     @Query("SELECT t FROM Transaction t "
+         + " WHERE (t.fromAccountNum=?1 AND t.fromRoutingNum=?2) "
+         + "   OR (t.toAccountNum=?1 AND t.toRoutingNum=?2) "
+-        + " ORDER BY t.timestamp DESC")
++        + " ORDER BY t.timestamp DESC, t.transactionId DESC")
+     LinkedList<Transaction> findForAccount(String accountNum,
+                                            String routingNum,
+                                            Pageable pager);
+--- a/src/ledger/transactionhistory/pom.xml
++++ b/src/ledger/transactionhistory/pom.xml
+@@ -76,6 +76,8 @@
+     </dependencyManagement>
+ 
+     <dependencies>
++        <dependency><groupId>com.h2database</groupId><artifactId>h2</artifactId><scope>test</scope></dependency>
++        <dependency><groupId>org.springframework</groupId><artifactId>spring-test</artifactId><scope>test</scope></dependency>
+         <dependency>
+             <groupId>org.springframework.boot</groupId>
+             <artifactId>spring-boot-starter-web</artifactId>
+--- a/src/ledger/transactionhistory/src/test/java/anthos/samples/bankofanthos/transactionhistory/TransactionHistoryControllerTest.java
++++ b/src/ledger/transactionhistory/src/test/java/anthos/samples/bankofanthos/transactionhistory/TransactionHistoryControllerTest.java
+@@ -47,6 +47,8 @@
+     @Mock
+     private JWTVerifier verifier;
+     @Mock
++    private TransactionRepository dbRepo;
++    @Mock
+     private LedgerReader ledgerReader;
+     @Mock
+     private DecodedJWT jwt;
+@@ -96,6 +98,8 @@
+         transactionHistoryController = new TransactionHistoryController(ledgerReader,
+             meterRegistry, verifier, PUBLIC_KEY_PATH, cache, LOCAL_ROUTING_NUM, VERSION);
+ 
++        org.springframework.test.util.ReflectionTestUtils.setField(transactionHistoryController, "dbRepo", dbRepo);
++        org.springframework.test.util.ReflectionTestUtils.setField(transactionHistoryController, "historyLimit", 100);
+         when(verifier.verify(TOKEN)).thenReturn(jwt);
+         when(jwt.getClaim(JWT_ACCOUNT_KEY)).thenReturn(claim);
+     }
+@@ -160,7 +164,7 @@
+         when(verifier.verify(TOKEN)).thenReturn(jwt);
+         when(jwt.getClaim(JWT_ACCOUNT_KEY)).thenReturn(claim);
+         when(claim.asString()).thenReturn(AUTHED_ACCOUNT_NUM);
+-        when(cache.get(AUTHED_ACCOUNT_NUM)).thenReturn(transactions);
++        when(dbRepo.findForAccount(org.mockito.ArgumentMatchers.eq(AUTHED_ACCOUNT_NUM), org.mockito.ArgumentMatchers.eq(LOCAL_ROUTING_NUM), org.mockito.ArgumentMatchers.any())).thenReturn(new java.util.LinkedList<>());
+ 
+         // When
+         final ResponseEntity actualResult = transactionHistoryController
+@@ -202,13 +206,13 @@
+     }
+ 
+     @Test
+-    @DisplayName("Given the cache throws an error for an authenticated user, return 500")
++    @DisplayName("Given the ledger query throws an error for an authenticated user, return 500")
+     void getTransactionsFailsWhenCacheThrowsError() throws Exception {
+         // Given
+         when(verifier.verify(TOKEN)).thenReturn(jwt);
+         when(jwt.getClaim(JWT_ACCOUNT_KEY)).thenReturn(claim);
+         when(claim.asString()).thenReturn(AUTHED_ACCOUNT_NUM);
+-        when(cache.get(AUTHED_ACCOUNT_NUM)).thenThrow(ExecutionException.class);
++        when(dbRepo.findForAccount(org.mockito.ArgumentMatchers.eq(AUTHED_ACCOUNT_NUM), org.mockito.ArgumentMatchers.eq(LOCAL_ROUTING_NUM), org.mockito.ArgumentMatchers.any())).thenThrow(org.springframework.dao.DataAccessResourceFailureException.class);
+ 
+         // When
+         final ResponseEntity actualResult = transactionHistoryController
+--- /dev/null
++++ b/src/ledger/transactionhistory/src/test/java/anthos/samples/bankofanthos/transactionhistory/CommitOrderRegressionTest.java
+@@ -0,0 +1,58 @@
++package anthos.samples.bankofanthos.transactionhistory;
++
++import java.sql.Connection;
++import java.sql.Statement;
++import java.util.Map;
++import jakarta.persistence.EntityManagerFactory;
++import org.h2.jdbcx.JdbcDataSource;
++import org.junit.jupiter.api.Test;
++import org.springframework.data.jpa.repository.support.JpaRepositoryFactory;
++import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
++import org.springframework.orm.jpa.SharedEntityManagerCreator;
++import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
++import static org.junit.jupiter.api.Assertions.*;
++
++/** Real local H2 transactions; explicitly not an AWS/PostgreSQL deployment test. */
++class CommitOrderRegressionTest {
++    @Test
++    void lateLowerIdRemainsVisibleAfterHigherIdCommitsAndReaderRestarts() throws Exception {
++        JdbcDataSource ds = new JdbcDataSource();
++        ds.setURL("jdbc:h2:mem:commitorder;MODE=PostgreSQL;DB_CLOSE_DELAY=-1");
++        LocalContainerEntityManagerFactoryBean builder = new LocalContainerEntityManagerFactoryBean();
++        builder.setDataSource(ds);
++        builder.setPackagesToScan("anthos.samples.bankofanthos.transactionhistory");
++        builder.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
++        builder.setJpaPropertyMap(Map.of("hibernate.hbm2ddl.auto", "create-drop", "hibernate.dialect", "org.hibernate.dialect.H2Dialect"));
++        builder.afterPropertiesSet();
++        EntityManagerFactory factory = builder.getObject();
++        try (Connection normal = ds.getConnection(); Connection held = ds.getConnection()) {
++            // Explicit columns avoid relying on ORM column order.
++            String insert = "INSERT INTO TRANSACTIONS (TRANSACTION_ID,FROM_ACCT,FROM_ROUTE,TO_ACCT,TO_ROUTE,AMOUNT,TIMESTAMP) VALUES ";
++            normal.createStatement().executeUpdate(insert + "(1,'external','000','sender','123',10000,CURRENT_TIMESTAMP)");
++            held.setAutoCommit(false);
++            held.createStatement().executeUpdate(insert + "(2,'sender','123','recipient','123',17,CURRENT_TIMESTAMP)");
++            normal.createStatement().executeUpdate(insert + "(3,'sender','123','recipient','123',19,CURRENT_TIMESTAMP)");
++            TransactionRepository repo = new JpaRepositoryFactory(SharedEntityManagerCreator.createSharedEntityManager(factory)).getRepository(TransactionRepository.class);
++            assertEquals(3L, repo.latestTransactionId());
++            assertEquals(1, repo.findLatest(1).size());
++            held.commit();
++            // The old MAX-ID cursor would now ask for IDs > 3 and miss transfer 2.
++            assertTrue(repo.findLatest(3).isEmpty());
++            assertEquals(3L, repo.latestTransactionId());
++            verifyAuthoritativeView(repo);
++            TransactionRepository restarted = new JpaRepositoryFactory(SharedEntityManagerCreator.createSharedEntityManager(factory)).getRepository(TransactionRepository.class);
++            verifyAuthoritativeView(restarted);
++        } finally { factory.close(); }
++    }
++
++    private void verifyAuthoritativeView(TransactionRepository repo) {
++        var sender = repo.findForAccount("sender", "123", org.springframework.data.domain.PageRequest.of(0, 100));
++        var recipient = repo.findForAccount("recipient", "123", org.springframework.data.domain.PageRequest.of(0, 100));
++        assertEquals(3, sender.size());
++        assertEquals(2, recipient.size());
++        assertEquals(3L, sender.stream().map(Transaction::getTransactionId).distinct().count());
++        assertTrue(recipient.stream().anyMatch(t -> t.getTransactionId() == 2L));
++        assertEquals(1, repo.findForAccount("sender", "123", org.springframework.data.domain.PageRequest.of(0, 1)).size());
++        assertTrue(repo.findForAccount("sender", "wrong-route", org.springframework.data.domain.PageRequest.of(0, 100)).isEmpty());
++    }
++}

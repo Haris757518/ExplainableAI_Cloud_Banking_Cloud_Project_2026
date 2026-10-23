@@ -10,22 +10,36 @@ from dataset.re2 import entries,load_re2
 from analysis.incident_engine import analyze_case
 from analysis.probe_xai import investigate
 from ai_models.re2_inference import infer,checkpoint_path
-from analysis.banking_replay import run_replay,readable_report
+from analysis.banking_replay import run_replay
+from analysis.banking_followup import attach_followups,verified_corrective_code,verified_final_study,readable_followup_report
+from ai_models.re2_detection import calibrated_scores,decide
 from fastapi.responses import PlainTextResponse
 
 router=APIRouter(prefix='/api/cloud-investigation',tags=['PROBE-XAI investigations'])
 OUT=ROOT/'results/probe_xai'
 AWS_STATUS_PATH=ROOT/'results/aws_workload/status.json'
+_DETECTION_CACHE={}
 
 @router.post('/banking-replay')
 def banking_replay():
-    try:return run_replay()
+    try:return attach_followups(run_replay())
     except (OSError,ValueError,KeyError) as exc:
         raise HTTPException(409,'Banking evidence is missing or failed validation; no findings were assumed.') from exc
 
 @router.get('/banking-report',response_class=PlainTextResponse)
 def banking_report():
-    return PlainTextResponse(readable_report(banking_replay()),headers={'Content-Disposition':'attachment; filename="banking-investigation-report.md"'})
+    return PlainTextResponse(readable_followup_report(banking_replay()),headers={'Content-Disposition':'attachment; filename="banking-investigation-report.md"'})
+
+@router.get('/banking-study')
+def banking_study():
+    initial=read_json(ROOT/'results/banking_study/v1/report.json',{})
+    revision=read_json(ROOT/'results/banking_study/localization-revision.json',{})
+    final=verified_final_study() or {}
+    return {'initial':{k:initial.get(k) for k in ('status','methods','limitations','recovery_gate_ablation')},
+            'development_revision':{'cases':revision.get('cases'),'scores':[{k:r.get(k) for k in ('phase','method','seed','gnn_top1','evidence_localization_top1')} for r in revision.get('scores',[])],'limitations':revision.get('limitations',[])},
+            'final':{k:final.get(k) for k in ('status','source','method_summary','submitted_requests','ledger_matches','corrective_code','limitations')},
+            'normal_holdout':[r for r in final.get('model_study',{}).get('methods',[]) if r['method']=='graph'],
+            'corrective_code':verified_corrective_code(),'detection_calibration':read_json(OUT/'calibrated-detection.json',{})}
 
 def verified_workload():
     status=read_json(AWS_STATUS_PATH,{})
@@ -66,6 +80,11 @@ def overview():
                       'Backend server and SQL trace coverage is partial. The balance-cache permanent fix is not implemented.'])
         result['aws'].update(compute='Research instance terminated; checksum-verified evidence retained locally.',new_compute_budget_inr=None,approved_budget_usd=workload['approved_budget_usd'])
         result['partitions'][1].update(recordings=1,scope='Executed AWS Bank of Anthos workload, controlled integrity probe and later recovery checks; read-only local replay available')
+        correction=verified_corrective_code()
+        if correction and correction['verified']:
+            result['corrective_code']=correction
+            result['blockers']=['GNN rankings alone do not establish a cause. Revised localization is evaluated separately against direct measurements.',
+                                'The implemented reader correction passed repeated AWS tests; broader production capacity and generalization are outside this bounded study.']
     return result
 
 @router.get('/recordings')
@@ -81,6 +100,12 @@ def build(request):
     when=request.as_of if request.as_of is not None else start+.5*(end-start)+120
     if not start<=when<=end:raise HTTPException(422,'Observation time is outside the measured recording')
     incident=analyze_case(case,when,forecast_enabled=False)
+    calibration=None
+    if (OUT/'calibrated-detection.json').exists():
+        key=(case.collection,case.provenance.get('trace_sha256'))
+        if key not in _DETECTION_CACHE:_DETECTION_CACHE[key]=calibrated_scores(case)
+        calibration=decide(_DETECTION_CACHE[key],when)
+        incident.status=calibration['status']
     gnn=infer(case,when,'identity' if request.ranker=='identity' else 'recorded_graph') if request.ranker!='statistical' else None
     result=investigate(case,incident,as_of=when,budget=request.query_budget,policy=request.policy,gnn=gnn)
     prefix=[e for e in case.edges if e.observed_at is None or e.observed_at<=when]
@@ -91,6 +116,7 @@ def build(request):
     result['detection']={'status':incident.status,'affected_services':incident.affected_services,
         'severity':'unclassified','severity_reason':'No validated banking SLO or calibrated operational severity for this external recording.',
         'timestamp':when,'evidence':[e.model_dump() for e in incident.evidence if e.resource==result['resource']]}
+    if calibration:result['detection']['calibration']=calibration
     result['ranking']=[c.model_dump() for c in incident.candidates] if not gnn or gnn.get('status')!='evaluated' else gnn['scores']
     from analysis.mechanisms import resource_labels
     result['resource_labels']=resource_labels(result['graph']['nodes'])
@@ -98,7 +124,9 @@ def build(request):
     if result['resource'] and result['resource_label']:
         result['summary']=result['summary'].replace(result['resource'],result['resource_label'])
     result['recording_id']=case.id
-    result['id']=hashlib.sha256(f'{case.collection}:{when}:{request.policy}:{request.ranker}:{request.query_budget}'.encode()).hexdigest()[:24]
+    detector_version='calibrated-re2-prefix-v1' if calibration else 'legacy'
+    result['detection']['version']=detector_version
+    result['id']=hashlib.sha256(f'{case.collection}:{when}:{request.policy}:{request.ranker}:{request.query_budget}:{detector_version}'.encode()).hexdigest()[:24]
     return result
 
 @router.post('/investigate')

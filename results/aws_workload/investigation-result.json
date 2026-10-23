@@ -139,15 +139,15 @@
       "mechanism": "A transfer with a higher number became visible before an earlier transfer finished.",
       "deeper_cause": "The balance updater remembers the highest transaction number it has seen. If that transfer finishes first, an earlier-numbered transfer that finishes later can be skipped. The controlled test reproduced a missed transfer; it does not prove that every earlier balance difference had this cause.",
       "confidence": "Reproduced in an investigator-assisted controlled test",
-      "origin": "Investigator-assisted test; arithmetic verified automatically",
-      "status": "Temporary recovery verified",
-      "recommendation": "Rebuild the displayed balances from the ledger and compare both accounts with their recorded transfers. This temporary recovery action was completed in the isolated demo.",
-      "prevention": "Change the updater so it processes every completed transfer, even when transfers finish out of number order. Test reversed completion order, restarts and repeated delivery before releasing the fix.",
-      "recovery": "After resynchronization, both account balances matched the ledger, three new transfers each appeared once in the ledger and history, and three balance reads succeeded with no blocked database sessions. A permanent application fix has not been implemented.",
+      "origin": "Original investigator-assisted discovery, followed by repeated before-and-after AWS/PostgreSQL verification of the corrective code",
+      "status": "Corrective code verified in AWS tests",
+      "recommendation": "The corrected balance and history readers now read committed ledger records directly, so they do not depend on the order in which transaction numbers finish. The code was deployed and tested in the isolated AWS application.",
+      "prevention": "Keep the commit-order and restart regression tests. Monitor database load because authoritative reads perform more database work than cached reads.",
+      "recovery": "The original readers failed all three new commit-order trials. The corrected readers passed all three: both balances matched the ledger, and each tested transfer appeared once in both histories. The same checks passed after restarting the readers. This verifies the implemented correction within these tests.",
       "measurements": {
         "missed_cents": 17
       },
-      "permanent_fix_verified": false
+      "permanent_fix_verified": true
     }
   ],
   "windows": [
@@ -352,12 +352,98 @@
   "ledger_matches": 3025,
   "ledger_integrity_verified": true,
   "recovery_verified": true,
-  "model_status": "Transparent measured-signature rules. No banking-domain GNN is validated; separate RE2 model results remain in Research & Validation.",
+  "model_status": "Banking GNNs have been trained and evaluated. Their symptom rankings are retained separately from evidence-guided localization. See Research and Validation for results and limits.",
   "limitations": [
     "The reference is the first 60 seconds; alert threshold is three times its 95th-percentile response time. This is a demo rule, not a calibrated production SLO.",
     "One executed workload; no independent banking test-set accuracy or novel-method advantage is established.",
     "Payment acknowledgement flags were excluded because the original collector parsed them incorrectly. Ledger matching does not establish what each caller saw.",
     "Backend and SQL traces, admission queue depth and per-request processor attribution are missing.",
     "Diagnostic evidence is separated from intervention labels. Findings use only measurements available by each window end. Final recovery uses separately identified later evidence."
-  ]
+  ],
+  "corrective_code": {
+    "verified": true,
+    "source": "Executed AWS PostgreSQL and banking APIs",
+    "source_instance": "i-05d147001c0289108",
+    "baseline_trials": 3,
+    "baseline_incorrect_trials": 3,
+    "patched_trials": 3,
+    "patched_correct_trials": 3,
+    "restart_verified": true,
+    "deployed_hashes_verified": true,
+    "export_sha256": "82d8f11f63354078bffb5c6b564a02af141b885d3d5a4702990d52300bc4d841",
+    "scope": "Implemented code verified in these repeated AWS tests; production capacity and universal correctness are not certified."
+  },
+  "latest_validation": {
+    "status": "evaluated",
+    "source": "New executed AWS Bank of Anthos workload after localization revision freeze",
+    "execution_id": "final-controlled-20261023T021334Z",
+    "submitted_requests": 8475,
+    "ledger_matches": 8475,
+    "acknowledged_success": 6946,
+    "uncertain_requests": 1505,
+    "method_summary": {
+      "graph": {
+        "independent_executed_fault_repetitions": 6,
+        "seed_results": [
+          {
+            "seed": 42,
+            "gnn_top1_count": 3,
+            "refined_top1_count": 6,
+            "detected_count": 6
+          },
+          {
+            "seed": 43,
+            "gnn_top1_count": 3,
+            "refined_top1_count": 6,
+            "detected_count": 6
+          },
+          {
+            "seed": 44,
+            "gnn_top1_count": 3,
+            "refined_top1_count": 6,
+            "detected_count": 6
+          }
+        ]
+      },
+      "identity": {
+        "independent_executed_fault_repetitions": 6,
+        "seed_results": [
+          {
+            "seed": 42,
+            "gnn_top1_count": 0,
+            "refined_top1_count": 6,
+            "detected_count": 2
+          },
+          {
+            "seed": 43,
+            "gnn_top1_count": 0,
+            "refined_top1_count": 6,
+            "detected_count": 1
+          },
+          {
+            "seed": 44,
+            "gnn_top1_count": 0,
+            "refined_top1_count": 6,
+            "detected_count": 6
+          }
+        ]
+      }
+    },
+    "corrective_code": {
+      "verified": true,
+      "unmodified_trials": 3,
+      "unmodified_incorrect_trials": 3,
+      "patched_trials": 3,
+      "patched_correct_trials": 3,
+      "restart_verified": true,
+      "actual_class_hashes_verified": true
+    },
+    "limitations": [
+      "Six controlled CPU/database repetitions in one new workload on one AWS host; not six independent applications or infrastructures.",
+      "The revision was frozen before this workload. GNNs are still trained independently on its normal prefix; cross-recording transfer is not claimed.",
+      "Graph and identity variants share the same direct-evidence rules; any improvement from those rules does not establish graph superiority.",
+      "Higher traffic is a load condition, not automatically a fault. Its two repetitions are retained but excluded from injected root-service accuracy.",
+      "The corrective code uses authoritative reads and may increase database work. Demonstrated correctness under these tests is not universal production certification."
+    ]
+  }
 }

@@ -84,4 +84,5 @@ def test_read_only_workflow_and_download_endpoints():
     report=client.get('/api/cloud-investigation/banking-report')
     assert report.status_code==200
     assert 'attachment' in report.headers['content-disposition']
-    assert 'A permanent application fix has not been implemented.' in report.text
+    assert 'The corrected readers passed all three:' in report.text
+    assert response.json()['corrective_code']['verified'] is True
