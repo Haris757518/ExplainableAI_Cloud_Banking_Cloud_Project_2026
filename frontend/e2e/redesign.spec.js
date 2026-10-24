@@ -53,7 +53,10 @@ test('research results and public banking reference remain separate',async({page
  await page.goto('/');await page.getByRole('button',{name:'Research & Validation',exact:true}).click();
  await page.getByRole('button',{name:'Model results',exact:true}).click();
  await expect(page.getByRole('heading',{name:'Completed PROBE-XAI comparisons'})).toBeVisible();
- await expect(page.getByText('gnn probe xai',{exact:true})).toBeVisible();
+ await expect(page.getByRole('img',{name:'Correct service in six AWS fault repetitions'})).toBeVisible();
+ await expect(page.getByRole('img',{name:'Correct service ranked first'})).toBeVisible();
+ await page.getByLabel('Comparison metric').selectOption('mean_queries');
+ await expect(page.getByRole('img',{name:'Average extra measurements'})).toBeVisible();
  await page.getByRole('button',{name:'Datasets',exact:true}).click();
  await expect(page.getByRole('heading',{name:'Separate research partitions'})).toBeVisible();
  await page.getByText('Explore published bank performance history',{exact:true}).click();
